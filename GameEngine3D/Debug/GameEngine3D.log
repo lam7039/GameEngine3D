@@ -1,5 +1,6 @@
-﻿  main.cpp
+﻿  Engine.cpp
   Display.cpp
   Generating Code...
-  GameEngine3D.vcxproj -> C:\Users\Kelvin\Source\Repos\GameEngine3D\Debug\GameEngine3D.exe
-  GameEngine3D.vcxproj -> C:\Users\Kelvin\Source\Repos\GameEngine3D\Debug\GameEngine3D.pdb (Partial PDB)
+     Creating library D:\Projects\GameEngine3D\Debug\GameEngine3D.lib and object D:\Projects\GameEngine3D\Debug\GameEngine3D.exp
+  GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Debug\GameEngine3D.dll
+  GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Debug\GameEngine3D.pdb (Partial PDB)
