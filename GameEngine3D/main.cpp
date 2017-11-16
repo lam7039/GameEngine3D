@@ -4,7 +4,8 @@
 //figure out some programming standards
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-	Display window("GameEngine3D", 200, 200, 800, 500);
+	Display window("GameEngine3D");
+	window.Transform(200, 200, 800, 500);
 	window.CreateDisplay(hInstance, nCmdShow);
 
 	MSG msg;

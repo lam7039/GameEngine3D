@@ -28,11 +28,14 @@ void Display::RegisterWindow() {
 	RegisterClassEx(&wc);
 }
 
-Display::Display(std::string title, int x, int y, int width, int height) {
+void Display::Transform(int x, int y, int width, int height) {
 	this->x = x;
 	this->y = y;
 	this->width = width;
 	this->height = height;
+}
+
+Display::Display(std::string title) {
 	this->title = title;
 	this->RegisterWindow();
 }

@@ -13,10 +13,11 @@ private:
 	std::string className;
 	std::string title;
 	HWND hWnd;
-public:
 	void RegisterWindow();
+public:
 	void CreateDisplay(HINSTANCE hInstance, int nCmdShow);
-	Display(std::string title, int x, int y, int width, int height);
+	void Transform(int x, int y, int width, int height);
+	Display(std::string title);
 };
 
 #endif
