@@ -6,13 +6,17 @@
 
 class Display {
 private:
-	int x, y, width, height;
-	LPCSTR className, title;
+	int x;
+	int y;
+	int width;
+	int height;
+	std::string className;
+	std::string title;
 	HWND hWnd;
 public:
 	void RegisterWindow();
 	void CreateDisplay(HINSTANCE hInstance, int nCmdShow);
-	Display(LPCSTR title, int x, int y, int width, int height);
+	Display(std::string title, int x, int y, int width, int height);
 };
 
 #endif

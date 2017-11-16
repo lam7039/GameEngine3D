@@ -1,7 +1,7 @@
 #include "Display.h"
 
 void Display::CreateDisplay(HINSTANCE hInstance, int nCmdShow) {
-	hWnd = CreateWindowEx(NULL, className, title, WS_OVERLAPPEDWINDOW, x, y, width, height, NULL, NULL, hInstance, NULL);
+	hWnd = CreateWindowEx(NULL, className.c_str(), title.c_str(), WS_OVERLAPPEDWINDOW, x, y, width, height, NULL, NULL, hInstance, NULL);
 	ShowWindow(hWnd, nCmdShow);
 }
 
@@ -24,11 +24,11 @@ void Display::RegisterWindow() {
 	wc.lpfnWndProc = WindowProc;
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
-	wc.lpszClassName = className;
+	wc.lpszClassName = className.c_str();
 	RegisterClassEx(&wc);
 }
 
-Display::Display(LPCSTR title, int x, int y, int width, int height) {
+Display::Display(std::string title, int x, int y, int width, int height) {
 	this->x = x;
 	this->y = y;
 	this->width = width;
