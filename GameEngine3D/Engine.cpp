@@ -1,6 +1,5 @@
 #include "Engine.h"
-#include "Display.h"
-#include <iostream>
+#include "Window.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -8,7 +7,7 @@ HWND hWnd;
 
 void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title) {
 	//initialize logging
-	Display window(title);
+	Window window(title);
 	hWnd = window.OpenWindow(hInstance, nCmdShow);
 }
 

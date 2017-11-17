@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 void Start() {
-	MessageBox(NULL, "test", "caption", MB_ICONEXCLAMATION | MB_OK);
+	MessageBox(NULL, "start", "caption", MB_ICONEXCLAMATION | MB_OK);
 }
 
 void Stop() {

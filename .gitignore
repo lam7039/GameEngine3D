@@ -1,0 +1,6 @@
+/.vs
+GameEngine3D.sdf
+GameEngine3D.sln
+GameEngine3D/GameEngine3D.tlog
+GameEngine3D/*.user
+Debug/*
