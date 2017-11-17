@@ -1,14 +1,7 @@
+#include <Windows.h>
 #include "Window.h"
 
 SE_BEGIN_NAMESPACE
-
-Window::Window(const std::string& title) {
-	m_title = title;
-	m_width = 800;
-	m_height = 500;
-	m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);
-	m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
-}
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	switch (message) {
@@ -18,6 +11,15 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 		return 0;
 	}
 	return DefWindowProc(hWnd, message, wParam, lParam);
+}
+
+Window::Window(const std::string & title)
+{
+	m_title = title;
+	m_width = 800;
+	m_height = 500;
+	m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);
+	m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
 }
 
 HWND Window::OpenWindow(HINSTANCE hInstance, int cmdShow) {
