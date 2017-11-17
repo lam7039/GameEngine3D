@@ -3,3 +3,5 @@
 GameEngine3D/*.tlog
 GameEngine3D/*.user
 Debug/*
+GameEngine3D/Debug/*
+ExecutingProject/Debug/*
