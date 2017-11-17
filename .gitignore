@@ -5,3 +5,4 @@ GameEngine3D/*.user
 Debug/*
 GameEngine3D/Debug/*
 ExecutingProject/Debug/*
+ExecutingProject/*.user
