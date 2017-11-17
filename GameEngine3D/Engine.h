@@ -7,7 +7,7 @@
 
 SE_BEGIN_NAMESPACE
 
-SE_API void StartEngine(const std::string& title, HINSTANCE hInstance, int nCmdShow, int width, int height);
+SE_API void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title);
 
 SE_END_NAMESPACE
 

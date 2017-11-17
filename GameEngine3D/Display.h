@@ -13,12 +13,11 @@ private:
 	int _y;
 	int _width;
 	int _height;
-	std::string _className;
 	std::string _title;
-	HWND hWnd;
-	void RegisterWindow();
+	ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, LPCSTR className);
 public:
-	void CreateDisplay(HINSTANCE hInstance, int nCmdShow);
+
+	HWND OpenWindow(HINSTANCE hInstance, int cmdShow);
 	void Transform(int width, int height);
 	Display(const std::string& title);
 };

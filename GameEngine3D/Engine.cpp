@@ -3,13 +3,18 @@
 
 SE_BEGIN_NAMESPACE
 
-void StartEngine(const std::string& title, HINSTANCE hInstance, int nCmdShow, int width, int height) {
-
+void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title) {
 	//initialize logging
-
 	Display window(title);
-	window.Transform(width, height);
-	window.CreateDisplay(hInstance, nCmdShow);
+	HWND hWnd = window.OpenWindow(hInstance, nCmdShow);
+
+	MSG msg;
+
+	while (GetMessage(&msg, NULL, 0, 0)) {
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return;
 }
 
 SE_END_NAMESPACE
