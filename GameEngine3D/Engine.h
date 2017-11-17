@@ -1,9 +1,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <Windows.h>
-#include <string>
-
 #include "std.h"
 
 SE_BEGIN_NAMESPACE
