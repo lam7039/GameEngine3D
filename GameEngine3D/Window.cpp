@@ -30,22 +30,22 @@ HWND Window::OpenWindow(HINSTANCE hInstance, int cmdShow) {
 	if (!atom) {
 		return NULL;
 	}
-	HWND hWnd = CreateWindowEx(NULL, "window", _title.c_str(), WS_OVERLAPPEDWINDOW, _x, _y, _width, _height, NULL, NULL, hInstance, NULL);
+	HWND hWnd = CreateWindowEx(NULL, "window", m_title.c_str(), WS_OVERLAPPEDWINDOW, m_x, m_y, m_width, m_height, NULL, NULL, hInstance, NULL);
 	ShowWindow(hWnd, cmdShow);
 	return hWnd;
 }
 
 void Window::Transform(int width, int height) {
-	_width = width;
-	_height = height;
+	m_width = width;
+	m_height = height;
 }
 
 Window::Window(const std::string& title) {
-	_title = title;
-	_width = 800;
-	_height = 500;
-	_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (_width / 2);
-	_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (_height / 2);
+	m_title = title;
+	m_width = 800;
+	m_height = 500;
+	m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);
+	m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
 }
 
 SE_END_NAMESPACE

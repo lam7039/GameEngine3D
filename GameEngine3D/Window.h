@@ -9,11 +9,11 @@ SE_BEGIN_NAMESPACE
 
 class Window {
 private:
-	int _x;
-	int _y;
-	int _width;
-	int _height;
-	std::string _title;
+	int m_x;
+	int m_y;
+	int m_width;
+	int m_height;
+	std::string m_title;
 	ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, LPCSTR className);
 public:
 	HWND OpenWindow(HINSTANCE hInstance, int cmdShow);
