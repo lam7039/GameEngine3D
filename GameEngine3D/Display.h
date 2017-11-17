@@ -16,7 +16,6 @@ private:
 	std::string _title;
 	ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, LPCSTR className);
 public:
-
 	HWND OpenWindow(HINSTANCE hInstance, int cmdShow);
 	void Transform(int width, int height);
 	Display(const std::string& title);

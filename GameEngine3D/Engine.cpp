@@ -1,20 +1,37 @@
 #include "Engine.h"
 #include "Display.h"
+#include <iostream>
 
 SE_BEGIN_NAMESPACE
+
+HWND hWnd;
 
 void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title) {
 	//initialize logging
 	Display window(title);
-	HWND hWnd = window.OpenWindow(hInstance, nCmdShow);
+	hWnd = window.OpenWindow(hInstance, nCmdShow);
+}
+
+int EnterLoop(void (*start)(), void (*stop)()) {
+	bool isRunning = true;
+	start();
 
 	MSG msg;
 
-	while (GetMessage(&msg, NULL, 0, 0)) {
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
+	while (isRunning) {
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+
+		if (msg.message == WM_QUIT) {
+			isRunning = false;
+		}
 	}
-	return;
+
+	stop();
+
+	return msg.wParam;
 }
 
 SE_END_NAMESPACE
