@@ -35,7 +35,7 @@ HWND Window::OpenWindow(HINSTANCE hInstance, int cmdShow) {
 	return hWnd;
 }
 
-void Window::Transform(int width, int height) {
+void Window::SetSize(int width, int height) {
 	m_width = width;
 	m_height = height;
 }
