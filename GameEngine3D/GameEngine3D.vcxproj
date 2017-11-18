@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Direct3D.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="std.h" />
@@ -83,7 +85,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>..\..\..\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
     <LibraryPath>..\..\..\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>

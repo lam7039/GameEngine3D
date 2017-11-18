@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include "Engine.h"
 #include "Window.h"
+#include "Direct3D.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -14,6 +15,10 @@ void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title) {
 
 int EnterLoop(void (*start)(), void (*stop)()) {
 	bool isRunning = true;
+
+	Direct3D d3d;
+	d3d.Init(hWnd);
+
 	start();
 
 	MSG msg;
@@ -24,12 +29,15 @@ int EnterLoop(void (*start)(), void (*stop)()) {
 			DispatchMessage(&msg);
 		}
 
+		d3d.Render();
+
 		if (msg.message == WM_QUIT) {
 			isRunning = false;
 		}
 	}
 
 	stop();
+	d3d.Clean();
 
 	return msg.wParam;
 }
