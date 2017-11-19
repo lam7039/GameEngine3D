@@ -3,9 +3,9 @@
 
 SE_BEGIN_NAMESPACE
 
-#define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
+#define VERTEX_FORMAT (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
 
-struct CUSTOMVERTEX {
+struct Vertex {
 	FLOAT x, y, z, rhw;
 	DWORD color;
 };
@@ -23,12 +23,14 @@ void Direct3D::Init(HWND hWnd) {
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
 
-	CUSTOMVERTEX vertices[] = {
+	Vertex vertices[] = {
 		{ 320.0f, 50.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 0, 255) },
 		{ 520.0f, 400.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 255, 0) },
 		{ 120.0f, 400.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(255, 0, 0) }
 	};
-	m_d3dDev->CreateVertexBuffer(3 * sizeof(CUSTOMVERTEX), 0, CUSTOMFVF, D3DPOOL_MANAGED, &m_vBuffer, NULL);
+
+	m_d3dDev->CreateVertexBuffer(sizeof(vertices), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL);
+	
 	VOID* pVoid;
 	m_vBuffer->Lock(0, 0, (void**)&pVoid, 0);
 	memcpy(pVoid, vertices, sizeof(vertices));
@@ -40,8 +42,8 @@ void Direct3D::Draw() {
 
 	m_d3dDev->BeginScene();
 
-	m_d3dDev->SetFVF(CUSTOMFVF);
-	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(CUSTOMVERTEX));
+	m_d3dDev->SetFVF(VERTEX_FORMAT);
+	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
 
 	m_d3dDev->EndScene();
