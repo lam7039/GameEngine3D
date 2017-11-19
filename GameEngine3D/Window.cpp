@@ -13,9 +13,8 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-Window::Window(const std::string & title)
+Window::Window(const std::string & title) : m_title(title)
 {
-	m_title = title;
 	m_width = 800;
 	m_height = 500;
 	m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);

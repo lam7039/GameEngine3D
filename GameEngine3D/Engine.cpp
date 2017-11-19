@@ -8,7 +8,9 @@ SE_BEGIN_NAMESPACE
 HWND hWnd;
 
 void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title) {
-	//initialize logging
+	// Initialize logging.
+
+
 	Window window(title);
 	hWnd = window.OpenWindow(hInstance, nCmdShow);
 }
@@ -28,8 +30,11 @@ int EnterLoop(void (*start)(), void (*stop)()) {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
+		// Logic.
 
-		d3d.Render();
+
+		// Drawing.
+		d3d.Draw();
 
 		if (msg.message == WM_QUIT) {
 			isRunning = false;
