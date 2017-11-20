@@ -8,7 +8,7 @@ SE_BEGIN_NAMESPACE
 
 class Direct3D {
 public:
-	Direct3D(HWND hWnd);
+	Direct3D(const HWND &hWnd);
 	void Draw();
 	~Direct3D();
 private:

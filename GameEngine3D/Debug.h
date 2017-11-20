@@ -8,8 +8,8 @@ SE_BEGIN_NAMESPACE
 class Debug {
 public:
 	Debug();
-	void WriteFile(const std::string& source);
-	void AppendFile(const std::string& source);
+	void WriteFile(const std::string &source);
+	void AppendFile(const std::string &source);
 private:
 	std::string m_path;
 };

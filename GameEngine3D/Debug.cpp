@@ -11,7 +11,7 @@ Debug::Debug() {
 	}
 }
 
-void Debug::WriteFile(const std::string& source) {
+void Debug::WriteFile(const std::string &source) {
 	std::ofstream file(m_path, std::ios::binary);
 	if (!file.is_open()) {
 		return;
@@ -19,7 +19,7 @@ void Debug::WriteFile(const std::string& source) {
 	file << source << std::endl;
 }
 
-void Debug::AppendFile(const std::string& source) {
+void Debug::AppendFile(const std::string &source) {
 	std::ofstream file(m_path, std::ios::app);
 	if (!file.is_open()) {
 		return;

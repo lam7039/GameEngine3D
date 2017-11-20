@@ -8,7 +8,7 @@ SE_BEGIN_NAMESPACE
 class Window {
 public:
 	Window(const std::string& title);
-	HWND OpenWindow(HINSTANCE hInstance, int cmdShow);
+	HWND OpenWindow(const HINSTANCE &hInstance, const int &cmdShow);
 	void SetSize(int width, int height);
 private:
 	int m_x;
@@ -16,7 +16,7 @@ private:
 	int m_width;
 	int m_height;
 	std::string m_title;
-	ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, LPCSTR className);
+	ATOM RegisterWindowProc(const HINSTANCE &hInstance, const WNDPROC &wndProc, const std::string &className);
 };
 
 SE_END_NAMESPACE

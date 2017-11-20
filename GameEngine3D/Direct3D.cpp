@@ -10,7 +10,7 @@ struct Vertex {
 	DWORD color;
 };
 
-Direct3D::Direct3D(HWND hWnd) {
+Direct3D::Direct3D(const HWND &hWnd) {
 	m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS d3dpp;
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
