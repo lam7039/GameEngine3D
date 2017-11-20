@@ -7,6 +7,7 @@ SE_BEGIN_NAMESPACE
 
 SE_API void StartEngine(HINSTANCE hInstance, int nCmdShow, std::string title);
 SE_API int EnterLoop(void (*start)(), void (*stop)());
+SE_API void LogDebug(const std::string& message);
 
 SE_END_NAMESPACE
 

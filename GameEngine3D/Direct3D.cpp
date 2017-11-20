@@ -10,11 +10,8 @@ struct Vertex {
 	DWORD color;
 };
 
-Direct3D::Direct3D() {
+Direct3D::Direct3D(HWND hWnd) {
 	m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
-}
-
-void Direct3D::Init(HWND hWnd) {
 	D3DPRESENT_PARAMETERS d3dpp;
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
 	d3dpp.Windowed = true;
@@ -51,7 +48,7 @@ void Direct3D::Draw() {
 	m_d3dDev->Present(NULL, NULL, NULL, NULL);
 }
 
-void Direct3D::Clean() {
+Direct3D::~Direct3D() {
 	m_vBuffer->Release();
 	m_d3dDev->Release();
 	m_d3d->Release();
