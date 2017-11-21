@@ -1,7 +1,5 @@
 #include "List.h"
 
-BEGIN_NAMESPACE
-
 template<class T>
 List<T>::List() {
 	m_count = 0;
@@ -33,6 +31,7 @@ void List<T>::Remove(int i) {
 		m_root = m_root->next;
 		delete temp;
 		m_count--;
+		return;
 	}
 	else if (i == (m_count - 1)) {
 		if (m_conductor != NULL) {
@@ -41,10 +40,11 @@ void List<T>::Remove(int i) {
 			}
 			delete m_conductor;
 			m_count--;
+			return;
 		}
 	}
-	else {
-		if (i < (m_count - 1)) {
+	else if (i < (m_count - 1)) {
+		if (m_conductor != NULL) {
 			Node<T> *temp = new Node<T>;
 			int x = 0;
 			while (x < i) {
@@ -55,9 +55,12 @@ void List<T>::Remove(int i) {
 			temp->next = m_conductor->next;
 			delete m_conductor;
 			m_count--;
+			return;
 		}
 	}
-	//log error: position in list doesn't exist
+	else {
+		//log error: position in list doesn't exist
+	}
 }
 
 /*template<class T>
@@ -68,11 +71,11 @@ void List<T>::Remove(T *item) {
 
 template<class T>
 T List<T>::Get(int i) {
-	if (m_conductor != NULL && i <= m_count) {
+	if (m_conductor != NULL && i < m_count) {
 		while (m_conductor->next != NULL) {
 			m_conductor = m_conductor->next;
 		}
-		return m_conductor;
+		return m_conductor->item;
 	}
 	return NULL;
 }
@@ -91,5 +94,3 @@ template<class T>
 List<T>::~List() {
 	delete m_root;
 }
-
-END_NAMESPACE
