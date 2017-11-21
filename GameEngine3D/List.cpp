@@ -1,5 +1,7 @@
 #include "List.h"
 
+SE_BEGIN_NAMESPACE
+
 template<class T>
 List<T>::List() {
 	m_count = 0;
@@ -94,3 +96,5 @@ template<class T>
 List<T>::~List() {
 	delete m_root;
 }
+
+SE_END_NAMESPACE

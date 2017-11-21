@@ -4,7 +4,7 @@
 #include "Debug.h"
 #include "Direct3D.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 HWND hWnd;
 Debug log;
@@ -13,14 +13,14 @@ void LogDebug(const std::string& message) {
 	log.AppendFile(message);
 }
 
-void StartEngine(const HINSTANCE &hInstance, const int &nCmdShow, const std::string &title) {
+void StartEngine(HINSTANCE hInstance, int nCmdShow, const std::string &title) {
 	// Initialize logging. (still thinking of a better way to do logging)
 
 	Window window(title);
 	hWnd = window.OpenWindow(hInstance, nCmdShow);
 }
 
-int EnterLoop(void(*start)(), void(*stop)()) {
+int EnterLoop(const std::function<void()> &start, const std::function<void()> &stop) {
 	bool isRunning = true;
 
 	Direct3D d3d(hWnd);
@@ -38,7 +38,7 @@ int EnterLoop(void(*start)(), void(*stop)()) {
 
 
 		// Drawing.
-		d3d.Draw();
+		d3d.Render();
 
 		if (msg.message == WM_QUIT) {
 			isRunning = false;
@@ -50,4 +50,4 @@ int EnterLoop(void(*start)(), void(*stop)()) {
 	return msg.wParam;
 }
 
-END_NAMESPACE
+SE_END_NAMESPACE

@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "Window.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	switch (message) {
@@ -21,7 +21,7 @@ Window::Window(const std::string &title) : m_title(title)
 	m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
 }
 
-HWND Window::OpenWindow(const HINSTANCE &hInstance, const int &cmdShow) {
+HWND Window::OpenWindow(HINSTANCE hInstance, int cmdShow) {
 	ATOM atom = RegisterWindowProc(hInstance, WindowProc, "window");
 	if (!atom) {
 		return NULL;
@@ -36,7 +36,7 @@ void Window::SetSize(int width, int height) {
 	m_height = height;
 }
 
-ATOM Window::RegisterWindowProc(const HINSTANCE &hInstance, const WNDPROC &wndProc, const std::string &className) {
+ATOM Window::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
 	WNDCLASSEX wc;
 	ZeroMemory(&wc, sizeof(WNDCLASSEX));
 	wc.cbSize = sizeof(WNDCLASSEX);
@@ -49,4 +49,4 @@ ATOM Window::RegisterWindowProc(const HINSTANCE &hInstance, const WNDPROC &wndPr
 	return RegisterClassEx(&wc);
 }
 
-END_NAMESPACE
+SE_END_NAMESPACE

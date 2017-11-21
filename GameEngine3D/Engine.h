@@ -3,12 +3,12 @@
 
 #include "std.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
-SE_API void StartEngine(const HINSTANCE &hInstance, const int &nCmdShow, const std::string &title);
-SE_API int EnterLoop(void (*start)(), void (*stop)());
+SE_API void StartEngine(HINSTANCE hInstance, int nCmdShow, const std::string &title);
+SE_API int EnterLoop(const std::function<void()> &start, const std::function<void()> &stop);
 SE_API void LogDebug(const std::string& message);
 
-END_NAMESPACE
+SE_END_NAMESPACE
 
 #endif

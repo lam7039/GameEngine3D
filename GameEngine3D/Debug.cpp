@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Debug.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 Debug::Debug() {
 	m_path = "DebugLog.log";
@@ -27,4 +27,4 @@ void Debug::AppendFile(const std::string &source) {
 	file << source << std::endl;
 }
 
-END_NAMESPACE
+SE_END_NAMESPACE

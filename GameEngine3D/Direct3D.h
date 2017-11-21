@@ -4,11 +4,11 @@
 #include "std.h"
 #include <d3d9.h>
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 class Direct3D {
 public:
-	Direct3D(const HWND &hWnd);
+	Direct3D(HWND hWnd);
 	void Render();
 	~Direct3D();
 private:
@@ -19,4 +19,4 @@ private:
 
 #endif
 
-END_NAMESPACE
+SE_END_NAMESPACE

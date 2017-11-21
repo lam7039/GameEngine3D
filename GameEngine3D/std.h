@@ -7,7 +7,8 @@
 #endif
 
 #include <string>
+#include <functional>
 
-#define BEGIN_NAMESPACE			namespace se {
-#define END_NAMESPACE			}
+#define SE_BEGIN_NAMESPACE			namespace se {
+#define SE_END_NAMESPACE			}
 

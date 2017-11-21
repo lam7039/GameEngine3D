@@ -3,6 +3,8 @@
 
 #include "std.h"
 
+SE_BEGIN_NAMESPACE
+
 template <class T>
 struct Node {
 	T item;
@@ -25,5 +27,7 @@ private:
 	Node<T> *m_conductor;
 	int m_count;
 };
+
+SE_END_NAMESPACE
 
 #endif

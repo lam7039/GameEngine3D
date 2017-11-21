@@ -3,7 +3,7 @@
 
 #include "std.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 class Debug {
 public:
@@ -14,6 +14,6 @@ private:
 	std::string m_path;
 };
 
-END_NAMESPACE
+SE_END_NAMESPACE
 
 #endif

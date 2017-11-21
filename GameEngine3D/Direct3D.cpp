@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "Direct3D.h"
 
-BEGIN_NAMESPACE
+SE_BEGIN_NAMESPACE
 
 #define VERTEX_FORMAT (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
 
@@ -10,7 +10,7 @@ struct Vertex {
 	DWORD color;
 };
 
-Direct3D::Direct3D(const HWND &hWnd) {
+Direct3D::Direct3D(HWND hWnd) {
 	m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS d3dpp;
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
@@ -54,4 +54,4 @@ Direct3D::~Direct3D() {
 	m_d3d->Release();
 }
 
-END_NAMESPACE
+SE_END_NAMESPACE
