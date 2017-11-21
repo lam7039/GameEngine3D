@@ -9,7 +9,7 @@ BEGIN_NAMESPACE
 class Direct3D {
 public:
 	Direct3D(const HWND &hWnd);
-	void Draw();
+	void Render();
 	~Direct3D();
 private:
 	LPDIRECT3D9 m_d3d;

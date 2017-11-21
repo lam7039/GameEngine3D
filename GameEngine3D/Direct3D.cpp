@@ -34,7 +34,7 @@ Direct3D::Direct3D(const HWND &hWnd) {
 	m_vBuffer->Unlock();
 }
 
-void Direct3D::Draw() {
+void Direct3D::Render() {
 	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 
 	m_d3dDev->BeginScene();
