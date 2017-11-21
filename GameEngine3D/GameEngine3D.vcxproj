@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Direct3D.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Engine.cpp" />
   </ItemGroup>

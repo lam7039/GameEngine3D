@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "Window.h"
 
-SE_BEGIN_NAMESPACE
+BEGIN_NAMESPACE
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	switch (message) {
@@ -49,4 +49,4 @@ ATOM Window::RegisterWindowProc(const HINSTANCE &hInstance, const WNDPROC &wndPr
 	return RegisterClassEx(&wc);
 }
 
-SE_END_NAMESPACE
+END_NAMESPACE

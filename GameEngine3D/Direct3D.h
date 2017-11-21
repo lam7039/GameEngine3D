@@ -4,7 +4,7 @@
 #include "std.h"
 #include <d3d9.h>
 
-SE_BEGIN_NAMESPACE
+BEGIN_NAMESPACE
 
 class Direct3D {
 public:
@@ -19,4 +19,4 @@ private:
 
 #endif
 
-SE_END_NAMESPACE
+END_NAMESPACE

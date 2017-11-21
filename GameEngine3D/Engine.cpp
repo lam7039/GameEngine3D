@@ -4,7 +4,7 @@
 #include "Debug.h"
 #include "Direct3D.h"
 
-SE_BEGIN_NAMESPACE
+BEGIN_NAMESPACE
 
 HWND hWnd;
 Debug log;
@@ -50,4 +50,4 @@ int EnterLoop(void(*start)(), void(*stop)()) {
 	return msg.wParam;
 }
 
-SE_END_NAMESPACE
+END_NAMESPACE

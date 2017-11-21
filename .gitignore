@@ -1,8 +1,9 @@
 /.vs
 *.sdf
-GameEngine3D/*.tlog
-GameEngine3D/*.user
 Debug/*
 GameEngine3D/Debug/*
+GameEngine3D/*.user
+GameEngine3D/*.tlog
 ExecutingProject/Debug/*
 ExecutingProject/*.user
+ExecutingProject/*.log

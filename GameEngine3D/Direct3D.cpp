@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "Direct3D.h"
 
-SE_BEGIN_NAMESPACE
+BEGIN_NAMESPACE
 
 #define VERTEX_FORMAT (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
 
@@ -54,4 +54,4 @@ Direct3D::~Direct3D() {
 	m_d3d->Release();
 }
 
-SE_END_NAMESPACE
+END_NAMESPACE

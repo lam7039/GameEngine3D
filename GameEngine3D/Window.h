@@ -3,7 +3,7 @@
 
 #include "std.h"
 
-SE_BEGIN_NAMESPACE
+BEGIN_NAMESPACE
 
 class Window {
 public:
@@ -19,6 +19,6 @@ private:
 	ATOM RegisterWindowProc(const HINSTANCE &hInstance, const WNDPROC &wndProc, const std::string &className);
 };
 
-SE_END_NAMESPACE
+END_NAMESPACE
 
 #endif
