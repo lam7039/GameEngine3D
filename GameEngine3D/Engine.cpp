@@ -34,15 +34,16 @@ int EnterLoop(const std::function<void()> &start, const std::function<void()> &s
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
+
+		if (msg.message == WM_QUIT) {
+			isRunning = false;
+		}
+
 		// Logic.
 
 
 		// Drawing.
 		d3d.Render();
-
-		if (msg.message == WM_QUIT) {
-			isRunning = false;
-		}
 	}
 
 	stop();
