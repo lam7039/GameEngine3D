@@ -1,9 +1,0 @@
-/.vs
-*.sdf
-Debug/*
-GameEngine3D/Debug/*
-GameEngine3D/*.user
-GameEngine3D/*.tlog
-ExecutingProject/Debug/*
-ExecutingProject/*.user
-ExecutingProject/*.log
