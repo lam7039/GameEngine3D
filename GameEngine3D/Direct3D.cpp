@@ -25,10 +25,11 @@ Direct3D::Direct3D(HWND hWnd) {
 	Vertex vertices[] = {
 		{ -1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255) },
 		{ 1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0) },
-		{ 0.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0) }
+		{ 0.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0) },
+		{ 1.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 255, 0) }
 	};
 
-	if (FAILED(m_d3dDev->CreateVertexBuffer(3 * sizeof(Vertex), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
+	if (FAILED(m_d3dDev->CreateVertexBuffer(4 * sizeof(Vertex), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
 		return;
 	}
 
@@ -69,7 +70,7 @@ void Direct3D::Render() {
 
 
 	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
-	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 
 	m_d3dDev->EndScene();
 
