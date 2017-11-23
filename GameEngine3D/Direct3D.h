@@ -9,7 +9,7 @@ SE_BEGIN_NAMESPACE
 class Direct3D {
 public:
 	Direct3D(HWND hWnd);
-	void SetMatrices();
+	void Update(float delta);
 	void Render();
 	~Direct3D();
 private:

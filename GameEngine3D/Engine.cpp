@@ -3,7 +3,7 @@
 #include "Window.h"
 #include "Debug.h"
 #include "Direct3D.h"
-#include "Timer.h"
+#include "FPSCounter.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -29,8 +29,8 @@ int EnterLoop(const std::function<void()> &start, const std::function<void()> &s
 	start();
 
 	MSG msg;
-	Timer time;
-	time.Start();
+
+	FPSCounter fps;
 
 	while (isRunning) {
 		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -43,10 +43,13 @@ int EnterLoop(const std::function<void()> &start, const std::function<void()> &s
 		}
 
 		// Logic.
-		LogDebug(std::to_string(time.Milliseconds()));
+		LogDebug(std::to_string(fps.GetDelta()));
+		d3d.Update(fps.GetTimeMilliseconds());
 
 		// Drawing.
 		d3d.Render();
+
+		fps.Update();
 	}
 
 	stop();

@@ -1,7 +1,6 @@
 #include <Windows.h>
 #include "Direct3D.h"
 #include <d3dx9.h>
-#include <mmsystem.h>
 
 SE_BEGIN_NAMESPACE
 
@@ -42,10 +41,10 @@ Direct3D::Direct3D(HWND hWnd) {
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);
 }
 
-void Direct3D::SetMatrices() {
+void Direct3D::Update(float delta) {
 	D3DXMATRIX world;
 
-	UINT iTime = timeGetTime() % 1000;
+	UINT iTime = (int)delta % 1000;
 	D3DXMatrixRotationY(&world, iTime * (2.0f * D3DX_PI) / 1000.0f);
 	m_d3dDev->SetTransform(D3DTS_WORLD, &world);
 
@@ -68,7 +67,6 @@ void Direct3D::Render() {
 
 	m_d3dDev->SetFVF(VERTEX_FORMAT);
 
-	SetMatrices();
 
 	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
