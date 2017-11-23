@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include "Direct3D.h"
+#include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
 
@@ -27,6 +28,8 @@ Direct3D::Direct3D(HWND hWnd) {
 	};
 
 	m_d3dDev->CreateVertexBuffer(sizeof(vertices), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL);
+
+
 	
 	VOID* pVoid;
 	m_vBuffer->Lock(0, 0, (void**)&pVoid, 0);
@@ -37,9 +40,15 @@ Direct3D::Direct3D(HWND hWnd) {
 void Direct3D::Render() {
 	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 
+
 	m_d3dDev->BeginScene();
 
 	m_d3dDev->SetFVF(VERTEX_FORMAT);
+
+	/*D3DXMATRIX matRotateX;
+	D3DXMatrixRotationX(&matRotateX, D3DXToRadian(180.0f));
+	m_d3dDev->SetTransform(D3DTS_WORLD, &matRotateX);*/
+
 	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
 
