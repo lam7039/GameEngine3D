@@ -1,0 +1,9 @@
+﻿  Engine.cpp
+  Window.cpp
+  List.cpp
+  Direct3D.cpp
+  Debug.cpp
+  Generating Code...
+     Creating library D:\Projects\GameEngine3D\Debug\GameEngine3D.lib and object D:\Projects\GameEngine3D\Debug\GameEngine3D.exp
+Direct3D.obj : error LNK2019: unresolved external symbol __imp__timeGetTime@0 referenced in function "public: void __thiscall se::Direct3D::SetMatrices(void)" (?SetMatrices@Direct3D@se@@QAEXXZ)
+D:\Projects\GameEngine3D\Debug\GameEngine3D.dll : fatal error LNK1120: 1 unresolved externals
