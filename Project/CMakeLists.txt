@@ -12,7 +12,7 @@ set(ROOT_DIR "${PROJECT_SOURCE_DIR}/../")
 message("Configuring the environment")
 include_directories(
 	"${ROOT_DIR}/Include"
-	"${ROOT_DIR}/../../Program Files (x86)/Microsoft DirectX SDK (June 2010)/Include"
+	"$ENV{PROGRAMFILES} (x86)/Microsoft DirectX SDK (June 2010)/Include"
 )
 
 if(CMAKE_CONFIGURATION_TYPES)
@@ -29,8 +29,8 @@ add_library(GameEngine3D SHARED ${SOURCE_FILES} ${HEADER_FILES})
 
 if(${WIN32})
 	set(DEBUG_LINK_LIBRARIES 
-		debug "${ROOT_DIR}/Libraries/$<LOWER_CASE:$<CONFIG>>/d3d9.lib"
-		debug "${ROOT_DIR}/Libraries/$<LOWER_CASE:$<CONFIG>>/d3dx9.lib"
+		debug "${ROOT_DIR}Libraries/$<LOWER_CASE:$<CONFIG>>/d3d9.lib"
+		debug "${ROOT_DIR}Libraries/$<LOWER_CASE:$<CONFIG>>/d3dx9.lib"
 	)
 	set(ALL_LINK_LIBRARIES ${DEBUG_LINK_LIBRARIES} ${RELEASE_LINK_LIBRARIES})
 	target_link_libraries(GameEngine3D ${ALL_LINK_LIBRARIES})
