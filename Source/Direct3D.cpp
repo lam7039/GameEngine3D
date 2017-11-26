@@ -43,12 +43,15 @@ Direct3D::Direct3D(HWND hWnd) {
 }
 
 void Direct3D::Update(float delta) {
-	D3DXMATRIX world;
+	//World
+	unsigned int iTime = (int)delta % 1000;
+	D3DXMATRIX matRotate;
+	D3DXMATRIX matTranslate;
+	D3DXMatrixRotationY(&matRotate, iTime * (2.0f * D3DX_PI) / 1000.0f);
+	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 5.0f);
+	m_d3dDev->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
 
-	UINT iTime = (int)delta % 1000;
-	D3DXMatrixRotationY(&world, iTime * (2.0f * D3DX_PI) / 1000.0f);
-	m_d3dDev->SetTransform(D3DTS_WORLD, &world);
-
+	//View
 	D3DXMATRIX matView;
 	D3DXMatrixLookAtLH(	&matView, 
 						&D3DXVECTOR3(0.0f, 0.0f, 10.0f), 
@@ -56,6 +59,7 @@ void Direct3D::Update(float delta) {
 						&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
 	m_d3dDev->SetTransform(D3DTS_VIEW, &matView);
 
+	//Projection
 	D3DXMATRIX matProj;
 	D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.0f, 1.0f, 100.0f);
 	m_d3dDev->SetTransform(D3DTS_PROJECTION, &matProj);
@@ -67,8 +71,6 @@ void Direct3D::Render() {
 	m_d3dDev->BeginScene();
 
 	m_d3dDev->SetFVF(VERTEX_FORMAT);
-
-
 	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 

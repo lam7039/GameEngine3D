@@ -1,20 +1,3 @@
-﻿  Building Custom Rule D:/Projects/GameEngine3D/Project/CMakeLists.txt
-  CMake does not need to re-run because D:/Projects/GameEngine3D/Project/VisualStudio15/CMakeFiles/generate.stamp is up-to-date.
-  Debug.cpp
-  Direct3D.cpp
-  Engine.cpp
-D:\Projects\GameEngine3D\Source\Engine.cpp(13): warning C4273: 'se::LogDebug': inconsistent dll linkage
-  D:\Projects\GameEngine3D\Include\Engine.h(8): note: see previous definition of 'LogDebug'
-D:\Projects\GameEngine3D\Source\Engine.cpp(17): warning C4273: 'se::StartEngine': inconsistent dll linkage
-  D:\Projects\GameEngine3D\Include\Engine.h(9): note: see previous definition of 'StartEngine'
-D:\Projects\GameEngine3D\Source\Engine.cpp(24): warning C4273: 'se::EnterLoop': inconsistent dll linkage
-  D:\Projects\GameEngine3D\Include\Engine.h(10): note: see previous definition of 'EnterLoop'
-  FPSCounter.cpp
-D:\Projects\GameEngine3D\Source\FPSCounter.cpp(21): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
-D:\Projects\GameEngine3D\Source\FPSCounter.cpp(36): warning C4244: 'return': conversion from '__int64' to 'float', possible loss of data
-  Timer.cpp
-  Window.cpp
-  Generating Code...
-     Creating library D:/Projects/GameEngine3D/Project/VisualStudio15/Debug/GameEngine3D.lib and object D:/Projects/GameEngine3D/Project/VisualStudio15/Debug/GameEngine3D.exp
+﻿  Direct3D.cpp
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.dll
   GameEngine3D.vcxproj -> D:/Projects/GameEngine3D/Project/VisualStudio15/Debug/GameEngine3D.pdb (Full PDB)
