@@ -24,10 +24,10 @@ Direct3D::Direct3D(HWND hWnd) {
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
 
 	Vertex vertices[] = {
-		{ -1.0f, 1.0f, 0.0f, 0.0f, 0.0f },		//Top-left
-		{ 1.0f, 1.0f, 0.0f, 1.0f, 0.0f },		//Top-right
-		{ -1.0f,-1.0f, 0.0f, 0.0f, 1.0f },		//Bottom-left
-		{ 1.0f,-1.0f, 0.0f, 1.0f, 1.0f },		//Bottom-right
+		{ -1.0f, 1.0f, 0.0f,	0.0f, 0.0f },		//Top-left
+		{ 1.0f, 1.0f, 0.0f,		1.0f, 0.0f },		//Top-right
+		{ -1.0f,-1.0f, 0.0f,	0.0f, 1.0f },		//Bottom-left
+		{ 1.0f,-1.0f, 0.0f,		1.0f, 1.0f },		//Bottom-right
 	};
 
 	int vert_count = sizeof(vertices) / sizeof(Vertex);
