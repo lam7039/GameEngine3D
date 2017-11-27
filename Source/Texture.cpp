@@ -3,7 +3,7 @@
 SE_BEGIN_NAMESPACE
 
 Texture::Texture(LPDIRECT3DDEVICE9 device, const std::string &path) {
-	if (D3DXCreateTextureFromFile(device, path.c_str(), &m_texture) != D3D_OK) {
+	if (FAILED(D3DXCreateTextureFromFile(device, path.c_str(), &m_texture))) {
 		return;
 	}
 	device->SetTexture(0, m_texture);
