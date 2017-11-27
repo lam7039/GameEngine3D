@@ -1,21 +1,13 @@
 #include <Windows.h>
 #include "Direct3D.h"
-#include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
 
-#define VERTEX_FORMAT (D3DFVF_XYZ | D3DFVF_DIFFUSE)
+#define VERTEX_FORMAT (D3DFVF_XYZ | D3DFVF_TEX1)
 
 struct Vertex {
 	float x, y, z;
-	DWORD color;
-};
-
-Vertex vertices[] = {
-	{ -1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255) },
-	{ 1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0) },
-	{ 0.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0) },
-	{ 1.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 255, 0) }
+	float tu, tv;
 };
 
 Direct3D::Direct3D(HWND hWnd) {
@@ -31,15 +23,31 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
 
+	Vertex vertices[] = {
+		{ -1.0f, 1.0f, 0.0f, 0.0f, 0.0f },		//Top-left
+		{ 1.0f, 1.0f, 0.0f, 1.0f, 0.0f },		//Top-right
+		{ -1.0f,-1.0f, 0.0f, 0.0f, 1.0f },		//Bottom-left
+		{ 1.0f,-1.0f, 0.0f, 1.0f, 1.0f },		//Bottom-right
+	};
 
-	if (FAILED(m_d3dDev->CreateVertexBuffer(4 * sizeof(Vertex), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
+	int vert_count = sizeof(vertices) / sizeof(Vertex);
+	int byte_count = vert_count * sizeof(Vertex);
+	if (FAILED(m_d3dDev->CreateVertexBuffer(byte_count, 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
 		return;
 	}
 
 	VOID* pVertices;
 	m_vBuffer->Lock(0, 0, (void**)&pVertices, 0);
-	memcpy(pVertices, vertices, sizeof(vertices));
+	memcpy(pVertices, vertices, byte_count);
 	m_vBuffer->Unlock();
+
+	LPDIRECT3DTEXTURE9 m_texture;
+	std::string src = "Assets\\texture.jpg";
+	D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_texture);
+	m_d3dDev->SetTexture(0, m_texture);
+	m_d3dDev->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+	m_d3dDev->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+	m_d3dDev->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
 
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);

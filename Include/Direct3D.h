@@ -2,7 +2,7 @@
 #define DIRECT3D_H
 
 #include "std.h"
-#include <d3d9.h>
+#include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
 
@@ -18,6 +18,6 @@ private:
 	LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
 };
 
-#endif
-
 SE_END_NAMESPACE
+
+#endif
