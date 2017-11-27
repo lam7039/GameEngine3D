@@ -11,6 +11,13 @@ struct Vertex {
 	DWORD color;
 };
 
+Vertex vertices[] = {
+	{ -1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255) },
+	{ 1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0) },
+	{ 0.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0) },
+	{ 1.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 255, 0) }
+};
+
 Direct3D::Direct3D(HWND hWnd) {
 	m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS d3dpp;
@@ -19,15 +26,11 @@ Direct3D::Direct3D(HWND hWnd) {
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
 	d3dpp.hDeviceWindow = hWnd;
+	d3dpp.EnableAutoDepthStencil = TRUE;
+	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
 
-	Vertex vertices[] = {
-		{ -1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255) },
-		{ 1.0f,-1.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0) },
-		{ 0.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0) },
-		{ 1.0f, 1.0f, 0.0f, D3DCOLOR_XRGB(255, 255, 0) }
-	};
 
 	if (FAILED(m_d3dDev->CreateVertexBuffer(4 * sizeof(Vertex), 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
 		return;
@@ -40,6 +43,7 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);
+	m_d3dDev->SetRenderState(D3DRS_ZENABLE, TRUE);
 }
 
 void Direct3D::Update(float delta) {
@@ -53,10 +57,10 @@ void Direct3D::Update(float delta) {
 
 	//View
 	D3DXMATRIX matView;
-	D3DXMatrixLookAtLH(	&matView, 
-						&D3DXVECTOR3(0.0f, 0.0f, 10.0f), 
-						&D3DXVECTOR3(0.0f, 0.0f, 0.0f), 
-						&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
+	D3DXMatrixLookAtLH(&matView,
+		&D3DXVECTOR3(0.0f, 0.0f, 10.0f),
+		&D3DXVECTOR3(0.0f, 0.0f, 0.0f),
+		&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
 	m_d3dDev->SetTransform(D3DTS_VIEW, &matView);
 
 	//Projection
@@ -67,6 +71,7 @@ void Direct3D::Update(float delta) {
 
 void Direct3D::Render() {
 	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	m_d3dDev->Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 
 	m_d3dDev->BeginScene();
 
