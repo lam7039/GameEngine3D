@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include "Direct3D.h"
+#include "Texture.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -30,24 +31,19 @@ Direct3D::Direct3D(HWND hWnd) {
 		{ 1.0f,-1.0f, 0.0f,		1.0f, 1.0f },		//Bottom-right
 	};
 
-	int vert_count = sizeof(vertices) / sizeof(Vertex);
-	int byte_count = vert_count * sizeof(Vertex);
-	if (FAILED(m_d3dDev->CreateVertexBuffer(byte_count, 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
+	int vertCount = sizeof(vertices) / sizeof(Vertex);
+	int byteCount = vertCount * sizeof(Vertex);
+	if (FAILED(m_d3dDev->CreateVertexBuffer(byteCount, 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
 		return;
 	}
 
 	VOID* pVertices;
 	m_vBuffer->Lock(0, 0, (void**)&pVertices, 0);
-	memcpy(pVertices, vertices, byte_count);
+	memcpy(pVertices, vertices, byteCount);
 	m_vBuffer->Unlock();
 
-	LPDIRECT3DTEXTURE9 m_texture;
 	std::string src = "Assets\\texture.jpg";
-	D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_texture);
-	m_d3dDev->SetTexture(0, m_texture);
-	m_d3dDev->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
-	m_d3dDev->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
-	m_d3dDev->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+	Texture texture(m_d3dDev, src);
 
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);

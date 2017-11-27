@@ -8,9 +8,8 @@ SE_BEGIN_NAMESPACE
 
 class Texture {
 public:
-	Texture();
+	Texture(LPDIRECT3DDEVICE9 device, const std::string &path);
 	~Texture();
-	void CreateTexture(LPDIRECT3DDEVICE9 device, const std::string &source);
 private:
 	LPDIRECT3DTEXTURE9 m_texture;
 };
