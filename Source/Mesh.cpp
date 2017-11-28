@@ -18,7 +18,7 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 	D3DXMATERIAL* materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
 	m_meshMaterials = new D3DMATERIAL9[m_materialCount];
 	m_meshTextures = new LPDIRECT3DTEXTURE9[m_materialCount];
-	for (unsigned long i = 0; i < m_materialCount; i++) {
+	for (DWORD i = 0; i < m_materialCount; i++) {
 		m_meshMaterials[i] = materials[i].MatD3D;
 		m_meshMaterials[i].Ambient = m_meshMaterials[i].Diffuse;
 		m_meshTextures[i] = NULL;
@@ -37,7 +37,7 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 }
 
 void Mesh::Render() {
-	for (unsigned long i = 0; i < m_materialCount; i++) {
+	for (DWORD i = 0; i < m_materialCount; i++) {
 		m_mesh->DrawSubset(i);
 	}
 }
@@ -47,7 +47,7 @@ void Mesh::Clean() {
 		delete[] m_meshMaterials;
 	}
 	if (m_meshTextures) {
-		for (unsigned long i = 0; i < m_materialCount; i++) {
+		for (DWORD i = 0; i < m_materialCount; i++) {
 			if (m_meshTextures[i]) {
 				m_meshTextures[i]->Release();
 			}
