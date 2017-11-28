@@ -49,12 +49,15 @@ Direct3D::Direct3D(HWND hWnd) {
 	//std::string src = "Assets\\texture.jpg";
 	//D3DXCreateTextureFromFile(m_device, src.c_str(), &m_texture);
 	//m_device->SetTexture(0, m_texture);
-	
+
+	m_resources.Init(m_device);
+	m_resources.AddMesh("Assets\\tiger.x");
 }
 
 Direct3D::~Direct3D() {
 	//texture->Release();
 	//m_vBuffer->Release();
+	m_resources.Clean();
 	m_device->Release();
 	m_d3d->Release();
 }
@@ -82,13 +85,19 @@ void Direct3D::Update(float delta) {
 	m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 }
 
-//void Direct3D::Render() {
+void Direct3D::Render() {
+	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	m_device->BeginScene();
 
 	//m_device->SetFVF(VERTEX_FORMAT);
 	//m_device->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	//m_device->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 
-//}
+	m_resources.Render();
+
+	m_device->EndScene();
+	m_device->Present(NULL, NULL, NULL, NULL);
+}
 
 LPDIRECT3DDEVICE9 Direct3D::GetDevice() {
 	return m_device;

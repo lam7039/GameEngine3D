@@ -2,7 +2,8 @@
 
 SE_BEGIN_NAMESPACE
 
-ResourceManager::ResourceManager(LPDIRECT3DDEVICE9 device) : m_device(device) {
+void ResourceManager::Init(LPDIRECT3DDEVICE9 device) {
+	m_device = device;
 }
 
 void ResourceManager::AddMesh(std::string path) {

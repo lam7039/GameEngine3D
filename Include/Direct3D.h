@@ -3,6 +3,7 @@
 
 #include "std.h"
 #include "Mesh.h"
+#include "ResourceManager.h"
 #include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
@@ -12,11 +13,12 @@ public:
 	Direct3D(HWND hWnd);
 	~Direct3D();
 	void Update(float delta);
-	//void Render();
+	void Render();
 	LPDIRECT3DDEVICE9 GetDevice();
 private:
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_device;
+	ResourceManager m_resources;
 	//LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
 	//LPDIRECT3DTEXTURE9 m_texture;
 };

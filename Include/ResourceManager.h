@@ -10,7 +10,7 @@ SE_BEGIN_NAMESPACE
 
 class ResourceManager {
 public:
-	ResourceManager(LPDIRECT3DDEVICE9 device);
+	void Init(LPDIRECT3DDEVICE9 device);
 	void AddMesh(std::string path);
 	void Render();
 	void Clean();

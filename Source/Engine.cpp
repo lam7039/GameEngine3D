@@ -4,7 +4,6 @@
 #include "Debug.h"
 #include "Direct3D.h"
 #include "FPSCounter.h"
-#include "ResourceManager.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -26,8 +25,6 @@ int EnterLoop(const std::function<void()> &start, const std::function<void()> &s
 	bool isRunning = true;
 
 	Direct3D d3d(hWnd);
-	ResourceManager resources(d3d.GetDevice());
-	resources.AddMesh("Assets\\tiger.x");
 
 	start();
 
@@ -48,15 +45,8 @@ int EnterLoop(const std::function<void()> &start, const std::function<void()> &s
 		LogDebug(std::to_string(fps.GetDelta()));
 		d3d.Update(fps.GetTimeMilliseconds());
 
-		
 		// Drawing.
-		d3d.GetDevice()->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
-		d3d.GetDevice()->BeginScene();
-
-		resources.Render();
-
-		d3d.GetDevice()->EndScene();
-		d3d.GetDevice()->Present(NULL, NULL, NULL, NULL);
+		d3d.Render();
 
 		fps.Update();
 	}
