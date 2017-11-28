@@ -2,6 +2,7 @@
 #define DIRECT3D_H
 
 #include "std.h"
+#include "Mesh.h"
 #include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
@@ -9,7 +10,6 @@ SE_BEGIN_NAMESPACE
 class Direct3D {
 public:
 	Direct3D(HWND hWnd);
-	void InitGeometry(const std::string &path);
 	void Update(float delta);
 	void Render();
 	~Direct3D();
@@ -17,12 +17,7 @@ private:
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_d3dDev;
 	LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
-
-	//Mesh
-	LPD3DXMESH m_mesh;
-	D3DMATERIAL9 *m_meshMaterials;
-	LPDIRECT3DTEXTURE9 *m_meshTextures;
-	DWORD m_materialCount;
+	Mesh m_mesh;
 };
 
 SE_END_NAMESPACE
