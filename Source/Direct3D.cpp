@@ -22,33 +22,33 @@ Direct3D::Direct3D(HWND hWnd) {
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
-
-	/*Vertex vertices[] = {
-		{ -1.0f, 1.0f, 0.0f,	0.0f, 0.0f },		//Top-left
-		{ 1.0f, 1.0f, 0.0f,		1.0f, 0.0f },		//Top-right
-		{ -1.0f,-1.0f, 0.0f,	0.0f, 1.0f },		//Bottom-left
-		{ 1.0f,-1.0f, 0.0f,		1.0f, 1.0f },		//Bottom-right
-	};
-
-	int vertCount = sizeof(vertices) / sizeof(Vertex);
-	int byteCount = vertCount * sizeof(Vertex);
-	if (FAILED(m_d3dDev->CreateVertexBuffer(byteCount, 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
-		return;
-	}
-
-	VOID* pVertices;
-	m_vBuffer->Lock(0, 0, (void**)&pVertices, 0);
-	memcpy(pVertices, vertices, byteCount);
-	m_vBuffer->Unlock();
-
-
-	std::string src = "Assets\\texture.jpg";
-	D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_texture)*/
-
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_d3dDev->SetRenderState(D3DRS_ZENABLE, TRUE);
 	m_d3dDev->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+
+	//Vertex vertices[] = {
+	//	{ -1.0f, 1.0f, 0.0f,	0.0f, 0.0f },		//Top-left
+	//	{ 1.0f, 1.0f, 0.0f,		1.0f, 0.0f },		//Top-right
+	//	{ -1.0f,-1.0f, 0.0f,	0.0f, 1.0f },		//Bottom-left
+	//	{ 1.0f,-1.0f, 0.0f,		1.0f, 1.0f },		//Bottom-right
+	//};
+
+	//int vertCount = sizeof(vertices) / sizeof(Vertex);
+	//int byteCount = vertCount * sizeof(Vertex);
+	//if (FAILED(m_d3dDev->CreateVertexBuffer(byteCount, 0, VERTEX_FORMAT, D3DPOOL_MANAGED, &m_vBuffer, NULL))) {
+	//	return;
+	//}
+
+	//VOID* pVertices;
+	//m_vBuffer->Lock(0, 0, (void**)&pVertices, 0);
+	//memcpy(pVertices, vertices, byteCount);
+	//m_vBuffer->Unlock();
+
+	//
+	//std::string src = "Assets\\texture.jpg";
+	//D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_texture);
+	//m_d3dDev->SetTexture(0, m_texture);
 	
 	std::string src = "Assets\\tiger.x";
 	m_mesh.Load(m_d3dDev, src);
@@ -81,9 +81,9 @@ void Direct3D::Render() {
 	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_d3dDev->BeginScene();
 
-	/*m_d3dDev->SetFVF(VERTEX_FORMAT);
-	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
-	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);*/
+	//m_d3dDev->SetFVF(VERTEX_FORMAT);
+	//m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
+	//m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 	m_mesh.Render();
 
 	m_d3dDev->EndScene();
@@ -92,6 +92,7 @@ void Direct3D::Render() {
 
 Direct3D::~Direct3D() {
 	m_mesh.Clean();
+	//texture->Release();
 	//m_vBuffer->Release();
 	m_d3dDev->Release();
 	m_d3d->Release();

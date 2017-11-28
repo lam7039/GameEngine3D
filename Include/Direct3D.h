@@ -16,7 +16,8 @@ public:
 private:
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_d3dDev;
-	LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
+	//LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
+	//LPDIRECT3DTEXTURE9 m_texture;
 	Mesh m_mesh;
 };
 

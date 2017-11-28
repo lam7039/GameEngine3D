@@ -17,20 +17,14 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 	}
 	D3DXMATERIAL* materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
 	m_meshMaterials = new D3DMATERIAL9[m_materialCount];
-	if (m_meshMaterials == NULL) {
-		return;
-	}
 	m_meshTextures = new LPDIRECT3DTEXTURE9[m_materialCount];
-	if (m_meshTextures == NULL) {
-		return;
-	}
 	for (unsigned long i = 0; i < m_materialCount; i++) {
 		m_meshMaterials[i] = materials[i].MatD3D;
 		m_meshMaterials[i].Ambient = m_meshMaterials[i].Diffuse;
 		m_meshTextures[i] = NULL;
 		if (materials[i].pTextureFilename != NULL && lstrlen(materials[i].pTextureFilename) > 0) {
 			std::string src = "Assets\\";
-			src += materials[i].pTextureFilename;
+						src += materials[i].pTextureFilename;
 			if (FAILED(D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_meshTextures[i]))) {
 				MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "Meshes.exe", MB_OK);
 				return;
