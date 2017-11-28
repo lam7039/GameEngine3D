@@ -1,6 +1,5 @@
 #include <Windows.h>
 #include "Direct3D.h"
-#include "Texture.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -44,7 +43,7 @@ Direct3D::Direct3D(HWND hWnd) {
 
 
 	std::string src = "Assets\\texture.jpg";
-	Texture texture(m_d3dDev, src);*/
+	D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_texture)*/
 
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);
