@@ -29,19 +29,21 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 		m_meshMaterials[i].Ambient = m_meshMaterials[i].Diffuse;
 		m_meshTextures[i] = NULL;
 		if (materials[i].pTextureFilename != NULL && lstrlen(materials[i].pTextureFilename) > 0) {
-			if (FAILED(D3DXCreateTextureFromFile(m_d3dDev, materials[i].pTextureFilename, &m_meshTextures[i]))) {
-				MessageBox(NULL, "Could not find texture map", "Meshes.exe", MB_OK);
+			std::string src = "Assets\\";
+			src += materials[i].pTextureFilename;
+			if (FAILED(D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_meshTextures[i]))) {
+				MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "Meshes.exe", MB_OK);
 				return;
 			}
 		}
+		m_d3dDev->SetMaterial(&m_meshMaterials[i]);
+		m_d3dDev->SetTexture(0, m_meshTextures[i]);
 	}
 	materialBuffer->Release();
 }
 
 void Mesh::Render() {
 	for (unsigned long i = 0; i < m_materialCount; i++) {
-		m_d3dDev->SetMaterial(&m_meshMaterials[i]);
-		m_d3dDev->SetTexture(0, m_meshTextures[i]);
 		m_mesh->DrawSubset(i);
 	}
 }
@@ -61,6 +63,7 @@ void Mesh::Clean() {
 	if (m_mesh != NULL) {
 		m_mesh->Release();
 	}
+	m_d3dDev->Release();
 }
 
 SE_END_NAMESPACE

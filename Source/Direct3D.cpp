@@ -4,7 +4,7 @@
 
 SE_BEGIN_NAMESPACE
 
-#define VERTEX_FORMAT (D3DFVF_XYZ | D3DFVF_TEX1)
+//#define VERTEX_FORMAT (D3DFVF_XYZ | D3DFVF_TEX1)
 
 struct Vertex {
 	float x, y, z;
