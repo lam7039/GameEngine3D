@@ -24,7 +24,12 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_d3dDev);
 
-	Vertex vertices[] = {
+	m_mesh = nullptr;
+	m_meshMaterials = nullptr;
+	m_meshTextures = nullptr;
+	m_materialCount = 0;
+
+	/*Vertex vertices[] = {
 		{ -1.0f, 1.0f, 0.0f,	0.0f, 0.0f },		//Top-left
 		{ 1.0f, 1.0f, 0.0f,		1.0f, 0.0f },		//Top-right
 		{ -1.0f,-1.0f, 0.0f,	0.0f, 1.0f },		//Bottom-left
@@ -42,12 +47,44 @@ Direct3D::Direct3D(HWND hWnd) {
 	memcpy(pVertices, vertices, byteCount);
 	m_vBuffer->Unlock();
 
+
 	std::string src = "Assets\\texture.jpg";
-	Texture texture(m_d3dDev, src);
+	Texture texture(m_d3dDev, src);*/
 
 	m_d3dDev->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	m_d3dDev->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_d3dDev->SetRenderState(D3DRS_ZENABLE, TRUE);
+	
+	std::string src = "Assets\\tiger.x";
+	InitGeometry(src);
+}
+
+void Direct3D::InitGeometry(const std::string &path) {
+	LPD3DXBUFFER materialBuffer;
+	if (FAILED(D3DXLoadMeshFromX(path.c_str(), D3DXMESH_SYSTEMMEM, m_d3dDev, NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
+		return;
+	}
+	D3DXMATERIAL* materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
+	m_meshMaterials = new D3DMATERIAL9[m_materialCount];
+	if (m_meshMaterials == NULL) {
+		return;
+	}
+	m_meshTextures = new LPDIRECT3DTEXTURE9[m_materialCount];
+	if (m_meshTextures == NULL) {
+		return;
+	}
+	for (unsigned long i = 0; i < m_materialCount; i++) {
+		m_meshMaterials[i] = materials[i].MatD3D;
+		m_meshMaterials[i].Ambient = m_meshMaterials[i].Diffuse;
+		m_meshTextures[i] = NULL;
+		if (materials[i].pTextureFilename != NULL && lstrlen(materials[i].pTextureFilename) > 0) {
+			if (FAILED(D3DXCreateTextureFromFile(m_d3dDev, materials[i].pTextureFilename, &m_meshTextures[i]))) {
+				MessageBox(NULL, "Could not find texture map", "Meshes.exe", MB_OK);
+				return;
+			}
+		}
+	}
+	materialBuffer->Release();
 }
 
 void Direct3D::Update(float delta) {
@@ -74,22 +111,40 @@ void Direct3D::Update(float delta) {
 }
 
 void Direct3D::Render() {
-	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
-	m_d3dDev->Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
-
+	m_d3dDev->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_d3dDev->BeginScene();
 
-	m_d3dDev->SetFVF(VERTEX_FORMAT);
+	/*m_d3dDev->SetFVF(VERTEX_FORMAT);
 	m_d3dDev->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
-	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
+	m_d3dDev->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);*/
+
+	for (unsigned long i = 0; i < m_materialCount; i++) {
+		m_d3dDev->SetMaterial(&m_meshMaterials[i]);
+		m_d3dDev->SetTexture(0, m_meshTextures[i]);
+		m_mesh->DrawSubset(i);
+	}
 
 	m_d3dDev->EndScene();
-
 	m_d3dDev->Present(NULL, NULL, NULL, NULL);
 }
 
 Direct3D::~Direct3D() {
-	m_vBuffer->Release();
+	if (m_meshMaterials != NULL) {
+		delete[] m_meshMaterials;
+	}
+	if (m_meshTextures) {
+		for (unsigned long i = 0; i < m_materialCount; i++) {
+			if (m_meshTextures[i]) {
+				m_meshTextures[i]->Release();
+			}
+		}
+		delete[] m_meshTextures;
+	}
+	if (m_mesh != NULL) {
+		m_mesh->Release();
+	}
+
+	//m_vBuffer->Release();
 	m_d3dDev->Release();
 	m_d3d->Release();
 }
