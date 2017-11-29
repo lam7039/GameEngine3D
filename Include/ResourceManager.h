@@ -12,7 +12,7 @@ class ResourceManager {
 public:
 	void Init(LPDIRECT3DDEVICE9 device);
 	void AddMesh(std::string path);
-	void Render();
+	std::vector<Mesh> GetMeshes();
 	void Clean();
 private:
 	LPDIRECT3DDEVICE9 m_device;

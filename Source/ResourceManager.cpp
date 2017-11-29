@@ -12,10 +12,8 @@ void ResourceManager::AddMesh(std::string path) {
 	m_meshes.push_back(mesh);
 }
 
-void ResourceManager::Render() {
-	for (unsigned int i = 0; i < m_meshes.size(); i++) {
-		m_meshes[i].Render();
-	}
+std::vector<Mesh> ResourceManager::GetMeshes() {
+	return m_meshes;
 }
 
 void ResourceManager::Clean() {

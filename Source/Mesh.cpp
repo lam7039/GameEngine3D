@@ -57,7 +57,6 @@ void Mesh::Clean() {
 	if (m_mesh != NULL) {
 		m_mesh->Release();
 	}
-	m_d3dDev->Release();
 }
 
 SE_END_NAMESPACE

@@ -63,7 +63,7 @@ Direct3D::~Direct3D() {
 }
 
 void Direct3D::Update(float delta) {
-	//World
+	//World (object update)
 	unsigned int iTime = (int)delta / 10 % 1000;
 	D3DXMATRIX matRotate;
 	D3DXMATRIX matTranslate;
@@ -71,7 +71,7 @@ void Direct3D::Update(float delta) {
 	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 5.0f);
 	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
 	
-	//View
+	//View (camera)
 	D3DXMATRIX matView;
 	D3DXMatrixLookAtLH(&matView,
 		&D3DXVECTOR3(0.0f, 0.0f, 10.0f),
@@ -93,7 +93,9 @@ void Direct3D::Render() {
 	//m_device->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	//m_device->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 
-	m_resources.Render();
+	for (unsigned int i = 0; i < m_resources.GetMeshes().size(); i++) {
+		m_resources.GetMeshes()[i].Render();
+	}
 
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);
