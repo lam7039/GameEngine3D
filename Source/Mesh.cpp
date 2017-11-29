@@ -31,7 +31,7 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 			}
 		}
 		m_d3dDev->SetMaterial(&m_meshMaterials[i]);
-		m_d3dDev->SetTexture(0, m_meshTextures[i]);
+		m_d3dDev->SetTexture(i, m_meshTextures[i]);
 	}
 	materialBuffer->Release();
 }

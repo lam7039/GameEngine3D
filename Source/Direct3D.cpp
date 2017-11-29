@@ -51,7 +51,7 @@ Direct3D::Direct3D(HWND hWnd) {
 	//m_device->SetTexture(0, m_texture);
 
 	m_resources.Init(m_device);
-	m_resources.AddMesh("Assets\\tiger.x");
+	m_resources.AddMesh("Assets\\airplane.x");
 }
 
 Direct3D::~Direct3D() {
@@ -68,7 +68,7 @@ void Direct3D::Update(float delta) {
 	D3DXMATRIX matRotate;
 	D3DXMATRIX matTranslate;
 	D3DXMatrixRotationY(&matRotate, iTime * (2.0f * D3DX_PI) / 1000.0f);
-	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 5.0f);
+	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 0.0f);
 	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
 	
 	//View (camera)
