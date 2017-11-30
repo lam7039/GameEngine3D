@@ -5,6 +5,7 @@
 #include "Mesh.h"
 #include <vector>
 
+//TODO: use a map and call, call it in object and destroy it there too, not in the manager?
 SE_BEGIN_NAMESPACE
 
 class ResourceManager {
@@ -16,7 +17,6 @@ public:
 private:
 	LPDIRECT3DDEVICE9 m_device;
 	std::vector<Mesh> m_meshes;
-	int m_meshCount;
 };
 
 SE_END_NAMESPACE

@@ -4,14 +4,12 @@ SE_BEGIN_NAMESPACE
 
 void ResourceManager::Init(LPDIRECT3DDEVICE9 device) {
 	m_device = device;
-	m_meshCount = 0;
 }
 
 void ResourceManager::AddMesh(std::string path) {
 	Mesh mesh;
-	mesh.Load(m_device, path, m_meshCount);
+	mesh.Load(m_device, path);
 	m_meshes.push_back(mesh);
-	m_meshCount++;
 }
 
 std::vector<Mesh> ResourceManager::GetMeshes() {

@@ -16,7 +16,7 @@ int combine(int a, int b) {
 	return a*times + b;
 }
 
-void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path, int index) {
+void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 	m_device = device;
 	LPD3DXBUFFER materialBuffer;
 	if (FAILED(D3DXLoadMeshFromX(path.c_str(), D3DXMESH_SYSTEMMEM, device, NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {

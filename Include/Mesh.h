@@ -9,7 +9,7 @@ SE_BEGIN_NAMESPACE
 class Mesh {
 public:
 	Mesh();
-	void Load(LPDIRECT3DDEVICE9 device, const std::string &path, int index);
+	void Load(LPDIRECT3DDEVICE9 device, const std::string &path);
 	void Render();
 	void Clean();
 private:

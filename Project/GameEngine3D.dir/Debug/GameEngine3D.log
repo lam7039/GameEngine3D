@@ -1,3 +1,13 @@
-﻿  Mesh.cpp
+﻿  Object.cpp
+  ResourceManager.cpp
+  Direct3D.cpp
+  Engine.cpp
+D:\Projects\GameEngine3D\Source\Engine.cpp(13): warning C4273: 'se::LogDebug': inconsistent dll linkage
+  D:\Projects\GameEngine3D\Include\Engine.h(8): note: see previous definition of 'LogDebug'
+D:\Projects\GameEngine3D\Source\Engine.cpp(17): warning C4273: 'se::StartEngine': inconsistent dll linkage
+  D:\Projects\GameEngine3D\Include\Engine.h(9): note: see previous definition of 'StartEngine'
+D:\Projects\GameEngine3D\Source\Engine.cpp(24): warning C4273: 'se::EnterLoop': inconsistent dll linkage
+  D:\Projects\GameEngine3D\Include\Engine.h(10): note: see previous definition of 'EnterLoop'
+  Generating Code...
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.dll
   GameEngine3D.vcxproj -> D:/Projects/GameEngine3D/Project/VisualStudio15/Debug/GameEngine3D.pdb (Full PDB)

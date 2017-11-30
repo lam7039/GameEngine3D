@@ -2,18 +2,21 @@
 
 SE_BEGIN_NAMESPACE
 
-Object::Object(const std::string &meshLocation) {
+//TODO: use resourcemanager instead of loading a mesh
+Object::Object(LPDIRECT3DDEVICE9 device, const std::string &meshLocation) {
+	m_device = device;
 	m_posX = 0.0f;
 	m_posY = 0.0f;
 	m_posZ = 0.0f;
+	m_mesh.Load(device, meshLocation);
 }
 
-void Object::Update(LPDIRECT3DDEVICE9 device) {
+void Object::Update() {
 	D3DXMATRIX matRotate;
 	D3DXMATRIX matTranslate;
 	D3DXMatrixRotationY(&matRotate, (2.0f * D3DX_PI) / 1000.0f);
 	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 0.0f);
-	device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
+	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
 }
 
 void Object::Render() {
