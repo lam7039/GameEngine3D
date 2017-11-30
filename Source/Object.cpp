@@ -7,6 +7,9 @@ Object::Object() {
 	m_posX = 0.0f;
 	m_posY = 0.0f;
 	m_posZ = 0.0f;
+	m_rotX = 0.0f;
+	m_rotY = 0.0f;
+	m_rotZ = 0.0f;
 }
 
 void Object::Init(const std::string &filename) {
@@ -14,24 +17,27 @@ void Object::Init(const std::string &filename) {
 	m_mesh = &AssetLoader::GetInstance()->GetMeshes()->at(m_filename);
 }
 
-void Object::Update(LPDIRECT3DDEVICE9 device) {
-	D3DXMATRIX m_matRotate;
-	D3DXMatrixIdentity(&m_matRotate);
-	D3DXMatrixRotationY(&m_matRotate, (D3DX_PI / 4 * 3));
-	D3DXMATRIX m_matTranslate;
-	D3DXMatrixIdentity(&m_matTranslate);
-	D3DXMatrixTranslation(&m_matTranslate, m_posX, m_posY, m_posZ);
-	device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+void Object::Update(float delta) {
+
 }
 
-void Object::Render() {
+void Object::Render(LPDIRECT3DDEVICE9 device) {
+	D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotX, m_rotY, m_rotZ);
+	D3DXMatrixTranslation(&m_matTranslate, m_posX, m_posY, m_posZ);
+	device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 	m_mesh->Render();
 }
 
-void Object::ChangePosition(float x, float y, float z) {
+void Object::SetPosition(float x, float y, float z) {
 	m_posX = x;
 	m_posY = y;
 	m_posZ = z;
+}
+
+void Object::SetRotation(float x, float y, float z) {
+	m_rotX = x;
+	m_rotY = y;
+	m_rotZ = z;
 }
 
 SE_END_NAMESPACE
