@@ -21,16 +21,16 @@ Direct3D::Direct3D(HWND hWnd) {
 	m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 	
-	AssetLoader *a = AssetLoader::GetInstance();
-	a->Init(m_device);
-	a->AddMesh("airplane.x");
-	a->AddMesh("tiger.x");
+	AssetLoader *loader = AssetLoader::GetInstance();
+	loader->Init(m_device);
+	loader->AddMesh("airplane.x");
+	loader->AddMesh("tiger.x");
 
 	m_airplane.Init("airplane.x");
 	m_tiger.Init("tiger.x");
 
 	m_airplane.SetPosition(2.0f, 0.0f, -5.0f);
-	m_tiger.SetPosition(-2.0f, 0.0f, 0.0f);
+	m_tiger.SetPosition(-2.0f, -0.0f, 0.0f);
 }
 
 Direct3D::~Direct3D() {
