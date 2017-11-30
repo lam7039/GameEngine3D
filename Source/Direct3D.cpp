@@ -23,8 +23,6 @@ Direct3D::Direct3D(HWND hWnd) {
 	
 	AssetLoader *loader = AssetLoader::GetInstance();
 	loader->Init(m_device);
-	loader->AddMesh("airplane.x");
-	loader->AddMesh("tiger.x");
 
 	m_airplane.Init("airplane.x");
 	m_tiger.Init("tiger.x");

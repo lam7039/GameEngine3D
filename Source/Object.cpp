@@ -14,6 +14,7 @@ Object::Object() {
 
 void Object::Init(const std::string &filename) {
 	m_filename = filename;
+	AssetLoader::GetInstance()->AddMesh(m_filename);
 	m_mesh = &AssetLoader::GetInstance()->GetMeshes()->at(m_filename);
 }
 
