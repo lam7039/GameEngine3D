@@ -1,26 +1,31 @@
 #include "Object.h"
+#include "AssetLoader.h"
 
 SE_BEGIN_NAMESPACE
 
-//TODO: use resourcemanager instead of loading a mesh
-Object::Object(LPDIRECT3DDEVICE9 device, const std::string &meshLocation) {
-	m_device = device;
+Object::Object() {
 	m_posX = 0.0f;
 	m_posY = 0.0f;
 	m_posZ = 0.0f;
-	m_mesh.Load(device, meshLocation);
 }
 
-void Object::Update() {
-	D3DXMATRIX matRotate;
-	D3DXMATRIX matTranslate;
-	D3DXMatrixRotationY(&matRotate, (2.0f * D3DX_PI) / 1000.0f);
-	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 0.0f);
-	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
+void Object::Init(const std::string &filename) {
+	m_filename = filename;
+	m_mesh = &AssetLoader::GetInstance()->GetMeshes()->at(m_filename);
+}
+
+void Object::Update(LPDIRECT3DDEVICE9 device) {
+	D3DXMATRIX m_matRotate;
+	D3DXMatrixIdentity(&m_matRotate);
+	D3DXMatrixRotationY(&m_matRotate, (D3DX_PI / 4 * 3));
+	D3DXMATRIX m_matTranslate;
+	D3DXMatrixIdentity(&m_matTranslate);
+	D3DXMatrixTranslation(&m_matTranslate, m_posX, m_posY, m_posZ);
+	device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 }
 
 void Object::Render() {
-	m_mesh.Render();
+	m_mesh->Render();
 }
 
 void Object::ChangePosition(float x, float y, float z) {

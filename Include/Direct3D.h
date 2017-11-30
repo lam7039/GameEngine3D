@@ -2,8 +2,7 @@
 #define DIRECT3D_H
 
 #include "std.h"
-#include "Mesh.h"
-#include "ResourceManager.h"
+#include "Object.h"
 #include <d3dx9.h>
 
 SE_BEGIN_NAMESPACE
@@ -15,9 +14,10 @@ public:
 	void Update(float delta);
 	void Render();
 private:
+	Object m_airplane;
+	Object m_tiger;
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_device;
-	ResourceManager m_resources;
 	//LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
 	//LPDIRECT3DTEXTURE9 m_texture;
 };

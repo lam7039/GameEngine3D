@@ -9,16 +9,18 @@ SE_BEGIN_NAMESPACE
 
 class Object {
 public:
-	Object(LPDIRECT3DDEVICE9 device, const std::string &meshLocation);
-	void Update();
+	Object();
+	//TODO: init should go in protected for so you can only initialize when inheriting
+	void Init(const std::string &filename);
+	void Update(LPDIRECT3DDEVICE9 device);
 	void Render();
 	void ChangePosition(float x, float y, float z);
 protected:
-	LPDIRECT3DDEVICE9 m_device;
+	std::string m_filename;
 	float m_posX;
 	float m_posY;
 	float m_posZ;
-	Mesh m_mesh;
+	Mesh *m_mesh;
 };
 
 SE_END_NAMESPACE

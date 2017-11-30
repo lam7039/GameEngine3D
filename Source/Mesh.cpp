@@ -9,13 +9,6 @@ Mesh::Mesh() {
 	m_materialCount = 0;
 }
 
-int combine(int a, int b) {
-	int times = 1;
-	while (times <= b)
-		times *= 10;
-	return a*times + b;
-}
-
 void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 	m_device = device;
 	LPD3DXBUFFER materialBuffer;

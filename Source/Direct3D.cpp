@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include "Direct3D.h"
+#include "AssetLoader.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -49,28 +50,37 @@ Direct3D::Direct3D(HWND hWnd) {
 	//std::string src = "Assets\\texture.jpg";
 	//D3DXCreateTextureFromFile(m_device, src.c_str(), &m_texture);
 	//m_device->SetTexture(0, m_texture);
+	
+	AssetLoader *a = AssetLoader::GetInstance();
+	a->Init(m_device);
+	a->AddMesh("airplane.x");
+	a->AddMesh("tiger.x");
 
-	m_resources.Init(m_device);
-	m_resources.AddMesh("Assets\\airplane.x");
-	m_resources.AddMesh("Assets\\tiger.x");
+	m_airplane.Init("airplane.x");
+	m_tiger.Init("tiger.x");
+
+	m_airplane.ChangePosition(2.0f, 0.0f, -5.0f);
+	m_tiger.ChangePosition(-2.0f, 0.0f, 0.0f);
 }
 
 Direct3D::~Direct3D() {
 	//texture->Release();
 	//m_vBuffer->Release();
-	m_resources.Clean();
+	AssetLoader::GetInstance()->Clean("tiger.x");
+	AssetLoader::GetInstance()->Clean("airplane.x");
 	m_device->Release();
 	m_d3d->Release();
 }
 
 void Direct3D::Update(float delta) {
 	//World (object update)
-	unsigned int iTime = (int)delta / 10 % 1000;
+	/*unsigned int iTime = (int)delta / 10 % 1000;
 	D3DXMATRIX matRotate;
 	D3DXMATRIX matTranslate;
 	D3DXMatrixRotationY(&matRotate, iTime * (2.0f * D3DX_PI) / 1000.0f);
 	D3DXMatrixTranslation(&matTranslate, 0.0f, 0.0f, 0.0f);
-	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
+	m_device->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));*/
+
 	
 	//View (camera)
 	D3DXMATRIX matView;
@@ -94,9 +104,10 @@ void Direct3D::Render() {
 	//m_device->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	//m_device->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
 
-	for (unsigned int i = 0; i < m_resources.GetMeshes().size(); i++) {
-		m_resources.GetMeshes()[i].Render();
-	}
+	m_airplane.Update(m_device);
+	m_airplane.Render();
+	m_tiger.Update(m_device);
+	m_tiger.Render();
 
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);
