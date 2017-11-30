@@ -52,6 +52,7 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	m_resources.Init(m_device);
 	m_resources.AddMesh("Assets\\airplane.x");
+	m_resources.AddMesh("Assets\\tiger.x");
 }
 
 Direct3D::~Direct3D() {
@@ -88,7 +89,7 @@ void Direct3D::Update(float delta) {
 void Direct3D::Render() {
 	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_device->BeginScene();
-
+	
 	//m_device->SetFVF(VERTEX_FORMAT);
 	//m_device->SetStreamSource(0, m_vBuffer, 0, sizeof(Vertex));
 	//m_device->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
@@ -99,10 +100,6 @@ void Direct3D::Render() {
 
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);
-}
-
-LPDIRECT3DDEVICE9 Direct3D::GetDevice() {
-	return m_device;
 }
 
 SE_END_NAMESPACE

@@ -9,13 +9,20 @@ Mesh::Mesh() {
 	m_materialCount = 0;
 }
 
-void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
-	m_d3dDev = device;
+int combine(int a, int b) {
+	int times = 1;
+	while (times <= b)
+		times *= 10;
+	return a*times + b;
+}
+
+void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path, int index) {
+	m_device = device;
 	LPD3DXBUFFER materialBuffer;
-	if (FAILED(D3DXLoadMeshFromX(path.c_str(), D3DXMESH_SYSTEMMEM, m_d3dDev, NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
+	if (FAILED(D3DXLoadMeshFromX(path.c_str(), D3DXMESH_SYSTEMMEM, device, NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
 		return;
 	}
-	D3DXMATERIAL* materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
+	D3DXMATERIAL *materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
 	m_meshMaterials = new D3DMATERIAL9[m_materialCount];
 	m_meshTextures = new LPDIRECT3DTEXTURE9[m_materialCount];
 	for (DWORD i = 0; i < m_materialCount; i++) {
@@ -25,19 +32,19 @@ void Mesh::Load(LPDIRECT3DDEVICE9 device, const std::string &path) {
 		if (materials[i].pTextureFilename != NULL && lstrlen(materials[i].pTextureFilename) > 0) {
 			std::string src = "Assets\\";
 						src += materials[i].pTextureFilename;
-			if (FAILED(D3DXCreateTextureFromFile(m_d3dDev, src.c_str(), &m_meshTextures[i]))) {
+			if (FAILED(D3DXCreateTextureFromFile(device, src.c_str(), &m_meshTextures[i]))) {
 				MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "Meshes.exe", MB_OK);
 				return;
 			}
 		}
-		m_d3dDev->SetMaterial(&m_meshMaterials[i]);
-		m_d3dDev->SetTexture(i, m_meshTextures[i]);
 	}
 	materialBuffer->Release();
 }
 
 void Mesh::Render() {
 	for (DWORD i = 0; i < m_materialCount; i++) {
+		m_device->SetMaterial(&m_meshMaterials[i]);
+		m_device->SetTexture(i, m_meshTextures[i]);
 		m_mesh->DrawSubset(i);
 	}
 }

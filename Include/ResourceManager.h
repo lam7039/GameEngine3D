@@ -3,7 +3,6 @@
 
 #include "std.h"
 #include "Mesh.h"
-#include <d3dx9.h>
 #include <vector>
 
 SE_BEGIN_NAMESPACE
@@ -17,6 +16,7 @@ public:
 private:
 	LPDIRECT3DDEVICE9 m_device;
 	std::vector<Mesh> m_meshes;
+	int m_meshCount;
 };
 
 SE_END_NAMESPACE
