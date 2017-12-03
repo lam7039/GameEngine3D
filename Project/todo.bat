@@ -1,6 +1,6 @@
 @echo off
 
-set FILETYPES=*.hpp *.cpp
+set FILETYPES=*.h *.cpp
 
 cd ../Source
 findstr -s -n -i -l "TODO" %FILETYPES%
