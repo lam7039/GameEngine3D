@@ -42,7 +42,7 @@ void Mesh::Render() {
 	}
 }
 
-void Mesh::Clean() {
+void Mesh::Release() {
 	if (m_meshMaterials != NULL) {
 		delete[] m_meshMaterials;
 	}

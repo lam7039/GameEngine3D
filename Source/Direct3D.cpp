@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include "Direct3D.h"
 #include "AssetLoader.h"
+#include "SceneLoader.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -16,36 +17,42 @@ Direct3D::Direct3D(HWND hWnd) {
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device);
-	m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); //D3DCULL_CCW
+	m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 	m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 	
-	AssetLoader *loader = AssetLoader::GetInstance();
-	loader->Init(m_device);
+	AssetLoader::GetInstance()->Init(m_device);
+	AssetLoader::GetInstance()->AddMesh("airplane.x");
+	AssetLoader::GetInstance()->AddMesh("tiger.x");
 
-	m_airplane.Init("airplane.x");
-	m_tiger.Init("tiger.x");
+	Object airplane;
+	airplane.Init("airplane.x");
+	airplane.SetPosition(2.0f, 0.0f, -5.0f);
+	
+	Object tiger;
+	tiger.Init("tiger.x");
+	tiger.SetPosition(-2.0f, -0.0f, 0.0f);
 
-	m_airplane.SetPosition(2.0f, 0.0f, -5.0f);
-	m_tiger.SetPosition(-2.0f, -0.0f, 0.0f);
+	SceneLoader::GetInstance()->AddScene("airplane");
+	SceneLoader::GetInstance()->GetScene("airplane")->AddObject(airplane);
+	SceneLoader::GetInstance()->AddScene("tiger");
+	SceneLoader::GetInstance()->GetScene("tiger")->AddObject(tiger);
+
+	SceneLoader::GetInstance()->SetCurrentScene("tiger");
 }
 
 Direct3D::~Direct3D() {
-	AssetLoader::GetInstance()->Clean("tiger.x");
-	AssetLoader::GetInstance()->Clean("airplane.x");
+	AssetLoader::GetInstance()->ReleaseMesh("tiger.x");
+	AssetLoader::GetInstance()->ReleaseMesh("airplane.x");
 	m_device->Release();
 	m_d3d->Release();
 }
 
 void Direct3D::Update(float delta) {
 	//World (object update)
-	unsigned int iTime = (int)delta / 10 % 1000;
-	m_tiger.SetRotation(iTime * (2.0f * D3DX_PI) / 1000.0f, 0.0f, 0.0f);
-	m_airplane.SetRotation(-(iTime * (2.0f * D3DX_PI) / 1000.0f), 0.0f, 0.0f);
 
-	m_airplane.Update(delta);
-	m_tiger.Update(delta);
+	SceneLoader::GetInstance()->GetCurrentScene()->Update(delta);
 
 	//View (camera)
 	D3DXMATRIX matView;
@@ -65,8 +72,18 @@ void Direct3D::Render() {
 	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_device->BeginScene();
 
-	m_airplane.Render(m_device);
-	m_tiger.Render(m_device);
+	SceneLoader::GetInstance()->GetCurrentScene()->Render();
+
+	/*
+	std::vector<Object> currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
+	for (int i = 0; i < currentSceneObjects.size(); i++) {
+		m_currentMesh = &AssetLoader::GetInstance()->GetMeshes()->at(currentSceneObjects[i].GetFilename());
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotX, m_rotY, m_rotZ);
+		D3DXMatrixTranslation(&m_matTranslate, m_posX, m_posY, m_posZ);
+		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+		m_currentMesh->Render();
+	}
+	*/
 
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);

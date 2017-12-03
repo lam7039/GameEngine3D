@@ -14,10 +14,11 @@ public:
 	void Update(float delta);
 	void Render();
 private:
-	Object m_airplane;
-	Object m_tiger;
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_device;
+	D3DXMATRIX m_matRotate;
+	D3DXMATRIX m_matTranslate;
+	//Mesh *m_currentMesh;
 };
 
 SE_END_NAMESPACE
