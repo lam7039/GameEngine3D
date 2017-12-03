@@ -18,8 +18,6 @@ private:
 	Object m_tiger;
 	LPDIRECT3D9 m_d3d;
 	LPDIRECT3DDEVICE9 m_device;
-	//LPDIRECT3DVERTEXBUFFER9 m_vBuffer;
-	//LPDIRECT3DTEXTURE9 m_texture;
 };
 
 SE_END_NAMESPACE

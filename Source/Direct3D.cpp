@@ -16,7 +16,7 @@ Direct3D::Direct3D(HWND hWnd) {
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
 	m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device);
-	m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
+	m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); //D3DCULL_CCW
 	m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);

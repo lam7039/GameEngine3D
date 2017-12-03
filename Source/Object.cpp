@@ -12,9 +12,9 @@ Object::Object() {
 	m_rotZ = 0.0f;
 }
 
-void Object::Init(const std::string &filename) {
+void Object::Init(/*const std::string &objectName, */const std::string &filename) {
 	m_filename = filename;
-	AssetLoader::GetInstance()->AddMesh(m_filename);
+	AssetLoader::GetInstance()->AddMesh(/*objectName, */m_filename);
 	m_mesh = &AssetLoader::GetInstance()->GetMeshes()->at(m_filename);
 }
 

@@ -11,9 +11,9 @@ SE_BEGIN_NAMESPACE
 class AssetLoader {
 public:
 	void Init(LPDIRECT3DDEVICE9 device);
-	void AddMesh(const std::string &filename);
+	SE_API void AddMesh(const std::string &filename);
 	void Clean(const std::string &filename);
-	static AssetLoader *GetInstance();
+	SE_API static AssetLoader *GetInstance();
 	std::map<std::string, Mesh> *GetMeshes();
 private:
 	static AssetLoader *m_instance;

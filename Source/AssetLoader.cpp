@@ -1,3 +1,4 @@
+#include <d3dx9.h>
 #include "AssetLoader.h"
 
 SE_BEGIN_NAMESPACE
