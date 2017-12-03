@@ -7,7 +7,7 @@
 
 SE_BEGIN_NAMESPACE
 
-SE_API class Scene {
+class Scene {
 public:
 	Scene();
 	void AddObject(Object object);

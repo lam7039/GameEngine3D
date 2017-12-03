@@ -36,10 +36,11 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	SceneLoader::GetInstance()->AddScene("airplane");
 	SceneLoader::GetInstance()->GetScene("airplane")->AddObject(airplane);
+	SceneLoader::GetInstance()->GetScene("airplane")->AddObject(tiger);
 	SceneLoader::GetInstance()->AddScene("tiger");
 	SceneLoader::GetInstance()->GetScene("tiger")->AddObject(tiger);
 
-	SceneLoader::GetInstance()->SetCurrentScene("tiger");
+	SceneLoader::GetInstance()->SetCurrentScene("airplane");
 }
 
 Direct3D::~Direct3D() {
