@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef GAMEENGINE3D_EXPORTS
+#ifdef GameEngine3D_EXPORTS
 # define SE_API __declspec(dllexport)
 #else
 # define SE_API __declspec(dllimport)
