@@ -3,7 +3,9 @@
 
 #include "std.h"
 #include "Object.h"
+#include "Mesh.h"
 #include <d3dx9.h>
+#include <vector>
 
 SE_BEGIN_NAMESPACE
 
@@ -18,7 +20,8 @@ private:
 	LPDIRECT3DDEVICE9 m_device;
 	D3DXMATRIX m_matRotate;
 	D3DXMATRIX m_matTranslate;
-	//Mesh *m_currentMesh;
+	Mesh m_currentMesh;
+	std::vector<Object> m_currentSceneObjects;
 };
 
 SE_END_NAMESPACE

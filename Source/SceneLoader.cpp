@@ -9,7 +9,7 @@ SceneLoader::SceneLoader() {
 	m_scenes = std::map<std::string, Scene>();
 }
 
-SceneLoader *SceneLoader::GetInstance() {
+SE_API SceneLoader *SceneLoader::GetInstance() {
 	if (m_instance == nullptr) {
 		m_instance = new SceneLoader();
 	}
@@ -20,20 +20,18 @@ Scene *SceneLoader::GetCurrentScene() {
 	return m_currentScene;
 }
 
-void SceneLoader::AddScene(const std::string &name) {
+SE_API void SceneLoader::AddScene(const std::string &name) {
 	m_scenes[name] = Scene();
-	/*
 	if (m_currentScene == nullptr) {
-		m_currentScene = &scene;
+		m_currentScene = &m_scenes[name];
 	}
-	*/
 }
 
-void SceneLoader::SetCurrentScene(const std::string &name) {
+SE_API void SceneLoader::SetCurrentScene(const std::string &name) {
 	m_currentScene = &m_scenes[name];
 }
 
-Scene *SceneLoader::GetScene(const std::string &name) {
+SE_API Scene *SceneLoader::GetScene(const std::string &name) {
 	return &m_scenes[name];
 }
 

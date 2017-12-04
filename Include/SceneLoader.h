@@ -10,11 +10,11 @@ SE_BEGIN_NAMESPACE
 class SceneLoader {
 public:
 	SceneLoader();
-	static SceneLoader *GetInstance();
+	SE_API static SceneLoader *GetInstance();
 	static Scene *GetCurrentScene();
-	Scene *GetScene(const std::string &name);
-	void AddScene(const std::string &name);
-	void SetCurrentScene(const std::string &name);
+	SE_API Scene *GetScene(const std::string &name);
+	SE_API void AddScene(const std::string &name);
+	SE_API void SetCurrentScene(const std::string &name);
 private:
 	static SceneLoader *m_instance;
 	static Scene *m_currentScene;

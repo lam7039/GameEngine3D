@@ -34,13 +34,12 @@ Direct3D::Direct3D(HWND hWnd) {
 	tiger.Init("tiger.x");
 	tiger.SetPosition(-2.0f, -0.0f, 0.0f);
 
-	SceneLoader::GetInstance()->AddScene("airplane");
-	SceneLoader::GetInstance()->GetScene("airplane")->AddObject(airplane);
-	SceneLoader::GetInstance()->GetScene("airplane")->AddObject(tiger);
-	SceneLoader::GetInstance()->AddScene("tiger");
-	SceneLoader::GetInstance()->GetScene("tiger")->AddObject(tiger);
+	SceneLoader::GetInstance()->AddScene("rotatingobjects");
+	SceneLoader::GetInstance()->GetScene("rotatingobjects")->AddObject(airplane);
+	SceneLoader::GetInstance()->GetScene("rotatingobjects")->AddObject(tiger);
+	SceneLoader::GetInstance()->AddScene("heightmap");
+	SceneLoader::GetInstance()->GetScene("heightmap")->AddObject(tiger);
 
-	SceneLoader::GetInstance()->SetCurrentScene("airplane");
 }
 
 Direct3D::~Direct3D() {
@@ -73,18 +72,17 @@ void Direct3D::Render() {
 	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_device->BeginScene();
 
-	SceneLoader::GetInstance()->GetCurrentScene()->Render();
+	//SceneLoader::GetInstance()->GetCurrentScene()->Render();
 
-	/*
-	std::vector<Object> currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
-	for (int i = 0; i < currentSceneObjects.size(); i++) {
-		m_currentMesh = &AssetLoader::GetInstance()->GetMeshes()->at(currentSceneObjects[i].GetFilename());
-		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotX, m_rotY, m_rotZ);
-		D3DXMatrixTranslation(&m_matTranslate, m_posX, m_posY, m_posZ);
+	std::vector<Object> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
+	for (int i = 0; i < m_currentSceneObjects.size(); i++) {
+		m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i].GetFilename());
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_currentSceneObjects[i].GetRotation().X, m_currentSceneObjects[i].GetRotation().Y, m_currentSceneObjects[i].GetRotation().Z);
+		D3DXMatrixTranslation(&m_matTranslate, m_currentSceneObjects[i].GetPosition().X, m_currentSceneObjects[i].GetPosition().Y, m_currentSceneObjects[i].GetPosition().Z);
 		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-		m_currentMesh->Render();
+		m_currentMesh.Render();
 	}
-	*/
+	
 
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);

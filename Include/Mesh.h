@@ -12,9 +12,9 @@ public:
 	void Load(LPDIRECT3DDEVICE9 device, const std::string &path);
 	void Render();
 	void Release();
-	LPDIRECT3DDEVICE9 m_device;
 private:
 	LPD3DXMESH m_mesh;
+	LPDIRECT3DDEVICE9 m_device;
 	LPDIRECT3DTEXTURE9 *m_meshTextures;
 	D3DMATERIAL9 *m_meshMaterials;
 	DWORD m_materialCount;
