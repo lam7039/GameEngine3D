@@ -76,9 +76,11 @@ void Direct3D::Render() {
 
 	std::vector<Object> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
 	for (int i = 0; i < m_currentSceneObjects.size(); i++) {
-		m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i].GetFilename());
-		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_currentSceneObjects[i].GetRotation().X, m_currentSceneObjects[i].GetRotation().Y, m_currentSceneObjects[i].GetRotation().Z);
-		D3DXMatrixTranslation(&m_matTranslate, m_currentSceneObjects[i].GetPosition().X, m_currentSceneObjects[i].GetPosition().Y, m_currentSceneObjects[i].GetPosition().Z);
+		Mesh m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i].GetFilename());
+		Vector3<float> rotation = m_currentSceneObjects[i].GetRotation();
+		Vector3<float> position = m_currentSceneObjects[i].GetPosition();
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.X, rotation.Y, rotation.Z);
+		D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 		m_currentMesh.Render();
 	}

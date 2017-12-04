@@ -16,7 +16,7 @@ SE_API SceneLoader *SceneLoader::GetInstance() {
 	return m_instance;
 }
 
-Scene *SceneLoader::GetCurrentScene() {
+SE_API Scene *SceneLoader::GetCurrentScene() {
 	return m_currentScene;
 }
 

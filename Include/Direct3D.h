@@ -20,8 +20,6 @@ private:
 	LPDIRECT3DDEVICE9 m_device;
 	D3DXMATRIX m_matRotate;
 	D3DXMATRIX m_matTranslate;
-	Mesh m_currentMesh;
-	std::vector<Object> m_currentSceneObjects;
 };
 
 SE_END_NAMESPACE
