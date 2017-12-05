@@ -37,7 +37,6 @@ Direct3D::~Direct3D() {
 
 void Direct3D::Update(float delta) {
 	//World (object update)
-
 	SceneLoader::GetInstance()->GetCurrentScene()->Update(delta);
 
 	//View (camera)

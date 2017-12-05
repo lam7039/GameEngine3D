@@ -44,7 +44,7 @@ SE_API int EnterLoop(const std::function<void()> &start, const std::function<voi
 
 		// Logic.
 		LogDebug(std::to_string(fps.GetDelta()));
-		d3d.Update(fps.GetTimeMilliseconds());
+		d3d.Update(fps.GetDelta());
 
 		// Drawing.
 		d3d.Render();
