@@ -5,7 +5,7 @@
 
 SE_BEGIN_NAMESPACE
 
-class Timer {
+class SE_API Timer {
 public:
 	Timer();
 

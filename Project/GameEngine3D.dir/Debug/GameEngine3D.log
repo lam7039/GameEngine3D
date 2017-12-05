@@ -1,11 +1,9 @@
-﻿  Scene.cpp
-d:\projects\gameengine3d\include\Object.h(21): warning C4251: 'se::Object::m_filenameMesh': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'se::Object'
+﻿  Object.cpp
+D:\Projects\GameEngine3D\Include\Object.h(21): warning C4251: 'se::Object::m_filenameMesh': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'se::Object'
   D:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\xstring(3997): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
-d:\projects\gameengine3d\include\Object.h(22): warning C4251: 'se::Object::m_position': class 'se::Vector3<float>' needs to have dll-interface to be used by clients of class 'se::Object'
-  d:\projects\gameengine3d\include\Object.h(17): note: see declaration of 'se::Vector3<float>'
-d:\projects\gameengine3d\include\Object.h(23): warning C4251: 'se::Object::m_rotation': class 'se::Vector3<float>' needs to have dll-interface to be used by clients of class 'se::Object'
-  d:\projects\gameengine3d\include\Object.h(17): note: see declaration of 'se::Vector3<float>'
-D:\Projects\GameEngine3D\Source\Scene.cpp(22): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\GameEngine3D\Source\Scene.cpp(31): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\GameEngine3D\Include\Object.h(22): warning C4251: 'se::Object::m_position': class 'se::Vector3<float>' needs to have dll-interface to be used by clients of class 'se::Object'
+  D:\Projects\GameEngine3D\Include\Object.h(17): note: see declaration of 'se::Vector3<float>'
+D:\Projects\GameEngine3D\Include\Object.h(23): warning C4251: 'se::Object::m_rotation': class 'se::Vector3<float>' needs to have dll-interface to be used by clients of class 'se::Object'
+  D:\Projects\GameEngine3D\Include\Object.h(17): note: see declaration of 'se::Vector3<float>'
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.dll
   GameEngine3D.vcxproj -> D:/Projects/GameEngine3D/Project/VisualStudio15/Debug/GameEngine3D.pdb (Full PDB)

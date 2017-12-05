@@ -12,8 +12,6 @@ void Object::Init(const std::string &filenameMesh) {
 }
 
 void Object::Update(float delta) {
-	unsigned int iTime = (int)delta / 10 % 1000;
-	SetRotation(iTime * (2.0f * D3DX_PI) / 1000.0f, 0.0f, 0.0f);
 }
 
 void Object::Render() {
