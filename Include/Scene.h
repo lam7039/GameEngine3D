@@ -10,12 +10,13 @@ SE_BEGIN_NAMESPACE
 class Scene {
 public:
 	Scene();
-	void AddObject(Object object);
+	SE_API void AddObject(Object *object);
+	SE_API void RemoveObject(Object *object);
 	void Update(float delta);
 	void Render();
-	std::vector<Object> GetObjects();
+	std::vector<Object*> GetObjects();
 private:
-	std::vector<Object> m_objects;
+	std::vector<Object*> m_objects;
 };
 
 SE_END_NAMESPACE

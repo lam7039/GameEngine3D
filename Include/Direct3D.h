@@ -3,6 +3,7 @@
 
 #include "std.h"
 #include "Object.h"
+#include "Camera.h"
 #include "Mesh.h"
 #include <d3dx9.h>
 #include <vector>
@@ -20,6 +21,7 @@ private:
 	LPDIRECT3DDEVICE9 m_device;
 	D3DXMATRIX m_matRotate;
 	D3DXMATRIX m_matTranslate;
+	Camera m_camera;
 };
 
 SE_END_NAMESPACE

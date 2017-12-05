@@ -21,25 +21,11 @@ Direct3D::Direct3D(HWND hWnd) {
 	m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
 	
 	AssetLoader::GetInstance()->Init(m_device);
 	AssetLoader::GetInstance()->AddMesh("airplane.x");
 	AssetLoader::GetInstance()->AddMesh("tiger.x");
-
-	Object airplane;
-	airplane.Init("airplane.x");
-	airplane.SetPosition(2.0f, 0.0f, -5.0f);
-	
-	Object tiger;
-	tiger.Init("tiger.x");
-	tiger.SetPosition(-2.0f, -0.0f, 0.0f);
-
-	SceneLoader::GetInstance()->AddScene("rotatingobjects");
-	SceneLoader::GetInstance()->GetScene("rotatingobjects")->AddObject(airplane);
-	SceneLoader::GetInstance()->GetScene("rotatingobjects")->AddObject(tiger);
-	SceneLoader::GetInstance()->AddScene("heightmap");
-	SceneLoader::GetInstance()->GetScene("heightmap")->AddObject(tiger);
-
 }
 
 Direct3D::~Direct3D() {
@@ -57,14 +43,14 @@ void Direct3D::Update(float delta) {
 	//View (camera)
 	D3DXMATRIX matView;
 	D3DXMatrixLookAtLH(&matView,
-		&D3DXVECTOR3(0.0f, 0.0f, 10.0f),
+		&D3DXVECTOR3(m_camera.GetPosition().X, m_camera.GetPosition().Y, m_camera.GetPosition().Z),
 		&D3DXVECTOR3(0.0f, 0.0f, 0.0f),
 		&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
 	m_device->SetTransform(D3DTS_VIEW, &matView);
 
 	//Projection
 	D3DXMATRIX matProj;
-	D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.0f, 1.0f, 100.0f);
+	D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
 	m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 }
 
@@ -72,20 +58,19 @@ void Direct3D::Render() {
 	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_device->BeginScene();
 
-	//SceneLoader::GetInstance()->GetCurrentScene()->Render();
-
-	std::vector<Object> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
+	std::vector<Object*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
 	for (int i = 0; i < m_currentSceneObjects.size(); i++) {
-		Mesh m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i].GetFilename());
-		Vector3<float> rotation = m_currentSceneObjects[i].GetRotation();
-		Vector3<float> position = m_currentSceneObjects[i].GetPosition();
+		Mesh m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i]->GetFilename());
+		Vector3<float> rotation = m_currentSceneObjects[i]->GetRotation();
+		Vector3<float> position = m_currentSceneObjects[i]->GetPosition();
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.X, rotation.Y, rotation.Z);
 		D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 		m_currentMesh.Render();
 	}
-	
 
+	SceneLoader::GetInstance()->GetCurrentScene()->Render();
+	
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);
 }

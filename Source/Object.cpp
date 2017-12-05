@@ -1,17 +1,14 @@
-//TODO: d3dx9.h is being detected in executable project
-//#include <d3dx9.h>
 #include "Object.h"
 #include "AssetLoader.h"
 
 SE_BEGIN_NAMESPACE
 
 Object::Object() {
-	m_filename = "";
+	m_filenameMesh = "";
 }
 
-void Object::Init(/*const std::string &objectName, */const std::string &filename) {
-	m_filename = filename;
-	//m_mesh = &AssetLoader::GetInstance()->GetMeshes()->at(m_filename);
+void Object::Init(const std::string &filenameMesh) {
+	m_filenameMesh = filenameMesh;
 }
 
 void Object::Update(float delta) {
@@ -20,10 +17,6 @@ void Object::Update(float delta) {
 }
 
 void Object::Render() {
-//	D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotation.X, m_rotation.Y, m_rotation.Z);
-//	D3DXMatrixTranslation(&m_matTranslate, m_position.X, m_position.Y, m_position.Z);
-//	m_mesh->m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-//	m_mesh->Render();
 }
 
 void Object::SetRotation(float x, float y, float z) {
@@ -49,7 +42,7 @@ Vector3<float> Object::GetRotation() {
 }
 
 std::string Object::GetFilename() {
-	return m_filename;
+	return m_filenameMesh;
 }
 
 SE_END_NAMESPACE
