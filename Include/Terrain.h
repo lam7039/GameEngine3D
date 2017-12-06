@@ -7,6 +7,7 @@
 
 SE_BEGIN_NAMESPACE
 
+//TODO: Terrain shouldn't be an object, but just be in a scene. This is a temporary solution to easily switch between scenes for the expert meeting
 class Terrain : public Object {
 public:
 	Terrain(LPDIRECT3DDEVICE9 device);
