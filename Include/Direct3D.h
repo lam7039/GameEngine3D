@@ -2,11 +2,9 @@
 #define DIRECT3D_H
 
 #include "std.h"
-#include "Object.h"
 #include "Camera.h"
 #include "Mesh.h"
 #include <d3dx9.h>
-#include <vector>
 
 SE_BEGIN_NAMESPACE
 

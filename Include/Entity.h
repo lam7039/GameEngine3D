@@ -1,14 +1,14 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #include "std.h"
 #include "Vector3.h"
 
 SE_BEGIN_NAMESPACE
 
-class SE_API Object {
+class SE_API Entity {
 public:
-	Object();
+	Entity();
 	void Init(const std::string &filename);
 	void SetRotation(float x, float y, float z);
 	void SetPosition(float x, float y, float z);

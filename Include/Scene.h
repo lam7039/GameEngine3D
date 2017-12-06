@@ -2,7 +2,7 @@
 #define SCENE_H
 
 #include "std.h"
-#include "Object.h"
+#include "Entity.h"
 #include <vector>
 
 SE_BEGIN_NAMESPACE
@@ -11,13 +11,13 @@ SE_BEGIN_NAMESPACE
 class Scene {
 public:
 	Scene();
-	SE_API void AddObject(Object *object);
-	SE_API void RemoveObject(Object *object);
+	SE_API void AddEntity(Entity *entity);
+	SE_API void RemoveEntity(Entity *entity);
 	void Update(float delta);
 	void Render();
-	std::vector<Object*> GetObjects();
+	std::vector<Entity*> GetEntities();
 private:
-	std::vector<Object*> m_objects;
+	std::vector<Entity*> m_entities;
 };
 
 SE_END_NAMESPACE

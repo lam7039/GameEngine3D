@@ -21,13 +21,14 @@ Window::Window(const std::string &title) : m_title(title)
 	m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
 }
 
-HWND Window::OpenWindow(HINSTANCE hInstance, int cmdShow) {
+HWND Window::OpenWindow() {
+	HMODULE hInstance = GetModuleHandle(NULL);
 	ATOM atom = RegisterWindowProc(hInstance, WindowProc, "window");
 	if (!atom) {
 		return NULL;
 	}
 	HWND hWnd = CreateWindowEx(NULL, "window", m_title.c_str(), WS_OVERLAPPEDWINDOW, m_x, m_y, m_width, m_height, NULL, NULL, hInstance, NULL);
-	ShowWindow(hWnd, cmdShow);
+	ShowWindow(hWnd, SW_SHOW);
 	return hWnd;
 }
 

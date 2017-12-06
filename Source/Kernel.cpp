@@ -1,30 +1,26 @@
-#include <Windows.h>
-#include "Engine.h"
-#include "Window.h"
 #include "Debug.h"
+#include "Kernel.h"
+#include "Window.h"
 #include "Direct3D.h"
 #include "FPSCounter.h"
 
 SE_BEGIN_NAMESPACE
 
-HWND hWnd;
-Debug log;
-
-SE_API void LogDebug(const std::string& message) {
-	log.AppendFile(message);
+void Kernel::LogDebug(const std::string& message) {
+	m_log.AppendFile(message);
 }
 
-SE_API void StartEngine(HINSTANCE hInstance, int nCmdShow, const std::string &title) {
+void Kernel::StartEngine(const std::string &title) {
 	// Initialize logging. (still thinking of a better way to do logging)
 
 	Window window(title);
-	hWnd = window.OpenWindow(hInstance, nCmdShow);
+	m_hWnd = window.OpenWindow();
 }
 
-SE_API int EnterLoop(const std::function<void()> &start, const std::function<void()> &stop) {
+int Kernel::EnterLoop(const std::function<void()> &start, const std::function<void()> &stop) {
 	bool isRunning = true;
 
-	Direct3D d3d(hWnd);
+	Direct3D d3d(m_hWnd);
 
 	start();
 
@@ -42,7 +38,6 @@ SE_API int EnterLoop(const std::function<void()> &start, const std::function<voi
 		}
 
 		// Logic.
-		LogDebug(std::to_string(fps.GetDelta()));
 		d3d.Update(fps.GetDelta());
 
 		// Drawing.

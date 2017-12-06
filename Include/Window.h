@@ -8,7 +8,7 @@ SE_BEGIN_NAMESPACE
 class Window {
 public:
 	Window(const std::string& title);
-	HWND OpenWindow(HINSTANCE hInstance, int cmdShow);
+	HWND OpenWindow();
 	void SetSize(int width, int height);
 private:
 	int m_x;

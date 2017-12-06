@@ -3,6 +3,7 @@
 #include "AssetLoader.h"
 #include "SceneLoader.h"
 #include "Terrain.h"
+#include "Entity.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -30,7 +31,7 @@ Direct3D::Direct3D(HWND hWnd) {
 
 	Terrain *terrain = new Terrain(m_device);
 	SceneLoader::GetInstance()->AddScene("heightmap");
-	SceneLoader::GetInstance()->GetScene("heightmap")->AddObject(terrain);
+	SceneLoader::GetInstance()->GetScene("heightmap")->AddEntity(terrain);
 
 }
 
@@ -63,7 +64,7 @@ void Direct3D::Render() {
 	m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	m_device->BeginScene();
 
-	std::vector<Object*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
+	std::vector<Entity*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetEntities();
 	for (int i = 0; i < m_currentSceneObjects.size(); i++) {
 		Vector3<float> rotation = m_currentSceneObjects[i]->GetRotation();
 		Vector3<float> position = m_currentSceneObjects[i]->GetPosition();

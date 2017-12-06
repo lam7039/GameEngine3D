@@ -6,35 +6,35 @@ SE_BEGIN_NAMESPACE
 Scene::Scene() {
 }
 
-SE_API void Scene::AddObject(Object *object) {
-	m_objects.push_back(object);
+SE_API void Scene::AddEntity(Entity *entity) {
+	m_entities.push_back(entity);
 }
 
-SE_API void Scene::RemoveObject(Object *object) {
+SE_API void Scene::RemoveEntity(Entity *entity) {
 	//Erase the object from the list and to avoid gaps I use remove
-	m_objects.erase(std::remove(m_objects.begin(), m_objects.end(), object), m_objects.end());
+	m_entities.erase(std::remove(m_entities.begin(), m_entities.end(), entity), m_entities.end());
 }
 
 void Scene::Update(float delta) {
-	if (m_objects.size() == 0) {
+	if (m_entities.size() == 0) {
 		return;
 	}
-	for (int i = 0; i < m_objects.size(); i++) {
-		m_objects[i]->Update(delta);
+	for (int i = 0; i < m_entities.size(); i++) {
+		m_entities[i]->Update(delta);
 	}
 }
 
 void Scene::Render() {
-	if (m_objects.size() == 0) {
+	if (m_entities.size() == 0) {
 		return;
 	}
-	for (int i = 0; i < m_objects.size(); i++) {
-		m_objects[i]->Render();
+	for (int i = 0; i < m_entities.size(); i++) {
+		m_entities[i]->Render();
 	}
 }
 
-std::vector<Object*> Scene::GetObjects() {
-	return m_objects;
+std::vector<Entity*> Scene::GetEntities() {
+	return m_entities;
 }
 
 SE_END_NAMESPACE

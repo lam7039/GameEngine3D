@@ -2,11 +2,11 @@
 #define CAMERA_H
 
 #include "std.h"
-#include "Object.h"
+#include "Entity.h"
 
 SE_BEGIN_NAMESPACE
 
-class Camera : public Object {
+class Camera : public Entity {
 public:
 	Camera();
 };
