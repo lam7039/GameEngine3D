@@ -31,6 +31,7 @@ Direct3D::Direct3D(HWND hWnd) {
 	Terrain *terrain = new Terrain(m_device);
 	SceneLoader::GetInstance()->AddScene("heightmap");
 	SceneLoader::GetInstance()->GetScene("heightmap")->AddObject(terrain);
+
 }
 
 Direct3D::~Direct3D() {
