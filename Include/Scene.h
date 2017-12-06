@@ -7,6 +7,7 @@
 
 SE_BEGIN_NAMESPACE
 
+//TODO: use export on interfaces, not on classes itself
 class Scene {
 public:
 	Scene();
