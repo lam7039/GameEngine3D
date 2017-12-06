@@ -1,4 +1,5 @@
 #include "SceneLoader.h"
+#include <Windows.h>
 
 SE_BEGIN_NAMESPACE
 
@@ -21,6 +22,10 @@ SE_API Scene *SceneLoader::GetCurrentScene() {
 }
 
 SE_API void SceneLoader::AddScene(const std::string &name) {
+	if (m_scenes.find(name) != m_scenes.end()) {
+		//MessageBox(NULL, "scene already exists", "sceneloader", MB_OK); //Instead of this, log it
+		return;
+	}
 	m_scenes[name] = Scene();
 	if (m_currentScene == nullptr) {
 		m_currentScene = &m_scenes[name];
