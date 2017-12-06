@@ -5,7 +5,7 @@
 #include "Mesh.h"
 #include <map>
 
-//TODO: use a map and call, call it in object and destroy it there too, not in the manager?
+//TODO: use d3d in direct3d class, not in the manager so the user use the assetloader
 SE_BEGIN_NAMESPACE
 
 class AssetLoader {
