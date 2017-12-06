@@ -2,6 +2,7 @@
 #include "Direct3D.h"
 #include "AssetLoader.h"
 #include "SceneLoader.h"
+#include "Terrain.h"
 
 SE_BEGIN_NAMESPACE
 
@@ -20,12 +21,16 @@ Direct3D::Direct3D(HWND hWnd) {
 	m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 	m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
-	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
-	
+
 	AssetLoader::GetInstance()->Init(m_device);
 	AssetLoader::GetInstance()->AddMesh("airplane.x");
 	AssetLoader::GetInstance()->AddMesh("tiger.x");
+
+	Terrain *terrain = new Terrain(m_device);
+	SceneLoader::GetInstance()->AddScene("heightmap");
+	SceneLoader::GetInstance()->GetScene("heightmap")->AddObject(terrain);
 }
 
 Direct3D::~Direct3D() {
@@ -59,17 +64,22 @@ void Direct3D::Render() {
 
 	std::vector<Object*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetObjects();
 	for (int i = 0; i < m_currentSceneObjects.size(); i++) {
-		Mesh m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i]->GetFilename());
+		Mesh m_currentMesh;
+		if (m_currentSceneObjects[i]->GetFilename() != "") {
+			m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i]->GetFilename());
+		}
 		Vector3<float> rotation = m_currentSceneObjects[i]->GetRotation();
 		Vector3<float> position = m_currentSceneObjects[i]->GetPosition();
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.X, rotation.Y, rotation.Z);
 		D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-		m_currentMesh.Render();
+		if (m_currentSceneObjects[i]->GetFilename() != "") {
+			m_currentMesh.Render();
+		}
 	}
 
 	SceneLoader::GetInstance()->GetCurrentScene()->Render();
-	
+
 	m_device->EndScene();
 	m_device->Present(NULL, NULL, NULL, NULL);
 }

@@ -4,7 +4,6 @@
 #include "Debug.h"
 #include "Direct3D.h"
 #include "FPSCounter.h"
-#include "AssetLoader.h"
 
 SE_BEGIN_NAMESPACE
 
