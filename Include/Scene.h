@@ -7,7 +7,6 @@
 
 namespace se {
 
-	//TODO: use export on interfaces, not on classes itself
 	class Scene {
 	public:
 		Scene();
@@ -15,7 +14,7 @@ namespace se {
 		void RemoveEntity(Entity *entity);
 		void Update(float delta);
 		void Render();
-		std::vector<Entity*> GetEntities();
+		const std::vector<Entity*> &GetEntities() const;
 	private:
 		std::vector<Entity*> m_entities;
 	};

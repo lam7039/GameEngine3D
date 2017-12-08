@@ -1,11 +1,13 @@
 #include <Windows.h>
-#include "Direct3D.h"
+#include "Directx9/Direct3D.h"
 #include "AssetLoader.h"
 #include "SceneLoader.h"
 #include "Terrain.h"
 #include "Entity.h"
 
 namespace se {
+
+	LPDIRECT3DDEVICE9 Direct3D::m_device = nullptr;
 
 	Direct3D::Direct3D(HWND hWnd) {
 		m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
@@ -18,18 +20,19 @@ namespace se {
 		d3dpp.EnableAutoDepthStencil = TRUE;
 		d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
-		m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device);
+		if (FAILED(m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device))) {
+			MessageBox(NULL, "failed to create the device", "Meshes.exe", MB_OK);
+		}
 		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 		m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
 
-		AssetLoader::GetInstance()->Init(m_device);
 		AssetLoader::GetInstance()->AddMesh("airplane.x");
 		AssetLoader::GetInstance()->AddMesh("tiger.x");
 
-		Terrain *terrain = new Terrain(m_device);
+		Terrain *terrain = new Terrain();
 		SceneLoader::GetInstance()->AddScene("heightmap");
 		SceneLoader::GetInstance()->GetScene("heightmap")->AddEntity(terrain);
 
@@ -72,8 +75,8 @@ namespace se {
 			D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 			m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 			if (m_currentSceneObjects[i]->GetFilename() != "") {
-				Mesh m_currentMesh = AssetLoader::GetInstance()->GetMeshes()->at(m_currentSceneObjects[i]->GetFilename());
-				m_currentMesh.Render();
+				Mesh *m_currentMesh = AssetLoader::GetInstance()->GetMeshes().at(m_currentSceneObjects[i]->GetFilename());
+				m_currentMesh->Render();
 			}
 		}
 
@@ -81,6 +84,10 @@ namespace se {
 
 		m_device->EndScene();
 		m_device->Present(NULL, NULL, NULL, NULL);
+	}
+
+	LPDIRECT3DDEVICE9 Direct3D::GetDevice() {
+		return m_device;
 	}
 
 }

@@ -22,8 +22,14 @@ if(CMAKE_CONFIGURATION_TYPES)
 endif()
 
 file(GLOB_RECURSE SOURCE_FILES ${ROOT_DIR}/Source/*.cpp)
+file(GLOB_RECURSE SOURCE_FILES_DIRECTX9 ${ROOT_DIR}/Source/DirectX9/*.cpp)
 
 file(GLOB_RECURSE HEADER_FILES ${ROOT_DIR}/Include/*.h)
+file(GLOB_RECURSE HEADER_FILES_DIRECTX9 ${ROOT_DIR}/Include/DirectX9/*.h)
+
+source_group("Source Files\\DirectX9" FILES ${SOURCE_FILES_DIRECTX9})
+
+source_group("Header Files\\DirectX9" FILES ${HEADER_FILES_DIRECTX9})
 
 add_library(GameEngine3D STATIC ${SOURCE_FILES} ${HEADER_FILES})
 

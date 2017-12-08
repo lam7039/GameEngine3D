@@ -1,4 +1,3 @@
-#include <d3dx9.h>
 #include "AssetLoader.h"
 
 namespace se {
@@ -10,7 +9,7 @@ namespace se {
 	}
 
 	AssetLoader::~AssetLoader() {
-		std::map<std::string, Mesh>::iterator it;
+		std::map<std::string, Mesh*>::iterator it;
 		for (it = m_meshes.begin(); it != m_meshes.end(); it++) {
 			ReleaseMesh(it->first);
 		}
@@ -23,22 +22,18 @@ namespace se {
 		return m_instance;
 	}
 
-	void AssetLoader::Init(LPDIRECT3DDEVICE9 device) {
-		m_device = device;
-	}
-
 	void AssetLoader::AddMesh(const std::string &path) {
-		Mesh mesh;
-		mesh.Load(m_device, "Assets\\" + path);
+		Mesh *mesh = new Mesh("Assets\\" + path);
+		mesh->Load();
 		m_meshes[path] = mesh;
 	}
 
-	std::map<std::string, Mesh> *AssetLoader::GetMeshes() {
-		return &m_meshes;
+	std::map<std::string, Mesh*> AssetLoader::GetMeshes() {
+		return m_meshes;
 	}
 
 	void AssetLoader::ReleaseMesh(const std::string &filename) {
-		m_meshes[filename].Release();
+		m_meshes[filename]->Release();
 		m_meshes.erase(filename);
 	}
 
@@ -51,10 +46,6 @@ namespace se {
 		if (extension == "x") {
 			AssetLoader::GetInstance()->AddMesh(path);
 		}
-	}
-
-	 void ReleaseAsset(const std::string &path) {
-		AssetLoader::GetInstance()->Release(path);
 	}*/
 
 }

@@ -10,10 +10,9 @@ namespace se {
 	//TODO: Terrain shouldn't be an object, but just be in a scene. This is a temporary solution to easily switch between scenes for the expert meeting
 	class Terrain : public Entity {
 	public:
-		Terrain(LPDIRECT3DDEVICE9 device);
+		Terrain();
 		void Render();
 	private:
-		LPDIRECT3DDEVICE9 m_device;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
 		LPDIRECT3DINDEXBUFFER9 m_indexBuffer;
 	};

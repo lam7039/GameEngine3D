@@ -33,7 +33,7 @@ namespace se {
 		}
 	}
 
-	std::vector<Entity*> Scene::GetEntities() {
+	const std::vector<Entity*> &Scene::GetEntities() const {
 		return m_entities;
 	}
 

@@ -1,7 +1,7 @@
 #include "Debug.h"
 #include "Kernel.h"
 #include "Window.h"
-#include "Direct3D.h"
+#include "DirectX9/Direct3D.h"
 #include "FPSCounter.h"
 
 namespace se {

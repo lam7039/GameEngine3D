@@ -1,20 +1,20 @@
-#ifndef MESH_H
-#define MESH_H
+#ifndef DIRECTXMESH_H
+#define DIRECTXMESH_H
 
-#include "std.h"
-#include <d3dx9.h>
+#include "Asset.h"
+#include "DirectX9/Direct3D.h"
 
 namespace se {
 
-	class Mesh {
+	class Mesh : public AbstractAsset {
 	public:
-		Mesh();
-		void Load(LPDIRECT3DDEVICE9 device, const std::string &path);
+		Mesh(const std::string &path);
+		void Create();
+		void Load();
 		void Render();
 		void Release();
 	private:
 		LPD3DXMESH m_mesh;
-		LPDIRECT3DDEVICE9 m_device;
 		LPDIRECT3DTEXTURE9 *m_meshTextures;
 		D3DMATERIAL9 *m_meshMaterials;
 		DWORD m_materialCount;
