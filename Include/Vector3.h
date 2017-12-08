@@ -3,34 +3,34 @@
 
 #include "std.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-template<class T>
-class Vector3 {
-public:
-	T X;
-	T Y;
-	T Z;
+	template<class T>
+	class Vector3 {
+	public:
+		T X;
+		T Y;
+		T Z;
 
-	Vector3() {
-		X = NULL;
-		Y = NULL;
-		Z = NULL;
-	}
+		Vector3() {
+			X = NULL;
+			Y = NULL;
+			Z = NULL;
+		}
 
-	Vector3(T x, T y, T z) {
-		X = x;
-		Y = y;
-		Z = z;
-	}
+		Vector3(T x, T y, T z) {
+			X = x;
+			Y = y;
+			Z = z;
+		}
 
-	void Set(T x, T y, T z) {
-		X = x;
-		Y = y;
-		Z = z;
-	}
-};
+		void Set(T x, T y, T z) {
+			X = x;
+			Y = y;
+			Z = z;
+		}
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif

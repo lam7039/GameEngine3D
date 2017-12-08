@@ -5,21 +5,21 @@
 #include "Entity.h"
 #include <vector>
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-//TODO: use export on interfaces, not on classes itself
-class Scene {
-public:
-	Scene();
-	SE_API void AddEntity(Entity *entity);
-	SE_API void RemoveEntity(Entity *entity);
-	void Update(float delta);
-	void Render();
-	std::vector<Entity*> GetEntities();
-private:
-	std::vector<Entity*> m_entities;
-};
+	//TODO: use export on interfaces, not on classes itself
+	class Scene {
+	public:
+		Scene();
+		void AddEntity(Entity *entity);
+		void RemoveEntity(Entity *entity);
+		void Update(float delta);
+		void Render();
+		std::vector<Entity*> GetEntities();
+	private:
+		std::vector<Entity*> m_entities;
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif

@@ -3,17 +3,17 @@
 
 #include "std.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-class Debug {
-public:
-	Debug();
-	void WriteFile(const std::string &source);
-	void AppendFile(const std::string &source);
-private:
-	std::string m_path;
-};
+	class Debug {
+	public:
+		Debug();
+		void WriteFile(const std::string &source);
+		void AppendFile(const std::string &source);
+	private:
+		std::string m_path;
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif

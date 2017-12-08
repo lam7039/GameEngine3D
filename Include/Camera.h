@@ -4,13 +4,13 @@
 #include "std.h"
 #include "Entity.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-class Camera : public Entity {
-public:
-	Camera();
-};
+	class Camera : public Entity {
+	public:
+		Camera();
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif
