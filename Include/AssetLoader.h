@@ -11,10 +11,10 @@ namespace se {
 		void AddMesh(const std::string &path);
 		void ReleaseMesh(const std::string &filename);
 		static AssetLoader *GetInstance();
-		std::map<std::string, Mesh*> AssetLoader::GetMeshes();
+		std::unordered_map<std::string, Mesh*> GetMeshes();
 	private:
 		static AssetLoader *m_instance;
-		std::map<std::string, Mesh*> m_meshes;
+		std::unordered_map<std::string, Mesh*> m_meshes;
 		AssetLoader();
 		~AssetLoader();
 	};

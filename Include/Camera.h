@@ -6,6 +6,7 @@
 
 namespace se {
 
+	//Shouldn't be an entity, has a meshFileName f.ex like this
 	class Camera : public Entity {
 	public:
 		Camera();

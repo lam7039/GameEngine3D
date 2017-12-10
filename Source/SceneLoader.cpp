@@ -7,7 +7,7 @@ namespace se {
 	Scene *SceneLoader::m_currentScene = nullptr;
 
 	SceneLoader::SceneLoader() {
-		m_scenes = std::map<std::string, Scene>();
+		m_scenes = std::unordered_map<std::string, Scene>();
 	}
 
 	SceneLoader *SceneLoader::GetInstance() {

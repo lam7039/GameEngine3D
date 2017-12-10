@@ -8,13 +8,13 @@ namespace se {
 		m_oldTime = 0;
 		m_newTime = 0;
 		m_fps = 0;
-		time.Start();
+		m_time.Start();
 	}
 
 	void FPSCounter::Update() {
 		m_deltaTime = (float)(m_newTime - m_oldTime) / 1000000.0f;
 		m_oldTime = m_newTime;
-		m_newTime = time.Microseconds();
+		m_newTime = m_time.Microseconds();
 
 		if (m_newTime - m_lastTime >= 1000000) {
 			m_lastTime = m_newTime;
@@ -30,10 +30,6 @@ namespace se {
 
 	float FPSCounter::GetDelta() {
 		return m_deltaTime;
-	}
-
-	float FPSCounter::GetTimeMilliseconds() {
-		return time.Milliseconds();
 	}
 
 }

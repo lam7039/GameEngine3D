@@ -3,6 +3,7 @@
 
 #include "std.h"
 #include "Debug.h"
+#include "DirectX9/Direct3D.h"
 #include <Windows.h>
 
 namespace se {
@@ -11,10 +12,11 @@ namespace se {
 	public:
 		void LogDebug(const std::string& message);
 		void StartEngine(const std::string &title);
-		int EnterLoop(const std::function<void()> &start, const std::function<void()> &stop);
+		int EnterLoop();
 	private:
 		HWND m_hWnd;
 		Debug m_log;
+		Direct3D m_d3d;
 	};
 
 }

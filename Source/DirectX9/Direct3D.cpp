@@ -1,15 +1,13 @@
-#include <Windows.h>
-#include "Directx9/Direct3D.h"
+#include "DirectX9/Direct3D.h"
 #include "AssetLoader.h"
 #include "SceneLoader.h"
 #include "Terrain.h"
-#include "Entity.h"
 
 namespace se {
 
 	LPDIRECT3DDEVICE9 Direct3D::m_device = nullptr;
 
-	Direct3D::Direct3D(HWND hWnd) {
+	void Direct3D::Init(HWND hWnd) {
 		m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 		D3DPRESENT_PARAMETERS d3dpp;
 		ZeroMemory(&d3dpp, sizeof(d3dpp));
@@ -29,20 +27,10 @@ namespace se {
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 		m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
 
-		AssetLoader::GetInstance()->AddMesh("airplane.x");
-		AssetLoader::GetInstance()->AddMesh("tiger.x");
-
 		Terrain *terrain = new Terrain();
 		SceneLoader::GetInstance()->AddScene("heightmap");
 		SceneLoader::GetInstance()->GetScene("heightmap")->AddEntity(terrain);
 
-	}
-
-	Direct3D::~Direct3D() {
-		AssetLoader::GetInstance()->ReleaseMesh("tiger.x");
-		AssetLoader::GetInstance()->ReleaseMesh("airplane.x");
-		m_device->Release();
-		m_d3d->Release();
 	}
 
 	void Direct3D::Update(float delta) {
@@ -75,8 +63,8 @@ namespace se {
 			D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 			m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 			if (m_currentSceneObjects[i]->GetFilename() != "") {
-				Mesh *m_currentMesh = AssetLoader::GetInstance()->GetMeshes().at(m_currentSceneObjects[i]->GetFilename());
-				m_currentMesh->Render();
+				Mesh *m_currentMesh = AssetLoader::GetInstance()->GetMeshes()[m_currentSceneObjects[i]->GetFilename()];
+				m_currentMesh->Process();
 			}
 		}
 
@@ -84,6 +72,11 @@ namespace se {
 
 		m_device->EndScene();
 		m_device->Present(NULL, NULL, NULL, NULL);
+	}
+
+	void Direct3D::Destroy() {
+		m_device->Release();
+		m_d3d->Release();
 	}
 
 	LPDIRECT3DDEVICE9 Direct3D::GetDevice() {

@@ -11,13 +11,13 @@ namespace se {
 		Mesh(const std::string &path);
 		void Create();
 		void Load();
-		void Render();
+		void Process();
 		void Release();
 	private:
 		LPD3DXMESH m_mesh;
 		LPDIRECT3DTEXTURE9 *m_meshTextures;
 		D3DMATERIAL9 *m_meshMaterials;
-		DWORD m_materialCount;
+		unsigned long m_materialCount;
 	};
 
 }

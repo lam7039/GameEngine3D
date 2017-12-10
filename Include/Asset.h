@@ -9,7 +9,7 @@ namespace se {
 	public:
 		virtual void Create() = 0;
 		virtual void Load() = 0;
-		virtual void Render() = 0;
+		virtual void Process() = 0;
 		virtual void Release() = 0;
 	protected:
 		std::string m_path;
@@ -19,10 +19,9 @@ namespace se {
 	public:
 		void Create();
 		void Load();
-		void Render();
+		void Process();
 		void Release();
 	};
-
 }
 
 #endif

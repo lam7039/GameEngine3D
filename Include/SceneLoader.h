@@ -3,7 +3,6 @@
 
 #include "std.h"
 #include "Scene.h"
-#include <map>
 
 namespace se {
 
@@ -17,7 +16,7 @@ namespace se {
 	private:
 		static SceneLoader *m_instance;
 		static Scene *m_currentScene;
-		std::map<std::string, Scene> m_scenes;
+		std::unordered_map<std::string, Scene> m_scenes;
 		SceneLoader();
 
 	};

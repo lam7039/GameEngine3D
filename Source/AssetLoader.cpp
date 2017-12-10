@@ -9,7 +9,7 @@ namespace se {
 	}
 
 	AssetLoader::~AssetLoader() {
-		std::map<std::string, Mesh*>::iterator it;
+		std::unordered_map<std::string, Mesh*>::iterator it;
 		for (it = m_meshes.begin(); it != m_meshes.end(); it++) {
 			ReleaseMesh(it->first);
 		}
@@ -28,7 +28,7 @@ namespace se {
 		m_meshes[path] = mesh;
 	}
 
-	std::map<std::string, Mesh*> AssetLoader::GetMeshes() {
+	std::unordered_map<std::string, Mesh*> AssetLoader::GetMeshes() {
 		return m_meshes;
 	}
 

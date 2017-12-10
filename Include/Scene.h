@@ -3,7 +3,6 @@
 
 #include "std.h"
 #include "Entity.h"
-#include <vector>
 
 namespace se {
 

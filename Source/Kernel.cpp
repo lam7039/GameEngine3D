@@ -1,7 +1,6 @@
 #include "Debug.h"
 #include "Kernel.h"
 #include "Window.h"
-#include "DirectX9/Direct3D.h"
 #include "FPSCounter.h"
 
 namespace se {
@@ -15,14 +14,11 @@ namespace se {
 
 		Window window(title);
 		m_hWnd = window.OpenWindow();
+		m_d3d.Init(m_hWnd);
 	}
 
-	int Kernel::EnterLoop(const std::function<void()> &start, const std::function<void()> &stop) {
+	int Kernel::EnterLoop() {
 		bool isRunning = true;
-
-		Direct3D d3d(m_hWnd);
-
-		start();
 
 		MSG msg;
 		FPSCounter fps;
@@ -38,15 +34,15 @@ namespace se {
 			}
 
 			// Logic.
-			d3d.Update(fps.GetDelta());
+			m_d3d.Update(fps.GetDelta());
 
 			// Drawing.
-			d3d.Render();
+			m_d3d.Render();
 
 			fps.Update();
 		}
 
-		stop();
+		m_d3d.Destroy();
 
 		return msg.wParam;
 	}

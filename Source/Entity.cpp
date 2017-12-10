@@ -1,5 +1,4 @@
 #include "Entity.h"
-#include "AssetLoader.h"
 
 namespace se {
 

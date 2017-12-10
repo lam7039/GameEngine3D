@@ -10,9 +10,8 @@ namespace se {
 	public:
 		FPSCounter();
 		void Update();
-		int GetFPS();
 		float GetDelta();
-		float GetTimeMilliseconds();
+		int GetFPS();
 	private:
 		long long m_frames;
 		long long m_lastTime;
@@ -20,7 +19,7 @@ namespace se {
 		long long m_newTime;
 		float m_deltaTime;
 		int m_fps;
-		Timer time;
+		Timer m_time;
 	};
 
 }

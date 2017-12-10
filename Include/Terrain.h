@@ -3,7 +3,7 @@
 
 #include "std.h"
 #include "Entity.h"
-#include <d3dx9.h>
+#include "DirectX9\Direct3D.h"
 
 namespace se {
 
