@@ -17,7 +17,7 @@ namespace se {
 		LPD3DXMESH m_mesh;
 		LPDIRECT3DTEXTURE9 *m_meshTextures;
 		D3DMATERIAL9 *m_meshMaterials;
-		unsigned long m_materialCount;
+		DWORD m_materialCount;
 	};
 
 }

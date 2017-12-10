@@ -10,8 +10,8 @@ namespace se {
 
 	class Kernel {
 	public:
+		Kernel(const std::string &title);
 		void LogDebug(const std::string& message);
-		void StartEngine(const std::string &title);
 		int EnterLoop();
 	private:
 		HWND m_hWnd;

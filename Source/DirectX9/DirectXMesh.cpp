@@ -23,7 +23,7 @@ namespace se {
 		D3DXMATERIAL *materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
 		m_meshMaterials = new D3DMATERIAL9[m_materialCount];
 		m_meshTextures = new LPDIRECT3DTEXTURE9[m_materialCount];
-		for (unsigned long i = 0; i < m_materialCount; i++) {
+		for (DWORD i = 0; i < m_materialCount; i++) {
 			m_meshMaterials[i] = materials[i].MatD3D;
 			m_meshMaterials[i].Ambient = m_meshMaterials[i].Diffuse;
 			m_meshTextures[i] = NULL;
@@ -40,7 +40,7 @@ namespace se {
 	}
 
 	void Mesh::Process() {
-		for (unsigned long i = 0; i < m_materialCount; i++) {
+		for (DWORD i = 0; i < m_materialCount; i++) {
 			Direct3D::GetDevice()->SetMaterial(&m_meshMaterials[i]);
 			Direct3D::GetDevice()->SetTexture(i, m_meshTextures[i]);
 			m_mesh->DrawSubset(i);
@@ -52,7 +52,7 @@ namespace se {
 			delete[] m_meshMaterials;
 		}
 		if (m_meshTextures) {
-			for (unsigned long i = 0; i < m_materialCount; i++) {
+			for (DWORD i = 0; i < m_materialCount; i++) {
 				if (m_meshTextures[i]) {
 					m_meshTextures[i]->Release();
 				}
