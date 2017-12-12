@@ -3,9 +3,6 @@
 
 namespace se {
 
-	Scene::Scene() {
-	}
-
 	void Scene::AddEntity(Entity *entity) {
 		m_entities.push_back(entity);
 	}
@@ -25,12 +22,16 @@ namespace se {
 	}
 
 	void Scene::Render() {
-		if (m_entities.size() == 0) {
-			return;
+		if (m_entities.size() > 0) {
+			for (int i = 0; i < m_entities.size(); i++) {
+				m_entities[i]->Render();
+			}
 		}
-		for (int i = 0; i < m_entities.size(); i++) {
-			m_entities[i]->Render();
-		}
+		m_terrain.Render();
+	}
+
+	void Scene::Release() {
+		m_terrain.Release();
 	}
 
 	const std::vector<Entity*> &Scene::GetEntities() const {

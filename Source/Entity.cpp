@@ -4,6 +4,8 @@ namespace se {
 
 	Entity::Entity() {
 		m_filenameMesh = "";
+		m_rotation = { 0.0f, 0.0f, 0.0f };
+		m_position = { 0.0f, 0.0f, 0.0f };
 	}
 
 	void Entity::Init(const std::string &filenameMesh) {
