@@ -10,9 +10,9 @@ namespace se {
 	const int WIDTH = 4;
 	const int HEIGHT = 3;
 
-	Terrain::Terrain() {
+	void Terrain::Create() {
 		m_position.Set(2.0f, 5.0f, 2.0f);
-		//m_rotation.Set(0.0f, (D3DX_PI / 2), 0.0f);
+		m_rotation.Set(0.0f, (D3DX_PI / 2), 0.0f);
 
 		//positive = depth, negative = height
 		float HeightData[WIDTH][HEIGHT];
@@ -32,34 +32,52 @@ namespace se {
 		HeightData[3][2] = 2; //Bottom-right
 
 		Vertex Vertices[WIDTH * HEIGHT];
-		for (int x = 0; x < WIDTH; x++) {
-			for (int y = 0; y < HEIGHT; y++) {
+		for (int y = 0; y < HEIGHT; y++) {
+			for (int x = 0; x < WIDTH; x++) {
 				Vertices[y * WIDTH + x].x = -x;
 				Vertices[y * WIDTH + x].y = y;
 				Vertices[y * WIDTH + x].z = HeightData[x][y];
-				//Vertices[z * WIDTH + x].color = 0xffffffff;
+				//TODO: textures load weird (mirrored, upside-down)
 				//Top-left
 				if (x % 2 == 0 && y % 2 == 0) {
+					//MessageBox(NULL, ("even X=" + std::to_string(x) + " even Y=" + std::to_string(y)).c_str(), "test", MB_OK);
 					Vertices[y * WIDTH + x].tu = 0.0f;
 					Vertices[y * WIDTH + x].tv = 0.0f;
 				}
 				//Top-right
 				if (x % 2 != 0 && y % 2 == 0) {
+					//MessageBox(NULL, ("uneven X=" + std::to_string(x) + " even Y=" + std::to_string(y)).c_str(), "test", MB_OK);
 					Vertices[y * WIDTH + x].tu = 1.0f;
 					Vertices[y * WIDTH + x].tv = 0.0f;
 				}
 				//Bottom-left
 				if (x % 2 == 0 && y % 2 != 0) {
+					//MessageBox(NULL, ("even X=" + std::to_string(x) + " uneven Y=" + std::to_string(y)).c_str(), "test", MB_OK);
 					Vertices[y * WIDTH + x].tu = 0.0f;
 					Vertices[y * WIDTH + x].tv = 1.0f;
 				}
 				//Bottom-right
 				if (x % 2 != 0 && y % 2 != 0) {
+					//MessageBox(NULL, ("uneven X=" + std::to_string(x) + " uneven Y=" + std::to_string(y)).c_str(), "test", MB_OK);
 					Vertices[y * WIDTH + x].tu = 1.0f;
 					Vertices[y * WIDTH + x].tv = 1.0f;
 				}
 			}
 		}
+
+		//Attempt to stretch the texture all over the terrain
+		////Top-left
+		//Vertices[0].tu = 0.0f;
+		//Vertices[0].tv = 0.0f;
+		////Top-right
+		//Vertices[WIDTH - 1].tu = 1.0f;
+		//Vertices[WIDTH - 1].tv = 0.0f;
+		////Bottom-left
+		//Vertices[(WIDTH * HEIGHT - 1) - (WIDTH - 1)].tu = 0.0f;
+		//Vertices[(WIDTH * HEIGHT - 1) - (WIDTH - 1)].tv = 1.0f;
+		////Bottom-right
+		//Vertices[WIDTH * HEIGHT - 1].tu = 1.0f;
+		//Vertices[WIDTH * HEIGHT - 1].tv = 1.0f;
 
 		int vertCount = sizeof(Vertices) / sizeof(Vertex);
 		m_byteCount = vertCount * sizeof(Vertex);
@@ -96,7 +114,7 @@ namespace se {
 		memcpy(pIndices, &Indices, byteCount);
 		m_indexBuffer->Unlock();
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "..\\..\\texture2.jpg", &m_texture))) {
 			//TODO log failed to create texture for terrain
 			MessageBox(NULL, "failed to load texture for terrain", "Meshes.exe", MB_OK);
 			return;
@@ -106,7 +124,11 @@ namespace se {
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
 	}
 
-	void Terrain::Render() {
+	void Terrain::Load() {
+
+	}
+
+	void Terrain::Process() {
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotation.X, m_rotation.Y, m_rotation.Z);
 		D3DXMatrixTranslation(&m_matTranslate, m_position.X, m_position.Y, m_position.Z);
 		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));

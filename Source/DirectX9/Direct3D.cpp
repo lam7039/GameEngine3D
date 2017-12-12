@@ -23,7 +23,7 @@ namespace se {
 		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
-		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 		m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
 
 	}

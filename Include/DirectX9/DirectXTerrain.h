@@ -2,14 +2,16 @@
 #define TERRAIN_H
 
 #include "std.h"
+#include "Asset.h"
 #include "DirectX9\Direct3D.h"
 
 namespace se {
 
-	class Terrain {
+	class Terrain : AbstractAsset {
 	public:
-		Terrain();
-		void Render();
+		void Create();
+		void Load();
+		void Process();
 		void Release();
 	private:
 		int m_byteCount;

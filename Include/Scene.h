@@ -9,6 +9,7 @@ namespace se {
 
 	class Scene {
 	public:
+		Scene();
 		void AddEntity(Entity *entity);
 		void RemoveEntity(Entity *entity);
 		void Update(float delta);
