@@ -1,7 +1,6 @@
 #include "DirectX9/Direct3D.h"
 #include "AssetLoader.h"
 #include "SceneLoader.h"
-#include "Terrain.h"
 
 namespace se {
 
@@ -24,12 +23,8 @@ namespace se {
 		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
-		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
-
-		Terrain *terrain = new Terrain();
-		SceneLoader::GetInstance()->AddScene("heightmap");
-		SceneLoader::GetInstance()->GetScene("heightmap")->AddEntity(terrain);
 
 	}
 
@@ -40,8 +35,8 @@ namespace se {
 		//View (camera)
 		D3DXMATRIX matView;
 		D3DXMatrixLookAtLH(&matView,
-			&D3DXVECTOR3(m_camera.GetPosition().X, m_camera.GetPosition().Y, m_camera.GetPosition().Z),
-			&D3DXVECTOR3(0.0f, 0.0f, 0.0f),
+			&D3DXVECTOR3(0.0f, 15.0f, 15.0f), //where you're looking to
+			&D3DXVECTOR3(m_camera.GetPosition().X, m_camera.GetPosition().Y, m_camera.GetPosition().Z), //position
 			&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
 		m_device->SetTransform(D3DTS_VIEW, &matView);
 
