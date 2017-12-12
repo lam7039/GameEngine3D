@@ -5,11 +5,11 @@
 
 namespace se {
 
-	Bitmap::BYTE* LoadBMP(int* width, int* height, long* size LPCTSTR bmpfile) {
+	BYTE* Bitmap::LoadBMP(int* width, int* height, long* size, const std::string &bmpfile) {
 		BITMAPFILEHEADER bmpheader;
 		BITMAPINFOHEADER bmpinfo;
 		DWORD bytesread;
-		HANDLE file = CreateFile(bmpfile, GENERIC_READ, FILE_SHARE_READ,
+		HANDLE file = CreateFile(bmpfile.c_str(), GENERIC_READ, FILE_SHARE_READ,
 			NULL, OPEN_EXISTING, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 		if (NULL == file)
 			return NULL;
@@ -47,7 +47,6 @@ namespace se {
 			return NULL;
 		}
 
-
 		*size = bmpheader.bfSize - bmpheader.bfOffBits;
 		BYTE* Buffer = new BYTE[*size];
 		SetFilePointer(file, bmpheader.bfOffBits, NULL, FILE_BEGIN);
@@ -63,31 +62,29 @@ namespace se {
 		return Buffer;
 	}
 
-	void Bitmap::TestBMPCopy(LPCTSTR input, LPCTSTR output)
+	//TODO: Niels, implement SaveBMP and ConvertBMPToRGBBuffer
+
+	void Bitmap::TestBMPCopy(const std::string &input, const std::string &output)
 	{
 		int x, y;
 		long s;
 		BYTE* b = LoadBMP(&x, &y, &s, input);
-		SaveBMP(b, x, y, s, output);
+		//SaveBMP(b, x, y, s, output); 
 		delete[] b;
 	}
 
-	void Bitmap::TestBMPCopy2(LPCTSTR input, LPCTSTR output)
+	void Bitmap::TestBMPCopy2(const std::string &input, const std::string &output)
 	{
 		int x, y;
 		long s, s2;
 		BYTE* a = LoadBMP(&x, &y, &s, input);
-		BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
-		BYTE* c = ConvertRGBToBMPBuffer(b, x, y, &s2);
-		SaveBMP(c, x, y, s2, output);
+		//BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
+		//BYTE* c = ConvertRGBToBMPBuffer(b, x, y, &s2);
+		//SaveBMP(c, x, y, s2, output.c_str());
 		delete[] a;
-		delete[] b;
-		delete[] c;
+		//delete[] b;
+		//delete[] c;
 	}
-
-	void main()
-	{
-		TestBMPCopy2(L"test.bmp", L"copy.bmp");
-	};
+	//TestBMPCopy2(L"test.bmp", L"copy.bmp");
 
 }

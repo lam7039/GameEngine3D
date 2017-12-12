@@ -1,0 +1,25 @@
+﻿  Building Custom Rule D:/Projects/GameEngine3D/Project/CMakeLists.txt
+  CMake does not need to re-run because D:/Projects/GameEngine3D/Project/VisualStudio15/CMakeFiles/generate.stamp is up-to-date.
+  AssetLoader.cpp
+  Bitmap.cpp
+D:\Projects\GameEngine3D\Source\Bitmap.cpp(79): warning C4101: 's2': unreferenced local variable
+  Camera.cpp
+  Debug.cpp
+  Direct3D.cpp
+D:\Projects\GameEngine3D\Source\DirectX9\Direct3D.cpp(54): warning C4018: '<': signed/unsigned mismatch
+  DirectXMesh.cpp
+  DirectXTerrain.cpp
+D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Entity.cpp
+  FPSCounter.cpp
+D:\Projects\GameEngine3D\Source\FPSCounter.cpp(21): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+  Kernel.cpp
+  Scene.cpp
+D:\Projects\GameEngine3D\Source\Scene.cpp(23): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\GameEngine3D\Source\Scene.cpp(30): warning C4018: '<': signed/unsigned mismatch
+  SceneLoader.cpp
+  Timer.cpp
+  Window.cpp
+  Generating Code...
+  GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib
