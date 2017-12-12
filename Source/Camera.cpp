@@ -1,9 +1,9 @@
 #include "Camera.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-Camera::Camera() : Object() {
-	m_position.Set(0.0f, 0.0f, 15.0f);
+	Camera::Camera() : Entity() {
+		m_position.Set(0.0f, 5.0f, 0.0f);
+	}
+
 }
-
-SE_END_NAMESPACE

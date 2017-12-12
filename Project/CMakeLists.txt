@@ -22,22 +22,18 @@ if(CMAKE_CONFIGURATION_TYPES)
 endif()
 
 file(GLOB_RECURSE SOURCE_FILES ${ROOT_DIR}/Source/*.cpp)
+file(GLOB_RECURSE SOURCE_FILES_DIRECTX9 ${ROOT_DIR}/Source/DirectX9/*.cpp)
 
 file(GLOB_RECURSE HEADER_FILES ${ROOT_DIR}/Include/*.h)
+file(GLOB_RECURSE HEADER_FILES_DIRECTX9 ${ROOT_DIR}/Include/DirectX9/*.h)
 
-add_library(GameEngine3D SHARED ${SOURCE_FILES} ${HEADER_FILES})
+source_group("Source Files\\DirectX9" FILES ${SOURCE_FILES_DIRECTX9})
 
-if(${WIN32})
-	set(DEBUG_LINK_LIBRARIES 
-		debug "$ENV{PROGRAMFILES} (x86)/Microsoft DirectX SDK (June 2010)/Lib/x86/d3d9.lib"
-		debug "$ENV{PROGRAMFILES} (x86)/Microsoft DirectX SDK (June 2010)/Lib/x86/d3dx9.lib"
-	)
-	set(ALL_LINK_LIBRARIES ${DEBUG_LINK_LIBRARIES} ${RELEASE_LINK_LIBRARIES})
-	target_link_libraries(GameEngine3D ${ALL_LINK_LIBRARIES})
-endif()
+source_group("Header Files\\DirectX9" FILES ${HEADER_FILES_DIRECTX9})
+
+add_library(GameEngine3D STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
 add_custom_command(TARGET GameEngine3D POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy "$<LOWER_CASE:$<CONFIG>>/GameEngine3D.lib" "${ROOT_DIR}/Libraries/$<LOWER_CASE:$<CONFIG>>/GameEngine3D.lib"
-	COMMAND ${CMAKE_COMMAND} -E copy "$<LOWER_CASE:$<CONFIG>>/GameEngine3D.dll" "${ROOT_DIR}/Binaries/$<LOWER_CASE:$<CONFIG>>/GameEngine3D.dll"
 )
 

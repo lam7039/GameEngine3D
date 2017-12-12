@@ -1,40 +1,41 @@
 #include "Scene.h"
 #include <algorithm>
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-Scene::Scene() {
-}
-
-SE_API void Scene::AddObject(Object *object) {
-	m_objects.push_back(object);
-}
-
-SE_API void Scene::RemoveObject(Object *object) {
-	//Erase the object from the list and to avoid gaps I use remove
-	m_objects.erase(std::remove(m_objects.begin(), m_objects.end(), object), m_objects.end());
-}
-
-void Scene::Update(float delta) {
-	if (m_objects.size() == 0) {
-		return;
+	void Scene::AddEntity(Entity *entity) {
+		m_entities.push_back(entity);
 	}
-	for (int i = 0; i < m_objects.size(); i++) {
-		m_objects[i]->Update(delta);
-	}
-}
 
-void Scene::Render() {
-	if (m_objects.size() == 0) {
-		return;
+	void Scene::RemoveEntity(Entity *entity) {
+		//Erase the object from the list and to avoid gaps I use remove
+		m_entities.erase(std::remove(m_entities.begin(), m_entities.end(), entity), m_entities.end());
 	}
-	for (int i = 0; i < m_objects.size(); i++) {
-		m_objects[i]->Render();
+
+	void Scene::Update(float delta) {
+		if (m_entities.size() == 0) {
+			return;
+		}
+		for (int i = 0; i < m_entities.size(); i++) {
+			m_entities[i]->Update(delta);
+		}
 	}
-}
 
-std::vector<Object*> Scene::GetObjects() {
-	return m_objects;
-}
+	void Scene::Render() {
+		if (m_entities.size() > 0) {
+			for (int i = 0; i < m_entities.size(); i++) {
+				m_entities[i]->Render();
+			}
+		}
+		m_terrain.Render();
+	}
 
-SE_END_NAMESPACE
+	void Scene::Release() {
+		m_terrain.Release();
+	}
+
+	const std::vector<Entity*> &Scene::GetEntities() const {
+		return m_entities;
+	}
+
+}

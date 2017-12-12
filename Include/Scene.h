@@ -2,24 +2,24 @@
 #define SCENE_H
 
 #include "std.h"
-#include "Object.h"
-#include <vector>
+#include "Entity.h"
+#include "DirectX9\DirectXTerrain.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-//TODO: use export on interfaces, not on classes itself
-class Scene {
-public:
-	Scene();
-	SE_API void AddObject(Object *object);
-	SE_API void RemoveObject(Object *object);
-	void Update(float delta);
-	void Render();
-	std::vector<Object*> GetObjects();
-private:
-	std::vector<Object*> m_objects;
-};
+	class Scene {
+	public:
+		void AddEntity(Entity *entity);
+		void RemoveEntity(Entity *entity);
+		void Update(float delta);
+		void Render();
+		void Release();
+		const std::vector<Entity*> &GetEntities() const;
+	private:
+		std::vector<Entity*> m_entities;
+		Terrain m_terrain;
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif

@@ -2,15 +2,16 @@
 #define CAMERA_H
 
 #include "std.h"
-#include "Object.h"
+#include "Entity.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-class Camera : public Object {
-public:
-	Camera();
-};
+	//Shouldn't be an entity, has a meshFileName f.ex like this
+	class Camera : public Entity {
+	public:
+		Camera();
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif

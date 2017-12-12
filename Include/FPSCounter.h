@@ -4,25 +4,24 @@
 #include "std.h"
 #include "Timer.h"
 
-SE_BEGIN_NAMESPACE
+namespace se {
 
-class FPSCounter {
-public:
-	FPSCounter();
-	void Update();
-	int GetFPS();
-	float GetDelta();
-	float GetTimeMilliseconds();
-private:
-	long long m_frames;
-	long long m_lastTime;
-	long long m_oldTime;
-	long long m_newTime;
-	float m_deltaTime;
-	int m_fps;
-	Timer time;
-};
+	class FPSCounter {
+	public:
+		FPSCounter();
+		void Update();
+		float GetDelta();
+		int GetFPS();
+	private:
+		long long m_frames;
+		long long m_lastTime;
+		long long m_oldTime;
+		long long m_newTime;
+		float m_deltaTime;
+		int m_fps;
+		Timer m_time;
+	};
 
-SE_END_NAMESPACE
+}
 
 #endif
