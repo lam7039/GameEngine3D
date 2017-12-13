@@ -10,6 +10,8 @@ namespace se {
 
 	AssetLoader::~AssetLoader() {
 		std::unordered_map<std::string, Mesh*>::iterator it;
+		//Mesh* end = m_meshes.end();
+		//TODO: declare end outside of for loop for optimisation
 		for (it = m_meshes.begin(); it != m_meshes.end(); it++) {
 			ReleaseMesh(it->first);
 		}
