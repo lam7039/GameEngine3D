@@ -3,6 +3,10 @@
 
 namespace se {
 
+	Scene::Scene() {
+		m_terrain.Create();
+	}
+
 	void Scene::AddEntity(Entity *entity) {
 		m_entities.push_back(entity);
 	}
@@ -27,7 +31,7 @@ namespace se {
 				m_entities[i]->Render();
 			}
 		}
-		m_terrain.Render();
+		m_terrain.Process();
 	}
 
 	void Scene::Release() {

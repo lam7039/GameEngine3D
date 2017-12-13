@@ -14,14 +14,6 @@ namespace se {
 	protected:
 		std::string m_path;
 	};
-
-	class Texture : public AbstractAsset {
-	public:
-		void Create();
-		void Load();
-		void Process();
-		void Release();
-	};
 }
 
 #endif
