@@ -1,3 +1,4 @@
+#include <Windows.h>
 #include "Debug.h"
 #include "Kernel.h"
 #include "Window.h"

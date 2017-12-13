@@ -4,7 +4,6 @@
 #include "std.h"
 #include "Debug.h"
 #include "DirectX9/Direct3D.h"
-#include <Windows.h>
 
 namespace se {
 
