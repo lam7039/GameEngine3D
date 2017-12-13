@@ -1,17 +1,19 @@
-#include <fstream>
 #include "Debug.h"
 
 namespace se {
 
 	Debug::Debug(const std::string &filename) {
 		m_path = filename;
+		//TODO: this doesn't reset the created logfile on start, idk, maybe it should be like this or at least be an option
 		if (!m_file.is_open()) {
 			m_file.open(m_path, std::ios::out);
 		}
-		m_file.close();
+		if (m_file.is_open()) {
+			m_file.close();
+		}
 	}
 
-	void Debug::Log(int id, const std::string &file, const std::string &line, const std::string &source) {
+	void Debug::Log(int id, const std::string &file, int line, const std::string &source) {
 		if (!m_file.is_open()) {
 			m_file.open(m_path, std::ios::app);
 		}

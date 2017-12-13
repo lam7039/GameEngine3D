@@ -8,14 +8,12 @@ namespace se {
 
 	Kernel::Kernel(const std::string &title) {
 		// Initialize logging. (still thinking of a better way to do logging)
+		Debug logger("engine.log");
+		logger.Log(0, __FILE__, __LINE__, "Engine started");
 
 		Window window(title);
 		m_hWnd = window.OpenWindow();
 		m_d3d.Init(m_hWnd);
-	}
-
-	void Kernel::LogDebug(const std::string& message) {
-		m_log.AppendFile(message);
 	}
 
 	int Kernel::EnterLoop() {
