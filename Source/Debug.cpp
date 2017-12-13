@@ -3,28 +3,38 @@
 
 namespace se {
 
-	Debug::Debug() {
-		m_path = "DebugLog.log";
-		std::ofstream file;
-		if (!file.is_open()) {
-			file.open(m_path, std::ios::out);
+	Debug::Debug(const std::string &filename) {
+		m_path = filename;
+		if (!m_file.is_open()) {
+			m_file.open(m_path, std::ios::out);
 		}
+		m_file.close();
 	}
 
-	void Debug::WriteFile(const std::string &source) {
-		std::ofstream file(m_path, std::ios::binary);
-		if (!file.is_open()) {
-			return;
+	void Debug::Log(int id, const std::string &file, const std::string &line, const std::string &source) {
+		if (!m_file.is_open()) {
+			m_file.open(m_path, std::ios::app);
 		}
-		file << source << std::endl;
+		m_file << __DATE__ << " " << __TIME__ << " " << file << " " << line;
+		switch (id) {
+		case 0:
+			m_file << " [INFO] ";
+			break;
+		case 1:
+			m_file << " [WARNING] ";
+			break;
+		case 2:
+			m_file << " [ERROR] ";
+			break;
+		}
+		m_file << source << std::endl;
+		m_file.close();
 	}
 
-	void Debug::AppendFile(const std::string &source) {
-		std::ofstream file(m_path, std::ios::app);
-		if (!file.is_open()) {
-			return;
+	Debug::~Debug() {
+		if (m_file.is_open()) {
+			m_file.close();
 		}
-		file << source << std::endl;
 	}
 
 }

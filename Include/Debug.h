@@ -7,10 +7,11 @@ namespace se {
 
 	class Debug {
 	public:
-		Debug();
-		void WriteFile(const std::string &source);
-		void AppendFile(const std::string &source);
+		Debug(const std::string &filename);
+		~Debug();
+		void Log(int id, const std::string &file, const std::string &line, const std::string &source);
 	private:
+		std::ofstream m_file;
 		std::string m_path;
 	};
 
