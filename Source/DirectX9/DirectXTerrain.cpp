@@ -40,13 +40,13 @@ namespace se {
 		for (int x = 0; x < WIDTH - 1; x++) {
 			for (int y = 0; y < HEIGHT - 1; y++) {
 				//Without indices
-				vertices[(x + y * WIDTH) * squareVertCount]		=	{ (float)-x,		(float)y,		HeightData[x][y],			0.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 1] =	{ (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 2] =	{ (float)-x,		(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
+				vertices[(x + y * WIDTH) * squareVertCount]		= { (float)-x,			(float)y,		HeightData[x][y],			0.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 1] = { (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 2] = { (float)-x,			(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
 
-				vertices[(x + y * WIDTH) * squareVertCount + 3] =	{ (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 4] =	{ (float)-x,		(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 5] =	{ (float)-(x + 1),	(float)y + 1,	HeightData[x + 1][y + 1],	1.0f, 1.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 3] = { (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 4] = { (float)-x,			(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 5] = { (float)-(x + 1),	(float)y + 1,	HeightData[x + 1][y + 1],	1.0f, 1.0f };
 
 				//With indices but flips the textures
 				//00,10,00,10
