@@ -3,7 +3,7 @@
 
 #include "std.h"
 #include "Debug.h"
-#include "DirectX9/Direct3D.h"
+#include "Renderer.h"
 
 namespace se {
 
@@ -13,7 +13,7 @@ namespace se {
 		int EnterLoop();
 	private:
 		HWND m_hWnd;
-		Direct3D m_d3d;
+		AbstractRenderer *m_renderer;
 	};
 
 }

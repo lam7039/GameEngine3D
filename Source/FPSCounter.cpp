@@ -12,7 +12,7 @@ namespace se {
 	}
 
 	void FPSCounter::Update() {
-		m_deltaTime = (float)(m_newTime - m_oldTime) / 1000000.0f;
+		m_deltaTime = static_cast<float>(m_newTime - m_oldTime) / 1000000.0f;
 		m_oldTime = m_newTime;
 		m_newTime = m_time.Microseconds();
 

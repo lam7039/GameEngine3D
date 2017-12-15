@@ -1,4 +1,6 @@
 #include "AssetLoader.h"
+//TODO: fix assets so mesh doesn't get called here
+#include "DirectX9/DirectXMesh.h"
 
 namespace se {
 
@@ -9,10 +11,9 @@ namespace se {
 	}
 
 	AssetLoader::~AssetLoader() {
-		std::unordered_map<std::string, Mesh*>::iterator it;
-		//Mesh* end = m_meshes.end();
-		//TODO: declare end outside of for loop for optimisation
-		for (it = m_meshes.begin(); it != m_meshes.end(); it++) {
+		std::unordered_map<std::string, AbstractAsset*>::iterator it = m_assets.begin();
+		std::unordered_map<std::string, AbstractAsset*>::iterator end = m_assets.end();
+		for (it; it != end; it++) {
 			ReleaseMesh(it->first);
 		}
 	}
@@ -27,18 +28,19 @@ namespace se {
 	void AssetLoader::AddMesh(const std::string &path) {
 		Mesh *mesh = new Mesh("Assets\\" + path);
 		mesh->Load();
-		m_meshes[path] = mesh;
+		m_assets[path] = mesh;
 	}
 
-	std::unordered_map<std::string, Mesh*> AssetLoader::GetMeshes() {
-		return m_meshes;
+	std::unordered_map<std::string, AbstractAsset*> AssetLoader::GetAssets() {
+		return m_assets;
 	}
 
 	void AssetLoader::ReleaseMesh(const std::string &filename) {
-		m_meshes[filename]->Release();
-		m_meshes.erase(filename);
+		m_assets[filename]->Release();
+		m_assets.erase(filename);
 	}
 
+	//TODO: Maybe use this? maybe not.
 	/* void LoadAsset(const std::string &path) {
 		std::string extension = "";
 		int pos = path.find_last_of(".");

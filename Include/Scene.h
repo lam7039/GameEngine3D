@@ -3,7 +3,7 @@
 
 #include "std.h"
 #include "Entity.h"
-#include "DirectX9\DirectXTerrain.h"
+#include "Asset.h"
 
 namespace se {
 
@@ -18,7 +18,7 @@ namespace se {
 		const std::vector<Entity*> &GetEntities() const;
 	private:
 		std::vector<Entity*> m_entities;
-		Terrain m_terrain;
+		AbstractAsset *m_terrain;
 	};
 
 }

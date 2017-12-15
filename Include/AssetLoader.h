@@ -2,7 +2,7 @@
 #define RESOURCEMANAGER_H
 
 #include "std.h"
-#include "DirectX9/DirectXMesh.h"
+#include "Asset.h"
 
 namespace se {
 
@@ -11,10 +11,10 @@ namespace se {
 		void AddMesh(const std::string &path);
 		void ReleaseMesh(const std::string &filename);
 		static AssetLoader *GetInstance();
-		std::unordered_map<std::string, Mesh*> GetMeshes();
+		std::unordered_map<std::string, AbstractAsset*> GetAssets();
 	private:
 		static AssetLoader *m_instance;
-		std::unordered_map<std::string, Mesh*> m_meshes;
+		std::unordered_map<std::string, AbstractAsset*> m_assets;
 		AssetLoader();
 		~AssetLoader();
 	};

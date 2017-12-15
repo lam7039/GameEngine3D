@@ -7,14 +7,13 @@
 
 namespace se {
 
-	class Terrain : AbstractAsset {
+	class Terrain : public AbstractAsset {
 	public:
 		void Create();
 		void Load();
 		void Process();
 		void Release();
 	private:
-		int m_byteCount;
 		Vector3<float> m_rotation;
 		Vector3<float> m_position;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;

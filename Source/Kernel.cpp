@@ -3,6 +3,7 @@
 #include "Kernel.h"
 #include "Window.h"
 #include "FPSCounter.h"
+#include "DirectX9\Direct3D.h"
 
 namespace se {
 
@@ -13,7 +14,8 @@ namespace se {
 
 		Window window(title);
 		m_hWnd = window.OpenWindow();
-		m_d3d.Init(m_hWnd);
+		m_renderer = new Direct3D();
+		m_renderer->Create(m_hWnd);
 	}
 
 	int Kernel::EnterLoop() {
@@ -33,15 +35,15 @@ namespace se {
 			}
 
 			// Logic.
-			m_d3d.Update(fps.GetDelta());
+			m_renderer->Update(fps.GetDelta());
 
 			// Drawing.
-			m_d3d.Render();
+			m_renderer->Render();
 
 			fps.Update();
 		}
 
-		m_d3d.Destroy();
+		m_renderer->Release();
 
 		return msg.wParam;
 	}

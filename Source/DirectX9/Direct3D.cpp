@@ -6,7 +6,7 @@ namespace se {
 
 	LPDIRECT3DDEVICE9 Direct3D::m_device = nullptr;
 
-	void Direct3D::Init(HWND hWnd) {
+	void Direct3D::Create(HWND hWnd) {
 		m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 		D3DPRESENT_PARAMETERS d3dpp;
 		ZeroMemory(&d3dpp, sizeof(d3dpp));
@@ -58,7 +58,7 @@ namespace se {
 			D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
 			m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 			if (m_currentSceneObjects[i]->GetFilename() != "") {
-				Mesh *m_currentMesh = AssetLoader::GetInstance()->GetMeshes()[m_currentSceneObjects[i]->GetFilename()];
+				AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssets()[m_currentSceneObjects[i]->GetFilename()];
 				m_currentMesh->Process();
 			}
 		}
@@ -69,7 +69,7 @@ namespace se {
 		m_device->Present(NULL, NULL, NULL, NULL);
 	}
 
-	void Direct3D::Destroy() {
+	void Direct3D::Release() {
 		m_device->Release();
 		m_d3d->Release();
 	}

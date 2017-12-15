@@ -2,17 +2,18 @@
 #define DIRECT3D_H
 
 #include "std.h"
+#include "Renderer.h"
 #include "Camera.h"
 #include <d3dx9.h>
 
 namespace se {
 
-	class Direct3D {
+	class Direct3D : public AbstractRenderer {
 	public:
-		void Init(HWND hWnd);
-		void Update(float delta);
-		void Render();
-		void Destroy();
+		void Create(HWND hWnd) override;
+		void Update(float delta) override;
+		void Render() override;
+		void Release() override;
 		static LPDIRECT3DDEVICE9 GetDevice();
 	private:
 		//Devices

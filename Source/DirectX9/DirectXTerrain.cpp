@@ -31,24 +31,26 @@ namespace se {
 		HeightData[2][2] = 4;
 		HeightData[3][2] = 2; //Bottom-right
 
-		float tu = 0.0f;
-		float tv = 0.0f;
+		//float tu = 0.0f;
+		//float tv = 0.0f;
 
 		const int squareVertCount = 6;
 		Vertex vertices[(WIDTH * HEIGHT * squareVertCount)];
 
+		//TODO: look at a better way to render heightmap with indices
 		for (int x = 0; x < WIDTH - 1; x++) {
 			for (int y = 0; y < HEIGHT - 1; y++) {
 				//Without indices
-				vertices[(x + y * WIDTH) * squareVertCount]		= { (float)-x,			(float)y,		HeightData[x][y],			0.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 1] = { (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 2] = { (float)-x,			(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
+				int i = x + y * WIDTH;
+				vertices[i * squareVertCount]		= { static_cast<float>(-x),			static_cast<float>(y),		HeightData[x][y],			0.0f, 0.0f };
+				vertices[i * squareVertCount + 1]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y),		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[i * squareVertCount + 2]	= { static_cast<float>(-x),			static_cast<float>(y + 1),	HeightData[x][y + 1],		0.0f, 1.0f };
 
-				vertices[(x + y * WIDTH) * squareVertCount + 3] = { (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 4] = { (float)-x,			(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
-				vertices[(x + y * WIDTH) * squareVertCount + 5] = { (float)-(x + 1),	(float)y + 1,	HeightData[x + 1][y + 1],	1.0f, 1.0f };
+				vertices[i * squareVertCount + 3]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y),		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[i * squareVertCount + 4]	= { static_cast<float>(-x),			static_cast<float>(y + 1),	HeightData[x][y + 1],		0.0f, 1.0f };
+				vertices[i * squareVertCount + 5]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y + 1),	HeightData[x + 1][y + 1],	1.0f, 1.0f };
 
-				//With indices but flips the textures
+				//With indices but flips the textures because of:
 				//00,10,00,10
 				//01,11,01,11
 				//00,10,00,10
@@ -69,9 +71,7 @@ namespace se {
 				//	tu = 1.0f;
 				//	tv = 1.0f;
 				//}
-				//for (int i = 0; i < 2; i++) {
-				//	vertices[y * WIDTH + x] = { (float)-x, (float)y, 0.0f };
-				//}
+				//vertices[y * WIDTH + x] = { static_cast<float>(-x), static_cast<float>(y), HeightData[x][y], tu, tv };
 			}
 		}
 
@@ -90,42 +90,48 @@ namespace se {
 		//vertices[WIDTH * HEIGHT - 1].tv = 1.0f;
 
 		int vertCount = sizeof(vertices) / sizeof(Vertex);
-		m_byteCount = vertCount * sizeof(Vertex);
+		int byteCount = vertCount * sizeof(Vertex);
 
-		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(m_byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
+		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
 			//TODO: log failed to create vertex buffer
 			return;
 		}
 
 		VOID* pVertices;
-		m_vertexBuffer->Lock(0, m_byteCount, (void**)&pVertices, 0);
-		memcpy(pVertices, &vertices, m_byteCount);
+		m_vertexBuffer->Lock(0, byteCount, (void**)&pVertices, 0);
+		memcpy(pVertices, &vertices, byteCount);
 		m_vertexBuffer->Unlock();
 
-		//short Indices[(WIDTH - 1) * (HEIGHT - 1) * 6];
+		//short Indices[(WIDTH - 1) * (HEIGHT - 1) * squareVertCount];
 		//int indicesCount = sizeof(Indices) / sizeof(short);
-		//int byteCount = indicesCount * sizeof(short);
+		//int byteCountIndices = indicesCount * sizeof(short);
 
 		//for (int x = 0; x < WIDTH - 1; x++) {
 		//	for (int y = 0; y < HEIGHT - 1; y++) {
-		//		Indices[(x + y * (WIDTH - 1)) * 6] = (x + 1) + (y + 1) * WIDTH;
-		//		Indices[(x + y * (WIDTH - 1)) * 6 + 1] = (x + 1) + y * WIDTH;
-		//		Indices[(x + y * (WIDTH - 1)) * 6 + 2] = x + y * WIDTH;
+		//		int i = (x + y * (WIDTH - 1));
+		//		int topleft = x + y * WIDTH;
+		//		int topright = (x + 1) + y * WIDTH;
+		//		int bottomleft = x + (y + 1) * WIDTH;
+		//		int bottomright = (x + 1) + (y + 1) * WIDTH;
 
-		//		Indices[(x + y * (WIDTH - 1)) * 6 + 3] = (x + 1) + (y + 1) * WIDTH;
-		//		Indices[(x + y * (WIDTH - 1)) * 6 + 4] = x + y * WIDTH;
-		//		Indices[(x + y * (WIDTH - 1)) * 6 + 5] = x + (y + 1) * WIDTH;
+		//		Indices[i * squareVertCount] = topleft;
+		//		Indices[i * squareVertCount + 1] = topright;
+		//		Indices[i * squareVertCount + 2] = bottomleft;
+
+		//		Indices[i * squareVertCount + 3] = topright;
+		//		Indices[i * squareVertCount + 4] = bottomleft;
+		//		Indices[i * squareVertCount + 5] = bottomright;
 		//	}
 		//}
-		//Direct3D::GetDevice()->CreateIndexBuffer(byteCount, D3DUSAGE_WRITEONLY, D3DFMT_INDEX16, D3DPOOL_MANAGED, &m_indexBuffer, NULL);
+		//Direct3D::GetDevice()->CreateIndexBuffer(byteCountIndices, D3DUSAGE_WRITEONLY, D3DFMT_INDEX16, D3DPOOL_MANAGED, &m_indexBuffer, NULL);
 
 		//VOID* pIndices;
-		//m_indexBuffer->Lock(0, byteCount, (void**)&pIndices, 0);
-		//memcpy(pIndices, &Indices, byteCount);
+		//m_indexBuffer->Lock(0, byteCountIndices, (void**)&pIndices, 0);
+		//memcpy(pIndices, &Indices, byteCountIndices);
 		//m_indexBuffer->Unlock();
 
 		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
-			//TODO log failed to create texture for terrain
+			//TODO: log failed to create texture for terrain
 			MessageBox(NULL, "failed to load texture for terrain", "Meshes.exe", MB_OK);
 			return;
 		}
@@ -145,7 +151,6 @@ namespace se {
 		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
 		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetTexture(0, m_texture);
-		//TODO: sometimes crashes when using m_byteCount for some reason
 		//Direct3D::GetDevice()->SetIndices(m_indexBuffer);
 		//Direct3D::GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, WIDTH * HEIGHT, 0, (WIDTH - 1) * (HEIGHT - 1) * 2);
 		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, WIDTH * HEIGHT * 2);
