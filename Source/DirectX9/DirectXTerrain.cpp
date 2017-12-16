@@ -31,55 +31,65 @@ namespace se {
 		HeightData[2][2] = 4;
 		HeightData[3][2] = 2; //Bottom-right
 
-		Vertex Vertices[WIDTH * HEIGHT];
-		for (int y = 0; y < HEIGHT; y++) {
-			for (int x = 0; x < WIDTH; x++) {
-				Vertices[y * WIDTH + x].x = -x;
-				Vertices[y * WIDTH + x].y = y;
-				Vertices[y * WIDTH + x].z = HeightData[x][y];
-				//TODO: textures load weird (mirrored, upside-down)
-				//Top-left
-				if (x % 2 == 0 && y % 2 == 0) {
-					//MessageBox(NULL, ("even X=" + std::to_string(x) + " even Y=" + std::to_string(y)).c_str(), "test", MB_OK);
-					Vertices[y * WIDTH + x].tu = 0.0f;
-					Vertices[y * WIDTH + x].tv = 0.0f;
-				}
-				//Top-right
-				if (x % 2 != 0 && y % 2 == 0) {
-					//MessageBox(NULL, ("uneven X=" + std::to_string(x) + " even Y=" + std::to_string(y)).c_str(), "test", MB_OK);
-					Vertices[y * WIDTH + x].tu = 1.0f;
-					Vertices[y * WIDTH + x].tv = 0.0f;
-				}
-				//Bottom-left
-				if (x % 2 == 0 && y % 2 != 0) {
-					//MessageBox(NULL, ("even X=" + std::to_string(x) + " uneven Y=" + std::to_string(y)).c_str(), "test", MB_OK);
-					Vertices[y * WIDTH + x].tu = 0.0f;
-					Vertices[y * WIDTH + x].tv = 1.0f;
-				}
-				//Bottom-right
-				if (x % 2 != 0 && y % 2 != 0) {
-					//MessageBox(NULL, ("uneven X=" + std::to_string(x) + " uneven Y=" + std::to_string(y)).c_str(), "test", MB_OK);
-					Vertices[y * WIDTH + x].tu = 1.0f;
-					Vertices[y * WIDTH + x].tv = 1.0f;
-				}
+		float tu = 0.0f;
+		float tv = 0.0f;
+
+		const int squareVertCount = 6;
+		Vertex vertices[(WIDTH * HEIGHT * squareVertCount)];
+
+		for (int x = 0; x < WIDTH - 1; x++) {
+			for (int y = 0; y < HEIGHT - 1; y++) {
+				//Without indices
+				vertices[(x + y * WIDTH) * squareVertCount]		=	{ (float)-x,		(float)y,		HeightData[x][y],			0.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 1] =	{ (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 2] =	{ (float)-x,		(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
+
+				vertices[(x + y * WIDTH) * squareVertCount + 3] =	{ (float)-(x + 1),	(float)y,		HeightData[x + 1][y],		1.0f, 0.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 4] =	{ (float)-x,		(float)y + 1,	HeightData[x][y + 1],		0.0f, 1.0f };
+				vertices[(x + y * WIDTH) * squareVertCount + 5] =	{ (float)-(x + 1),	(float)y + 1,	HeightData[x + 1][y + 1],	1.0f, 1.0f };
+
+				//With indices but flips the textures
+				//00,10,00,10
+				//01,11,01,11
+				//00,10,00,10
+
+				//if (x % 2 == 0 && y % 2 == 0) {
+				//	tu = 0.0f;
+				//	tv = 0.0f;
+				//}
+				//if (x % 2 != 0 && y % 2 == 0) {
+				//	tu = 1.0f;
+				//	tv = 0.0f;
+				//}
+				//if (x % 2 == 0 && y % 2 != 0) {
+				//	tu = 0.0f;
+				//	tv = 1.0f;
+				//}
+				//if (x % 2 != 0 && y % 2 != 0) {
+				//	tu = 1.0f;
+				//	tv = 1.0f;
+				//}
+				//for (int i = 0; i < 2; i++) {
+				//	vertices[y * WIDTH + x] = { (float)-x, (float)y, 0.0f };
+				//}
 			}
 		}
 
-		//Attempt to stretch the texture all over the terrain
+		////Attempt to stretch the texture all over the terrain
 		////Top-left
-		//Vertices[0].tu = 0.0f;
-		//Vertices[0].tv = 0.0f;
+		//vertices[0].tu = 0.0f;
+		//vertices[0].tv = 0.0f;
 		////Top-right
-		//Vertices[WIDTH - 1].tu = 1.0f;
-		//Vertices[WIDTH - 1].tv = 0.0f;
+		//vertices[WIDTH - 1].tu = 1.0f;
+		//vertices[WIDTH - 1].tv = 0.0f;
 		////Bottom-left
-		//Vertices[(WIDTH * HEIGHT - 1) - (WIDTH - 1)].tu = 0.0f;
-		//Vertices[(WIDTH * HEIGHT - 1) - (WIDTH - 1)].tv = 1.0f;
+		//vertices[(WIDTH * HEIGHT - 1) - WIDTH].tu = 0.0f;
+		//vertices[(WIDTH * HEIGHT - 1) - WIDTH].tv = 1.0f;
 		////Bottom-right
-		//Vertices[WIDTH * HEIGHT - 1].tu = 1.0f;
-		//Vertices[WIDTH * HEIGHT - 1].tv = 1.0f;
+		//vertices[WIDTH * HEIGHT - 1].tu = 1.0f;
+		//vertices[WIDTH * HEIGHT - 1].tv = 1.0f;
 
-		int vertCount = sizeof(Vertices) / sizeof(Vertex);
+		int vertCount = sizeof(vertices) / sizeof(Vertex);
 		m_byteCount = vertCount * sizeof(Vertex);
 
 		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(m_byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
@@ -89,30 +99,30 @@ namespace se {
 
 		VOID* pVertices;
 		m_vertexBuffer->Lock(0, m_byteCount, (void**)&pVertices, 0);
-		memcpy(pVertices, &Vertices, m_byteCount);
+		memcpy(pVertices, &vertices, m_byteCount);
 		m_vertexBuffer->Unlock();
 
-		short Indices[(WIDTH - 1) * (HEIGHT - 1) * 6];
-		int indicesCount = sizeof(Indices) / sizeof(short);
-		int byteCount = indicesCount * sizeof(short);
+		//short Indices[(WIDTH - 1) * (HEIGHT - 1) * 6];
+		//int indicesCount = sizeof(Indices) / sizeof(short);
+		//int byteCount = indicesCount * sizeof(short);
 
-		for (int x = 0; x < WIDTH - 1; x++) {
-			for (int y = 0; y < HEIGHT - 1; y++) {
-				Indices[(x + y * (WIDTH - 1)) * 6] = (x + 1) + (y + 1) * WIDTH;
-				Indices[(x + y * (WIDTH - 1)) * 6 + 1] = (x + 1) + y * WIDTH;
-				Indices[(x + y * (WIDTH - 1)) * 6 + 2] = x + y * WIDTH;
+		//for (int x = 0; x < WIDTH - 1; x++) {
+		//	for (int y = 0; y < HEIGHT - 1; y++) {
+		//		Indices[(x + y * (WIDTH - 1)) * 6] = (x + 1) + (y + 1) * WIDTH;
+		//		Indices[(x + y * (WIDTH - 1)) * 6 + 1] = (x + 1) + y * WIDTH;
+		//		Indices[(x + y * (WIDTH - 1)) * 6 + 2] = x + y * WIDTH;
 
-				Indices[(x + y * (WIDTH - 1)) * 6 + 3] = (x + 1) + (y + 1) * WIDTH;
-				Indices[(x + y * (WIDTH - 1)) * 6 + 4] = x + y * WIDTH;
-				Indices[(x + y * (WIDTH - 1)) * 6 + 5] = x + (y + 1) * WIDTH;
-			}
-		}
-		Direct3D::GetDevice()->CreateIndexBuffer(byteCount, D3DUSAGE_WRITEONLY, D3DFMT_INDEX16, D3DPOOL_MANAGED, &m_indexBuffer, NULL);
+		//		Indices[(x + y * (WIDTH - 1)) * 6 + 3] = (x + 1) + (y + 1) * WIDTH;
+		//		Indices[(x + y * (WIDTH - 1)) * 6 + 4] = x + y * WIDTH;
+		//		Indices[(x + y * (WIDTH - 1)) * 6 + 5] = x + (y + 1) * WIDTH;
+		//	}
+		//}
+		//Direct3D::GetDevice()->CreateIndexBuffer(byteCount, D3DUSAGE_WRITEONLY, D3DFMT_INDEX16, D3DPOOL_MANAGED, &m_indexBuffer, NULL);
 
-		VOID* pIndices;
-		m_indexBuffer->Lock(0, byteCount, (void**)&pIndices, 0);
-		memcpy(pIndices, &Indices, byteCount);
-		m_indexBuffer->Unlock();
+		//VOID* pIndices;
+		//m_indexBuffer->Lock(0, byteCount, (void**)&pIndices, 0);
+		//memcpy(pIndices, &Indices, byteCount);
+		//m_indexBuffer->Unlock();
 
 		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
 			//TODO log failed to create texture for terrain
@@ -132,17 +142,18 @@ namespace se {
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotation.X, m_rotation.Y, m_rotation.Z);
 		D3DXMatrixTranslation(&m_matTranslate, m_position.X, m_position.Y, m_position.Z);
 		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
+		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetTexture(0, m_texture);
-		Direct3D::GetDevice()->SetIndices(m_indexBuffer);
 		//TODO: sometimes crashes when using m_byteCount for some reason
-		Direct3D::GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, WIDTH * HEIGHT, 0, (WIDTH - 1) * (HEIGHT - 1) * 2);
+		//Direct3D::GetDevice()->SetIndices(m_indexBuffer);
+		//Direct3D::GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, WIDTH * HEIGHT, 0, (WIDTH - 1) * (HEIGHT - 1) * 2);
+		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, WIDTH * HEIGHT * 2);
 	}
 
 	void Terrain::Release() {
 		m_texture->Release();
-		m_indexBuffer->Release();
+		//m_indexBuffer->Release();
 		m_vertexBuffer->Release();
 	}
 }
