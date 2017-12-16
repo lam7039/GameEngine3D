@@ -9,7 +9,7 @@ namespace se {
 
 	void Terrain::Create() {
 		const int width = 4;
-		const int height = 4;
+		const int height = 3;
 		m_width = width;
 		m_height = height;
 
