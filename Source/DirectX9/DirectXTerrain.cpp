@@ -114,7 +114,7 @@ namespace se {
 		memcpy(pIndices, &Indices, byteCount);
 		m_indexBuffer->Unlock();
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "..\\..\\texture2.jpg", &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
 			//TODO log failed to create texture for terrain
 			MessageBox(NULL, "failed to load texture for terrain", "Meshes.exe", MB_OK);
 			return;
