@@ -20,6 +20,7 @@ namespace se {
 	protected:
 		std::string m_path;
 	};
+
 }
 
 #endif

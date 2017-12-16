@@ -26,7 +26,7 @@ namespace se {
 				std::string src = "Assets\\";
 				src += materials[i].pTextureFilename;
 				if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), src.c_str(), &m_meshTextures[i]))) {
-					MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "Meshes.exe", MB_OK);
+					MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "DirectXMesh.cpp", MB_OK);
 					return;
 				}
 			}

@@ -20,7 +20,7 @@ namespace se {
 		if (FAILED(m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device))) {
 			MessageBox(NULL, "failed to create the device", "Meshes.exe", MB_OK);
 		}
-		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
+		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
@@ -52,11 +52,13 @@ namespace se {
 
 		std::vector<Entity*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetEntities();
 		for (int i = 0; i < m_currentSceneObjects.size(); i++) {
+			float scale = m_currentSceneObjects[i]->GetScale();;
 			Vector3<float> rotation = m_currentSceneObjects[i]->GetRotation();
 			Vector3<float> position = m_currentSceneObjects[i]->GetPosition();
+			D3DXMatrixScaling(&m_scale, scale, scale, scale);
 			D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.X, rotation.Y, rotation.Z);
 			D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
-			m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+			m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
 			if (m_currentSceneObjects[i]->GetFilename() != "") {
 				AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssets()[m_currentSceneObjects[i]->GetFilename()];
 				m_currentMesh->Process();

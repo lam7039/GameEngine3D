@@ -21,6 +21,7 @@ namespace se {
 		static LPDIRECT3DDEVICE9 m_device;
 
 		//World (have to do this somewhere else)
+		D3DXMATRIX m_scale;
 		D3DXMATRIX m_matRotate;
 		D3DXMATRIX m_matTranslate;
 		Camera m_camera;

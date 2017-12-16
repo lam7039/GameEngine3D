@@ -2,7 +2,7 @@
 #define DIRECTXMESH_H
 
 #include "Asset.h"
-#include "DirectX9/Direct3D.h"
+#include "DirectX9\Direct3D.h"
 
 namespace se {
 

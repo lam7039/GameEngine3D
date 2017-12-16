@@ -4,6 +4,7 @@ namespace se {
 
 	Entity::Entity() {
 		m_filenameMesh = "";
+		m_scale = 1.0f;
 		m_rotation = { 0.0f, 0.0f, 0.0f };
 		m_position = { 0.0f, 0.0f, 0.0f };
 	}
@@ -16,6 +17,10 @@ namespace se {
 	}
 
 	void Entity::Render() {
+	}
+
+	void Entity::SetScale(float scale) {
+		m_scale = scale;
 	}
 
 	void Entity::SetRotation(float x, float y, float z) {
@@ -32,12 +37,16 @@ namespace se {
 		//m_posZ = z;
 	}
 
-	Vector3<float> Entity::GetPosition() {
-		return m_position;
+	float Entity::GetScale() {
+		return m_scale;
 	}
 
 	Vector3<float> Entity::GetRotation() {
 		return m_rotation;
+	}
+
+	Vector3<float> Entity::GetPosition() {
+		return m_position;
 	}
 
 	std::string Entity::GetFilename() {

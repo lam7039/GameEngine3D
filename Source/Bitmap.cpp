@@ -81,12 +81,12 @@ namespace se {
 	{
 		int x, y;
 		long s, s2;
-		BYTE* a = LoadBMP(&x, &y, &s, input);
-		BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
+		//BYTE* a = LoadBMP(&x, &y, &s, input);
+		//BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
 		//BYTE* c = ConvertRGBToBMPBuffer(b, x, y, &s2);
-		SaveBMP(c, x, y, s2, output);
-		delete[] a;
-		delete[] b;
+		//SaveBMP(c, x, y, s2, output);
+		//delete[] a;
+		//delete[] b;
 		//delete[] c;
 	}
 
