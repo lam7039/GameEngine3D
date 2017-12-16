@@ -37,17 +37,61 @@ namespace se {
 		return Buffer;
 	}
 
-	//TODO: Niels, implement ConvertBMPToRGBBuffer
+	BYTE* ConvertBMPToRGBBuffer(BYTE* Buffer, int width, int height)
+	{
+		if ((NULL == Buffer) || (width == 0) || (height == 0))
+			return NULL;
+
+		int padding = 0;
+		int scanlinebytes = width * 3;
+		while ((scanlinebytes + padding) % 4 != 0)  
+			padding++;
+		int psw = scanlinebytes + padding;
+
+		BYTE* newbuf = new BYTE[width*height * 3];
+
+		long bufpos = 0;
+		long newpos = 0;
+		for (int y = 0; y < height; y++)
+			for (int x = 0; x < 3 * width; x += 3)
+			{
+				newpos = y * 3 * width + x;
+				bufpos = (height - y - 1) * psw + x;
+
+				newbuf[newpos] = Buffer[bufpos + 2];
+				newbuf[newpos + 1] = Buffer[bufpos + 1];
+				newbuf[newpos + 2] = Buffer[bufpos];
+			}
+
+		return newbuf;
+	}
+
 
 	void Bitmap::TestBMPCopy(const std::string &input, const std::string &output)
 	{
 		int x, y;
 		long s;
 		BYTE *a = LoadBMP(&x, &y, &s, input);
-		//BYTE *b = ConvertBMPToRGBBuffer(a, x, y);
+		BYTE *b = ConvertBMPToRGBBuffer(a, x, y);
 		delete[] a;
 		//delete[] b;
 	}
 	//TestBMPCopy2("test.bmp", "copy.bmp");
+	void TestBMPCopy2(LPCTSTR input, LPCTSTR output)
+	{
+		int x, y;
+		long s, s2;
+		BYTE* a = LoadBMP(&x, &y, &s, input);
+		BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
+		//BYTE* c = ConvertRGBToBMPBuffer(b, x, y, &s2);
+		SaveBMP(c, x, y, s2, output);
+		delete[] a;
+		delete[] b;
+		//delete[] c;
+	}
 
+	void main()
+	{
+		TestBMPCopy2("lena_gray.bmp", "copy.bmp");
+	}
 }
