@@ -2,16 +2,11 @@
 
 namespace se {
 
-	Mesh::Mesh(const std::string &path) {
-		m_path = path;
+	void Mesh::Create() {
 		m_mesh = nullptr;
 		m_meshMaterials = nullptr;
 		m_meshTextures = nullptr;
 		m_materialCount = 0;
-	}
-
-	void Mesh::Create() {
-		//
 	}
 
 	void Mesh::Load() {

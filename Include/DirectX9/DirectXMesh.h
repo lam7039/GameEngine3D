@@ -8,7 +8,6 @@ namespace se {
 
 	class Mesh : public AbstractAsset {
 	public:
-		Mesh(const std::string &path);
 		void Create();
 		void Load();
 		void Process();

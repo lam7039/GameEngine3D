@@ -7,15 +7,16 @@ namespace se {
 		float tu, tv;
 	};
 
-	const int WIDTH = 4;
-	const int HEIGHT = 3;
-
 	void Terrain::Create() {
+		const int width = 4;
+		const int height = 4;
+		m_width = width;
+		m_height = height;
+
 		m_position.Set(2.0f, 5.0f, 2.0f);
 		m_rotation.Set(0.0f, (D3DX_PI / 2), 0.0f);
-
 		//positive = depth, negative = height
-		float HeightData[WIDTH][HEIGHT];
+		float HeightData[width][height];
 		HeightData[0][0] = 0; //Top-left
 		HeightData[1][0] = 0;
 		HeightData[2][0] = 0;
@@ -35,13 +36,13 @@ namespace se {
 		//float tv = 0.0f;
 
 		const int squareVertCount = 6;
-		Vertex vertices[(WIDTH * HEIGHT * squareVertCount)];
+		Vertex vertices[(width * height * squareVertCount)];
 
 		//TODO: look at a better way to render heightmap with indices
-		for (int x = 0; x < WIDTH - 1; x++) {
-			for (int y = 0; y < HEIGHT - 1; y++) {
+		for (int x = 0; x < width - 1; x++) {
+			for (int y = 0; y < height - 1; y++) {
 				//Without indices
-				int i = x + y * WIDTH;
+				int i = x + y * m_width;
 				vertices[i * squareVertCount]		= { static_cast<float>(-x),			static_cast<float>(y),		HeightData[x][y],			0.0f, 0.0f };
 				vertices[i * squareVertCount + 1]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y),		HeightData[x + 1][y],		1.0f, 0.0f };
 				vertices[i * squareVertCount + 2]	= { static_cast<float>(-x),			static_cast<float>(y + 1),	HeightData[x][y + 1],		0.0f, 1.0f };
@@ -71,7 +72,7 @@ namespace se {
 				//	tu = 1.0f;
 				//	tv = 1.0f;
 				//}
-				//vertices[y * WIDTH + x] = { static_cast<float>(-x), static_cast<float>(y), HeightData[x][y], tu, tv };
+				//vertices[y * width + x] = { static_cast<float>(-x), static_cast<float>(y), HeightData[x][y], tu, tv };
 			}
 		}
 
@@ -80,14 +81,14 @@ namespace se {
 		//vertices[0].tu = 0.0f;
 		//vertices[0].tv = 0.0f;
 		////Top-right
-		//vertices[WIDTH - 1].tu = 1.0f;
-		//vertices[WIDTH - 1].tv = 0.0f;
+		//vertices[width - 1].tu = 1.0f;
+		//vertices[width - 1].tv = 0.0f;
 		////Bottom-left
-		//vertices[(WIDTH * HEIGHT - 1) - WIDTH].tu = 0.0f;
-		//vertices[(WIDTH * HEIGHT - 1) - WIDTH].tv = 1.0f;
+		//vertices[(width * height - 1) - width].tu = 0.0f;
+		//vertices[(width * height - 1) - width].tv = 1.0f;
 		////Bottom-right
-		//vertices[WIDTH * HEIGHT - 1].tu = 1.0f;
-		//vertices[WIDTH * HEIGHT - 1].tv = 1.0f;
+		//vertices[width * height - 1].tu = 1.0f;
+		//vertices[width * height - 1].tv = 1.0f;
 
 		int vertCount = sizeof(vertices) / sizeof(Vertex);
 		int byteCount = vertCount * sizeof(Vertex);
@@ -102,17 +103,17 @@ namespace se {
 		memcpy(pVertices, &vertices, byteCount);
 		m_vertexBuffer->Unlock();
 
-		//short Indices[(WIDTH - 1) * (HEIGHT - 1) * squareVertCount];
+		//short Indices[(width - 1) * (height - 1) * squareVertCount];
 		//int indicesCount = sizeof(Indices) / sizeof(short);
 		//int byteCountIndices = indicesCount * sizeof(short);
 
-		//for (int x = 0; x < WIDTH - 1; x++) {
-		//	for (int y = 0; y < HEIGHT - 1; y++) {
-		//		int i = (x + y * (WIDTH - 1));
-		//		int topleft = x + y * WIDTH;
-		//		int topright = (x + 1) + y * WIDTH;
-		//		int bottomleft = x + (y + 1) * WIDTH;
-		//		int bottomright = (x + 1) + (y + 1) * WIDTH;
+		//for (int x = 0; x < width - 1; x++) {
+		//	for (int y = 0; y < height - 1; y++) {
+		//		int i = (x + y * (width - 1));
+		//		int topleft = x + y * width;
+		//		int topright = (x + 1) + y * width;
+		//		int bottomleft = x + (y + 1) * width;
+		//		int bottomright = (x + 1) + (y + 1) * width;
 
 		//		Indices[i * squareVertCount] = topleft;
 		//		Indices[i * squareVertCount + 1] = topright;
@@ -152,8 +153,8 @@ namespace se {
 		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetTexture(0, m_texture);
 		//Direct3D::GetDevice()->SetIndices(m_indexBuffer);
-		//Direct3D::GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, WIDTH * HEIGHT, 0, (WIDTH - 1) * (HEIGHT - 1) * 2);
-		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, WIDTH * HEIGHT * 2);
+		//Direct3D::GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, m_width * m_height, 0, (m_width - 1) * (m_height - 1) * 2);
+		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_width * m_height * 2);
 	}
 
 	void Terrain::Release() {
