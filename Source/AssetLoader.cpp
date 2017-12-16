@@ -32,7 +32,9 @@ namespace se {
 		m_assets[path] = mesh;
 	}
 
-	/*void AssetLoader::AddAsset(AbstractAsset *asset) {
+	//TODO: work the adding of assets out
+	/*void AssetLoader::AddAsset(const std::string &name, AbstractAsset *asset) {
+		mesh->SetPath("Assets\\" + asset->GetPath());
 		asset->Load();
 		m_assets[asset->name] = mesh;
 	}*/
