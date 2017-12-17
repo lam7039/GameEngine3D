@@ -1,3 +1,2 @@
-﻿  FPSCounter.cpp
-D:\Projects\GameEngine3D\Source\FPSCounter.cpp(21): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+﻿  DirectXTerrain.cpp
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib

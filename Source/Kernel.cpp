@@ -7,13 +7,15 @@
 
 namespace se {
 
-	Kernel::Kernel(const std::string &title) {
+	Kernel::Kernel(const std::string &title, int width, int height) {
 		// Initialize logging. (still thinking of a better way to do logging)
 		Debug logger("engine.log");
 		logger.Log(0, __FILE__, __LINE__, "Engine started");
 
-		Window window(title);
+		Window window(title, width, height);
 		m_hWnd = window.OpenWindow();
+		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
+
 		m_renderer = new Direct3D();
 		m_renderer->Create(m_hWnd);
 	}
@@ -29,8 +31,9 @@ namespace se {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
+			m_input.Update();
 
-			if (msg.message == WM_QUIT) {
+			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
 

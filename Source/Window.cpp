@@ -13,21 +13,19 @@ namespace se {
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 
-	Window::Window(const std::string &title) : m_title(title)
+	Window::Window(const std::string &title, int width = 800, int height = 500) : m_title(title), m_width(width), m_height(height)
 	{
-		m_width = 800;
-		m_height = 500;
 		m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);
 		m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
 	}
 
 	HWND Window::OpenWindow() {
-		HMODULE hInstance = GetModuleHandle(NULL);
-		ATOM atom = RegisterWindowProc(hInstance, WindowProc, "window");
+		m_hInstance = GetModuleHandle(NULL);
+		ATOM atom = RegisterWindowProc(m_hInstance, WindowProc, "window");
 		if (!atom) {
 			return NULL;
 		}
-		HWND hWnd = CreateWindowEx(NULL, "window", m_title.c_str(), WS_OVERLAPPEDWINDOW, m_x, m_y, m_width, m_height, NULL, NULL, hInstance, NULL);
+		HWND hWnd = CreateWindowEx(NULL, "window", m_title.c_str(), WS_OVERLAPPEDWINDOW, m_x, m_y, m_width, m_height, NULL, NULL, m_hInstance, NULL);
 		ShowWindow(hWnd, SW_SHOW);
 		return hWnd;
 	}
@@ -48,6 +46,10 @@ namespace se {
 		wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
 		wc.lpszClassName = className.c_str();
 		return RegisterClassEx(&wc);
+	}
+
+	HINSTANCE Window::GetInstance() {
+		return m_hInstance;
 	}
 
 }

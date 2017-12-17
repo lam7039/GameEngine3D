@@ -4,15 +4,17 @@
 #include "std.h"
 #include "Debug.h"
 #include "Renderer.h"
+#include "Input.h"
 
 namespace se {
 
 	class Kernel {
 	public:
-		Kernel(const std::string &title);
+		Kernel(const std::string &title, int width, int height);
 		int EnterLoop();
 	private:
 		HWND m_hWnd;
+		Input m_input;
 		AbstractRenderer *m_renderer;
 	};
 

@@ -32,8 +32,8 @@ namespace se {
 		HeightData[2][2] = 4;
 		HeightData[3][2] = 2; //Bottom-right
 
-		//float tu = 0.0f;
-		//float tv = 0.0f;
+		float tu = 0.0f;
+		float tv = 0.0f;
 
 		const int squareVertCount = 6;
 		Vertex vertices[(width * height * squareVertCount)];
@@ -120,8 +120,8 @@ namespace se {
 		//		Indices[i * squareVertCount + 1] = topright;
 		//		Indices[i * squareVertCount + 2] = bottomleft;
 
-		//		Indices[i * squareVertCount + 3] = topright;
-		//		Indices[i * squareVertCount + 4] = bottomleft;
+		//		Indices[i * squareVertCount + 3] = bottomleft;
+		//		Indices[i * squareVertCount + 4] = topright;
 		//		Indices[i * squareVertCount + 5] = bottomright;
 		//	}
 		//}

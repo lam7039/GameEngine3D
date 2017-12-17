@@ -4,6 +4,7 @@
 #include "std.h"
 #include "Renderer.h"
 #include "Camera.h"
+#include <d3d9.h>
 #include <d3dx9.h>
 
 namespace se {

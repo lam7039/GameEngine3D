@@ -3,7 +3,6 @@
 
 #include "std.h"
 #include "DirectX9\Direct3D.h"
-#include "DirectX9\DirectXMesh.h"
 #include "Asset.h"
 
 namespace se {
@@ -15,8 +14,10 @@ namespace se {
 		void Process();
 		void Release();
 	private:
-		Mesh *m_mesh;
-		LPDIRECT3DTEXTURE9 m_texture;
+		LPDIRECT3DCUBETEXTURE9 m_map;
+		LPDIRECT3DSURFACE9 m_face;
+
+
 	};
 
 }
