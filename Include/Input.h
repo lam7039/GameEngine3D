@@ -1,9 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#pragma comment(lib, "dinput8.lib")
-#pragma comment(lib, "dxguid.lib")
-
 #include "std.h"
 #include <Windows.h>
 #include <dinput.h>
