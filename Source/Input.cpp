@@ -111,8 +111,16 @@ namespace se {
 	}
 
 	bool Input::ReadMouse() {
-		//TODO: ReadMouse() in Input.cpp
-		return false;
+		HRESULT result = m_mouse->GetDeviceState(sizeof(m_mouseState), (LPVOID)&m_mouseState);
+		if (FAILED(result)) {
+			if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED) {
+				m_mouse->Acquire();
+			}
+			else {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	void Input::ProcessInput()
