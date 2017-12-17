@@ -12,10 +12,10 @@ namespace se {
 		Input();
 		~Input();
 
-		bool Initialize(HINSTANCE, HWND, int, int);
+		bool Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight);
 		bool Update();
 		bool IsPressed(BYTE key);
-		void GetMouseLocation(int&, int&);
+		void GetMouseLocation(int &mouseX, int &mouseY);
 
 	private:
 		IDirectInput8 *m_directInput;

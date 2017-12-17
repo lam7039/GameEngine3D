@@ -27,7 +27,7 @@ namespace se {
 		}
 	}
 
-	bool Input::Initialize(HINSTANCE hInstance, HWND hWnd, int screenHeight, int screenWidth) {
+	bool Input::Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight) {
 		HRESULT result;
 
 		m_screenWidth = screenWidth;
@@ -136,7 +136,7 @@ namespace se {
 		return (m_keyboardState[key]) ? true : false;
 	}
 
-	void Input::GetMouseLocation(int& mouseX, int& mouseY) {
+	void Input::GetMouseLocation(int &mouseX, int &mouseY) {
 		mouseX = m_mouseX;
 		mouseY = m_mouseY;
 	}

@@ -8,7 +8,6 @@
 namespace se {
 
 	Kernel::Kernel(const std::string &title, int width, int height) {
-		// Initialize logging. (still thinking of a better way to do logging)
 		Debug logger("engine.log");
 		logger.Log(0, __FILE__, __LINE__, "Engine started");
 
