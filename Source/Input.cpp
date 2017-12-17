@@ -81,8 +81,7 @@ namespace se {
 		return true;
 	}
 
-	bool Input::Update()
-	{
+	bool Input::Update() {
 		bool result;
 		result = ReadKeyboard();
 		if (!result) {
@@ -96,8 +95,7 @@ namespace se {
 		return true;
 	}
 
-	bool Input::ReadKeyboard()
-	{
+	bool Input::ReadKeyboard() {
 		HRESULT result = m_keyboard->GetDeviceState(sizeof(m_keyboardState), (LPVOID)&m_keyboardState);
 		if (FAILED(result)) {
 			if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED) {
@@ -123,8 +121,7 @@ namespace se {
 		return true;
 	}
 
-	void Input::ProcessInput()
-	{
+	void Input::ProcessInput() {
 		m_mouseX += m_mouseState.lX;
 		m_mouseY += m_mouseState.lY;
 
@@ -135,13 +132,11 @@ namespace se {
 		if (m_mouseY > m_screenHeight) { m_mouseY = m_screenHeight; }
 	}
 
-	bool Input::IsPressed(BYTE key)
-	{
+	bool Input::IsPressed(BYTE key) {
 		return (m_keyboardState[key]) ? true : false;
 	}
 
-	void Input::GetMouseLocation(int& mouseX, int& mouseY)
-	{
+	void Input::GetMouseLocation(int& mouseX, int& mouseY) {
 		mouseX = m_mouseX;
 		mouseY = m_mouseY;
 	}
