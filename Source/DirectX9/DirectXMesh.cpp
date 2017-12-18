@@ -7,6 +7,7 @@ namespace se {
 		m_meshMaterials = nullptr;
 		m_meshTextures = nullptr;
 		m_materialCount = 0;
+		AssetType type = MESH;
 	}
 
 	void Mesh::Load() {

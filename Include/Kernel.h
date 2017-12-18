@@ -5,6 +5,7 @@
 #include "Debug.h"
 #include "Renderer.h"
 #include "Input.h"
+#include "Camera.h"
 
 namespace se {
 
@@ -16,6 +17,7 @@ namespace se {
 		HWND m_hWnd;
 		Input m_input;
 		AbstractRenderer *m_renderer;
+		Camera m_camera;
 	};
 
 }

@@ -29,21 +29,7 @@ namespace se {
 	}
 
 	void Direct3D::Update(float delta) {
-		//World (object update)
-		SceneLoader::GetInstance()->GetCurrentScene()->Update(delta);
 
-		//View (camera)
-		D3DXMATRIX matView;
-		D3DXMatrixLookAtLH(&matView,
-			&D3DXVECTOR3(0.0f, 15.0f, 15.0f), //where you're looking to
-			&D3DXVECTOR3(m_camera.GetPosition().X, m_camera.GetPosition().Y, m_camera.GetPosition().Z), //position
-			&D3DXVECTOR3(0.0f, 1.0f, 0.0f));
-		m_device->SetTransform(D3DTS_VIEW, &matView);
-
-		//Projection
-		D3DXMATRIX matProj;
-		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
-		m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
 	void Direct3D::Render() {

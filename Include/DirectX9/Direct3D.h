@@ -3,7 +3,6 @@
 
 #include "std.h"
 #include "Renderer.h"
-#include "Camera.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 
@@ -25,7 +24,6 @@ namespace se {
 		D3DXMATRIX m_scale;
 		D3DXMATRIX m_matRotate;
 		D3DXMATRIX m_matTranslate;
-		Camera m_camera;
 	};
 
 }

@@ -3,6 +3,7 @@
 #include "Kernel.h"
 #include "Window.h"
 #include "FPSCounter.h"
+#include "SceneLoader.h"
 #include "DirectX9\Direct3D.h"
 
 namespace se {
@@ -14,6 +15,8 @@ namespace se {
 		Window window(title, width, height);
 		m_hWnd = window.OpenWindow();
 		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
+
+		m_camera.Initialize(&m_input);
 
 		m_renderer = new Direct3D();
 		m_renderer->Create(m_hWnd);
@@ -35,8 +38,45 @@ namespace se {
 			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
-
 			// Logic.
+			m_camera.Update(fps.GetDelta());
+
+			//World (object update)
+			SceneLoader::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+
+			//View (camera)
+			
+			D3DXMATRIX matView;
+
+			D3DXVECTOR3 position;
+			D3DXVECTOR3 lookAt;
+			D3DXVECTOR3 up;
+
+			position.x = m_camera.GetPosition().X;
+			position.y = m_camera.GetPosition().Y;
+			position.z = m_camera.GetPosition().Z;
+
+			lookAt.x = 0.0f;
+			lookAt.y = 0.0f;
+			lookAt.z = 15.0f;
+
+			lookAt = position + lookAt;
+
+			up.x = 0.0f;
+			up.y = 1.0f;
+			up.z = 0.0f;
+
+			D3DXMatrixLookAtLH(&matView,
+				&position, //position
+				&lookAt, //where you're looking to
+				&up);
+			Direct3D::GetDevice()->SetTransform(D3DTS_VIEW, &matView);
+
+			//Projection
+			D3DXMATRIX matProj;
+			D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
+			Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+
 			m_renderer->Update(fps.GetDelta());
 
 			// Drawing.

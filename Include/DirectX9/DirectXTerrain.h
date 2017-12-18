@@ -4,6 +4,7 @@
 #include "std.h"
 #include "Asset.h"
 #include "DirectX9\Direct3D.h"
+#include "Vector3.h"
 
 namespace se {
 

@@ -6,24 +6,22 @@ namespace se {
 		m_directInput = nullptr;
 		m_keyboard = nullptr;
 		m_mouse = nullptr;
-		m_screenWidth = 0;
-		m_screenHeight = 0;
 	}
 
 	Input::~Input() {
 		if (m_mouse) {
 			m_mouse->Unacquire();
 			m_mouse->Release();
-			m_mouse = 0;
+			m_mouse = nullptr;
 		}
 		if (m_keyboard) {
 			m_keyboard->Unacquire();
 			m_keyboard->Release();
-			m_keyboard = 0;
+			m_keyboard = nullptr;
 		}
 		if (m_directInput) {
 			m_directInput->Release();
-			m_directInput = 0;
+			m_directInput = nullptr;
 		}
 	}
 

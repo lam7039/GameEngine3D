@@ -5,6 +5,21 @@
 
 namespace se {
 
+	enum AssetType {
+		UNKNOWN = 0,
+		MESH = 1,
+		TERRAIN = 2,
+		SKYBOX = 3
+	};
+
+	enum State {
+		Inactive = 0,
+		Created = 1,
+		Loaded = 2,
+		Processed = 3,
+		Destroyed = 4
+	};
+
 	class AbstractAsset {
 	public:
 		virtual void Create() = 0;
@@ -19,6 +34,7 @@ namespace se {
 		}
 	protected:
 		std::string m_path;
+		AssetType type = UNKNOWN;
 	};
 
 }
