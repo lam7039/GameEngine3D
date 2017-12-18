@@ -21,7 +21,6 @@ namespace se {
 		m_transform.rotY = 0.0f;
 		m_transform.rotZ = 0.0f;
 
-		//positive = depth, negative = height
 		float HeightData[width][height];
 		HeightData[0][0] = 0; //Bottom-right
 		HeightData[1][0] = 0;
