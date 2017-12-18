@@ -13,8 +13,14 @@ namespace se {
 		m_width = width;
 		m_height = height;
 
-		m_position.Set(2.0f, 5.0f, 2.0f);
-		m_rotation.Set(0.0f, (D3DX_PI / 2), 0.0f);
+		m_transform.posX = 2.0f;
+		m_transform.posY = 5.0f;
+		m_transform.posZ = 2.0f;
+
+		m_transform.rotX = 0.0f;
+		m_transform.rotY = (D3DX_PI / 2);
+		m_transform.rotZ = 0.0f;
+
 		//positive = depth, negative = height
 		float HeightData[width][height];
 		HeightData[0][0] = 0; //Top-left
@@ -39,6 +45,7 @@ namespace se {
 		Vertex vertices[(width * height * squareVertCount)];
 
 		//TODO: look at a better way to render heightmap with indices
+		//TODO: replace y with z
 		for (int x = 0; x < width - 1; x++) {
 			for (int y = 0; y < height - 1; y++) {
 				//Without indices
@@ -147,8 +154,8 @@ namespace se {
 	}
 
 	void Terrain::Process() {
-		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_rotation.X, m_rotation.Y, m_rotation.Z);
-		D3DXMatrixTranslation(&m_matTranslate, m_position.X, m_position.Y, m_position.Z);
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_transform.rotX, m_transform.rotY, m_transform.rotZ);
+		D3DXMatrixTranslation(&m_matTranslate, m_transform.posX, m_transform.posY, m_transform.posZ);
 		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
 		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
 		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));

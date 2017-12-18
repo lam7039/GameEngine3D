@@ -2,6 +2,7 @@
 #define DIRECT3D_H
 
 #include "std.h"
+#include "Transform.h"
 #include "Renderer.h"
 #include <d3d9.h>
 #include <d3dx9.h>

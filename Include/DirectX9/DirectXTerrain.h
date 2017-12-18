@@ -4,7 +4,6 @@
 #include "std.h"
 #include "Asset.h"
 #include "DirectX9\Direct3D.h"
-#include "Vector3.h"
 
 namespace se {
 
@@ -17,8 +16,7 @@ namespace se {
 	private:
 		int m_width;
 		int m_height;
-		Vector3<float> m_rotation;
-		Vector3<float> m_position;
+		Transform3f m_transform;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
 		//LPDIRECT3DINDEXBUFFER9 m_indexBuffer;
 		D3DXMATRIX m_matRotate;

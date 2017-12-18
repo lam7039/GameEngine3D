@@ -1,6 +1,7 @@
 #include "DirectX9/Direct3D.h"
 #include "AssetLoader.h"
 #include "SceneLoader.h"
+#include "Transform.h"
 
 namespace se {
 
@@ -29,7 +30,7 @@ namespace se {
 	}
 
 	void Direct3D::Update(float delta) {
-
+		//projectionstuff
 	}
 
 	void Direct3D::Render() {
@@ -38,12 +39,10 @@ namespace se {
 
 		std::vector<Entity*> m_currentSceneObjects = SceneLoader::GetInstance()->GetCurrentScene()->GetEntities();
 		for (int i = 0; i < m_currentSceneObjects.size(); i++) {
-			float scale = m_currentSceneObjects[i]->GetScale();;
-			Vector3<float> rotation = m_currentSceneObjects[i]->GetRotation();
-			Vector3<float> position = m_currentSceneObjects[i]->GetPosition();
-			D3DXMatrixScaling(&m_scale, scale, scale, scale);
-			D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.X, rotation.Y, rotation.Z);
-			D3DXMatrixTranslation(&m_matTranslate, position.X, position.Y, position.Z);
+			Transform3f target = m_currentSceneObjects[i]->GetTarget();
+			D3DXMatrixScaling(&m_scale, target.scaleX, target.scaleY, target.scaleZ);
+			D3DXMatrixRotationYawPitchRoll(&m_matRotate, target.rotX, target.rotY, target.rotZ);
+			D3DXMatrixTranslation(&m_matTranslate, target.posX, target.posY, target.posZ);
 			m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
 			if (m_currentSceneObjects[i]->GetFilename() != "") {
 				AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssets()[m_currentSceneObjects[i]->GetFilename()];

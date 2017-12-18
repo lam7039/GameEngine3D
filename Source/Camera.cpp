@@ -3,9 +3,9 @@
 namespace se {
 
 	Camera::Camera() {
-		m_position.Set(0.0f, 5.0f, 0.0f);
-		m_rotation.Set(0.0f, 0.0f, 0.0f);
+		m_transform.posZ = -20.0f;
 		m_speed = 20.0f;
+		m_rotateSpeed = 2.0f;
 	}
 
 	void Camera::Initialize(Input *input) {
@@ -15,31 +15,69 @@ namespace se {
 	void Camera::Update(float delta) {
 		m_input->Update();
 		if (m_input->IsPressed(DIK_W)) {
-			m_position.Z += m_speed * delta;
+			m_transform.posZ += m_speed * delta;
 		}
 		if (m_input->IsPressed(DIK_A)) {
-			m_position.X -= m_speed * delta;
+			m_transform.posX -= m_speed * delta;
 		}
 		if (m_input->IsPressed(DIK_S)) {
-			m_position.Z -= m_speed * delta;
+			m_transform.posZ -= m_speed * delta;
 		}
 		if (m_input->IsPressed(DIK_D)) {
-			m_position.X += m_speed * delta;
+			m_transform.posX += m_speed * delta;
 		}
 		if (m_input->IsPressed(DIK_UP)) {
-			m_position.Y += m_speed * delta;
+			m_transform.posY += m_speed * delta;
 		}
 		if (m_input->IsPressed(DIK_DOWN)) {
-			m_position.Y -= m_speed * delta;
+			m_transform.posY -= m_speed * delta;
 		}
+		if (m_input->IsPressed(DIK_LEFT)) {
+			m_transform.rotX -= m_rotateSpeed * delta;
+		}
+		if (m_input->IsPressed(DIK_RIGHT)) {
+			m_transform.rotX += m_rotateSpeed * delta;
+		}
+
+		//float pitchRadian = D3DXToRadian(m_transform.rotX);
+		//float yawRadian = D3DXToRadian(m_transform.rotY);
+		//m_transform.posX = m_speed * sinf(yawRadian) * cosf(pitchRadian);
+		//m_transform.posZ = m_speed * cosf(yawRadian) * sinf(pitchRadian);
+
+		float yaw;
+
+		m_position.x = m_transform.posX;
+		m_position.y = m_transform.posY;
+		m_position.z = m_transform.posZ;
+
+		m_lookAt.x = 0.0f;
+		m_lookAt.y = 0.0f;
+		m_lookAt.z = 15.0f;
+
+		m_up.x = 0.0f;
+		m_up.y = 1.0f;
+		m_up.z = 0.0f;
+
+		yaw = m_transform.rotX;
+
+		D3DXMatrixRotationYawPitchRoll(&m_rotation, yaw, 0.0f, 0.0f);
+		D3DXVec3TransformCoord(&m_lookAt, &m_lookAt, &m_rotation);
+		D3DXVec3TransformCoord(&m_up, &m_up, &m_rotation);
+
+		m_lookAt = m_position + m_lookAt;
+
+		//View (camera)
+		D3DXMatrixLookAtLH(&m_matView, &m_position, &m_lookAt, &m_up);
+		Direct3D::GetDevice()->SetTransform(D3DTS_VIEW, &m_matView);
+
+		//Projection
+		D3DXMATRIX matProj;
+		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
+		Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
-	Vector3<float> Camera::GetPosition() {
-		return m_position;
-	}
-	
-	Vector3<float> Camera::GetRotation() {
-		return m_rotation;
+	Transform3f Camera::GetTarget() const {
+		return m_transform;
 	}
 
 }

@@ -3,7 +3,8 @@
 
 #include "std.h"
 #include "Input.h"
-#include "Vector3.h"
+#include "Transform.h"
+#include "DirectX9\Direct3D.h"
 
 namespace se {
 
@@ -13,13 +14,19 @@ namespace se {
 		Camera();
 		void Initialize(Input *input);
 		void Update(float delta);
-		Vector3<float> GetPosition();
-		Vector3<float> GetRotation();
+		Transform3f GetTarget() const;
 	private:
 		Input *m_input;
-		Vector3<float> m_position;
-		Vector3<float> m_rotation;
+		Transform3f m_transform;
 		float m_speed;
+		float m_rotateSpeed;
+
+		D3DXMATRIX m_matView;
+		D3DXMATRIX m_rotation;
+
+		D3DXVECTOR3 m_position;
+		D3DXVECTOR3 m_lookAt;
+		D3DXVECTOR3 m_up;
 	};
 
 }
