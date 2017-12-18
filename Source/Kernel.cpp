@@ -5,6 +5,7 @@
 #include "FPSCounter.h"
 #include "SceneLoader.h"
 #include "DirectX9\Direct3D.h"
+#include <iostream>
 
 namespace se {
 
@@ -14,8 +15,8 @@ namespace se {
 
 		Window window(title, width, height);
 		m_hWnd = window.OpenWindow();
-		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
 
+		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
 		m_camera.Initialize(&m_input);
 
 		m_renderer = new Direct3D();
@@ -38,14 +39,15 @@ namespace se {
 			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
+
 			// Logic.
-			SceneLoader::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 			m_camera.Update(fps.GetDelta());
-			m_renderer->Update(fps.GetDelta());
+			SceneLoader::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 
 			// Drawing.
 			m_renderer->Render();
 
+			std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 

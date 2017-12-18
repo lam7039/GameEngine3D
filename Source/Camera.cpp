@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include <iostream>
 
 namespace se {
 
@@ -44,8 +45,6 @@ namespace se {
 		//m_transform.posX = m_speed * sinf(yawRadian) * cosf(pitchRadian);
 		//m_transform.posZ = m_speed * cosf(yawRadian) * sinf(pitchRadian);
 
-		float yaw;
-
 		m_position.x = m_transform.posX;
 		m_position.y = m_transform.posY;
 		m_position.z = m_transform.posZ;
@@ -58,9 +57,7 @@ namespace se {
 		m_up.y = 1.0f;
 		m_up.z = 0.0f;
 
-		yaw = m_transform.rotX;
-
-		D3DXMatrixRotationYawPitchRoll(&m_rotation, yaw, 0.0f, 0.0f);
+		D3DXMatrixRotationYawPitchRoll(&m_rotation, m_transform.rotX, 0.0f, 0.0f);
 		D3DXVec3TransformCoord(&m_lookAt, &m_lookAt, &m_rotation);
 		D3DXVec3TransformCoord(&m_up, &m_up, &m_rotation);
 

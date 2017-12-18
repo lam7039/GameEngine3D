@@ -8,7 +8,6 @@
 
 namespace se {
 
-	//Shouldn't be an entity, has a meshFileName f.ex like this
 	class Camera {
 	public:
 		Camera();
@@ -23,7 +22,6 @@ namespace se {
 
 		D3DXMATRIX m_matView;
 		D3DXMATRIX m_rotation;
-
 		D3DXVECTOR3 m_position;
 		D3DXVECTOR3 m_lookAt;
 		D3DXVECTOR3 m_up;

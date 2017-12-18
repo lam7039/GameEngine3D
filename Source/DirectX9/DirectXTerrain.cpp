@@ -14,29 +14,29 @@ namespace se {
 		m_height = height;
 
 		m_transform.posX = 2.0f;
-		m_transform.posY = 5.0f;
+		m_transform.posY = -5.0f;
 		m_transform.posZ = 2.0f;
 
 		m_transform.rotX = 0.0f;
-		m_transform.rotY = (D3DX_PI / 2);
+		m_transform.rotY = 0.0f;
 		m_transform.rotZ = 0.0f;
 
 		//positive = depth, negative = height
 		float HeightData[width][height];
-		HeightData[0][0] = 0; //Top-left
+		HeightData[0][0] = 0; //Bottom-right
 		HeightData[1][0] = 0;
 		HeightData[2][0] = 0;
-		HeightData[3][0] = 0; //Top-right
+		HeightData[3][0] = 0; //Bottom-left
 
 		HeightData[0][1] = 1;
 		HeightData[1][1] = 0;
 		HeightData[2][1] = 2;
 		HeightData[3][1] = 2;
 
-		HeightData[0][2] = 2; //Bottom-left
+		HeightData[0][2] = 2; //Top-right
 		HeightData[1][2] = 2;
 		HeightData[2][2] = 4;
-		HeightData[3][2] = 2; //Bottom-right
+		HeightData[3][2] = 2; //Top-left
 
 		float tu = 0.0f;
 		float tv = 0.0f;
@@ -45,19 +45,18 @@ namespace se {
 		Vertex vertices[(width * height * squareVertCount)];
 
 		//TODO: look at a better way to render heightmap with indices
-		//TODO: replace y with z
 		for (int x = 0; x < width - 1; x++) {
 			for (int y = 0; y < height - 1; y++) {
 				//Without indices
 				int i = x + y * m_width;
 				
-				vertices[i * squareVertCount]		= { static_cast<float>(-x),			static_cast<float>(y),		HeightData[x][y],			0.0f, 0.0f };	//Topleft
-				vertices[i * squareVertCount + 1]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y),		HeightData[x + 1][y],		1.0f, 0.0f };	//Topright
-				vertices[i * squareVertCount + 2]	= { static_cast<float>(-x),			static_cast<float>(y + 1),	HeightData[x][y + 1],		0.0f, 1.0f };	//Bottomleft
+				vertices[i * squareVertCount]		= { static_cast<float>(-x),			HeightData[x][y],			static_cast<float>(y),			0.0f, 0.0f };	//Topleft
+				vertices[i * squareVertCount + 1]	= { static_cast<float>(-(x + 1)),	HeightData[x + 1][y],		static_cast<float>(y),			1.0f, 0.0f };	//Topright
+				vertices[i * squareVertCount + 2]	= { static_cast<float>(-x),			HeightData[x][y + 1],		static_cast<float>(y + 1),		0.0f, 1.0f };	//Bottomleft
 
-				vertices[i * squareVertCount + 3]	= { static_cast<float>(-x),			static_cast<float>(y + 1),	HeightData[x][y + 1],		0.0f, 1.0f };	//Bottomleft
-				vertices[i * squareVertCount + 4]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y),		HeightData[x + 1][y],		1.0f, 0.0f };	//Topright
-				vertices[i * squareVertCount + 5]	= { static_cast<float>(-(x + 1)),	static_cast<float>(y + 1),	HeightData[x + 1][y + 1],	1.0f, 1.0f };	//BottomRight
+				vertices[i * squareVertCount + 3]	= { static_cast<float>(-x),			HeightData[x][y + 1],		static_cast<float>(y + 1),		0.0f, 1.0f };	//Bottomleft
+				vertices[i * squareVertCount + 4]	= { static_cast<float>(-(x + 1)),	HeightData[x + 1][y],		static_cast<float>(y),			1.0f, 0.0f };	//Topright
+				vertices[i * squareVertCount + 5]	= { static_cast<float>(-(x + 1)),	HeightData[x + 1][y + 1],	static_cast<float>(y + 1),		1.0f, 1.0f };	//BottomRight
 
 				//With indices but flips the textures because of:
 				//00,10,00,10

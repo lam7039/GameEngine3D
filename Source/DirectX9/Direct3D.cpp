@@ -17,20 +17,16 @@ namespace se {
 		d3dpp.hDeviceWindow = hWnd;
 		d3dpp.EnableAutoDepthStencil = TRUE;
 		d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
+		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
 
 		if (FAILED(m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device))) {
-			MessageBox(NULL, "failed to create the device", "Meshes.exe", MB_OK);
+			MessageBox(NULL, "failed to create the device", "Direct3D", MB_OK);
 		}
-		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
+		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-		m_device->SetRenderState(D3DRS_CLIPPING, TRUE); //By default true
-
-	}
-
-	void Direct3D::Update(float delta) {
-		//projectionstuff
+		m_device->SetRenderState(D3DRS_CLIPPING, TRUE);
 	}
 
 	void Direct3D::Render() {
