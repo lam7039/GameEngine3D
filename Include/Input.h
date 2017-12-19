@@ -13,8 +13,8 @@ namespace se {
 		~Input();
 
 		bool Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight);
-		bool Update();
 		bool IsPressed(BYTE key);
+		void Update();
 		void GetMouseLocation(int &mouseX, int &mouseY);
 
 	private:

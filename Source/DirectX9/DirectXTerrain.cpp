@@ -37,8 +37,8 @@ namespace se {
 		HeightData[2][2] = 4;
 		HeightData[3][2] = 2; //Top-left
 
-		float tu = 0.0f;
-		float tv = 0.0f;
+		//float tu = 0.0f;
+		//float tv = 0.0f;
 
 		const int squareVertCount = 6;
 		Vertex vertices[(width * height * squareVertCount)];

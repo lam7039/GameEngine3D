@@ -79,20 +79,6 @@ namespace se {
 		return true;
 	}
 
-	bool Input::Update() {
-		bool result;
-		result = ReadKeyboard();
-		if (!result) {
-			return false;
-		}
-		result = ReadMouse();
-		if (!result) {
-			return false;
-		}
-		ProcessInput();
-		return true;
-	}
-
 	bool Input::ReadKeyboard() {
 		HRESULT result = m_keyboard->GetDeviceState(sizeof(m_keyboardState), (LPVOID)&m_keyboardState);
 		if (FAILED(result)) {
@@ -117,6 +103,19 @@ namespace se {
 			}
 		}
 		return true;
+	}
+
+	void Input::Update() {
+		bool result;
+		result = ReadKeyboard();
+		if (!result) {
+			//TODO: log failed keyboard
+		}
+		result = ReadMouse();
+		if (!result) {
+			//TODO: log failed mouse
+		}
+		ProcessInput();
 	}
 
 	void Input::ProcessInput() {

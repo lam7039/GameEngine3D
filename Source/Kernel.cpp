@@ -47,7 +47,7 @@ namespace se {
 			// Drawing.
 			m_renderer->Render();
 
-			std::cout << fps.GetFPS() << std::endl;
+			//std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 

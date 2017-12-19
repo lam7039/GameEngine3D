@@ -37,7 +37,7 @@ namespace se {
 		return Buffer;
 	}
 
-	BYTE* ConvertBMPToRGBBuffer(BYTE* Buffer, int width, int height)
+	BYTE *ConvertBMPToRGBBuffer(BYTE* Buffer, int width, int height)
 	{
 		if ((NULL == Buffer) || (width == 0) || (height == 0))
 			return NULL;
@@ -48,7 +48,7 @@ namespace se {
 			padding++;
 		int psw = scanlinebytes + padding;
 
-		BYTE* newbuf = new BYTE[width*height * 3];
+		BYTE *newbuf = new BYTE[width*height * 3];
 
 		long bufpos = 0;
 		long newpos = 0;
@@ -81,9 +81,9 @@ namespace se {
 	{
 		int x, y;
 		long s, s2;
-		//BYTE* a = LoadBMP(&x, &y, &s, input);
-		//BYTE* b = ConvertBMPToRGBBuffer(a, x, y);
-		//BYTE* c = ConvertRGBToBMPBuffer(b, x, y, &s2);
+		//BYTE *a = LoadBMP(&x, &y, &s, input);
+		//BYTE *b = ConvertBMPToRGBBuffer(a, x, y);
+		//BYTE *c = ConvertRGBToBMPBuffer(b, x, y, &s2);
 		//SaveBMP(c, x, y, s2, output);
 		//delete[] a;
 		//delete[] b;
