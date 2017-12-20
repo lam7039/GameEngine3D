@@ -19,12 +19,8 @@ namespace se {
 		Transform3f m_transform;
 		float m_speed;
 		float m_rotateSpeed;
+		float m_direction;
 
-		D3DXMATRIX m_matView;
-		D3DXMATRIX m_rotation;
-		D3DXVECTOR3 m_position;
-		D3DXVECTOR3 m_lookAt;
-		D3DXVECTOR3 m_up;
 	};
 
 }

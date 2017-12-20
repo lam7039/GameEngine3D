@@ -1,21 +1,3 @@
-﻿  DirectXSkybox.cpp
-  Input.cpp
+﻿  Camera.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  AssetLoader.cpp
-  Bitmap.cpp
-D:\Projects\GameEngine3D\Source\Bitmap.cpp(83): warning C4101: 's2': unreferenced local variable
-D:\Projects\GameEngine3D\Source\Bitmap.cpp(82): warning C4101: 'y': unreferenced local variable
-D:\Projects\GameEngine3D\Source\Bitmap.cpp(83): warning C4101: 's': unreferenced local variable
-D:\Projects\GameEngine3D\Source\Bitmap.cpp(82): warning C4101: 'x': unreferenced local variable
-  Camera.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Direct3D.cpp
-D:\Projects\GameEngine3D\Source\DirectX9\Direct3D.cpp(37): warning C4018: '<': signed/unsigned mismatch
-  DirectXMesh.cpp
-  DirectXTerrain.cpp
-  Kernel.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Scene.cpp
-  SceneLoader.cpp
-  Generating Code...
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib
