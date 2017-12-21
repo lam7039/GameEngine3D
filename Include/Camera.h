@@ -19,8 +19,9 @@ namespace se {
 		Transform3f m_transform;
 		float m_speed;
 		float m_rotateSpeed;
-		float m_direction;
-
+		float m_pitch;
+		float m_yaw;
+		void HandleInput(float delta);
 	};
 
 }

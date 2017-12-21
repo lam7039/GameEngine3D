@@ -10,8 +10,8 @@ namespace se {
 	public:
 		FPSCounter();
 		void Update();
-		float GetDelta();
-		int GetFPS();
+		float GetDelta() const;
+		int GetFPS() const;
 	private:
 		long long m_frames;
 		long long m_lastTime;

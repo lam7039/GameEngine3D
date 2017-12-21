@@ -6,6 +6,7 @@
 #include "SceneLoader.h"
 #include "DirectX9\Direct3D.h"
 #include <iostream>
+#include <stdio.h>
 
 namespace se {
 

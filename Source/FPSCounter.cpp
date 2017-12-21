@@ -24,12 +24,12 @@ namespace se {
 		m_frames++;
 	}
 
-	int FPSCounter::GetFPS() {
-		return m_fps;
+	float FPSCounter::GetDelta() const {
+		return m_deltaTime;
 	}
 
-	float FPSCounter::GetDelta() {
-		return m_deltaTime;
+	int FPSCounter::GetFPS() const {
+		return m_fps;
 	}
 
 }
