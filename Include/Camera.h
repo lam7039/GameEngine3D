@@ -12,7 +12,8 @@ namespace se {
 	public:
 		Camera();
 		void Initialize(Input *input);
-		void Update(float delta);
+		void HandleInput(float delta);
+		void Update();
 		Transform3f GetTarget() const;
 	private:
 		Input *m_input;
@@ -21,7 +22,6 @@ namespace se {
 		float m_rotateSpeed;
 		float m_pitch;
 		float m_yaw;
-		void HandleInput(float delta);
 	};
 
 }

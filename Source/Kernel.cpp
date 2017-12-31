@@ -40,9 +40,10 @@ namespace se {
 			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
+			m_camera.HandleInput(fps.GetDelta());
 
 			// Logic.
-			m_camera.Update(fps.GetDelta());
+			m_camera.Update();
 			SceneLoader::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 
 			// Drawing.

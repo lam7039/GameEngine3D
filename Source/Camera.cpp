@@ -13,8 +13,42 @@ namespace se {
 		m_input = input;
 	}
 
-	void Camera::Update(float delta) {
-		HandleInput(delta);
+	void Camera::HandleInput(float delta) {
+		m_input->Update();
+
+		if (m_input->IsPressed(DIK_W)) {
+			m_transform.posX += m_speed * cos(m_yaw) * delta;
+			m_transform.posY += m_speed * -sin(m_pitch) * delta;
+			m_transform.posZ += m_speed * -sin(m_yaw) * delta;
+		}
+		if (m_input->IsPressed(DIK_A)) {
+			m_transform.posX += m_speed * cos(m_yaw - (D3DX_PI / 2))  * delta;
+			m_transform.posZ += m_speed * -sin(m_yaw - (D3DX_PI / 2)) * delta;
+		}
+		if (m_input->IsPressed(DIK_S)) {
+			m_transform.posX -= m_speed * cos(m_yaw) * delta;
+			m_transform.posY -= m_speed * -sin(m_pitch) * delta;
+			m_transform.posZ -= m_speed * -sin(m_yaw) * delta;
+		}
+		if (m_input->IsPressed(DIK_D)) {
+			m_transform.posX += m_speed * cos(m_yaw + (D3DX_PI / 2))  * delta;
+			m_transform.posZ += m_speed * -sin(m_yaw + (D3DX_PI / 2)) * delta;
+		}
+		if (m_input->IsPressed(DIK_UP) && D3DXToRadian(m_transform.rotX) > -(D3DX_PI / 2)) {
+			m_transform.rotX -= m_rotateSpeed * delta;
+		}
+		if (m_input->IsPressed(DIK_DOWN) && D3DXToRadian(m_transform.rotX) < D3DX_PI / 2) {
+			m_transform.rotX += m_rotateSpeed * delta;
+		}
+		if (m_input->IsPressed(DIK_LEFT)) {
+			m_transform.rotY -= m_rotateSpeed * delta;
+		}
+		if (m_input->IsPressed(DIK_RIGHT)) {
+			m_transform.rotY += m_rotateSpeed * delta;
+		}
+	}
+
+	void Camera::Update() {
 
 		m_pitch = D3DXToRadian(m_transform.rotX);
 		m_yaw = D3DXToRadian(m_transform.rotY) - (D3DX_PI / 2);
@@ -24,7 +58,7 @@ namespace se {
 		position.y = m_transform.posY;
 		position.z = m_transform.posZ;
 
-		std::cout << "x: " << position.x << " z: " << position.z << std::endl;
+		std::cout << "pitch: " << m_pitch << " yaw: " << m_yaw << " x: " << position.x << " y: " << position.y << " z: " << position.z << std::endl;
 
 		D3DXVECTOR3 lookAt;
 		lookAt.x = 0.0f;
@@ -52,39 +86,6 @@ namespace se {
 		D3DXMATRIX matProj;
 		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
 		Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
-	}
-
-	void Camera::HandleInput(float delta) {
-		m_input->Update();
-
-		if (m_input->IsPressed(DIK_W)) {
-			m_transform.posX += m_speed * cos(m_yaw) * delta;
-			m_transform.posZ += m_speed * -sin(m_yaw) * delta;
-		}
-		if (m_input->IsPressed(DIK_A)) {
-			m_transform.posX += m_speed * cos(m_yaw - (D3DX_PI / 2))  * delta;
-			m_transform.posZ += m_speed * -sin(m_yaw - (D3DX_PI / 2)) * delta;
-		}
-		if (m_input->IsPressed(DIK_S)) {
-			m_transform.posX -= m_speed * cos(m_yaw) * delta;
-			m_transform.posZ -= m_speed * -sin(m_yaw) * delta;
-		}
-		if (m_input->IsPressed(DIK_D)) {
-			m_transform.posX += m_speed * cos(m_yaw + (D3DX_PI / 2))  * delta;
-			m_transform.posZ += m_speed * -sin(m_yaw + (D3DX_PI / 2)) * delta;
-		}
-		if (m_input->IsPressed(DIK_UP)) {
-			m_transform.rotX -= m_rotateSpeed * delta;
-		}
-		if (m_input->IsPressed(DIK_DOWN)) {
-			m_transform.rotX += m_rotateSpeed * delta;
-		}
-		if (m_input->IsPressed(DIK_LEFT)) {
-			m_transform.rotY -= m_rotateSpeed * delta;
-		}
-		if (m_input->IsPressed(DIK_RIGHT)) {
-			m_transform.rotY += m_rotateSpeed * delta;
-		}
 	}
 
 	Transform3f Camera::GetTarget() const {
