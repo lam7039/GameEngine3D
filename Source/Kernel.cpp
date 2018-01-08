@@ -18,7 +18,6 @@ namespace se {
 		m_hWnd = window.OpenWindow();
 
 		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
-		m_camera.Initialize(&m_input);
 
 		m_renderer = new Direct3D();
 		m_renderer->Create(m_hWnd);
@@ -40,7 +39,7 @@ namespace se {
 			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
-			m_camera.HandleInput(fps.GetDelta());
+			m_camera.HandleInput(&m_input, fps.GetDelta());
 
 			// Logic.
 			m_camera.Update();

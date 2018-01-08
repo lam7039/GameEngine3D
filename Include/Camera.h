@@ -11,12 +11,10 @@ namespace se {
 	class Camera {
 	public:
 		Camera();
-		void Initialize(Input *input);
-		void HandleInput(float delta);
+		void HandleInput(Input *input, float delta);
 		void Update();
 		Transform3f GetTarget() const;
 	private:
-		Input *m_input;
 		Transform3f m_transform;
 		float m_speed;
 		float m_rotateSpeed;
