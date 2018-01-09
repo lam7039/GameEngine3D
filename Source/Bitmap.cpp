@@ -1,97 +1,76 @@
 #include <Windows.h>
+#include <fstream>
 #include "Bitmap.h"
 
 namespace se {
 
-	BYTE *Bitmap::LoadBMP(int *width, int *height, long *size, const std::string &bmpfile) {
-		BITMAPFILEHEADER bmpheader;
-		BITMAPINFOHEADER bmpinfo;
-		DWORD bytesRead;
-		HANDLE file = CreateFile(bmpfile.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
-		if (file == NULL)
-			return NULL;
+	Bitmap::~Bitmap() {
+		delete[] m_pixels;
+	}
+	//TODO: bmp loads upside down
+	//TODO: bmp loads from file for some reason
+	int Bitmap::LoadBMP(const std::string &bmpFile) {
+		uint8_t *datBuff[2]{ nullptr, nullptr };
+		m_pixels = nullptr;
 
-		if (!ReadFile(file, &bmpheader, sizeof(BITMAPFILEHEADER), &bytesRead, NULL) ||
-			!ReadFile(file, &bmpinfo, sizeof(BITMAPINFOHEADER), &bytesRead, NULL) ||
-			bmpheader.bfType != 'MB' || 
-			bmpinfo.biCompression != BI_RGB ||
-			bmpinfo.biBitCount != 24) {
-			CloseHandle(file);
-			return NULL;
+		BITMAPFILEHEADER *bmpHeader = nullptr;
+		BITMAPINFOHEADER *bmpInfo = nullptr;
+
+		std::ifstream file(bmpFile, std::ios::binary);
+		if (!file) {
+			//TODO: add message failed to open bitmap file
+			return 1;
 		}
 
-		*width = bmpinfo.biWidth;
-		*height = abs(bmpinfo.biHeight);
-		*size = bmpheader.bfSize - bmpheader.bfOffBits;
+		datBuff[0] = new uint8_t[sizeof(BITMAPFILEHEADER)];
+		datBuff[1] = new uint8_t[sizeof(BITMAPINFOHEADER)];
 
-		BYTE *Buffer = new BYTE[*size];
-		SetFilePointer(file, bmpheader.bfOffBits, NULL, FILE_BEGIN);
-		if (!ReadFile(file, Buffer, *size, &bytesRead, NULL))
-		{
-			delete[] Buffer;
-			CloseHandle(file);
-			return NULL;
+		file.read((char*)datBuff[0], sizeof(BITMAPFILEHEADER));
+		file.read((char*)datBuff[1], sizeof(BITMAPINFOHEADER));
+
+		bmpHeader = (BITMAPFILEHEADER*)datBuff[0];
+		bmpInfo = (BITMAPINFOHEADER*)datBuff[1];
+
+
+		if (bmpHeader->bfType != 0x4D42) {
+			//TODO add message file location isn't a bitmap file
+			return 2;
 		}
 
-		CloseHandle(file);
-		return Buffer;
+		unsigned long sizeImage = bmpInfo->biWidth * bmpInfo->biHeight * bmpInfo->biBitCount;
+		m_pixels = new unsigned char[sizeImage];
+
+		file.seekg(bmpHeader->bfOffBits);
+		file.read((char*)m_pixels, sizeImage);
+
+		//Convert BGR to RGB
+		uint8_t tmpRGB = 0;
+		for (unsigned long i = 0; i < sizeImage; i += 3) {
+			tmpRGB = m_pixels[i];
+			m_pixels[i] = m_pixels[i + 2];
+			m_pixels[i + 2] = tmpRGB;
+		}
+
+		m_width = bmpInfo->biWidth;
+		m_height = bmpInfo->biHeight;
+
+		file.close();
+
+		delete[] datBuff[0];
+		delete[] datBuff[1];
+
+		return 0;
 	}
 
-	BYTE *ConvertBMPToRGBBuffer(BYTE* Buffer, int width, int height)
-	{
-		if ((NULL == Buffer) || (width == 0) || (height == 0))
-			return NULL;
-
-		int padding = 0;
-		int scanlinebytes = width * 3;
-		while ((scanlinebytes + padding) % 4 != 0)  
-			padding++;
-		int psw = scanlinebytes + padding;
-
-		BYTE *newbuf = new BYTE[width*height * 3];
-
-		long bufpos = 0;
-		long newpos = 0;
-		for (int y = 0; y < height; y++)
-			for (int x = 0; x < 3 * width; x += 3)
-			{
-				newpos = y * 3 * width + x;
-				bufpos = (height - y - 1) * psw + x;
-
-				newbuf[newpos] = Buffer[bufpos + 2];
-				newbuf[newpos + 1] = Buffer[bufpos + 1];
-				newbuf[newpos + 2] = Buffer[bufpos];
-			}
-
-		return newbuf;
+	const unsigned int Bitmap::GetWidth() const {
+		return m_width;
 	}
 
-
-	void Bitmap::TestBMPCopy(const std::string &input, const std::string &output)
-	{
-		int x, y;
-		long s;
-		BYTE *a = LoadBMP(&x, &y, &s, input);
-		BYTE *b = ConvertBMPToRGBBuffer(a, x, y);
-		delete[] a;
-		//delete[] b;
-	}
-	//TestBMPCopy2("test.bmp", "copy.bmp");
-	void TestBMPCopy2(LPCTSTR input, LPCTSTR output)
-	{
-		int x, y;
-		long s, s2;
-		//BYTE *a = LoadBMP(&x, &y, &s, input);
-		//BYTE *b = ConvertBMPToRGBBuffer(a, x, y);
-		//BYTE *c = ConvertRGBToBMPBuffer(b, x, y, &s2);
-		//SaveBMP(c, x, y, s2, output);
-		//delete[] a;
-		//delete[] b;
-		//delete[] c;
+	const unsigned int Bitmap::GetHeight() const {
+		return m_height;
 	}
 
-	void main()
-	{
-		TestBMPCopy2("lena_gray.bmp", "copy.bmp");
+	unsigned char *Bitmap::GetPixels() {
+		return m_pixels;
 	}
 }

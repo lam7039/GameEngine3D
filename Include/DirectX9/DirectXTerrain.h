@@ -3,6 +3,7 @@
 
 #include "std.h"
 #include "Asset.h"
+#include "Bitmap.h"
 #include "DirectX9\Direct3D.h"
 
 namespace se {
@@ -14,8 +15,9 @@ namespace se {
 		void Process();
 		void Release();
 	private:
-		int m_width;
-		int m_height;
+		Bitmap m_bitmap;
+		unsigned long m_width;
+		unsigned long m_height;
 		Transform3f m_transform;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
 		//LPDIRECT3DINDEXBUFFER9 m_indexBuffer;

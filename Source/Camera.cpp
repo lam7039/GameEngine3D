@@ -17,7 +17,6 @@ namespace se {
 			if (D3DXToRadian(m_transform.rotX) < (D3DX_PI / 2) && D3DXToRadian(m_transform.rotX) > -(D3DX_PI / 2)) {
 				m_transform.posX += m_speed * cos(m_yaw) * delta;
 				m_transform.posZ += m_speed * -sin(m_yaw) * delta;
-				float direction = sqrt(pow(m_transform.posX, 2) + pow(m_transform.posY, 2));
 			}
 		}
 		if (input->IsPressed(DIK_A)) {
@@ -53,12 +52,20 @@ namespace se {
 		m_pitch = D3DXToRadian(m_transform.rotX);
 		m_yaw = D3DXToRadian(m_transform.rotY) - (D3DX_PI / 2);
 
+		//D3DXVECTOR3 direction;
+		float magnitude = sqrt(pow(m_transform.posX, 2) + pow(m_transform.posZ, 2));
+		//direction = direction / magnitude;
+		//
+		//TODO: add velocity
 		D3DXVECTOR3 position;
 		position.x = m_transform.posX;
 		position.y = m_transform.posY;
 		position.z = m_transform.posZ;
 
-		std::cout << "pitch: " << m_pitch << " yaw: " << m_yaw << " x: " << position.x << " y: " << position.y << " z: " << position.z << std::endl;
+		D3DXVECTOR3 direction;
+		direction = position / magnitude;
+
+		//std::cout << "pitch: " << m_pitch << " yaw: " << m_yaw << " x: " << position.x << " y: " << position.y << " z: " << position.z << std::endl;
 
 		D3DXVECTOR3 lookAt;
 		lookAt.x = 0.0f;

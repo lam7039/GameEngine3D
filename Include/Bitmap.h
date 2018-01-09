@@ -7,10 +7,15 @@ namespace se {
 
 	class Bitmap {
 	public:
-		BYTE *LoadBMP(int *width, int *height, long *size, const std::string &bmpfile);
-		void TestBMPCopy(const std::string &input, const std::string &output);
-		BYTE* ConvertBMPToRGBBuffer(BYTE* Buffer, int width, int height);
-		void TestBMPCopy2(LPCTSTR input, LPCTSTR output);
+		~Bitmap();
+		int LoadBMP(const std::string &bmpFile);
+		const unsigned int GetWidth() const;
+		const unsigned int GetHeight() const;
+		unsigned char *GetPixels();
+	private:
+		unsigned int m_width;
+		unsigned int m_height;
+		unsigned char *m_pixels;
 	};
 
 }
