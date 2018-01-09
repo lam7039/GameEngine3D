@@ -17,7 +17,7 @@ namespace se {
 		m_width = m_bitmap.GetWidth();
 		m_height = m_bitmap.GetHeight();
 		std::cout << "width: " << m_width << " height: " << m_height << std::endl;
-		m_transform.posX = 2.0f;
+		m_transform.posX = 10.0f;
 		m_transform.posY = -5.0f;
 		m_transform.posZ = 2.0f;
 
@@ -180,7 +180,7 @@ namespace se {
 		//memcpy(pIndices, &Indices, byteCountIndices);
 		//m_indexBuffer->Unlock();
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "..\\..\\texture2.jpg", &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
 			//TODO: log failed to create texture for terrain
 			MessageBox(NULL, "failed to load texture for terrain", "Meshes.exe", MB_OK);
 			return;
