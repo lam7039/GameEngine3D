@@ -2,11 +2,13 @@
 #define BITMAP_H
 
 #include "std.h"
+#include "Debug.h"
 
 namespace se {
 
 	class Bitmap {
 	public:
+		Bitmap();
 		~Bitmap();
 		int LoadBMP(const std::string &bmpFile);
 		const unsigned int GetWidth() const;
@@ -16,6 +18,7 @@ namespace se {
 		unsigned int m_width;
 		unsigned int m_height;
 		unsigned char *m_pixels;
+		Debug m_logger;
 	};
 
 }

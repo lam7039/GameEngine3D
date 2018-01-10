@@ -12,7 +12,7 @@ namespace se {
 	void Mesh::Load() {
 		LPD3DXBUFFER materialBuffer;
 		if (FAILED(D3DXLoadMeshFromX(m_path.c_str(), D3DXMESH_SYSTEMMEM, Direct3D::GetDevice(), NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
-			MessageBox(NULL, ("failed to load mesh: " + m_path + " count: " + std::to_string(m_materialCount)).c_str(), "Meshes.exe", MB_OK);
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to load mesh" + m_path + " count: " + std::to_string(m_materialCount));
 			return;
 		}
 		D3DXMATERIAL *materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
@@ -26,7 +26,7 @@ namespace se {
 				std::string src = "Assets\\";
 				src += materials[i].pTextureFilename;
 				if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), src.c_str(), &m_meshTextures[i]))) {
-					MessageBox(NULL, ("Could not find texture map path: " + src).c_str(), "DirectXMesh.cpp", MB_OK);
+					m_logger.Log(2, __FILE__, __LINE__, "Could not find texture map path: " + src);
 					return;
 				}
 			}

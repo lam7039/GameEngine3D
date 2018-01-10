@@ -3,6 +3,7 @@
 
 #include "Asset.h"
 #include "DirectX9\Direct3D.h"
+#include "Debug.h"
 
 namespace se {
 
@@ -13,6 +14,7 @@ namespace se {
 		void Process() override;
 		void Release() override;
 	private:
+		Debug m_logger;
 		LPD3DXMESH m_mesh;
 		LPDIRECT3DTEXTURE9 *m_meshTextures;
 		D3DMATERIAL9 *m_meshMaterials;

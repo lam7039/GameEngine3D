@@ -4,13 +4,18 @@
 
 namespace se {
 
+	Bitmap::Bitmap() {
+		m_logger.SelectLogger("engine.log");
+	}
+
 	Bitmap::~Bitmap() {
 		delete[] m_pixels;
 	}
+
 	//TODO: bmp loads upside down
-	//TODO: bmp loads from file for some reason
+	//TODO: bmp loads spike (255) from file for some reason
 	int Bitmap::LoadBMP(const std::string &bmpFile) {
-		uint8_t *datBuff[2]{ nullptr, nullptr };
+		unsigned char *datBuff[2]{ nullptr, nullptr };
 		m_pixels = nullptr;
 
 		BITMAPFILEHEADER *bmpHeader = nullptr;
@@ -18,12 +23,12 @@ namespace se {
 
 		std::ifstream file(bmpFile, std::ios::binary);
 		if (!file) {
-			//TODO: add message failed to open bitmap file
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to open bitmap file");
 			return 1;
 		}
 
-		datBuff[0] = new uint8_t[sizeof(BITMAPFILEHEADER)];
-		datBuff[1] = new uint8_t[sizeof(BITMAPINFOHEADER)];
+		datBuff[0] = new unsigned char[sizeof(BITMAPFILEHEADER)];
+		datBuff[1] = new unsigned char[sizeof(BITMAPINFOHEADER)];
 
 		file.read((char*)datBuff[0], sizeof(BITMAPFILEHEADER));
 		file.read((char*)datBuff[1], sizeof(BITMAPINFOHEADER));
@@ -31,9 +36,8 @@ namespace se {
 		bmpHeader = (BITMAPFILEHEADER*)datBuff[0];
 		bmpInfo = (BITMAPINFOHEADER*)datBuff[1];
 
-
 		if (bmpHeader->bfType != 0x4D42) {
-			//TODO add message file location isn't a bitmap file
+			m_logger.Log(2, __FILE__, __LINE__, "File location isn't a bitmap file");
 			return 2;
 		}
 
@@ -44,7 +48,7 @@ namespace se {
 		file.read((char*)m_pixels, sizeImage);
 
 		//Convert BGR to RGB
-		uint8_t tmpRGB = 0;
+		unsigned char tmpRGB = 0;
 		for (unsigned long i = 0; i < sizeImage; i += 3) {
 			tmpRGB = m_pixels[i];
 			m_pixels[i] = m_pixels[i + 2];

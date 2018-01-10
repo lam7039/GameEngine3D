@@ -109,11 +109,11 @@ namespace se {
 		bool result;
 		result = ReadKeyboard();
 		if (!result) {
-			//TODO: log failed keyboard
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to read keyboard");
 		}
 		result = ReadMouse();
 		if (!result) {
-			//TODO: log failed mouse
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to read mouse");
 		}
 		ProcessInput();
 	}

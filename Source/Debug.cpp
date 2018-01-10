@@ -2,18 +2,20 @@
 
 namespace se {
 
-	Debug::Debug(const std::string &filename) {
-		m_path = filename;
-		//TODO: this doesn't reset the created logfile on start, idk, maybe it should be like this or at least be an option
-		if (!m_file.is_open()) {
+	Debug::Debug(const std::string &path) {
+		m_path = path;
+		if (!m_file.is_open() && !m_file) {
 			m_file.open(m_path, std::ios::out);
 		}
+	}
+
+	Debug::~Debug() {
 		if (m_file.is_open()) {
 			m_file.close();
 		}
 	}
 
-	void Debug::Log(int id, const std::string &file, int line, const std::string &source) {
+	void Debug::Log(int id, const std::string &file, int line, const std::string &message) {
 		if (!m_file.is_open()) {
 			m_file.open(m_path, std::ios::app);
 		}
@@ -29,14 +31,12 @@ namespace se {
 			m_file << " [ERROR] ";
 			break;
 		}
-		m_file << source << std::endl;
+		m_file << message << std::endl;
 		m_file.close();
 	}
 
-	Debug::~Debug() {
-		if (m_file.is_open()) {
-			m_file.close();
-		}
+	void Debug::SelectLogger(const std::string &path) {
+		m_path = path;
 	}
 
 }

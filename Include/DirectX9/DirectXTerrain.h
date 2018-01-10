@@ -5,6 +5,7 @@
 #include "Asset.h"
 #include "Bitmap.h"
 #include "DirectX9\Direct3D.h"
+#include "Debug.h"
 
 namespace se {
 
@@ -15,6 +16,7 @@ namespace se {
 		void Process();
 		void Release();
 	private:
+		Debug m_logger;
 		Bitmap m_bitmap;
 		unsigned long m_width;
 		unsigned long m_height;

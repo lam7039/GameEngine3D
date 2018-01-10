@@ -20,7 +20,7 @@ namespace se {
 		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
 
 		if (FAILED(m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device))) {
-			MessageBox(NULL, "failed to create the device", "Direct3D", MB_OK);
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to create the device");
 		}
 		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); //D3DCULL_CCW
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);

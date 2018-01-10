@@ -21,6 +21,7 @@ namespace se {
 		m_transform.posY = -5.0f;
 		m_transform.posZ = 2.0f;
 
+
 		m_transform.rotX = 0.0f;
 		m_transform.rotY = 0.0f;
 		m_transform.rotZ = 0.0f;
@@ -140,7 +141,7 @@ namespace se {
 		int byteCount = vertCount * sizeof(Vertex);
 
 		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
-			//TODO: log failed to create vertex buffer
+			m_logger.Log(2, __FILE__, __LINE__, "Failed create vertex buffer");
 			return;
 		}
 
@@ -181,8 +182,7 @@ namespace se {
 		//m_indexBuffer->Unlock();
 
 		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), "Assets\\texture.jpg", &m_texture))) {
-			//TODO: log failed to create texture for terrain
-			MessageBox(NULL, "failed to load texture for terrain", "Meshes.exe", MB_OK);
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to load texture for terrain");
 			return;
 		}
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);

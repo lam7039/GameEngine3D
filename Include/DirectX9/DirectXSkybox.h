@@ -4,6 +4,7 @@
 #include "std.h"
 #include "DirectX9\Direct3D.h"
 #include "Asset.h"
+#include "Debug.h"
 
 namespace se {
 
@@ -16,7 +17,7 @@ namespace se {
 	private:
 		LPDIRECT3DCUBETEXTURE9 m_map;
 		LPDIRECT3DSURFACE9 m_face;
-
+		Debug m_logger;
 
 	};
 

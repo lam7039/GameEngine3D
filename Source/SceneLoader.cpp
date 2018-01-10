@@ -23,7 +23,7 @@ namespace se {
 
 	void SceneLoader::AddScene(const std::string &name) {
 		if (m_scenes.find(name) != m_scenes.end()) {
-			//MessageBox(NULL, "scene already exists", "sceneloader", MB_OK); //Instead of this, log it
+			m_logger.Log(2, __FILE__, __LINE__, "scene already exists");
 			return;
 		}
 		m_scenes[name] = Scene();

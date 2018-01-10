@@ -11,8 +11,8 @@
 namespace se {
 
 	Kernel::Kernel(const std::string &title, int width, int height) {
-		Debug logger("engine.log");
-		logger.Log(0, __FILE__, __LINE__, "Engine started");
+		m_logger.SelectLogger("engine.log");
+		m_logger.Log(0, __FILE__, __LINE__, "Engine started");
 
 		Window window(title, width, height);
 		m_hWnd = window.OpenWindow();
@@ -29,6 +29,7 @@ namespace se {
 		MSG msg;
 		FPSCounter fps;
 
+		m_logger.Log(0, __FILE__, __LINE__, "Loop entered");
 		while (isRunning) {
 			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 				TranslateMessage(&msg);

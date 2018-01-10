@@ -2,6 +2,7 @@
 #define INPUT_H
 
 #include "std.h"
+#include "Debug.h"
 #include <Windows.h>
 #include <dinput.h>
 
@@ -18,6 +19,8 @@ namespace se {
 		void GetMouseLocation(int &mouseX, int &mouseY);
 
 	private:
+		Debug m_logger;
+
 		IDirectInput8 *m_directInput;
 		IDirectInputDevice8 *m_keyboard;
 		IDirectInputDevice8 *m_mouse;

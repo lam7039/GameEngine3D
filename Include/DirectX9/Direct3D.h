@@ -4,6 +4,7 @@
 #include "std.h"
 #include "Transform.h"
 #include "Renderer.h"
+#include "Debug.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 
@@ -16,6 +17,8 @@ namespace se {
 		void Release() override;
 		static LPDIRECT3DDEVICE9 GetDevice();
 	private:
+		Debug m_logger;
+
 		//Devices
 		LPDIRECT3D9 m_d3d;
 		static LPDIRECT3DDEVICE9 m_device;

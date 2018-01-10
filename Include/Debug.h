@@ -8,9 +8,10 @@ namespace se {
 
 	class Debug {
 	public:
-		Debug(const std::string &filename);
+		Debug(const std::string &path = "default_logger.log");
 		~Debug();
-		void Log(int id, const std::string &file, int line, const std::string &source);
+		void Log(int id, const std::string &file, int line, const std::string &message);
+		void SelectLogger(const std::string &path);
 	private:
 		std::ofstream m_file;
 		std::string m_path;

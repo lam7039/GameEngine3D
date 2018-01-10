@@ -18,6 +18,7 @@ namespace se {
 		Input m_input;
 		AbstractRenderer *m_renderer;
 		Camera m_camera;
+		Debug m_logger;
 	};
 
 }
