@@ -1,6 +1,8 @@
 #include "AssetLoader.h"
-//TODO: fix assets so mesh doesn't get called here
+//TODO: fix abstraction so mesh doesn't get called here
+//TODO: fix abstraction so terrain doesn't get called here
 #include "DirectX9/DirectXMesh.h"
+#include "DirectX9/DirectXTerrain.h"
 
 namespace se {
 
@@ -27,9 +29,15 @@ namespace se {
 
 	void AssetLoader::AddMesh(const std::string &path) {
 		Mesh *mesh = new Mesh();
-		mesh->SetPath("Assets\\" + path);
+		mesh->SetPath(path);
 		mesh->Load();
 		m_assets[path] = mesh;
+	}
+
+	void AssetLoader::AddTerrain(const std::string &heightMap, const std::string &texture) {
+		Terrain *terrain = new Terrain(heightMap, texture);
+		terrain->Create();
+		m_assets[heightMap] = terrain;
 	}
 
 	//TODO: work the adding of assets out

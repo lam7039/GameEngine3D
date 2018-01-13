@@ -18,7 +18,6 @@ namespace se {
 		const std::vector<Entity*> &GetEntities() const;
 	private:
 		std::vector<Entity*> m_entities;
-		AbstractAsset *m_terrain;
 	};
 
 }

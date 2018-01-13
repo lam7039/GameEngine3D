@@ -3,17 +3,10 @@
 namespace se {
 
 	Entity::Entity() {
-		m_filenameMesh = "";
-	}
-
-	void Entity::Init(const std::string &filenameMesh) {
-		m_filenameMesh = filenameMesh;
+		m_entityName = "";
 	}
 
 	void Entity::Update(float delta) {
-	}
-
-	void Entity::Render() {
 	}
 
 	void Entity::SetScale(float scale) {
@@ -38,8 +31,8 @@ namespace se {
 		return m_transform;
 	}
 
-	std::string Entity::GetFilename() const {
-		return m_filenameMesh;
+	std::string Entity::GetEntityName() const {
+		return m_entityName;
 	}
 
 }

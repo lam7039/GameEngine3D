@@ -7,6 +7,7 @@ namespace se {
 		m_meshMaterials = nullptr;
 		m_meshTextures = nullptr;
 		m_materialCount = 0;
+		m_logger.SelectLogger("engine.log");
 	}
 
 	void Mesh::Load() {

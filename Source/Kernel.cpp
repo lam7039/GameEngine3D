@@ -1,12 +1,10 @@
-#include <Windows.h>
+#include <iostream>
 #include "Debug.h"
 #include "Kernel.h"
 #include "Window.h"
 #include "FPSCounter.h"
-#include "SceneLoader.h"
+#include "SceneManager.h"
 #include "DirectX9\Direct3D.h"
-#include <iostream>
-#include <stdio.h>
 
 namespace se {
 
@@ -43,13 +41,14 @@ namespace se {
 			m_camera.HandleInput(&m_input, fps.GetDelta());
 
 			// Logic.
-			m_camera.Update();
-			SceneLoader::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+			m_camera.Update(fps.GetDelta());
+			SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 
 			// Drawing.
+			//TODO: don't render when out of farplane
 			m_renderer->Render();
 
-			//std::cout << fps.GetFPS() << std::endl;
+			std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 

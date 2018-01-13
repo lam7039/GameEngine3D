@@ -2,20 +2,18 @@
 #define CAMERA_H
 
 #include "std.h"
+#include "Entity.h"
 #include "Input.h"
-#include "Transform.h"
 #include "DirectX9\Direct3D.h"
 
 namespace se {
 
-	class Camera {
+	class Camera : Entity {
 	public:
 		Camera();
 		void HandleInput(Input *input, float delta);
-		void Update();
-		Transform3f GetTarget() const;
+		void Update(float delta) override;
 	private:
-		Transform3f m_transform;
 		float m_speed;
 		float m_rotateSpeed;
 		float m_pitch;

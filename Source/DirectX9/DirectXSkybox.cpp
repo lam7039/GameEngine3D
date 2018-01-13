@@ -3,6 +3,7 @@
 namespace se {
 
 	void Skybox::Create() {
+		m_logger.SelectLogger("engine.log");
 		if (FAILED(Direct3D::GetDevice()->CreateCubeTexture(256, 1, D3DUSAGE_RENDERTARGET, D3DFMT_R8G8B8, D3DPOOL_DEFAULT, &m_map, NULL))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to create a cubetexture for skybox");
 			return;

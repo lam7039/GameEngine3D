@@ -11,10 +11,11 @@ namespace se {
 
 	class Terrain : public AbstractAsset {
 	public:
-		void Create();
-		void Load();
-		void Process();
-		void Release();
+		Terrain(const std::string &heightMap, const std::string &texture);
+		void Create() override;
+		void Load() override;
+		void Process() override;
+		void Release() override;
 	private:
 		Debug m_logger;
 		Bitmap m_bitmap;
@@ -22,10 +23,11 @@ namespace se {
 		unsigned long m_height;
 		Transform3f m_transform;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
-		//LPDIRECT3DINDEXBUFFER9 m_indexBuffer;
 		D3DXMATRIX m_matRotate;
 		D3DXMATRIX m_matTranslate;
 		LPDIRECT3DTEXTURE9 m_texture;
+		std::string m_pathHeightMap;
+		std::string m_pathTexture;
 	};
 
 }

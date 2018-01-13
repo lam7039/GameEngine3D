@@ -6,6 +6,7 @@ namespace se {
 		m_directInput = nullptr;
 		m_keyboard = nullptr;
 		m_mouse = nullptr;
+		m_logger.SelectLogger("engine.log");
 	}
 
 	Input::~Input() {

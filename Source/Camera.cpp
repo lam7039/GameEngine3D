@@ -1,5 +1,4 @@
 #include "Camera.h"
-#include <iostream>
 
 namespace se {
 
@@ -8,6 +7,8 @@ namespace se {
 		m_rotateSpeed = 70.0f;
 		m_transform.posZ = -15.0f;
 	}
+
+	//TODO: don't use d3dx in camera
 
 	void Camera::HandleInput(Input *input, float delta) {
 		//Freeroaming camera
@@ -48,7 +49,7 @@ namespace se {
 		}
 	}
 
-	void Camera::Update() {
+	void Camera::Update(float delta) {
 		m_pitch = D3DXToRadian(m_transform.rotX);
 		m_yaw = D3DXToRadian(m_transform.rotY) - (D3DX_PI / 2);
 
@@ -64,8 +65,6 @@ namespace se {
 
 		D3DXVECTOR3 direction;
 		direction = position / magnitude;
-
-		//std::cout << "pitch: " << m_pitch << " yaw: " << m_yaw << " x: " << position.x << " y: " << position.y << " z: " << position.z << std::endl;
 
 		D3DXVECTOR3 lookAt;
 		lookAt.x = 0.0f;
@@ -91,12 +90,8 @@ namespace se {
 
 		//Projection
 		D3DXMATRIX matProj;
-		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 100.0f);
+		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 1000.0f);
 		Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
-	}
-
-	Transform3f Camera::GetTarget() const {
-		return m_transform;
 	}
 
 }

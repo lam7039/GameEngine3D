@@ -1,13 +1,9 @@
 #include "Scene.h"
-//TODO: fix abstraction so terrain doesn't get called here
-#include "DirectX9\DirectXTerrain.h"
 #include <algorithm>
 
 namespace se {
 
 	Scene::Scene() {
-		m_terrain = new Terrain();
-		m_terrain->Create();
 	}
 
 	void Scene::AddEntity(Entity *entity) {
@@ -30,17 +26,11 @@ namespace se {
 	}
 
 	void Scene::Render() {
-		int entityCount = m_entities.size();
-		if (entityCount > 0) {
-			for (int i = 0; i < entityCount; i++) {
-				m_entities[i]->Render();
-			}
-		}
-		m_terrain->Process();
+		//TODO: render assets in here maybe?
 	}
 
 	void Scene::Release() {
-		m_terrain->Release();
+
 	}
 
 	const std::vector<Entity*> &Scene::GetEntities() const {

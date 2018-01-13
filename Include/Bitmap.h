@@ -13,11 +13,11 @@ namespace se {
 		int LoadBMP(const std::string &bmpFile);
 		const unsigned int GetWidth() const;
 		const unsigned int GetHeight() const;
-		unsigned char *GetPixels();
+		unsigned char *GetData();
 	private:
 		unsigned int m_width;
 		unsigned int m_height;
-		unsigned char *m_pixels;
+		unsigned char *m_data;
 		Debug m_logger;
 	};
 
