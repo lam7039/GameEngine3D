@@ -16,10 +16,6 @@ namespace se {
 		AbstractCamera *m_camera;
 		Input *m_input;
 		float m_pi;
-		float m_speed;
-		float m_rotateSpeed;
-		float m_pitch;
-		float m_yaw;
 		float ToRadian(float value);
 	};
 

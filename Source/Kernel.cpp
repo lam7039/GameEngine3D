@@ -7,6 +7,9 @@
 namespace se {
 
 	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input) {
+		m_renderer = nullptr;
+		m_cameraController = nullptr;
+
 		m_logger.SelectLogger("engine.log");
 
 		HWND hWnd;
@@ -45,6 +48,8 @@ namespace se {
 
 	int Kernel::EnterLoop() {
 		if (!m_renderer || !m_cameraController) {
+			m_logger.Log(2, __FILE__, __LINE__, "Failed initialize renderer");
+			m_window.CloseAll();
 			return 1;
 		}
 

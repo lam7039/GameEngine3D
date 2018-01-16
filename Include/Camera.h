@@ -7,6 +7,11 @@
 namespace se {
 
 	class AbstractCamera : public Entity {
+	public:
+		float GetSpeed() const;
+		float GetRotationSpeed() const;
+		float GetPitch() const;
+		float GetYaw() const;
 	protected:
 		float m_speed;
 		float m_rotateSpeed;
