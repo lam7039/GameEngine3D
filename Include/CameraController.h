@@ -7,13 +7,20 @@
 
 namespace se {
 
+
 	class CameraController {
 	public:
-		CameraController(Input *input);
+		CameraController(AbstractCamera *camera, Input *input);
 		void HandleInput(float delta);
 	private:
+		AbstractCamera *m_camera;
 		Input *m_input;
-		Camera m_camera;
+		float m_pi;
+		float m_speed;
+		float m_rotateSpeed;
+		float m_pitch;
+		float m_yaw;
+		float ToRadian(float value);
 	};
 
 }

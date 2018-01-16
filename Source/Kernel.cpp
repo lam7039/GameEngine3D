@@ -6,7 +6,7 @@
 
 namespace se {
 
-	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer) {
+	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input) {
 		m_logger.SelectLogger("engine.log");
 
 		HWND hWnd;
@@ -15,7 +15,8 @@ namespace se {
 			return;
 		}
 
-		if (!m_input.Initialize(m_window.GetInstance(), hWnd, width, height)) {
+		m_input = input;
+		if (!m_input->Initialize(m_window.GetInstance(), hWnd, width, height)) {
 			m_logger.Log(1, __FILE__, __LINE__, "Failed to initialize input");
 			return;
 		}
@@ -26,6 +27,7 @@ namespace se {
 		}
 		m_renderer = renderer;
 		m_renderer->Create(hWnd);
+
 	}
 
 	//TODO: work multiple windows out
@@ -37,8 +39,12 @@ namespace se {
 
 	}
 
+	void Kernel::AddCameraController(CameraController *cameraController) {
+		m_cameraController = cameraController;
+	}
+
 	int Kernel::EnterLoop() {
-		if (!m_renderer) {
+		if (!m_renderer || !m_cameraController) {
 			return 1;
 		}
 
@@ -52,15 +58,14 @@ namespace se {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
-			m_input.Update();
+			m_input->Update();
 
-			if (msg.message == WM_QUIT || m_input.IsPressed(DIK_ESCAPE)) {
+			if (msg.message == WM_QUIT || m_input->IsPressed(DIK_ESCAPE)) {
 				isRunning = false;
 			}
-			m_camera.HandleInput(&m_input, fps.GetDelta());
 
 			// Logic.
-			m_camera.Update(fps.GetDelta());
+			m_cameraController->HandleInput(fps.GetDelta());
 			SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 
 			// Drawing.

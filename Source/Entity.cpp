@@ -28,8 +28,8 @@ namespace se {
 		m_transform.posZ = z;
 	}
 
-	Transform3f Entity::GetTarget() const {
-		return m_transform;
+	Transform3f *Entity::GetTarget() {
+		return &m_transform;
 	}
 
 	std::string Entity::GetEntityName() const {

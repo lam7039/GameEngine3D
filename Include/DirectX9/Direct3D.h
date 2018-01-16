@@ -2,7 +2,6 @@
 #define DIRECT3D_H
 
 #include "std.h"
-#include "Transform.h"
 #include "Renderer.h"
 #include "Debug.h"
 #include <d3d9.h>
@@ -23,9 +22,12 @@ namespace se {
 		//Devices
 		LPDIRECT3D9 m_d3d;
 		static LPDIRECT3DDEVICE9 m_device;
-		IDirect3DSwapChain9 *m_swapChain;
+		
+		//TODO: implement swapchain
+		LPDIRECT3DSWAPCHAIN9 m_swapChain;
 
-		//World (have to do this somewhere else)
+
+		//World
 		D3DXMATRIX m_scale;
 		D3DXMATRIX m_matRotate;
 		D3DXMATRIX m_matTranslate;

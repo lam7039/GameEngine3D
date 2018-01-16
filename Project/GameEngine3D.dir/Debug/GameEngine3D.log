@@ -1,2 +1,17 @@
-﻿  DirectXSkybox.cpp
+﻿  CameraController.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  DirectXSkybox.cpp
+  SceneManager.cpp
+  Camera.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Direct3D.cpp
+D:\Projects\GameEngine3D\Source\DirectX9\Direct3D.cpp(45): warning C4018: '<': signed/unsigned mismatch
+  DirectXMesh.cpp
+  DirectXTerrain.cpp
+D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(34): warning C4018: '<': signed/unsigned mismatch
+D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  Kernel.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Scene.cpp
+  Generating Code...
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib
