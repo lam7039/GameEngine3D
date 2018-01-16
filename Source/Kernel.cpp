@@ -1,33 +1,52 @@
 #include <iostream>
 #include "Debug.h"
 #include "Kernel.h"
-#include "Window.h"
 #include "FPSCounter.h"
 #include "SceneManager.h"
-#include "DirectX9\Direct3D.h"
 
 namespace se {
 
-	Kernel::Kernel(const std::string &title, int width, int height) {
+	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer) {
 		m_logger.SelectLogger("engine.log");
-		m_logger.Log(0, __FILE__, __LINE__, "Engine started");
 
-		Window window(title, width, height);
-		m_hWnd = window.OpenWindow();
+		HWND hWnd;
+		if (FAILED(hWnd = m_window.OpenWindow(title, width, height))) {
+			m_logger.Log(0, __FILE__, __LINE__, "Failed to create window");
+			return;
+		}
 
-		m_input.Initialize(window.GetInstance(), m_hWnd, width, height);
+		if (!m_input.Initialize(m_window.GetInstance(), hWnd, width, height)) {
+			m_logger.Log(1, __FILE__, __LINE__, "Failed to initialize input");
+			return;
+		}
 
-		m_renderer = new Direct3D();
-		m_renderer->Create(m_hWnd);
+		if (!renderer) {
+			m_logger.Log(2, __FILE__, __LINE__, "No renderer set");
+			return;
+		}
+		m_renderer = renderer;
+		m_renderer->Create(hWnd);
+	}
+
+	//TODO: work multiple windows out
+	void Kernel::AddWindow(const std::string &title, int width, int height) {
+		if (FAILED(m_window.OpenWindow(title, width, height))) {
+			m_logger.Log(0, __FILE__, __LINE__, "Failed to create new window");
+			return;
+		}
+
 	}
 
 	int Kernel::EnterLoop() {
+		if (!m_renderer) {
+			return 1;
+		}
+
 		bool isRunning = true;
 
 		MSG msg;
 		FPSCounter fps;
 
-		m_logger.Log(0, __FILE__, __LINE__, "Loop entered");
 		while (isRunning) {
 			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 				TranslateMessage(&msg);
@@ -45,7 +64,6 @@ namespace se {
 			SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 
 			// Drawing.
-			//TODO: don't render when out of farplane
 			m_renderer->Render();
 
 			std::cout << fps.GetFPS() << std::endl;
@@ -53,6 +71,7 @@ namespace se {
 		}
 
 		m_renderer->Release();
+		m_window.CloseAll();
 
 		return msg.wParam;
 	}

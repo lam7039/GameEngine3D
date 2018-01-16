@@ -9,6 +9,7 @@ namespace se {
 
 	class Mesh : public AbstractAsset {
 	public:
+		Mesh(const std::string &path);
 		void Create() override;
 		void Load() override;
 		void Process() override;

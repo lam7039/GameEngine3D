@@ -4,6 +4,7 @@ namespace se {
 
 	Entity::Entity() {
 		m_entityName = "";
+		m_assetName = "";
 	}
 
 	void Entity::Update(float delta) {
@@ -33,6 +34,10 @@ namespace se {
 
 	std::string Entity::GetEntityName() const {
 		return m_entityName;
+	}
+
+	std::string Entity::GetAssetName() const {
+		return m_assetName;
 	}
 
 }

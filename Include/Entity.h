@@ -15,8 +15,10 @@ namespace se {
 		virtual void Update(float delta);
 		Transform3f GetTarget() const;
 		std::string GetEntityName() const;
+		std::string GetAssetName() const;
 	protected:
 		std::string m_entityName;
+		std::string m_assetName;
 		Transform3f m_transform;
 	};
 

@@ -1,8 +1,4 @@
 #include "AssetLoader.h"
-//TODO: fix abstraction so mesh doesn't get called here
-//TODO: fix abstraction so terrain doesn't get called here
-#include "DirectX9/DirectXMesh.h"
-#include "DirectX9/DirectXTerrain.h"
 
 namespace se {
 
@@ -13,45 +9,29 @@ namespace se {
 	}
 
 	AssetLoader::~AssetLoader() {
-		std::unordered_map<std::string, AbstractAsset*>::iterator it = m_assets.begin();
-		std::unordered_map<std::string, AbstractAsset*>::iterator end = m_assets.end();
-		for (it; it != end; it++) {
-			ReleaseMesh(it->first);
+		for (auto &i : m_assets) {
+			ReleaseAsset(i.first);
 		}
 	}
 
 	AssetLoader *AssetLoader::GetInstance() {
-		if (m_instance == nullptr) {
+		if (!m_instance) {
 			m_instance = new AssetLoader();
 		}
 		return m_instance;
 	}
 
-	void AssetLoader::AddMesh(const std::string &path) {
-		Mesh *mesh = new Mesh();
-		mesh->SetPath(path);
-		mesh->Load();
-		m_assets[path] = mesh;
-	}
-
-	void AssetLoader::AddTerrain(const std::string &heightMap, const std::string &texture) {
-		Terrain *terrain = new Terrain(heightMap, texture);
-		terrain->Create();
-		m_assets[heightMap] = terrain;
-	}
-
-	//TODO: work the adding of assets out
-	/*void AssetLoader::AddAsset(const std::string &name, AbstractAsset *asset) {
-		mesh->SetPath("Assets\\" + asset->GetPath());
+	void AssetLoader::AddAsset(const std::string &name, AbstractAsset *asset) {
+		asset->Create();
 		asset->Load();
-		m_assets[asset->name] = mesh;
-	}*/
+		m_assets[name] = asset;
+	}
 
-	std::unordered_map<std::string, AbstractAsset*> AssetLoader::GetAssets() {
+	std::unordered_map<std::string, AbstractAsset*> AssetLoader::GetAssetList() {
 		return m_assets;
 	}
 
-	void AssetLoader::ReleaseMesh(const std::string &filename) {
+	void AssetLoader::ReleaseAsset(const std::string &filename) {
 		m_assets[filename]->Release();
 		m_assets.erase(filename);
 	}

@@ -4,6 +4,13 @@
 namespace se {
 
 	Scene::Scene() {
+		m_skybox = new Skybox();
+		m_skybox->Create();
+		m_skybox->Load();
+	}
+
+	void Scene::SetTerrain(AbstractTerrain *terrain) {
+		m_terrain = terrain;
 	}
 
 	void Scene::AddEntity(Entity *entity) {
@@ -26,11 +33,21 @@ namespace se {
 	}
 
 	void Scene::Render() {
-		//TODO: render assets in here maybe?
+		if (m_terrain) {
+			m_terrain->Process();
+		}
+		if (m_skybox) {
+			m_skybox->Process();
+		}
 	}
 
 	void Scene::Release() {
-
+		if (m_terrain) {
+			m_terrain->Release();
+		}
+		if (m_skybox) {
+			m_skybox->Release();
+		}
 	}
 
 	const std::vector<Entity*> &Scene::GetEntities() const {

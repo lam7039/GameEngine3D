@@ -2,6 +2,10 @@
 
 namespace se {
 
+	Mesh::Mesh(const std::string &path) {
+		m_path = path;
+	}
+
 	void Mesh::Create() {
 		m_mesh = nullptr;
 		m_meshMaterials = nullptr;
@@ -13,7 +17,7 @@ namespace se {
 	void Mesh::Load() {
 		LPD3DXBUFFER materialBuffer;
 		if (FAILED(D3DXLoadMeshFromX(m_path.c_str(), D3DXMESH_SYSTEMMEM, Direct3D::GetDevice(), NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
-			m_logger.Log(2, __FILE__, __LINE__, "Failed to load mesh" + m_path + " count: " + std::to_string(m_materialCount));
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to load mesh: " + m_path + " count: " + std::to_string(m_materialCount));
 			return;
 		}
 		D3DXMATERIAL *materials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();

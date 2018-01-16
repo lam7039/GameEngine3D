@@ -4,6 +4,7 @@
 #include "std.h"
 #include "Entity.h"
 #include "Input.h"
+//TODO: fix camera abstraction
 #include "DirectX9\Direct3D.h"
 
 namespace se {

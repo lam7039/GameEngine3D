@@ -1,5 +1,4 @@
 #include "DirectX9\DirectXTerrain.h"
-#include <iostream>
 
 namespace se {
 
@@ -8,23 +7,18 @@ namespace se {
 		float tu, tv;
 	};
 
-	Terrain::Terrain(const std::string &heightMap, const std::string &texture) {
-		m_pathHeightMap = heightMap;
-		m_pathTexture = texture;
-	}
-
-	void Terrain::Create() {
+	void Terrain::Create(const std::string &heightMap, const std::string &texture) {
 		m_logger.SelectLogger("engine.log");
-		if (m_bitmap.LoadBMP("Assets\\" + m_pathHeightMap) > 0) {
+		if (m_bitmap.LoadBMP("Assets\\" + heightMap) > 0) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to load the bitmap");
 			return;
 		}
 
 		m_width = m_bitmap.GetWidth();
 		m_height = m_bitmap.GetHeight();
-		m_transform.posX = -100.0f;
+		m_transform.posX = 0.0f;
 		m_transform.posY = -20.0f;
-		m_transform.posZ = 100.0f;
+		m_transform.posZ = 0.0f;
 
 
 		m_transform.rotX = 0.0f;
@@ -40,12 +34,12 @@ namespace se {
 		for (int x = 0; x < m_width - 1; x++) {
 			for (int z = 0; z < m_height - 1; z++) {
 				int i = x + z * m_width;
-				float topLeft =		static_cast<float>(HeightData[x + z * m_width]) / 10;
-				float topRight =	static_cast<float>(HeightData[(x + 1)+ z * m_width]) / 10;
-				float bottomLeft =	static_cast<float>(HeightData[x + (z + 1) * m_width]) / 10;
+				float topLeft = static_cast<float>(HeightData[x + z * m_width]) / 10;
+				float topRight = static_cast<float>(HeightData[(x + 1) + z * m_width]) / 10;
+				float bottomLeft = static_cast<float>(HeightData[x + (z + 1) * m_width]) / 10;
 				float bottomRight = static_cast<float>(HeightData[(x + 1) + (z + 1) * m_width]) / 10;
 
-				vertices[i * squareVertCount] =		{ static_cast<float>(x),		topLeft,		-static_cast<float>(z),		0.0f, 0.0f };	//Topleft
+				vertices[i * squareVertCount] = { static_cast<float>(x),		topLeft,		-static_cast<float>(z),		0.0f, 0.0f };		//Topleft
 				vertices[i * squareVertCount + 1] = { static_cast<float>((x + 1)),	topRight,		-static_cast<float>(z),		1.0f, 0.0f };	//Topright
 				vertices[i * squareVertCount + 2] = { static_cast<float>(x),		bottomLeft,		-static_cast<float>(z + 1),	0.0f, 1.0f };	//Bottomleft
 
@@ -70,17 +64,13 @@ namespace se {
 		delete[] vertices;
 		vertices = NULL;
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), ("Assets\\" + m_pathTexture).c_str(), &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), ("Assets\\" + texture).c_str(), &m_texture))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to load texture for terrain");
 			return;
 		}
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
-	}
-
-	void Terrain::Load() {
-
 	}
 
 	void Terrain::Process() {

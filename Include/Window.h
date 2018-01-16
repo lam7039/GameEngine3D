@@ -5,20 +5,30 @@
 
 namespace se {
 
+	struct WindowHandle {
+		HWND hWnd;
+		int width = 800;
+		int height = 500;
+		int x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (width / 2);
+		int y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (height / 2);
+		std::string title = "window";
+	};
+
 	class Window {
 	public:
-		Window(const std::string& title, int width, int height);
-		HWND OpenWindow();
+		Window();
+		HWND OpenWindow(const std::string &title, int width, int height);
 		HINSTANCE GetInstance();
-		void SetSize(int width, int height);
+		std::vector<WindowHandle> GetWindowList() const;
+		void SetPosition(int index, int x, int y);
+		void SetSize(int index, int width, int height);
+		void CloseWindow(int index);
+		void CloseAll();
 	private:
-		int m_x;
-		int m_y;
-		int m_width;
-		int m_height;
-		std::string m_title;
-		HINSTANCE m_hInstance;
+		int m_windowCount;
+		HINSTANCE m_instance;
 		ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className);
+		std::vector<WindowHandle> m_windowList;
 	};
 
 }

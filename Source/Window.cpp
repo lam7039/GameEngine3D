@@ -13,26 +13,62 @@ namespace se {
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 
-	Window::Window(const std::string &title, int width = 800, int height = 500) : m_title(title), m_width(width), m_height(height)
+	Window::Window()
 	{
-		m_x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (m_width / 2);
-		m_y = (GetSystemMetrics(SM_CYSCREEN) / 2) - (m_height / 2);
+		m_windowCount = 0;
 	}
 
-	HWND Window::OpenWindow() {
-		m_hInstance = GetModuleHandle(NULL);
-		ATOM atom = RegisterWindowProc(m_hInstance, WindowProc, "window");
+	HWND Window::OpenWindow(const std::string &title = "window", int width = 800, int height = 500) {
+		WindowHandle wHndl;
+		wHndl.title = title;
+		wHndl.width = width;
+		wHndl.height = height;
+		m_instance = GetModuleHandle(NULL);
+		m_windowCount++;
+		std::string className = "window" + m_windowCount;
+		ATOM atom = RegisterWindowProc(m_instance, WindowProc, className.c_str());
 		if (!atom) {
+			m_windowCount--;
 			return NULL;
 		}
-		HWND hWnd = CreateWindowEx(NULL, "window", m_title.c_str(), WS_OVERLAPPEDWINDOW, m_x, m_y, m_width, m_height, NULL, NULL, m_hInstance, NULL);
-		ShowWindow(hWnd, SW_SHOW);
-		return hWnd;
+		wHndl.hWnd = CreateWindowEx(NULL, className.c_str(), wHndl.title.c_str(), WS_OVERLAPPEDWINDOW, wHndl.x, wHndl.y, wHndl.width, wHndl.height, NULL, NULL, m_instance, NULL);
+		if (!wHndl.hWnd) {
+			m_windowCount--;
+			return NULL;
+		}
+		ShowWindow(wHndl.hWnd, SW_SHOW);
+		m_windowList.push_back(wHndl);
+		return wHndl.hWnd;
 	}
 
-	void Window::SetSize(int width, int height) {
-		m_width = width;
-		m_height = height;
+	void Window::SetPosition(int index, int x, int y) {
+		if (index >= m_windowList.size()) {
+			return;
+		}
+		m_windowList[index].x = x;
+		m_windowList[index].y = y;
+		SetWindowPos(m_windowList[index].hWnd, 0, x, y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
+	}
+
+	void Window::SetSize(int index, int width, int height) {
+		if (index >= m_windowList.size()) {
+			return;
+		}
+		m_windowList[index].width = width;
+		m_windowList[index].height = height;
+		SetWindowPos(m_windowList[index].hWnd, 0, m_windowList[index].x, m_windowList[index].y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
+	}
+
+	void Window::CloseWindow(int index) {
+		DestroyWindow(m_windowList[index].hWnd);
+		m_windowList.erase(m_windowList.begin() + index);
+	}
+
+	void Window::CloseAll() {
+		for (int i = 0; i < m_windowList.size(); i++) {
+			DestroyWindow(m_windowList[i].hWnd);
+		}
+		m_windowList.clear();
 	}
 
 	ATOM Window::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
@@ -49,7 +85,11 @@ namespace se {
 	}
 
 	HINSTANCE Window::GetInstance() {
-		return m_hInstance;
+		return m_instance;
+	}
+
+	std::vector<WindowHandle> Window::GetWindowList() const {
+		return m_windowList;
 	}
 
 }

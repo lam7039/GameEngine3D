@@ -23,6 +23,7 @@ namespace se {
 		//Devices
 		LPDIRECT3D9 m_d3d;
 		static LPDIRECT3DDEVICE9 m_device;
+		IDirect3DSwapChain9 *m_swapChain;
 
 		//World (have to do this somewhere else)
 		D3DXMATRIX m_scale;

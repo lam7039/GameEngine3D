@@ -15,8 +15,8 @@ namespace se {
 		void Process();
 		void Release();
 	private:
+		LPD3DXMESH m_mesh;
 		LPDIRECT3DCUBETEXTURE9 m_map;
-		LPDIRECT3DSURFACE9 m_face;
 		Debug m_logger;
 
 	};
