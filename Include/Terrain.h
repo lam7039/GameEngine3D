@@ -13,6 +13,7 @@ namespace se {
 		virtual void Release() = 0;
 	protected:
 		Transform3f m_transform;
+		bool m_isCreated = false;
 	};
 
 }

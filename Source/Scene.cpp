@@ -3,14 +3,12 @@
 
 namespace se {
 
-	Scene::Scene() {
-		m_skybox = new Skybox();
-		m_skybox->Create();
-		m_skybox->Load();
-	}
-
 	void Scene::SetTerrain(AbstractTerrain *terrain) {
 		m_terrain = terrain;
+	}
+
+	void Scene::SetSkybox(AbstractSkybox *skybox) {
+		m_skybox = skybox;
 	}
 
 	void Scene::AddEntity(Entity *entity) {

@@ -47,7 +47,7 @@ namespace se {
 	}
 
 	int Kernel::EnterLoop() {
-		if (!m_renderer || !m_cameraController) {
+		if (!m_renderer) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed initialize renderer");
 			m_window.CloseAll();
 			return 1;
@@ -70,8 +70,12 @@ namespace se {
 			}
 
 			// Logic.
-			m_cameraController->HandleInput(fps.GetDelta());
-			SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+			if (m_cameraController) {
+				m_cameraController->HandleInput(fps.GetDelta());
+			}
+			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
+				SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+			}
 
 			// Drawing.
 			m_renderer->Render();

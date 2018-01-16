@@ -1,5 +1,5 @@
-#ifndef TERRAIN_H
-#define TERRAIN_H
+#ifndef DIRECTXTERRAIN_H
+#define DIRECTXTERRAIN_H
 
 #include "std.h"
 #include "Terrain.h"

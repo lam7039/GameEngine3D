@@ -9,7 +9,7 @@ namespace se {
 	class Entity {
 	public:
 		Entity();
-		void SetScale(float scale);
+		void SetScale(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
 		void SetPosition(float x, float y, float z);
 		virtual void Update(float delta);

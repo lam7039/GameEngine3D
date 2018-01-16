@@ -41,4 +41,8 @@ namespace se {
 		return &m_scenes[name];
 	}
 
+	int SceneManager::GetSceneCount() {
+		return m_scenes.size();
+	}
+
 }

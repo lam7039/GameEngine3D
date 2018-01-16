@@ -2,7 +2,7 @@
 
 namespace se {
 
-	void Skybox::Create() {
+	void Skybox::Create(const std::string &topSrc, const std::string &bottomSrc, const std::string &leftSrc, const std::string &rightSrc) {
 		m_logger.SelectLogger("engine.log");
 		if (FAILED(D3DXCreateBox(Direct3D::GetDevice(), 100, 100, 100, &m_mesh, 0))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to create a sphere for skybox");
@@ -22,10 +22,6 @@ namespace se {
 		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
 		Direct3D::GetDevice()->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_FLAT);
 		Direct3D::GetDevice()->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
-	}
-
-	void Skybox::Load() {
-
 	}
 
 	void Skybox::Process() {
@@ -67,6 +63,24 @@ namespace se {
 
 	void Skybox::Release() {
 		//m_map->Release();
+	}
+
+	void Skybox::SetPosition(float x, float y, float z) {
+		m_transform.posX = x;
+		m_transform.posY = y;
+		m_transform.posZ = z;
+	}
+
+	void Skybox::SetRotation(float x, float y, float z) {
+		m_transform.rotX = x;
+		m_transform.rotY = y;
+		m_transform.rotZ = z;
+	}
+
+	void Skybox::SetScale(float x, float y, float z) {
+		m_transform.scaleX = x;
+		m_transform.scaleY = y;
+		m_transform.scaleZ = z;
 	}
 
 }

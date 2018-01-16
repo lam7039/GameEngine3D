@@ -5,15 +5,14 @@
 #include "Entity.h"
 #include "Asset.h"
 #include "Terrain.h"
-//TODO: fix abstraction for skybox
-#include "DirectX9\DirectXSkybox.h"
+#include "Skybox.h"
 
 namespace se {
 
 	class Scene {
 	public:
-		Scene();
 		void SetTerrain(AbstractTerrain *terrain);
+		void SetSkybox(AbstractSkybox *skybox);
 		void AddEntity(Entity *entity);
 		void RemoveEntity(Entity *entity);
 		void Update(float delta);
@@ -23,7 +22,7 @@ namespace se {
 	private:
 		std::vector<Entity*> m_entities;
 		AbstractTerrain *m_terrain;
-		Skybox *m_skybox;
+		AbstractSkybox *m_skybox;
 	};
 
 }

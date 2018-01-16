@@ -10,10 +10,10 @@ namespace se {
 	void Entity::Update(float delta) {
 	}
 
-	void Entity::SetScale(float scale) {
-		m_transform.scaleX = scale;
-		m_transform.scaleY = scale;
-		m_transform.scaleZ = scale;
+	void Entity::SetScale(float x, float y, float z) {
+		m_transform.scaleX = x;
+		m_transform.scaleY = y;
+		m_transform.scaleZ = z;
 	}
 
 	void Entity::SetRotation(float x, float y, float z) {

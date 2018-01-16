@@ -41,20 +41,21 @@ namespace se {
 		m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 		m_device->BeginScene();
 
-		std::vector<Entity*> m_currentSceneObjects = SceneManager::GetInstance()->GetCurrentScene()->GetEntities();
-		for (int i = 0; i < m_currentSceneObjects.size(); i++) {
-			Transform3f *target = m_currentSceneObjects[i]->GetTarget();
-			D3DXMatrixScaling(&m_scale, target->scaleX, target->scaleY, target->scaleZ);
-			D3DXMatrixRotationYawPitchRoll(&m_matRotate, target->rotX, target->rotY, target->rotZ);
-			D3DXMatrixTranslation(&m_matTranslate, target->posX, target->posY, target->posZ);
-			m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
-			if (m_currentSceneObjects[i]->GetAssetName() != "") {
-				AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssetList()[m_currentSceneObjects[i]->GetAssetName()];
-				m_currentMesh->Process();
+		if (SceneManager::GetInstance()->GetSceneCount() > 0) {
+			std::vector<Entity*> m_currentSceneObjects = SceneManager::GetInstance()->GetCurrentScene()->GetEntities();
+			for (int i = 0; i < m_currentSceneObjects.size(); i++) {
+				Transform3f *target = m_currentSceneObjects[i]->GetTarget();
+				D3DXMatrixScaling(&m_scale, target->scaleX, target->scaleY, target->scaleZ);
+				D3DXMatrixRotationYawPitchRoll(&m_matRotate, target->rotX, target->rotY, target->rotZ);
+				D3DXMatrixTranslation(&m_matTranslate, target->posX, target->posY, target->posZ);
+				m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
+				if (m_currentSceneObjects[i]->GetAssetName() != "") {
+					AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssetList()[m_currentSceneObjects[i]->GetAssetName()];
+					m_currentMesh->Process();
+				}
 			}
+			SceneManager::GetInstance()->GetCurrentScene()->Render();
 		}
-
-		SceneManager::GetInstance()->GetCurrentScene()->Render();
 
 		m_device->EndScene();
 		m_device->Present(NULL, NULL, NULL, NULL);

@@ -14,6 +14,7 @@ namespace se {
 		Scene *GetScene(const std::string &name);
 		void AddScene(const std::string &name);
 		void SetCurrentScene(const std::string &name);
+		int GetSceneCount();
 	private:
 		Debug m_logger;
 		static SceneManager *m_instance;
