@@ -6,6 +6,9 @@
 
 namespace se {
 
+	int g_x;
+	int g_y;
+
 	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input) {
 		m_renderer = nullptr;
 		m_cameraController = nullptr;
@@ -77,10 +80,13 @@ namespace se {
 				SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
 			}
 
+			m_input->GetMouseLocation(g_x, g_y);
+			std::cout << g_x << ", " << g_y << std::endl;
+
 			// Drawing.
 			m_renderer->Render();
 
-			std::cout << fps.GetFPS() << std::endl;
+			//std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 

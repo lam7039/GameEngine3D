@@ -12,21 +12,26 @@ namespace se {
 
 	class Skybox : public AbstractSkybox {
 	public:
-		void Create(const std::string &topSrc, const std::string &bottomSrc, const std::string &leftSrc, const std::string &rightSrc) override;
+		Skybox();
+		void Create(Transform3f transform, const std::string &src) override;
 		void Process() override;
 		void Release() override;
 		void SetPosition(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
 		void SetScale(float x, float y, float z);
 	private:
-		LPD3DXMESH m_mesh;
-		LPDIRECT3DCUBETEXTURE9 m_map;
+		//LPD3DXMESH m_mesh;
+		//LPDIRECT3DCUBETEXTURE9 m_map;
 		Debug m_logger;
 		Transform3f m_transform;
-		std::string m_topSrc;
-		std::string m_bottomSrc;
-		std::string m_leftSrc;
-		std::string m_rightSrc;
+
+		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
+		LPDIRECT3DTEXTURE9 m_texture;
+
+		int m_faceCount;
+
+		D3DXMATRIX m_matRotate;
+		D3DXMATRIX m_matTranslate;
 	};
 
 }

@@ -3,8 +3,11 @@
 namespace se {
 
 	struct Vertex {
-		float x, y, z;
-		float tu, tv;
+		float x;
+		float y;
+		float z;
+		float tu;
+		float tv;
 	};
 
 	void Terrain::Create(const std::string &heightMap, const std::string &texture) {
@@ -39,7 +42,7 @@ namespace se {
 				float bottomLeft = static_cast<float>(HeightData[x + (z + 1) * m_width]) / 10;
 				float bottomRight = static_cast<float>(HeightData[(x + 1) + (z + 1) * m_width]) / 10;
 
-				vertices[i * squareVertCount] = { static_cast<float>(x),		topLeft,		-static_cast<float>(z),		0.0f, 0.0f };		//Topleft
+				vertices[i * squareVertCount] = {	  static_cast<float>(x),		topLeft,		-static_cast<float>(z),		0.0f, 0.0f };		//Topleft
 				vertices[i * squareVertCount + 1] = { static_cast<float>((x + 1)),	topRight,		-static_cast<float>(z),		1.0f, 0.0f };	//Topright
 				vertices[i * squareVertCount + 2] = { static_cast<float>(x),		bottomLeft,		-static_cast<float>(z + 1),	0.0f, 1.0f };	//Bottomleft
 

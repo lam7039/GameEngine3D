@@ -2,33 +2,109 @@
 
 namespace se {
 
-	void Skybox::Create(const std::string &topSrc, const std::string &bottomSrc, const std::string &leftSrc, const std::string &rightSrc) {
+	struct Vertex {
+		float x;
+		float y;
+		float z;
+		float tu;
+		float tv;
+	};
+
+	Skybox::Skybox() {
+		m_transform.scaleX = 100;
+		m_transform.scaleY = 100;
+		m_transform.scaleZ = 100;
+	}
+
+	void Skybox::Create(Transform3f transform, const std::string &src) {
 		m_logger.SelectLogger("engine.log");
-		if (FAILED(D3DXCreateBox(Direct3D::GetDevice(), 100, 100, 100, &m_mesh, 0))) {
-			m_logger.Log(2, __FILE__, __LINE__, "Failed to create a sphere for skybox");
+		//TODO: use the transform (initial position and scale) for the skybox
+		m_faceCount = 6;
+		const int squareVertCount = 6;
+
+		float posX = 1.0f / 4.0f;
+		float posY = 1.0f / 3.0f;
+		Vertex vertices[] = {
+			// Front Face
+			{ 0.0f, 0.0f, 0.0f,			posX, posY },					//Topleft
+			{ 100.0f, 0.0f, 0.0f,		posX * 2, posY },				//Topright
+			{ 0.0f, -100.0f, 0.0f,		posX, posY * 2 },				//Bottomleft
+			{ 0.0f, -100.0f, 0.0f,		posX, posY * 2 },				//Bottomleft
+			{ 100.0f, 0.0f, 0.0f,		posX * 2, posY },				//Topright
+			{ 100.0f, -100.0f, 0.0f,		posX * 2, posY * 2 },		//Bottomright
+
+			// Bottom Face
+			{ 0.0f, -100.0f, 0.0f,		posX, posY * 2 },				//Topleft
+			{ 100.0f, -100.0f, 0.0f,		posX * 2, posY * 2 },		//Topright
+			{ 0.0f, -100.0f, -100.0f,		posX, posY * 3 },	 		//Bottomleft
+			{ 0.0f, -100.0f, -100.0f,		posX, posY * 3 },	 		//Bottomleft
+			{ 100.0f, -100.0f, 0.0f,		posX * 2, posY * 2 },		//Topright
+			{ 100.0f, -100.0f, -100.0f,	posX * 2, posY * 3 },			//Bottomright
+
+			// Back Face
+			{ 100.0f, 0.0f, -100.0f,		posX * 3, posY },			//Topleft
+			{ 0.0f, 0.0f, -100.0f,		posX * 4, posY },				//Topright
+			{ 100.0f, -100.0f, -100.0f,	posX * 3, posY * 2 },			//Bottomleft
+			{ 100.0f, -100.0f, -100.0f,	posX * 3, posY * 2 },			//Bottomleft
+			{ 0.0f, 0.0f, -100.0f,		posX * 4, posY },				//Topright
+			{ 0.0f, -100.0f, -100.0f,		posX * 4, posY * 2 },		//Bottomright
+
+			// Top Face
+			{ 0.0f, 0.0f, 0.0f,			posX, posY },					//Topleft
+			{ 0.0f, 0.0f, -100.0f,		posX, 0.0f },					//Bottomleft
+			{ 100.0f, 0.0f, 0.0f,		posX * 2, posY },				//Topright
+			{ 100.0f, 0.0f, 0.0f,		posX * 2, posY },				//Topright
+			{ 0.0f, 0.0f, -100.0f,		posX, 0.0f },					//Bottomleft
+			{ 100.0f, 0.0f, -100.0f,		posX * 2, 0.0f },			//Bottomright
+
+			// Left Face
+			{ 0.0f, 0.0f, -100.0f,		0.0f, posY },					//Topleft
+			{ 0.0f, 0.0f, 0.0f,			posX, posY },					//Topright
+			{ 0.0f, -100.0f, -100.0f,		0.0f, posY * 2 },			//Bottomleft
+			{ 0.0f, -100.0f, -100.0f,		0.0f, posY * 2 },			//Bottomleft
+			{ 0.0f, 0.0f, 0.0f,			posX, posY },					//Topright
+			{ 0.0f, -100.0f, 0.0f,		posX, posY * 2 },				//Bottomright
+
+			// Right Face
+			{ 100.0f, 0.0f, 0.0f,		posX * 2, posY },				//Topleft
+			{ 100.0f, 0.0f, -100.0f,		posX * 3, posY },			//Topright
+			{ 100.0f, -100.0f, 0.0f,		posX * 2, posY * 2 },		//Bottomleft
+			{ 100.0f, -100.0f, 0.0f,		posX * 2, posY * 2 },		//Bottomleft
+			{ 100.0f, 0.0f, -100.0f,		posX * 3, posY },			//Topright
+			{ 100.0f, -100.0f, -100.0f,	posX * 3, posY * 2 },			//Bottomright
+		};
+
+		int byteCount = m_faceCount * squareVertCount * sizeof(Vertex);
+
+		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
+			m_logger.Log(2, __FILE__, __LINE__, "Failed create vertex buffer");
 			return;
 		}
-		D3DXCreateCubeTextureFromFile(Direct3D::GetDevice(), "Assets\\Islands.dds", &m_map);
-		if (FAILED(D3DXCreateCubeTextureFromFile(Direct3D::GetDevice(), "Assets\\Islands.dds", &m_map))) {
-			m_logger.Log(2, __FILE__, __LINE__, "Failed to create a cubetexture for skybox");
+
+		VOID* pVertices;
+		m_vertexBuffer->Lock(0, byteCount, (void**)&pVertices, 0);
+		memcpy(pVertices, &vertices, byteCount);
+		m_vertexBuffer->Unlock();
+
+		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), src.c_str(), &m_texture))) {
+			m_logger.Log(2, __FILE__, __LINE__, ("Could not find texture map path: " + src).c_str());
 			return;
 		}
-		//TODO: make skybox work
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
-		Direct3D::GetDevice()->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_FLAT);
-		Direct3D::GetDevice()->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
 	}
 
 	void Skybox::Process() {
 
-		Direct3D::GetDevice()->SetTexture(0, m_map);
-		m_mesh->DrawSubset(0);
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_transform.rotX, m_transform.rotY, m_transform.rotZ);
+		D3DXMatrixTranslation(&m_matTranslate, m_transform.posX, m_transform.posY, m_transform.posZ);
+		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
+		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 
+		Direct3D::GetDevice()->SetTexture(0, m_texture);
+		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_faceCount * 2);
+
+		//Direct3D::GetDevice()->SetTexture(0, m_map);
+		//m_mesh->DrawSubset(0);
 
 		//D3DXMATRIX matProjSave;
 		//D3DXMATRIX matViewSave;
@@ -63,6 +139,8 @@ namespace se {
 
 	void Skybox::Release() {
 		//m_map->Release();
+		m_texture->Release();
+		m_vertexBuffer->Release();
 	}
 
 	void Skybox::SetPosition(float x, float y, float z) {
