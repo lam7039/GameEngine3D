@@ -52,6 +52,16 @@ namespace se {
 			}
 		}
 
+		//TODO: figure out if you can stretch out the texture over the whole terrain
+		//vertices[0].tu = 0.0f;
+		//vertices[0].tv = 0.0f;
+		//vertices[m_width].tu = 1.0f;
+		//vertices[m_width].tv = 0.0f;
+		//vertices[m_height * squareVertCount].tu = 0.0f;
+		//vertices[m_height * squareVertCount].tv = 1.0f;
+		//vertices[vertCount].tu = 1.0f;
+		//vertices[vertCount].tv = 1.0f;
+
 		int byteCount = vertCount * sizeof(Vertex);
 
 		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
@@ -83,6 +93,9 @@ namespace se {
 		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
 		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetTexture(0, m_texture);
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
 		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_width * m_height * 2);
 	}
 

@@ -16,6 +16,7 @@ namespace se {
 
 	void Skybox::Create(Transform3f transform, const std::string &src) {
 		m_logger.SelectLogger("engine.log");
+
 		m_faceCount = 6;
 		const int squareVertCount = 6;
 		
@@ -23,51 +24,51 @@ namespace se {
 		float posY = (1.0f / 3.0f);
 		Vertex vertices[] = {
 			// Front Face
-			{ transform.posX, transform.posY, transform.posZ,																posX, posY },					//Topleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY },				//Topright
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX, posY * 2 },				//Bottomleft
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX, posY * 2 },				//Bottomleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY },				//Topright
+			{ transform.posX, transform.posY, transform.posZ,																posX * 1, posY * 1 },					//Topleft
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY * 1 },				//Topright
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX * 1, posY * 2 },				//Bottomleft
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX * 1, posY * 2 },				//Bottomleft
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY * 1 },				//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ,							posX * 2, posY * 2 },			//Bottomright
 
 			// Bottom Face
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX, posY * 2 },				//Topleft
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX * 1, posY * 2 },				//Topleft
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ,							posX * 2, posY * 2 },			//Topright
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX, posY * 3 },	 			//Bottomleft
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX, posY * 3 },	 			//Bottomleft
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX * 1, posY * 3 },	 			//Bottomleft
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX * 1, posY * 3 },	 			//Bottomleft
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ,							posX * 2, posY * 2 },			//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,		posX * 2, posY * 3 },			//Bottomright
 
 			// Back Face
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY },				//Topleft
-			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 4, posY },				//Topright
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY * 1 },				//Topleft
+			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 4, posY * 1 },				//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,		posX * 3, posY * 2 },			//Bottomleft
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,		posX * 3, posY * 2 },			//Bottomleft
-			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 4, posY },				//Topright
+			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 4, posY * 1 },				//Topright
 			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX * 4, posY * 2 },			//Bottomright
 
 			// Top Face
-			{ transform.posX, transform.posY, transform.posZ,																posX, posY },					//Topleft
-			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX, 0.0f },					//Bottomleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY },				//Topright
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY },				//Topright
-			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX, 0.0f },					//Bottomleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 2, 0.0f },				//Bottomright
+			{ transform.posX, transform.posY, transform.posZ,																posX * 1, posY * 1 },					//Topleft
+			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 1, posY * 0 },					//Bottomleft
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY * 1 },				//Topright
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY * 1 },				//Topright
+			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											posX * 1, posY * 0 },					//Bottomleft
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 2, posY * 0 },				//Bottomright
 
 			// Left Face
-			{ transform.posX, transform.posY, transform.posZ - transform.scaleZ,											0.0f, posY },					//Topleft
-			{ transform.posX, transform.posY, transform.posZ,																posX, posY },					//Topright
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							0.0f, posY * 2 },				//Bottomleft
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							0.0f, posY * 2 },				//Bottomleft
-			{ transform.posX, transform.posY, transform.posZ,																posX, posY },					//Topright
-			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX, posY * 2 },				//Bottomright
+			{ transform.posX , transform.posY, transform.posZ - transform.scaleZ,											posX * 0, posY * 1 },					//Topleft
+			{ transform.posX, transform.posY, transform.posZ,																posX * 1, posY * 1 },					//Topright
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX * 0, posY * 2 },				//Bottomleft
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,							posX * 0, posY * 2 },				//Bottomleft
+			{ transform.posX, transform.posY, transform.posZ,																posX * 1, posY * 1 },					//Topright
+			{ transform.posX, transform.posY - transform.scaleY, transform.posZ,											posX * 1, posY * 2 },				//Bottomright
 
 			// Right Face
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY },				//Topleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY },				//Topright
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ,											posX * 2, posY * 1 },				//Topleft
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY * 1 },				//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ,							posX * 2, posY * 2 },			//Bottomleft
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ,							posX * 2, posY * 2 },			//Bottomleft
-			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY },				//Topright
+			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY * 1 },				//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,		posX * 3, posY * 2 },			//Bottomright
 		};
 		m_transform = transform;
@@ -87,6 +88,7 @@ namespace se {
 			m_logger.Log(2, __FILE__, __LINE__, ("Could not find texture map path: " + src).c_str());
 			return;
 		}
+
 	}
 
 	void Skybox::Process() {
@@ -96,6 +98,10 @@ namespace se {
 		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
 		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
 		Direct3D::GetDevice()->SetTexture(0, m_texture);
+
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_ANISOTROPIC);
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_ANISOTROPIC);
+		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
 		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_faceCount * 2);
 	}
 

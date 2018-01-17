@@ -78,6 +78,7 @@ namespace se {
 			}
 			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
 				SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+				//TODO: check for cameracontroller and skybox
 				SceneManager::GetInstance()->GetCurrentScene()->SetSkyboxTransform(m_cameraController->GetTarget());
 			}
 
