@@ -13,6 +13,7 @@ namespace se {
 	public:
 		void SetTerrain(AbstractTerrain *terrain);
 		void SetSkybox(AbstractSkybox *skybox);
+		void SetSkyboxTransform(Transform3f *transform);
 		void AddEntity(Entity *entity);
 		void RemoveEntity(Entity *entity);
 		void Update(float delta);
@@ -23,6 +24,7 @@ namespace se {
 		std::vector<Entity*> m_entities;
 		AbstractTerrain *m_terrain;
 		AbstractSkybox *m_skybox;
+		Transform3f *m_targetPos;
 	};
 
 }

@@ -56,6 +56,7 @@ namespace se {
 
 		}
 		else {
+			
 			m_camera->SetPosition(m_target->posX, m_target->posY, m_target->posZ);
 			m_camera->SetRotation(m_target->rotX, m_target->rotY, m_target->rotZ);
 		}
@@ -66,6 +67,12 @@ namespace se {
 		m_target = target;
 	}
 
+	Transform3f *CameraController::GetTarget() const {
+		if (m_target) {
+			return m_target;
+		}
+		return m_camera->GetTarget();
+	}
 	float CameraController::ToRadian(float value) {
 		return (value) * (m_pi / 180.0f);
 	}

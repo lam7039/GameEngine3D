@@ -12,6 +12,7 @@ namespace se {
 		CameraController(AbstractCamera *camera, Input *input);
 		void HandleInput(float delta);
 		void SetTarget(Transform3f *target);
+		Transform3f *GetTarget() const;
 	private:
 		AbstractCamera *m_camera;
 		Input *m_input;

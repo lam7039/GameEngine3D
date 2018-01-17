@@ -11,6 +11,11 @@ namespace se {
 		m_skybox = skybox;
 	}
 
+
+	void Scene::SetSkyboxTransform(Transform3f *transform) {
+		m_targetPos = transform;
+	}
+
 	void Scene::AddEntity(Entity *entity) {
 		m_entities.push_back(entity);
 	}
@@ -28,8 +33,8 @@ namespace se {
 		for (int i = 0; i < entityCount; i++) {
 			m_entities[i]->Update(delta);
 		}
-		if (m_skybox) {
-			//m_skybox->SetPosition(m_entities[0]->GetTarget()->posX, m_entities[0]->GetTarget()->posY, m_entities[0]->GetTarget()->posZ); TODO: set position to camera position
+		if (m_skybox && m_targetPos) {
+			m_skybox->SetPosition(m_targetPos->posX, m_targetPos->posY, m_targetPos->posZ);
 		}
 	}
 

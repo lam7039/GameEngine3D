@@ -78,6 +78,7 @@ namespace se {
 			}
 			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
 				SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
+				SceneManager::GetInstance()->GetCurrentScene()->SetSkyboxTransform(m_cameraController->GetTarget());
 			}
 
 			m_input->GetMouseLocation(g_x, g_y);

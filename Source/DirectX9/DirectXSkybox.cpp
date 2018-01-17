@@ -11,9 +11,7 @@ namespace se {
 	};
 
 	Skybox::Skybox() {
-		m_transform.scaleX = 100;
-		m_transform.scaleY = 100;
-		m_transform.scaleZ = 100;
+
 	}
 
 	void Skybox::Create(Transform3f transform, const std::string &src) {
@@ -72,7 +70,7 @@ namespace se {
 			{ transform.posX + transform.scaleX, transform.posY, transform.posZ - transform.scaleZ,							posX * 3, posY },				//Topright
 			{ transform.posX + transform.scaleX, transform.posY - transform.scaleY, transform.posZ - transform.scaleZ,		posX * 3, posY * 2 },			//Bottomright
 		};
-
+		m_transform = transform;
 		int byteCount = m_faceCount * squareVertCount * sizeof(Vertex);
 
 		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
