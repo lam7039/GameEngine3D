@@ -28,6 +28,9 @@ namespace se {
 		for (int i = 0; i < entityCount; i++) {
 			m_entities[i]->Update(delta);
 		}
+		if (m_skybox) {
+			//m_skybox->SetPosition(m_entities[0]->GetTarget()->posX, m_entities[0]->GetTarget()->posY, m_entities[0]->GetTarget()->posZ); TODO: set position to camera position
+		}
 	}
 
 	void Scene::Render() {
