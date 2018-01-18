@@ -24,7 +24,7 @@ namespace se {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to create the device");
 		}
 
-		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW); //D3DCULL_CCW //TODO: remove this comment when done
+		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);

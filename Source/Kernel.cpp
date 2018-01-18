@@ -83,8 +83,6 @@ namespace se {
 			// Drawing.
 			m_renderer->Render();
 
-			//TODO: remove fps counter
-			std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 

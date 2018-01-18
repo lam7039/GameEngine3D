@@ -92,7 +92,7 @@ namespace se {
 		}
 		return true;
 	}
-	//TODO: try mouse out to see if it works correctly
+
 	bool Input::ReadMouse() {
 		HRESULT result = m_mouse->GetDeviceState(sizeof(m_mouseState), (LPVOID)&m_mouseState);
 		if (FAILED(result)) {
