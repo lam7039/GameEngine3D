@@ -6,6 +6,9 @@
 
 namespace se {
 
+	///
+	/// This interface is what you're inheriting to create new entities to load them in SceneManager
+	///
 	class Entity {
 	public:
 		Entity();

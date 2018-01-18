@@ -10,12 +10,26 @@
 
 namespace se {
 
+	///
+	/// This class is the heart of this engine
+	///
 	class Kernel {
 	public:
+		///
+		/// Initialize the kernel with the title, width and height of the window, the renderer it's supposed to use and the input it's gonna take
+		///
 		Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input);
+		///
+		/// Create another window
+		///
 		void AddWindow(const std::string &title, int width, int height);
-		void AddCameraController(CameraController *cameraController);
-
+		///
+		/// Set the CameraController you want to use
+		///
+		void SetCameraController(CameraController *cameraController);
+		///
+		/// Enter the gameloop
+		///
 		int EnterLoop();
 	private:
 		Window m_window;

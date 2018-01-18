@@ -5,6 +5,9 @@
 
 namespace se {
 
+	///
+	/// With this interface you can create you own Asset type to load in the AssetManager
+	///
 	class AbstractAsset {
 	public:
 		virtual void Create() = 0;

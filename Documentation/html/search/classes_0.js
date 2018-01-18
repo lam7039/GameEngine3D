@@ -5,5 +5,5 @@ var searchData=
   ['abstractrenderer',['AbstractRenderer',['../classse_1_1_abstract_renderer.html',1,'se']]],
   ['abstractskybox',['AbstractSkybox',['../classse_1_1_abstract_skybox.html',1,'se']]],
   ['abstractterrain',['AbstractTerrain',['../classse_1_1_abstract_terrain.html',1,'se']]],
-  ['assetloader',['AssetLoader',['../classse_1_1_asset_loader.html',1,'se']]]
+  ['assetmanager',['AssetManager',['../classse_1_1_asset_manager.html',1,'se']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: se::Kernel Class Reference</title>
+<title>Best Engine: se::Kernel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Best Engine
    </div>
+   <div id="projectbrief">A 3D game engine for KB01</div>
   </td>
  </tr>
  </tbody>
@@ -81,14 +82,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28fa4e75a4f693d01e96f63849d9cf15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafcef2223ca597327876f4f444d3521b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#aafcef2223ca597327876f4f444d3521b">AddWindow</a> (const std::string &amp;title, int width, int height)</td></tr>
 <tr class="separator:aafcef2223ca597327876f4f444d3521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab35b0e949e62ab5addef0e21eb53a928"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#ab35b0e949e62ab5addef0e21eb53a928">AddCameraController</a> (<a class="el" href="classse_1_1_camera_controller.html">CameraController</a> *cameraController)</td></tr>
-<tr class="separator:ab35b0e949e62ab5addef0e21eb53a928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a807b4f4e928752e7512f5b7b4a17c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#a60a807b4f4e928752e7512f5b7b4a17c">SetCameraController</a> (<a class="el" href="classse_1_1_camera_controller.html">CameraController</a> *cameraController)</td></tr>
+<tr class="separator:a60a807b4f4e928752e7512f5b7b4a17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1faeac6fce02ccd7ff76d94ad78e0754"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#a1faeac6fce02ccd7ff76d94ad78e0754">EnterLoop</a> ()</td></tr>
 <tr class="separator:a1faeac6fce02ccd7ff76d94ad78e0754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_kernel_8h_source.html#l00013">13</a> of file <a class="el" href="_kernel_8h_source.html">Kernel.h</a>.</p>
+<div class="textblock"><p>This class is the heart of this engine </p>
+
+<p class="definition">Definition at line <a class="el" href="_kernel_8h_source.html#l00016">16</a> of file <a class="el" href="_kernel_8h_source.html">Kernel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a28fa4e75a4f693d01e96f63849d9cf15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28fa4e75a4f693d01e96f63849d9cf15">&#9670;&nbsp;</a></span>Kernel()</h2>
@@ -133,28 +135,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize the kernel with the title, width and height of the window, the renderer it's supposed to use and the input it's gonna take </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab35b0e949e62ab5addef0e21eb53a928"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab35b0e949e62ab5addef0e21eb53a928">&#9670;&nbsp;</a></span>AddCameraController()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void se::Kernel::AddCameraController </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classse_1_1_camera_controller.html">CameraController</a> *&#160;</td>
-          <td class="paramname"><em>cameraController</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aafcef2223ca597327876f4f444d3521b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aafcef2223ca597327876f4f444d3521b">&#9670;&nbsp;</a></span>AddWindow()</h2>
 
@@ -186,6 +171,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Create another window </p>
 
 </div>
 </div>
@@ -203,11 +189,31 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Enter the gameloop </p>
+
+</div>
+</div>
+<a id="a60a807b4f4e928752e7512f5b7b4a17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a807b4f4e928752e7512f5b7b4a17c">&#9670;&nbsp;</a></span>SetCameraController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Kernel::SetCameraController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classse_1_1_camera_controller.html">CameraController</a> *&#160;</td>
+          <td class="paramname"><em>cameraController</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the <a class="el" href="classse_1_1_camera_controller.html">CameraController</a> you want to use </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Include/<a class="el" href="_kernel_8h_source.html">Kernel.h</a></li>
+<li>D:/Projects/GameEngine3D/Include/<a class="el" href="_kernel_8h_source.html">Kernel.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

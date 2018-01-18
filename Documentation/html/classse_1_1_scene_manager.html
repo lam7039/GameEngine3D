@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: se::SceneManager Class Reference</title>
+<title>Best Engine: se::SceneManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Best Engine
    </div>
+   <div id="projectbrief">A 3D game engine for KB01</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +85,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9ad26f193f547285f4eae5c440f24a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eff0a05036942247f81fe4915ffce50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene_manager.html#a8eff0a05036942247f81fe4915ffce50">SetCurrentScene</a> (const std::string &amp;name)</td></tr>
 <tr class="separator:a8eff0a05036942247f81fe4915ffce50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7912dae18fcbfff00194a63b88aec179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene_manager.html#a7912dae18fcbfff00194a63b88aec179">RemoveScene</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a7912dae18fcbfff00194a63b88aec179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354707c12a744c1f86e9433b312f8203"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene_manager.html#a354707c12a744c1f86e9433b312f8203">RemoveAll</a> ()</td></tr>
+<tr class="separator:a354707c12a744c1f86e9433b312f8203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac6929d7dfd933c4d40fbf66b3740321"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene_manager.html#aac6929d7dfd933c4d40fbf66b3740321">GetSceneCount</a> ()</td></tr>
 <tr class="separator:aac6929d7dfd933c4d40fbf66b3740321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -113,6 +118,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Add a scene </p>
 
 </div>
 </div>
@@ -138,6 +144,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the current active scene </p>
 
 </div>
 </div>
@@ -163,6 +170,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the instance of <a class="el" href="classse_1_1_scene_manager.html">SceneManager</a> </p>
 
 </div>
 </div>
@@ -181,6 +189,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get a specific scene with the scene name </p>
 
 </div>
 </div>
@@ -198,6 +207,44 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get the amount of scenes </p>
+
+</div>
+</div>
+<a id="a354707c12a744c1f86e9433b312f8203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354707c12a744c1f86e9433b312f8203">&#9670;&nbsp;</a></span>RemoveAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::SceneManager::RemoveAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove all scenes </p>
+
+</div>
+</div>
+<a id="a7912dae18fcbfff00194a63b88aec179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7912dae18fcbfff00194a63b88aec179">&#9670;&nbsp;</a></span>RemoveScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::SceneManager::RemoveScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove a specific scene with the name of the scene </p>
 
 </div>
 </div>
@@ -216,11 +263,12 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Set the current scene with the name of the scene </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Include/<a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a></li>
+<li>D:/Projects/GameEngine3D/Include/<a class="el" href="_scene_manager_8h_source.html">SceneManager.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

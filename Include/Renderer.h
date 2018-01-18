@@ -6,6 +6,9 @@
 
 namespace se {
 
+	///
+	/// With this interface you can create your own renderer if you'd like
+	///
 	class AbstractRenderer {
 	public:
 		virtual void Create(HWND hWnd) = 0;

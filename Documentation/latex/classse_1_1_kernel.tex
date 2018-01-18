@@ -11,16 +11,16 @@
 \item 
 void \mbox{\hyperlink{classse_1_1_kernel_aafcef2223ca597327876f4f444d3521b}{Add\+Window}} (const std\+::string \&title, int width, int height)
 \item 
-void \mbox{\hyperlink{classse_1_1_kernel_ab35b0e949e62ab5addef0e21eb53a928}{Add\+Camera\+Controller}} (\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$camera\+Controller)
+void \mbox{\hyperlink{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}{Set\+Camera\+Controller}} (\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$camera\+Controller)
 \item 
 int \mbox{\hyperlink{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}{Enter\+Loop}} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+This class is the heart of this engine 
 
-
-Definition at line 13 of file Kernel.\+h.
+Definition at line 16 of file Kernel.\+h.
 
 
 
@@ -31,29 +31,29 @@ Definition at line 13 of file Kernel.\+h.
 \subsubsection{\texorpdfstring{Kernel()}{Kernel()}}
 {\footnotesize\ttfamily se\+::\+Kernel\+::\+Kernel (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{classse_1_1_input}{Input}} $\ast$}]{input }\end{DoxyParamCaption})}
 
-
+Initialize the kernel with the title, width and height of the window, the renderer it\textquotesingle{}s supposed to use and the input it\textquotesingle{}s gonna take 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_kernel_ab35b0e949e62ab5addef0e21eb53a928}\label{classse_1_1_kernel_ab35b0e949e62ab5addef0e21eb53a928}} 
-\index{se\+::\+Kernel@{se\+::\+Kernel}!Add\+Camera\+Controller@{Add\+Camera\+Controller}}
-\index{Add\+Camera\+Controller@{Add\+Camera\+Controller}!se\+::\+Kernel@{se\+::\+Kernel}}
-\subsubsection{\texorpdfstring{Add\+Camera\+Controller()}{AddCameraController()}}
-{\footnotesize\ttfamily void se\+::\+Kernel\+::\+Add\+Camera\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$}]{camera\+Controller }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{classse_1_1_kernel_aafcef2223ca597327876f4f444d3521b}\label{classse_1_1_kernel_aafcef2223ca597327876f4f444d3521b}} 
 \index{se\+::\+Kernel@{se\+::\+Kernel}!Add\+Window@{Add\+Window}}
 \index{Add\+Window@{Add\+Window}!se\+::\+Kernel@{se\+::\+Kernel}}
 \subsubsection{\texorpdfstring{Add\+Window()}{AddWindow()}}
 {\footnotesize\ttfamily void se\+::\+Kernel\+::\+Add\+Window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}\label{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}} 
+Create another window \mbox{\Hypertarget{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}\label{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}} 
 \index{se\+::\+Kernel@{se\+::\+Kernel}!Enter\+Loop@{Enter\+Loop}}
 \index{Enter\+Loop@{Enter\+Loop}!se\+::\+Kernel@{se\+::\+Kernel}}
 \subsubsection{\texorpdfstring{Enter\+Loop()}{EnterLoop()}}
 {\footnotesize\ttfamily int se\+::\+Kernel\+::\+Enter\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Enter the gameloop \mbox{\Hypertarget{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}\label{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}} 
+\index{se\+::\+Kernel@{se\+::\+Kernel}!Set\+Camera\+Controller@{Set\+Camera\+Controller}}
+\index{Set\+Camera\+Controller@{Set\+Camera\+Controller}!se\+::\+Kernel@{se\+::\+Kernel}}
+\subsubsection{\texorpdfstring{Set\+Camera\+Controller()}{SetCameraController()}}
+{\footnotesize\ttfamily void se\+::\+Kernel\+::\+Set\+Camera\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$}]{camera\+Controller }\end{DoxyParamCaption})}
 
+Set the \mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} you want to use 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Include/\mbox{\hyperlink{_kernel_8h}{Kernel.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_kernel_8h}{Kernel.\+h}}\end{DoxyCompactItemize}

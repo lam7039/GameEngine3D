@@ -8,14 +8,26 @@
 
 namespace se {
 
+	///
+	/// You can use this class to handle input
+	///
 	class Input {
 	public:
 		Input();
 		~Input();
 
+		///
+		/// Initialize the input
+		///
 		bool Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight);
+		///
+		/// Check if specified key is pressed
+		///
 		bool IsPressed(BYTE key);
 		void Update();
+		///
+		/// Get the mouse location
+		///
 		void GetMouseLocation(int &mouseX, int &mouseY);
 
 	private:

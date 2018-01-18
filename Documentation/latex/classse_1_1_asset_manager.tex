@@ -1,0 +1,59 @@
+\hypertarget{classse_1_1_asset_manager}{}\section{se\+:\+:Asset\+Manager Class Reference}
+\label{classse_1_1_asset_manager}\index{se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}}
+
+
+{\ttfamily \#include $<$Asset\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classse_1_1_asset_manager_aee43a38dbf19e852fed3f222808277af}{Add\+Asset}} (const std\+::string \&name, \mbox{\hyperlink{classse_1_1_abstract_asset}{Abstract\+Asset}} $\ast$asset)
+\item 
+void \mbox{\hyperlink{classse_1_1_asset_manager_a3cd3506b7003d63adbd1cd0f94c8931e}{Release\+Asset}} (const std\+::string \&name)
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classse_1_1_abstract_asset}{Abstract\+Asset}} $\ast$ $>$ \mbox{\hyperlink{classse_1_1_asset_manager_adaa14ad4d80b328f2204543d788c6a28}{Get\+Asset\+List}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classse_1_1_asset_manager}{Asset\+Manager}} $\ast$ \mbox{\hyperlink{classse_1_1_asset_manager_abcccad608538c6ddeb223c259089d468}{Get\+Instance}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+With this manager you can add assets and get and release added assets 
+
+Definition at line 12 of file Asset\+Manager.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classse_1_1_asset_manager_aee43a38dbf19e852fed3f222808277af}\label{classse_1_1_asset_manager_aee43a38dbf19e852fed3f222808277af}} 
+\index{se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}!Add\+Asset@{Add\+Asset}}
+\index{Add\+Asset@{Add\+Asset}!se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}}
+\subsubsection{\texorpdfstring{Add\+Asset()}{AddAsset()}}
+{\footnotesize\ttfamily void se\+::\+Asset\+Manager\+::\+Add\+Asset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{classse_1_1_abstract_asset}{Abstract\+Asset}} $\ast$}]{asset }\end{DoxyParamCaption})}
+
+Add an asset with a name to refer it by \mbox{\Hypertarget{classse_1_1_asset_manager_adaa14ad4d80b328f2204543d788c6a28}\label{classse_1_1_asset_manager_adaa14ad4d80b328f2204543d788c6a28}} 
+\index{se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}!Get\+Asset\+List@{Get\+Asset\+List}}
+\index{Get\+Asset\+List@{Get\+Asset\+List}!se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Asset\+List()}{GetAssetList()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classse_1_1_abstract_asset}{Abstract\+Asset}}$\ast$$>$ se\+::\+Asset\+Manager\+::\+Get\+Asset\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get all assets in an unordered\+\_\+map \mbox{\Hypertarget{classse_1_1_asset_manager_abcccad608538c6ddeb223c259089d468}\label{classse_1_1_asset_manager_abcccad608538c6ddeb223c259089d468}} 
+\index{se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}!Get\+Instance@{Get\+Instance}}
+\index{Get\+Instance@{Get\+Instance}!se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Instance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classse_1_1_asset_manager}{Asset\+Manager}}$\ast$ se\+::\+Asset\+Manager\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the instance of the manager \mbox{\Hypertarget{classse_1_1_asset_manager_a3cd3506b7003d63adbd1cd0f94c8931e}\label{classse_1_1_asset_manager_a3cd3506b7003d63adbd1cd0f94c8931e}} 
+\index{se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}!Release\+Asset@{Release\+Asset}}
+\index{Release\+Asset@{Release\+Asset}!se\+::\+Asset\+Manager@{se\+::\+Asset\+Manager}}
+\subsubsection{\texorpdfstring{Release\+Asset()}{ReleaseAsset()}}
+{\footnotesize\ttfamily void se\+::\+Asset\+Manager\+::\+Release\+Asset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Release an asset with the referred name 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_asset_manager_8h}{Asset\+Manager.\+h}}\end{DoxyCompactItemize}

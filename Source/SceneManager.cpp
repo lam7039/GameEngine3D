@@ -34,10 +34,34 @@ namespace se {
 	}
 
 	void SceneManager::SetCurrentScene(const std::string &name) {
+		if (m_scenes.find(name) == m_scenes.end()) {
+			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			return;
+		}
 		m_currentScene = &m_scenes[name];
 	}
 
+	void SceneManager::RemoveScene(const std::string &name) {
+		if (m_scenes.find(name) == m_scenes.end()) {
+			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			return;
+		}
+		m_scenes[name].Remove();
+		m_scenes.erase(name);
+	}
+
+	void SceneManager::RemoveAll() {
+		for (auto &i : m_scenes) {
+			i.second.Remove();
+		}
+		m_scenes.clear();
+	}
+
 	Scene *SceneManager::GetScene(const std::string &name) {
+		if (m_scenes.find(name) == m_scenes.end()) {
+			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			return nullptr;
+		}
 		return &m_scenes[name];
 	}
 

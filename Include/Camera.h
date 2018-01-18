@@ -6,6 +6,9 @@
 
 namespace se {
 
+	///
+	/// With this interface you can write your own camera and add it to the CameraController
+	///
 	class AbstractCamera : public Entity {
 	public:
 		float GetSpeed() const;

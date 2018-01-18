@@ -7,11 +7,21 @@
 
 namespace se {
 
+	///
+	/// Use this class to control the movement of your camera
+	///
 	class CameraController {
 	public:
+
 		CameraController(AbstractCamera *camera, Input *input);
 		void HandleInput(float delta);
+		///
+		/// Set the position of the camera to the given target
+		///
 		void SetTarget(Transform3f *target);
+		///
+		/// Get the current target of the camera
+		///
 		Transform3f *GetTarget() const;
 	private:
 		AbstractCamera *m_camera;

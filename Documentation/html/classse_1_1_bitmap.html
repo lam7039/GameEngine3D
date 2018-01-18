@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: se::Bitmap Class Reference</title>
+<title>Best Engine: se::Bitmap Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Best Engine
    </div>
+   <div id="projectbrief">A 3D game engine for KB01</div>
   </td>
  </tr>
  </tbody>
@@ -89,10 +90,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a24d34941103efc40b746d16bc4650970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2467e494eccacc94756c3f02b0d0cc5e"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_bitmap.html#a2467e494eccacc94756c3f02b0d0cc5e">GetData</a> ()</td></tr>
 <tr class="separator:a2467e494eccacc94756c3f02b0d0cc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0aa0d86804f241261c46307447a4f5"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_bitmap.html#a7e0aa0d86804f241261c46307447a4f5">GetPixels</a> ()</td></tr>
+<tr class="separator:a7e0aa0d86804f241261c46307447a4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_bitmap_8h_source.html#l00009">9</a> of file <a class="el" href="_bitmap_8h_source.html">Bitmap.h</a>.</p>
+<div class="textblock"><p>With this class you can load a bitmap </p>
+
+<p class="definition">Definition at line <a class="el" href="_bitmap_8h_source.html#l00011">11</a> of file <a class="el" href="_bitmap_8h_source.html">Bitmap.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7b43662ae9e5584ee8e3cef244ca32f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b43662ae9e5584ee8e3cef244ca32f7">&#9670;&nbsp;</a></span>Bitmap()</h2>
@@ -143,6 +147,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get an array with values of 0-255 loaded from the bitmap from a single channel </p>
 
 </div>
 </div>
@@ -160,6 +165,25 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get the given bitmap height </p>
+
+</div>
+</div>
+<a id="a7e0aa0d86804f241261c46307447a4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0aa0d86804f241261c46307447a4f5">&#9670;&nbsp;</a></span>GetPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* se::Bitmap::GetPixels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get an array with values of 0-255 loaded from the bitmap from all channels </p>
 
 </div>
 </div>
@@ -177,6 +201,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get the given bitmap width </p>
 
 </div>
 </div>
@@ -195,11 +220,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Load the bitmap with the file path </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Include/<a class="el" href="_bitmap_8h_source.html">Bitmap.h</a></li>
+<li>D:/Projects/GameEngine3D/Include/<a class="el" href="_bitmap_8h_source.html">Bitmap.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

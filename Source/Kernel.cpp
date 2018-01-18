@@ -42,7 +42,7 @@ namespace se {
 
 	}
 
-	void Kernel::AddCameraController(CameraController *cameraController) {
+	void Kernel::SetCameraController(CameraController *cameraController) {
 		m_cameraController = cameraController;
 	}
 
@@ -57,10 +57,6 @@ namespace se {
 
 		MSG msg;
 		FPSCounter fps;
-
-		//TODO: remove the mouse test
-		int mouse_x;
-		int mouse_y;
 
 		while (isRunning) {
 			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -79,20 +75,22 @@ namespace se {
 			}
 			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
 				SceneManager::GetInstance()->GetCurrentScene()->Update(fps.GetDelta());
-				//TODO: check for cameracontroller and skybox
-				SceneManager::GetInstance()->GetCurrentScene()->SetSkyboxTransform(m_cameraController->GetTarget());
+				if (m_cameraController) {
+					SceneManager::GetInstance()->GetCurrentScene()->SetSkyboxTransform(m_cameraController->GetTarget());
+				}
 			}
-
-			m_input->GetMouseLocation(mouse_x, mouse_y);
-			std::cout << mouse_x << ", " << mouse_y << std::endl;
 
 			// Drawing.
 			m_renderer->Render();
 
-			//std::cout << fps.GetFPS() << std::endl;
+			//TODO: remove fps counter
+			std::cout << fps.GetFPS() << std::endl;
 			fps.Update();
 		}
 
+		if (SceneManager::GetInstance()->GetSceneCount() > 0) {
+			SceneManager::GetInstance()->RemoveAll();
+		}
 		m_renderer->Release();
 		m_window.CloseAll();
 

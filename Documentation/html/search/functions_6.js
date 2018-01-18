@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getassetlist',['GetAssetList',['../classse_1_1_asset_loader.html#af6cb24e98780a9e9196b051044de41d8',1,'se::AssetLoader']]],
+  ['getassetlist',['GetAssetList',['../classse_1_1_asset_manager.html#adaa14ad4d80b328f2204543d788c6a28',1,'se::AssetManager']]],
   ['getassetname',['GetAssetName',['../classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4',1,'se::Entity']]],
   ['getcurrentscene',['GetCurrentScene',['../classse_1_1_scene_manager.html#a79b72ff927600fa9ef24f1dae177b566',1,'se::SceneManager']]],
   ['getdata',['GetData',['../classse_1_1_bitmap.html#a2467e494eccacc94756c3f02b0d0cc5e',1,'se::Bitmap']]],
@@ -10,9 +10,10 @@ var searchData=
   ['getentityname',['GetEntityName',['../classse_1_1_entity.html#a2de55d070d6de1404c69e0da8b9d6d50',1,'se::Entity']]],
   ['getfps',['GetFPS',['../classse_1_1_f_p_s_counter.html#a6e3fc56e01f9696ce549264f6246fa01',1,'se::FPSCounter']]],
   ['getheight',['GetHeight',['../classse_1_1_bitmap.html#a24d34941103efc40b746d16bc4650970',1,'se::Bitmap']]],
-  ['getinstance',['GetInstance',['../classse_1_1_asset_loader.html#adb388965562391024b67dba4c2da2b9a',1,'se::AssetLoader::GetInstance()'],['../classse_1_1_scene_manager.html#a670006ca4d20028e0778074e94fa0640',1,'se::SceneManager::GetInstance()'],['../classse_1_1_window.html#af85337c4cc5eae56412a5bbcbf471ae6',1,'se::Window::GetInstance()']]],
+  ['getinstance',['GetInstance',['../classse_1_1_asset_manager.html#abcccad608538c6ddeb223c259089d468',1,'se::AssetManager::GetInstance()'],['../classse_1_1_scene_manager.html#a670006ca4d20028e0778074e94fa0640',1,'se::SceneManager::GetInstance()'],['../classse_1_1_window.html#af85337c4cc5eae56412a5bbcbf471ae6',1,'se::Window::GetInstance()']]],
   ['getmouselocation',['GetMouseLocation',['../classse_1_1_input.html#a6088639b8f77563aad712a7c9708edf1',1,'se::Input']]],
   ['getpitch',['GetPitch',['../classse_1_1_abstract_camera.html#afe009ee2de0fa0c4d37d446bb7d91ccf',1,'se::AbstractCamera']]],
+  ['getpixels',['GetPixels',['../classse_1_1_bitmap.html#a7e0aa0d86804f241261c46307447a4f5',1,'se::Bitmap']]],
   ['getrotationspeed',['GetRotationSpeed',['../classse_1_1_abstract_camera.html#a5762156f8dd3d3d79666cb2f23e45fa2',1,'se::AbstractCamera']]],
   ['getscene',['GetScene',['../classse_1_1_scene_manager.html#a07360d102e47455f497c844d7ad36ecb',1,'se::SceneManager']]],
   ['getscenecount',['GetSceneCount',['../classse_1_1_scene_manager.html#aac6929d7dfd933c4d40fbf66b3740321',1,'se::SceneManager']]],

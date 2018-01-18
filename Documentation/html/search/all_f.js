@@ -10,6 +10,7 @@ var searchData=
   ['se',['se',['../namespacese.html',1,'']]],
   ['seconds',['Seconds',['../classse_1_1_timer.html#a258761c48271338588503d8170532bde',1,'se::Timer']]],
   ['selectlogger',['SelectLogger',['../classse_1_1_debug.html#ab97d44dca8606c2be2cb709f7e82be09',1,'se::Debug']]],
+  ['setcameracontroller',['SetCameraController',['../classse_1_1_kernel.html#a60a807b4f4e928752e7512f5b7b4a17c',1,'se::Kernel']]],
   ['setcurrentscene',['SetCurrentScene',['../classse_1_1_scene_manager.html#a8eff0a05036942247f81fe4915ffce50',1,'se::SceneManager']]],
   ['setposition',['SetPosition',['../classse_1_1_entity.html#a09e198e70620f231106d9f375f7598f3',1,'se::Entity::SetPosition()'],['../classse_1_1_window.html#a12c371c25615c9d4744a961dab9d949c',1,'se::Window::SetPosition()']]],
   ['setrotation',['SetRotation',['../classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2',1,'se::Entity']]],

@@ -13,6 +13,10 @@ void \mbox{\hyperlink{classse_1_1_scene_manager_a9ad26f193f547285f4eae5c440f24a1
 \item 
 void \mbox{\hyperlink{classse_1_1_scene_manager_a8eff0a05036942247f81fe4915ffce50}{Set\+Current\+Scene}} (const std\+::string \&name)
 \item 
+void \mbox{\hyperlink{classse_1_1_scene_manager_a7912dae18fcbfff00194a63b88aec179}{Remove\+Scene}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{classse_1_1_scene_manager_a354707c12a744c1f86e9433b312f8203}{Remove\+All}} ()
+\item 
 int \mbox{\hyperlink{classse_1_1_scene_manager_aac6929d7dfd933c4d40fbf66b3740321}{Get\+Scene\+Count}} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
@@ -38,38 +42,50 @@ Definition at line 10 of file Scene\+Manager.\+h.
 \subsubsection{\texorpdfstring{Add\+Scene()}{AddScene()}}
 {\footnotesize\ttfamily void se\+::\+Scene\+Manager\+::\+Add\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classse_1_1_scene_manager_a79b72ff927600fa9ef24f1dae177b566}\label{classse_1_1_scene_manager_a79b72ff927600fa9ef24f1dae177b566}} 
+Add a scene \mbox{\Hypertarget{classse_1_1_scene_manager_a79b72ff927600fa9ef24f1dae177b566}\label{classse_1_1_scene_manager_a79b72ff927600fa9ef24f1dae177b566}} 
 \index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Get\+Current\+Scene@{Get\+Current\+Scene}}
 \index{Get\+Current\+Scene@{Get\+Current\+Scene}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
 \subsubsection{\texorpdfstring{Get\+Current\+Scene()}{GetCurrentScene()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{classse_1_1_scene}{Scene}}$\ast$ se\+::\+Scene\+Manager\+::\+Get\+Current\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\mbox{\Hypertarget{classse_1_1_scene_manager_a670006ca4d20028e0778074e94fa0640}\label{classse_1_1_scene_manager_a670006ca4d20028e0778074e94fa0640}} 
+Get the current active scene \mbox{\Hypertarget{classse_1_1_scene_manager_a670006ca4d20028e0778074e94fa0640}\label{classse_1_1_scene_manager_a670006ca4d20028e0778074e94fa0640}} 
 \index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Get\+Instance@{Get\+Instance}}
 \index{Get\+Instance@{Get\+Instance}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
 \subsubsection{\texorpdfstring{Get\+Instance()}{GetInstance()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{classse_1_1_scene_manager}{Scene\+Manager}}$\ast$ se\+::\+Scene\+Manager\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\mbox{\Hypertarget{classse_1_1_scene_manager_a07360d102e47455f497c844d7ad36ecb}\label{classse_1_1_scene_manager_a07360d102e47455f497c844d7ad36ecb}} 
+Get the instance of \mbox{\hyperlink{classse_1_1_scene_manager}{Scene\+Manager}} \mbox{\Hypertarget{classse_1_1_scene_manager_a07360d102e47455f497c844d7ad36ecb}\label{classse_1_1_scene_manager_a07360d102e47455f497c844d7ad36ecb}} 
 \index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Get\+Scene@{Get\+Scene}}
 \index{Get\+Scene@{Get\+Scene}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
 \subsubsection{\texorpdfstring{Get\+Scene()}{GetScene()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classse_1_1_scene}{Scene}}$\ast$ se\+::\+Scene\+Manager\+::\+Get\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classse_1_1_scene_manager_aac6929d7dfd933c4d40fbf66b3740321}\label{classse_1_1_scene_manager_aac6929d7dfd933c4d40fbf66b3740321}} 
+Get a specific scene with the scene name \mbox{\Hypertarget{classse_1_1_scene_manager_aac6929d7dfd933c4d40fbf66b3740321}\label{classse_1_1_scene_manager_aac6929d7dfd933c4d40fbf66b3740321}} 
 \index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Get\+Scene\+Count@{Get\+Scene\+Count}}
 \index{Get\+Scene\+Count@{Get\+Scene\+Count}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
 \subsubsection{\texorpdfstring{Get\+Scene\+Count()}{GetSceneCount()}}
 {\footnotesize\ttfamily int se\+::\+Scene\+Manager\+::\+Get\+Scene\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classse_1_1_scene_manager_a8eff0a05036942247f81fe4915ffce50}\label{classse_1_1_scene_manager_a8eff0a05036942247f81fe4915ffce50}} 
+Get the amount of scenes \mbox{\Hypertarget{classse_1_1_scene_manager_a354707c12a744c1f86e9433b312f8203}\label{classse_1_1_scene_manager_a354707c12a744c1f86e9433b312f8203}} 
+\index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Remove\+All@{Remove\+All}}
+\index{Remove\+All@{Remove\+All}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
+\subsubsection{\texorpdfstring{Remove\+All()}{RemoveAll()}}
+{\footnotesize\ttfamily void se\+::\+Scene\+Manager\+::\+Remove\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove all scenes \mbox{\Hypertarget{classse_1_1_scene_manager_a7912dae18fcbfff00194a63b88aec179}\label{classse_1_1_scene_manager_a7912dae18fcbfff00194a63b88aec179}} 
+\index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Remove\+Scene@{Remove\+Scene}}
+\index{Remove\+Scene@{Remove\+Scene}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
+\subsubsection{\texorpdfstring{Remove\+Scene()}{RemoveScene()}}
+{\footnotesize\ttfamily void se\+::\+Scene\+Manager\+::\+Remove\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Remove a specific scene with the name of the scene \mbox{\Hypertarget{classse_1_1_scene_manager_a8eff0a05036942247f81fe4915ffce50}\label{classse_1_1_scene_manager_a8eff0a05036942247f81fe4915ffce50}} 
 \index{se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}!Set\+Current\+Scene@{Set\+Current\+Scene}}
 \index{Set\+Current\+Scene@{Set\+Current\+Scene}!se\+::\+Scene\+Manager@{se\+::\+Scene\+Manager}}
 \subsubsection{\texorpdfstring{Set\+Current\+Scene()}{SetCurrentScene()}}
 {\footnotesize\ttfamily void se\+::\+Scene\+Manager\+::\+Set\+Current\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
-
+Set the current scene with the name of the scene 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Include/\mbox{\hyperlink{_scene_manager_8h}{Scene\+Manager.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_scene_manager_8h}{Scene\+Manager.\+h}}\end{DoxyCompactItemize}

@@ -5,6 +5,8 @@
 namespace se {
 
 	Bitmap::Bitmap() {
+		m_data = nullptr;
+		m_pixels = nullptr;
 		m_logger.SelectLogger("engine.log");
 	}
 
@@ -14,7 +16,6 @@ namespace se {
 
 	int Bitmap::LoadBMP(const std::string &bmpFile) {
 		unsigned char *datBuff[2]{ nullptr, nullptr };
-		unsigned char *pixels = nullptr;
 
 		BITMAPFILEHEADER *bmpHeader = nullptr;
 		BITMAPINFOHEADER *bmpInfo = nullptr;
@@ -50,10 +51,10 @@ namespace se {
 		m_height = bmpInfo->biHeight;
 
 		unsigned long sizeImage = m_width * m_height * 4;
-		pixels = new unsigned char[sizeImage];
+		m_pixels = new unsigned char[sizeImage];
 		m_data = new unsigned char[sizeImage / 4];
 		file.seekg(bmpHeader->bfOffBits);
-		file.read((char*)pixels, sizeImage);
+		file.read((char*)m_pixels, sizeImage);
 
 		int padding = 4 - ((m_width * bmpInfo->biBitCount / 8) % 4);
 		unsigned long i = 0;
@@ -62,10 +63,10 @@ namespace se {
 		unsigned char tmpRGB = 0;
 		for (unsigned long y = 0; y < m_height; y++) {
 			for (unsigned long x = 0; x < m_width; x++) {
-				tmpRGB = pixels[i];
-				pixels[i] = pixels[i + 2];
-				pixels[i + 2] = tmpRGB;
-				m_data[j] = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+				tmpRGB = m_pixels[i];
+				m_pixels[i] = m_pixels[i + 2];
+				m_pixels[i + 2] = tmpRGB;
+				m_data[j] = (m_pixels[i] + m_pixels[i + 1] + m_pixels[i + 2]) / 3;
 				i += 3;
 				j++;
 			}
@@ -89,5 +90,9 @@ namespace se {
 
 	unsigned char *Bitmap::GetData() {
 		return m_data;
+	}
+
+	unsigned char *Bitmap::GetPixels() {
+		return m_pixels;
 	}
 }

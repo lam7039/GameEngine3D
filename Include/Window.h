@@ -14,15 +14,39 @@ namespace se {
 		std::string title = "window";
 	};
 
+	///
+	/// You can use this to create a window
+	///
 	class Window {
 	public:
 		Window();
+		///
+		/// Create a new window
+		///
 		HWND OpenWindow(const std::string &title, int width, int height);
+		///
+		/// Get the instance of the window
+		///
 		HINSTANCE GetInstance();
+		///
+		/// Get all windows
+		///
 		std::vector<WindowHandle> GetWindowList() const;
+		///
+		/// Set the position of the given window
+		///
 		void SetPosition(int index, int x, int y);
+		///
+		/// Set the size of the given window
+		///
 		void SetSize(int index, int width, int height);
+		///
+		/// Close a specified window
+		///
 		void CloseWindow(int index);
+		///
+		/// Close all windows
+		///
 		void CloseAll();
 	private:
 		int m_windowCount;

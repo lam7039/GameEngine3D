@@ -5,6 +5,9 @@
 
 namespace se {
 
+	///
+	/// For all your transformation needs
+	///
 	class Transform3f {
 	public:
 		float posX;

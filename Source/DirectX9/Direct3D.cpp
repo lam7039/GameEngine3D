@@ -1,5 +1,5 @@
 #include "DirectX9/Direct3D.h"
-#include "AssetLoader.h"
+#include "AssetManager.h"
 #include "SceneManager.h"
 #include "Transform.h"
 
@@ -50,7 +50,7 @@ namespace se {
 				D3DXMatrixTranslation(&m_matTranslate, target->posX, target->posY, target->posZ);
 				m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
 				if (m_currentSceneObjects[i]->GetAssetName() != "") {
-					AbstractAsset *m_currentMesh = AssetLoader::GetInstance()->GetAssetList()[m_currentSceneObjects[i]->GetAssetName()];
+					AbstractAsset *m_currentMesh = AssetManager::GetInstance()->GetAssetList()[m_currentSceneObjects[i]->GetAssetName()];
 					m_currentMesh->Process();
 				}
 			}

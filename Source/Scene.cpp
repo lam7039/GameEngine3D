@@ -11,7 +11,6 @@ namespace se {
 		m_skybox = skybox;
 	}
 
-
 	void Scene::SetSkyboxTransform(Transform3f *transform) {
 		m_targetPos = transform;
 	}
@@ -47,7 +46,8 @@ namespace se {
 		}
 	}
 
-	void Scene::Release() {
+	void Scene::Remove() {
+		m_entities.clear();
 		if (m_terrain) {
 			m_terrain->Release();
 		}

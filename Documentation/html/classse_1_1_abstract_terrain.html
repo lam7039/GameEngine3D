@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: se::AbstractTerrain Class Reference</title>
+<title>Best Engine: se::AbstractTerrain Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Best Engine
    </div>
+   <div id="projectbrief">A 3D game engine for KB01</div>
   </td>
  </tr>
  </tbody>
@@ -67,7 +68,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classse_1_1_abstract_terrain-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">se::AbstractTerrain Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -81,7 +81,8 @@ Inheritance diagram for se::AbstractTerrain:</div>
  <div class="center">
   <img src="classse_1_1_abstract_terrain.png" usemap="#se::AbstractTerrain_map" alt=""/>
   <map id="se::AbstractTerrain_map" name="se::AbstractTerrain_map">
-<area href="classse_1_1_terrain.html" alt="se::Terrain" shape="rect" coords="0,56,119,80"/>
+<area href="classse_1_1_entity.html" alt="se::Entity" shape="rect" coords="0,0,119,24"/>
+<area href="classse_1_1_terrain.html" alt="se::Terrain" shape="rect" coords="0,112,119,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -93,17 +94,38 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2f0249eead2b62a82baa2ecbb52efeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeee5b6c81be6aee211819b8d79718bf5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_terrain.html#aeee5b6c81be6aee211819b8d79718bf5">Release</a> ()=0</td></tr>
 <tr class="separator:aeee5b6c81be6aee211819b8d79718bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classse_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classse_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classse_1_1_entity.html">se::Entity</a></td></tr>
+<tr class="memitem:ac92492302d50c22ba7c4e9ff016b6145 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ac92492302d50c22ba7c4e9ff016b6145">Entity</a> ()</td></tr>
+<tr class="separator:ac92492302d50c22ba7c4e9ff016b6145 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a812b63adcbf5f1a3e429a31c6e0ff940">SetScale</a> (float x, float y, float z)</td></tr>
+<tr class="separator:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2">SetRotation</a> (float x, float y, float z)</td></tr>
+<tr class="separator:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e198e70620f231106d9f375f7598f3 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a09e198e70620f231106d9f375f7598f3">SetPosition</a> (float x, float y, float z)</td></tr>
+<tr class="separator:a09e198e70620f231106d9f375f7598f3 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd277c4c5a517f5cde8b72d5c40a8f0 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a1cd277c4c5a517f5cde8b72d5c40a8f0">Update</a> (float delta)</td></tr>
+<tr class="separator:a1cd277c4c5a517f5cde8b72d5c40a8f0 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de55d070d6de1404c69e0da8b9d6d50 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a2de55d070d6de1404c69e0da8b9d6d50">GetEntityName</a> () const</td></tr>
+<tr class="separator:a2de55d070d6de1404c69e0da8b9d6d50 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d512cba984ffe167decd7ecf7a88f4 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4">GetAssetName</a> () const</td></tr>
+<tr class="separator:af1d512cba984ffe167decd7ecf7a88f4 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677f32cd82e63f814b4be91518263242 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a677f32cd82e63f814b4be91518263242">GetTarget</a> ()</td></tr>
+<tr class="separator:a677f32cd82e63f814b4be91518263242 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a14845c9ab079d2c3fe3a70918b133c00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_terrain.html#a14845c9ab079d2c3fe3a70918b133c00">m_transform</a></td></tr>
-<tr class="separator:a14845c9ab079d2c3fe3a70918b133c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad74a68f788394ddf5d88a0771a60248"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_terrain.html#aad74a68f788394ddf5d88a0771a60248">m_isCreated</a> = false</td></tr>
-<tr class="separator:aad74a68f788394ddf5d88a0771a60248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classse_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classse_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classse_1_1_entity.html">se::Entity</a></td></tr>
+<tr class="memitem:ad4e3cc82e88be87565d00fdf10c18b12 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ad4e3cc82e88be87565d00fdf10c18b12">m_entityName</a></td></tr>
+<tr class="separator:ad4e3cc82e88be87565d00fdf10c18b12 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba1f7cc3700caee65b20c423185ab7ca inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aba1f7cc3700caee65b20c423185ab7ca">m_assetName</a></td></tr>
+<tr class="separator:aba1f7cc3700caee65b20c423185ab7ca inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a408963ce0920c7bc3bfec29266238 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a85a408963ce0920c7bc3bfec29266238">m_transform</a></td></tr>
+<tr class="separator:a85a408963ce0920c7bc3bfec29266238 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_terrain_8h_source.html#l00009">9</a> of file <a class="el" href="_terrain_8h_source.html">Terrain.h</a>.</p>
+<div class="textblock"><p>With this interface you can create your own terrain to load into a <a class="el" href="classse_1_1_scene.html">Scene</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="_terrain_8h_source.html#l00012">12</a> of file <a class="el" href="_terrain_8h_source.html">Terrain.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac8254489e68bcfc1960b968afeb683b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8254489e68bcfc1960b968afeb683b0">&#9670;&nbsp;</a></span>Create()</h2>
@@ -197,57 +219,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aad74a68f788394ddf5d88a0771a60248"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad74a68f788394ddf5d88a0771a60248">&#9670;&nbsp;</a></span>m_isCreated</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool se::AbstractTerrain::m_isCreated = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_terrain_8h_source.html#l00016">16</a> of file <a class="el" href="_terrain_8h_source.html">Terrain.h</a>.</p>
-
-</div>
-</div>
-<a id="a14845c9ab079d2c3fe3a70918b133c00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14845c9ab079d2c3fe3a70918b133c00">&#9670;&nbsp;</a></span>m_transform</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a> se::AbstractTerrain::m_transform</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_terrain_8h_source.html#l00015">15</a> of file <a class="el" href="_terrain_8h_source.html">Terrain.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Include/<a class="el" href="_terrain_8h_source.html">Terrain.h</a></li>
+<li>D:/Projects/GameEngine3D/Include/<a class="el" href="_terrain_8h_source.html">Terrain.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -9,6 +9,9 @@
 
 namespace se {
 
+	///
+	/// The renderer for Directx 9
+	///
 	class Direct3D : public AbstractRenderer {
 	public:
 		void Create(HWND hWnd) override;

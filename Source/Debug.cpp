@@ -24,7 +24,7 @@ namespace se {
 		if (!m_file.is_open()) {
 			m_file.open(m_path, std::ios::app);
 		}
-		m_file << __DATE__ << " " << __TIME__ << " " << file << " " << line << " [" << types[id] << "] " << message << std::endl;
+		m_file << __DATE__ << " " << __TIME__ << " file: " << file << " line: " << line << " [" << types[id] << "] " << message << std::endl;
 		m_file.close();
 	}
 
