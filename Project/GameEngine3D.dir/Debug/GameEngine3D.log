@@ -1,4 +1,2 @@
-﻿  DirectXTerrain.cpp
-D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(37): warning C4018: '<': signed/unsigned mismatch
-D:\Projects\GameEngine3D\Source\DirectX9\DirectXTerrain.cpp(38): warning C4018: '<': signed/unsigned mismatch
+﻿  DirectXSkybox.cpp
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib
