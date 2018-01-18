@@ -65,7 +65,7 @@ namespace se {
 				tmpRGB = pixels[i];
 				pixels[i] = pixels[i + 2];
 				pixels[i + 2] = tmpRGB;
-				m_data[j] = pixels[i];
+				m_data[j] = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
 				i += 3;
 				j++;
 			}

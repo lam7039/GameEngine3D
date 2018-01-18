@@ -6,9 +6,6 @@
 
 namespace se {
 
-	int g_x;
-	int g_y;
-
 	Kernel::Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input) {
 		m_renderer = nullptr;
 		m_cameraController = nullptr;
@@ -61,6 +58,10 @@ namespace se {
 		MSG msg;
 		FPSCounter fps;
 
+		//TODO: remove the mouse test
+		int mouse_x;
+		int mouse_y;
+
 		while (isRunning) {
 			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 				TranslateMessage(&msg);
@@ -82,8 +83,8 @@ namespace se {
 				SceneManager::GetInstance()->GetCurrentScene()->SetSkyboxTransform(m_cameraController->GetTarget());
 			}
 
-			m_input->GetMouseLocation(g_x, g_y);
-			std::cout << g_x << ", " << g_y << std::endl;
+			m_input->GetMouseLocation(mouse_x, mouse_y);
+			std::cout << mouse_x << ", " << mouse_y << std::endl;
 
 			// Drawing.
 			m_renderer->Render();
