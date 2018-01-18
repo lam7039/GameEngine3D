@@ -37,7 +37,7 @@ namespace se {
 
 	}
 
-	void Direct3D::Render() {
+	void Direct3D::Render(HWND hWnd) {
 		m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 		m_device->BeginScene();
 
@@ -58,7 +58,7 @@ namespace se {
 		}
 
 		m_device->EndScene();
-		m_device->Present(NULL, NULL, NULL, NULL);
+		m_device->Present(NULL, NULL, hWnd, NULL);
 	}
 
 	void Direct3D::Release() {

@@ -23,15 +23,19 @@ namespace se {
 		wHndl.title = title;
 		wHndl.width = width;
 		wHndl.height = height;
-		m_instance = GetModuleHandle(NULL);
+		wHndl.instance = GetModuleHandle(NULL);
 		m_windowCount++;
-		std::string className = "window" + m_windowCount;
-		ATOM atom = RegisterWindowProc(m_instance, WindowProc, className.c_str());
+		std::string className = "windowClass" + m_windowCount;
+		ATOM atom = RegisterWindowProc(wHndl.instance, WindowProc, className);
 		if (!atom) {
 			m_windowCount--;
 			return NULL;
 		}
-		wHndl.hWnd = CreateWindowEx(NULL, className.c_str(), wHndl.title.c_str(), WS_OVERLAPPEDWINDOW, wHndl.x, wHndl.y, wHndl.width, wHndl.height, NULL, NULL, m_instance, NULL);
+		HWND parent = NULL;
+		if (m_windowList.size() > 1) {
+			parent = m_windowList[m_windowCount - 2].hWnd;
+		}
+		wHndl.hWnd = CreateWindowEx(NULL, className.c_str(), wHndl.title.c_str(), WS_OVERLAPPEDWINDOW, wHndl.x, wHndl.y, wHndl.width, wHndl.height, parent, NULL, wHndl.instance, NULL);
 		if (!wHndl.hWnd) {
 			m_windowCount--;
 			return NULL;
@@ -60,8 +64,12 @@ namespace se {
 	}
 
 	void Window::CloseWindow(int index) {
+		if (index >= m_windowList.size()) {
+			return;
+		}
 		DestroyWindow(m_windowList[index].hWnd);
 		m_windowList.erase(m_windowList.begin() + index);
+		m_windowCount--;
 	}
 
 	void Window::CloseAll() {
@@ -69,6 +77,7 @@ namespace se {
 			DestroyWindow(m_windowList[i].hWnd);
 		}
 		m_windowList.clear();
+		m_windowCount = 0;
 	}
 
 	ATOM Window::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
@@ -84,12 +93,19 @@ namespace se {
 		return RegisterClassEx(&wc);
 	}
 
-	HINSTANCE Window::GetInstance() {
-		return m_instance;
+	HINSTANCE Window::GetInstance(int index) {
+		if (index >= m_windowList.size()) {
+			return NULL;
+		}
+		return m_windowList[index].instance;
 	}
 
 	std::vector<WindowHandle> Window::GetWindowList() const {
 		return m_windowList;
+	}
+
+	int Window::GetWindowCount() {
+		return m_windowCount;
 	}
 
 }

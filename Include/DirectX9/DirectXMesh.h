@@ -7,6 +7,9 @@
 
 namespace se {
 
+	///
+	/// The mesh for DirectX 9
+	///
 	class Mesh : public AbstractAsset {
 	public:
 		Mesh(const std::string &path);

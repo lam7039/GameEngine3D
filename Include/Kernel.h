@@ -22,7 +22,7 @@ namespace se {
 		///
 		/// Create another window
 		///
-		void AddWindow(const std::string &title, int width, int height);
+		void AddWindow(const std::string &title, int x, int y, int width, int height);
 		///
 		/// Set the CameraController you want to use
 		///

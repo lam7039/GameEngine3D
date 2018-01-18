@@ -10,13 +10,13 @@
 namespace se {
 
 	///
-	/// The renderer for Directx 9
+	/// The renderer for DirectX 9
 	///
 	class Direct3D : public AbstractRenderer {
 	public:
 		void Create(HWND hWnd) override;
 		void Update(float delta) override;
-		void Render() override;
+		void Render(HWND hWnd) override;
 		void Release() override;
 		static LPDIRECT3DDEVICE9 GetDevice();
 	private:

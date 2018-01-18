@@ -9,6 +9,9 @@
 
 namespace se {
 
+	///
+	/// The terrain for DirectX 9
+	///
 	class Terrain : public AbstractTerrain {
 	public:
 		void Create(const std::string &heightMap, const std::string &texture) override;

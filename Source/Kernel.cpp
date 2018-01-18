@@ -19,7 +19,7 @@ namespace se {
 		}
 
 		m_input = input;
-		if (!m_input->Initialize(m_window.GetInstance(), hWnd, width, height)) {
+		if (!m_input->Initialize(m_window.GetInstance(0), hWnd, width, height)) {
 			m_logger.Log(1, __FILE__, __LINE__, "Failed to initialize input");
 			return;
 		}
@@ -33,13 +33,15 @@ namespace se {
 
 	}
 
-	//TODO: work multiple windows out
-	void Kernel::AddWindow(const std::string &title, int width, int height) {
-		if (FAILED(m_window.OpenWindow(title, width, height))) {
+	void Kernel::AddWindow(const std::string &title, int x, int y, int width, int height) {
+		HWND hWnd;
+		if (FAILED(hWnd = m_window.OpenWindow(title, width, height))) {
 			m_logger.Log(0, __FILE__, __LINE__, "Failed to create new window");
 			return;
 		}
-
+		int index = m_window.GetWindowCount() - 1;
+		m_window.SetPosition(index, x, y);
+		m_input->Initialize(m_window.GetInstance(index), hWnd, width, height);
 	}
 
 	void Kernel::SetCameraController(CameraController *cameraController) {
@@ -48,7 +50,10 @@ namespace se {
 
 	int Kernel::EnterLoop() {
 		if (!m_renderer) {
-			m_logger.Log(2, __FILE__, __LINE__, "Failed initialize renderer");
+			m_logger.Log(2, __FILE__, __LINE__, "Failed to initialize renderer");
+			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
+				SceneManager::GetInstance()->RemoveAll();
+			}
 			m_window.CloseAll();
 			return 1;
 		}
@@ -81,7 +86,9 @@ namespace se {
 			}
 
 			// Drawing.
-			m_renderer->Render();
+			for (int i = 0; i < m_window.GetWindowList().size(); i++) {
+				m_renderer->Render(m_window.GetWindowList()[i].hWnd);
+			}
 
 			fps.Update();
 		}

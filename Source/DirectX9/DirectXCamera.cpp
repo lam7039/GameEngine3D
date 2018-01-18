@@ -3,7 +3,9 @@
 
 namespace se {
 
-	DirectXCamera::DirectXCamera() {
+	DirectXCamera::DirectXCamera(int screenWidth, int screenHeight) {
+		m_screenWidth = screenWidth;
+		m_screenHeight = screenHeight;
 		m_speed = 50.0f;
 		m_rotateSpeed = 70.0f;
 		m_transform.posZ = -15.0f;
@@ -42,7 +44,7 @@ namespace se {
 
 		//Projection
 		D3DXMATRIX matProj;
-		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 800 / 500, 1.0f, 1000.0f);
+		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, m_screenWidth / m_screenHeight, 1.0f, 1000.0f);
 		Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 

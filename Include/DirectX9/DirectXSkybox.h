@@ -9,6 +9,9 @@
 
 namespace se {
 
+	///
+	/// The skybox for DirectX 9
+	///
 	class Skybox : public AbstractSkybox {
 	public:
 		Skybox();

@@ -7,10 +7,16 @@
 
 namespace se {
 
+	///
+	/// The camera for DirectX 9
+	///
 	class DirectXCamera : public AbstractCamera {
 	public:
-		DirectXCamera();
+		DirectXCamera(int screenWidth, int screenHeight);
 		void Update(float delta) override;
+	private:
+		int m_screenWidth;
+		int m_screenHeight;
 	};
 
 }

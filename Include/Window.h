@@ -7,6 +7,7 @@ namespace se {
 
 	struct WindowHandle {
 		HWND hWnd;
+		HINSTANCE instance;
 		int width = 800;
 		int height = 500;
 		int x = (GetSystemMetrics(SM_CXSCREEN) / 2) - (width / 2);
@@ -25,9 +26,9 @@ namespace se {
 		///
 		HWND OpenWindow(const std::string &title, int width, int height);
 		///
-		/// Get the instance of the window
+		/// Get the instance of the window by given index
 		///
-		HINSTANCE GetInstance();
+		HINSTANCE GetInstance(int index);
 		///
 		/// Get all windows
 		///
@@ -48,9 +49,12 @@ namespace se {
 		/// Close all windows
 		///
 		void CloseAll();
+		///
+		/// Returns the amount of created windows
+		///
+		int GetWindowCount();
 	private:
 		int m_windowCount;
-		HINSTANCE m_instance;
 		ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className);
 		std::vector<WindowHandle> m_windowList;
 	};
