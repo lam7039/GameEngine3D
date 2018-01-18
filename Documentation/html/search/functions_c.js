@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openwindow',['OpenWindow',['../classse_1_1_window.html#a0bc98ce202ef1c431fe2780d53dbe7da',1,'se::Window']]]
+  ['openwindow',['OpenWindow',['../classse_1_1_window_manager.html#abeae1c064ff6f5b166b10539addd5a53',1,'se::WindowManager']]]
 ];

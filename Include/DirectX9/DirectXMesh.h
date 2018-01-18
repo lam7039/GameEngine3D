@@ -12,7 +12,7 @@ namespace se {
 	///
 	class Mesh : public AbstractAsset {
 	public:
-		Mesh(const std::string &path);
+		Mesh(LPDIRECT3DDEVICE9 device, const std::string &path);
 		void Create() override;
 		void Load() override;
 		void Process() override;
@@ -23,6 +23,7 @@ namespace se {
 		LPDIRECT3DTEXTURE9 *m_meshTextures;
 		D3DMATERIAL9 *m_meshMaterials;
 		DWORD m_materialCount;
+		LPDIRECT3DDEVICE9 m_device;
 	};
 
 }

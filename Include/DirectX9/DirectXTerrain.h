@@ -14,6 +14,7 @@ namespace se {
 	///
 	class Terrain : public AbstractTerrain {
 	public:
+		Terrain(LPDIRECT3DDEVICE9 device);
 		void Create(const std::string &heightMap, const std::string &texture) override;
 		void Process() override;
 		void Release() override;
@@ -22,6 +23,7 @@ namespace se {
 		Bitmap m_bitmap;
 		unsigned long m_width;
 		unsigned long m_height;
+		LPDIRECT3DDEVICE9 m_device;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
 		D3DXMATRIX m_matRotate;
 		D3DXMATRIX m_matTranslate;

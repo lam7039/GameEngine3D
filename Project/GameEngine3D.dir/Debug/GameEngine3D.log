@@ -1,2 +1,7 @@
-﻿  DirectXSkybox.cpp
+﻿  WindowManager.cpp
+..\..\Source\WindowManager.cpp(49): warning C4018: '>=': signed/unsigned mismatch
+..\..\Source\WindowManager.cpp(58): warning C4018: '>=': signed/unsigned mismatch
+..\..\Source\WindowManager.cpp(67): warning C4018: '>=': signed/unsigned mismatch
+..\..\Source\WindowManager.cpp(76): warning C4018: '<': signed/unsigned mismatch
+..\..\Source\WindowManager.cpp(97): warning C4018: '>=': signed/unsigned mismatch
   GameEngine3D.vcxproj -> D:\Projects\GameEngine3D\Project\VisualStudio15\Debug\GameEngine3D.lib

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['width',['width',['../structse_1_1_window_handle.html#a66814701369b6e581dcaa3d3ac468f5e',1,'se::WindowHandle']]],
-  ['window',['Window',['../classse_1_1_window.html',1,'se::Window'],['../classse_1_1_window.html#a903d67c495507f0ece8d2976a33b8540',1,'se::Window::Window()']]],
-  ['window_2eh',['Window.h',['../_window_8h.html',1,'']]],
-  ['windowhandle',['WindowHandle',['../structse_1_1_window_handle.html',1,'se']]]
+  ['width',['width',['../structse_1_1_window_entity.html#a131c1b7f2879d858fe72a7acf585acfe',1,'se::WindowEntity']]],
+  ['windowentity',['WindowEntity',['../structse_1_1_window_entity.html',1,'se']]],
+  ['windowmanager',['WindowManager',['../classse_1_1_window_manager.html',1,'se::WindowManager'],['../classse_1_1_window_manager.html#a327899bc3f1f588ce0908f98a36c5b50',1,'se::WindowManager::WindowManager()']]],
+  ['windowmanager_2eh',['WindowManager.h',['../_window_manager_8h.html',1,'']]]
 ];

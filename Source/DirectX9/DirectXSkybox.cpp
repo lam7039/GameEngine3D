@@ -10,8 +10,8 @@ namespace se {
 		float tv;
 	};
 
-	Skybox::Skybox() {
-
+	Skybox::Skybox(LPDIRECT3DDEVICE9 device) {
+		m_device = device;
 	}
 
 	void Skybox::Create(Transform3f transform, const std::string &src) {
@@ -75,7 +75,7 @@ namespace se {
 		m_transform = transform;
 		int byteCount = m_faceCount * squareVertCount * sizeof(Vertex);
 
-		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
+		if (FAILED(m_device->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed create vertex buffer");
 			return;
 		}
@@ -85,7 +85,7 @@ namespace se {
 		memcpy(pVertices, &vertices, byteCount);
 		m_vertexBuffer->Unlock();
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), src.c_str(), &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(m_device, src.c_str(), &m_texture))) {
 			m_logger.Log(2, __FILE__, __LINE__, ("Could not find texture map path: " + src).c_str());
 			return;
 		}
@@ -94,16 +94,16 @@ namespace se {
 	void Skybox::Process() {
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_transform.rotX, m_transform.rotY, m_transform.rotZ);
 		D3DXMatrixTranslation(&m_matTranslate, m_transform.posX, m_transform.posY, m_transform.posZ);
-		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
-		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
-		Direct3D::GetDevice()->SetTexture(0, m_texture);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_CLAMP);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_CLAMP);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
-		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_faceCount * 2);
+		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+		m_device->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
+		m_device->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
+		m_device->SetTexture(0, m_texture);
+		m_device->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_CLAMP);
+		m_device->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_CLAMP);
+		m_device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+		m_device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+		m_device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
+		m_device->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_faceCount * 2);
 	}
 
 	void Skybox::Release() {

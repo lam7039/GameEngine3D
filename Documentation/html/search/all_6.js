@@ -1,16 +1,16 @@
 var searchData=
 [
+  ['getactivewindow',['GetActiveWindow',['../classse_1_1_window_manager.html#a8679d9ddb58d3a4a3fba41f2c62ceeec',1,'se::WindowManager']]],
   ['getassetlist',['GetAssetList',['../classse_1_1_asset_manager.html#adaa14ad4d80b328f2204543d788c6a28',1,'se::AssetManager']]],
   ['getassetname',['GetAssetName',['../classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4',1,'se::Entity']]],
   ['getcurrentscene',['GetCurrentScene',['../classse_1_1_scene_manager.html#a79b72ff927600fa9ef24f1dae177b566',1,'se::SceneManager']]],
   ['getdata',['GetData',['../classse_1_1_bitmap.html#a2467e494eccacc94756c3f02b0d0cc5e',1,'se::Bitmap']]],
   ['getdelta',['GetDelta',['../classse_1_1_f_p_s_counter.html#ac39be1bd1ff3954813d6d5733825abb1',1,'se::FPSCounter']]],
-  ['getdevice',['GetDevice',['../classse_1_1_direct3_d.html#af37600089f9754a90e615210a6bee4f7',1,'se::Direct3D']]],
+  ['getdevice',['GetDevice',['../classse_1_1_direct3_d.html#a0735c84f0cdd65088702b03c4ed7c7b7',1,'se::Direct3D']]],
   ['getentities',['GetEntities',['../classse_1_1_scene.html#a1c3f1fc4ab110f9caab190cce13c2e03',1,'se::Scene']]],
-  ['getentityname',['GetEntityName',['../classse_1_1_entity.html#a2de55d070d6de1404c69e0da8b9d6d50',1,'se::Entity']]],
   ['getfps',['GetFPS',['../classse_1_1_f_p_s_counter.html#a6e3fc56e01f9696ce549264f6246fa01',1,'se::FPSCounter']]],
   ['getheight',['GetHeight',['../classse_1_1_bitmap.html#a24d34941103efc40b746d16bc4650970',1,'se::Bitmap']]],
-  ['getinstance',['GetInstance',['../classse_1_1_asset_manager.html#abcccad608538c6ddeb223c259089d468',1,'se::AssetManager::GetInstance()'],['../classse_1_1_scene_manager.html#a670006ca4d20028e0778074e94fa0640',1,'se::SceneManager::GetInstance()'],['../classse_1_1_window.html#af85337c4cc5eae56412a5bbcbf471ae6',1,'se::Window::GetInstance()']]],
+  ['getinstance',['GetInstance',['../classse_1_1_asset_manager.html#abcccad608538c6ddeb223c259089d468',1,'se::AssetManager::GetInstance()'],['../classse_1_1_scene_manager.html#a670006ca4d20028e0778074e94fa0640',1,'se::SceneManager::GetInstance()'],['../classse_1_1_window_manager.html#a93495e81b13dd081ff4f2c73af58c49c',1,'se::WindowManager::GetInstance()']]],
   ['getmouselocation',['GetMouseLocation',['../classse_1_1_input.html#a6088639b8f77563aad712a7c9708edf1',1,'se::Input']]],
   ['getpitch',['GetPitch',['../classse_1_1_abstract_camera.html#afe009ee2de0fa0c4d37d446bb7d91ccf',1,'se::AbstractCamera']]],
   ['getpixels',['GetPixels',['../classse_1_1_bitmap.html#a7e0aa0d86804f241261c46307447a4f5',1,'se::Bitmap']]],
@@ -20,6 +20,7 @@ var searchData=
   ['getspeed',['GetSpeed',['../classse_1_1_abstract_camera.html#a6720fc7f0712a59b8dc3d3b5f3c20dc4',1,'se::AbstractCamera']]],
   ['gettarget',['GetTarget',['../classse_1_1_camera_controller.html#a5b63115409d37fd1aa893e27bb2444a3',1,'se::CameraController::GetTarget()'],['../classse_1_1_entity.html#a677f32cd82e63f814b4be91518263242',1,'se::Entity::GetTarget()']]],
   ['getwidth',['GetWidth',['../classse_1_1_bitmap.html#adff193db6b52af590cad8f7200a83b6c',1,'se::Bitmap']]],
-  ['getwindowlist',['GetWindowList',['../classse_1_1_window.html#a3469863d327e48f06837f772d066e1e7',1,'se::Window']]],
+  ['getwindowcount',['GetWindowCount',['../classse_1_1_window_manager.html#aec9f7b4a351181abd1a9963a33494614',1,'se::WindowManager']]],
+  ['getwindowlist',['GetWindowList',['../classse_1_1_window_manager.html#a95b009b78fcf4293f9e6bb88985f7803',1,'se::WindowManager']]],
   ['getyaw',['GetYaw',['../classse_1_1_abstract_camera.html#a6064b75a70a1ea4621b82f18e4f46349',1,'se::AbstractCamera']]]
 ];

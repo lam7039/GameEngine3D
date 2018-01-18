@@ -2,8 +2,9 @@
 
 namespace se {
 
-	Mesh::Mesh(const std::string &path) {
+	Mesh::Mesh(LPDIRECT3DDEVICE9 device, const std::string &path) {
 		m_path = path;
+		m_device = device;
 	}
 
 	void Mesh::Create() {
@@ -16,7 +17,7 @@ namespace se {
 
 	void Mesh::Load() {
 		LPD3DXBUFFER materialBuffer;
-		if (FAILED(D3DXLoadMeshFromX(m_path.c_str(), D3DXMESH_SYSTEMMEM, Direct3D::GetDevice(), NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
+		if (FAILED(D3DXLoadMeshFromX(m_path.c_str(), D3DXMESH_SYSTEMMEM, m_device, NULL, &materialBuffer, NULL, &m_materialCount, &m_mesh))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to load mesh: " + m_path + " count: " + std::to_string(m_materialCount));
 			return;
 		}
@@ -30,7 +31,7 @@ namespace se {
 			if (materials[i].pTextureFilename != NULL && lstrlen(materials[i].pTextureFilename) > 0) {
 				std::string src = "Assets\\";
 				src += materials[i].pTextureFilename;
-				if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), src.c_str(), &m_meshTextures[i]))) {
+				if (FAILED(D3DXCreateTextureFromFile(m_device, src.c_str(), &m_meshTextures[i]))) {
 					m_logger.Log(2, __FILE__, __LINE__, "Could not find texture map path: " + src);
 					return;
 				}
@@ -41,13 +42,13 @@ namespace se {
 
 	void Mesh::Process() {
 		for (DWORD i = 0; i < m_materialCount; i++) {
-			Direct3D::GetDevice()->SetMaterial(&m_meshMaterials[i]);
-			Direct3D::GetDevice()->SetTexture(i, m_meshTextures[i]);
-			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
-			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
-			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
+			m_device->SetMaterial(&m_meshMaterials[i]);
+			m_device->SetTexture(i, m_meshTextures[i]);
+			m_device->SetSamplerState(i, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
+			m_device->SetSamplerState(i, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
+			m_device->SetSamplerState(i, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+			m_device->SetSamplerState(i, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+			m_device->SetSamplerState(i, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
 			m_mesh->DrawSubset(i);
 		}
 	}

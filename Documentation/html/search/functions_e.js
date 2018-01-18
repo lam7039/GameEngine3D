@@ -6,6 +6,6 @@ var searchData=
   ['removeall',['RemoveAll',['../classse_1_1_scene_manager.html#a354707c12a744c1f86e9433b312f8203',1,'se::SceneManager']]],
   ['removeentity',['RemoveEntity',['../classse_1_1_scene.html#a5803cfd0f0dccf350f7a3fe478b3c834',1,'se::Scene']]],
   ['removescene',['RemoveScene',['../classse_1_1_scene_manager.html#a7912dae18fcbfff00194a63b88aec179',1,'se::SceneManager']]],
-  ['render',['Render',['../classse_1_1_direct3_d.html#af4e167f88160d79fc66b4d65694b536a',1,'se::Direct3D::Render()'],['../classse_1_1_abstract_renderer.html#a08f813c33edad06bf7d379f8257895e6',1,'se::AbstractRenderer::Render()'],['../classse_1_1_scene.html#a6631ed2e0cc029636464dbaf76d55cbf',1,'se::Scene::Render()']]],
+  ['render',['Render',['../classse_1_1_direct3_d.html#a255a03bb492fb97f19e4c353f9ac35e6',1,'se::Direct3D::Render()'],['../classse_1_1_abstract_renderer.html#acdc5f90b702a6c85c53d9b93334ae230',1,'se::AbstractRenderer::Render()'],['../classse_1_1_scene.html#a6631ed2e0cc029636464dbaf76d55cbf',1,'se::Scene::Render()']]],
   ['resume',['Resume',['../classse_1_1_timer.html#a432406f463e02336c1033d65ae1d746e',1,'se::Timer']]]
 ];

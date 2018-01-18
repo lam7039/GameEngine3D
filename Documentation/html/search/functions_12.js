@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window',['Window',['../classse_1_1_window.html#a903d67c495507f0ece8d2976a33b8540',1,'se::Window']]]
+  ['windowmanager',['WindowManager',['../classse_1_1_window_manager.html#a327899bc3f1f588ce0908f98a36c5b50',1,'se::WindowManager']]]
 ];

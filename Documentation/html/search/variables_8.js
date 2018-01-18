@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../structse_1_1_window_handle.html#a49c3cce4b0181f39e5b8443acee2083a',1,'se::WindowHandle']]]
+  ['x',['x',['../structse_1_1_window_entity.html#a44c91bca2e793ea0d8f98fbf3d97bad5',1,'se::WindowEntity']]]
 ];

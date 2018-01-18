@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scalex',['scaleX',['../classse_1_1_transform3f.html#af87cb468268b871f516059ab9f84035f',1,'se::Transform3f']]],
-  ['scaley',['scaleY',['../classse_1_1_transform3f.html#abc893c842f0fcbfe910b48b38e56a241',1,'se::Transform3f']]],
-  ['scalez',['scaleZ',['../classse_1_1_transform3f.html#af25deb0eb4f11f5f3e1f369a86bb3a91',1,'se::Transform3f']]]
+  ['rotx',['rotX',['../classse_1_1_transform3f.html#a2ee9344ae3d32a543f40212dd8ee4a9c',1,'se::Transform3f']]],
+  ['roty',['rotY',['../classse_1_1_transform3f.html#a19689d88306a019419d31feeae7ea7b6',1,'se::Transform3f']]],
+  ['rotz',['rotZ',['../classse_1_1_transform3f.html#a454decdb9bcd426832064f69cfabcd93',1,'se::Transform3f']]]
 ];

@@ -18,13 +18,12 @@ namespace se {
 		void Update(float delta) override;
 		void Render(HWND hWnd) override;
 		void Release() override;
-		static LPDIRECT3DDEVICE9 GetDevice();
+		LPDIRECT3DDEVICE9 GetDevice();
 	private:
 		Debug m_logger;
-
 		//Devices
 		LPDIRECT3D9 m_d3d;
-		static LPDIRECT3DDEVICE9 m_device;
+		LPDIRECT3DDEVICE9 m_device;
 
 
 		//World

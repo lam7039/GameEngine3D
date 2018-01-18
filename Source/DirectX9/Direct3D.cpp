@@ -5,8 +5,6 @@
 
 namespace se {
 
-	LPDIRECT3DDEVICE9 Direct3D::m_device = nullptr;
-
 	void Direct3D::Create(HWND hWnd) {
 		m_logger.SelectLogger("engine.log");
 		m_d3d = Direct3DCreate9(D3D_SDK_VERSION);

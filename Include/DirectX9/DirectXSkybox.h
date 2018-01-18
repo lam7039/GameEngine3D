@@ -14,13 +14,14 @@ namespace se {
 	///
 	class Skybox : public AbstractSkybox {
 	public:
-		Skybox();
+		Skybox(LPDIRECT3DDEVICE9 device);
 		void Create(Transform3f transform, const std::string &src) override;
 		void Process() override;
 		void Release() override;
 	private:
 		Debug m_logger;
 
+		LPDIRECT3DDEVICE9 m_device;
 		LPDIRECT3DVERTEXBUFFER9 m_vertexBuffer;
 		LPDIRECT3DTEXTURE9 m_texture;
 

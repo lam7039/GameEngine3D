@@ -10,6 +10,10 @@ namespace se {
 		float tv;
 	};
 
+	Terrain::Terrain(LPDIRECT3DDEVICE9 device) {
+		m_device = device;
+	}
+
 	void Terrain::Create(const std::string &heightMap, const std::string &texture) {
 		m_logger.SelectLogger("engine.log");
 		if (m_bitmap.LoadBMP("Assets\\" + heightMap) > 0) {
@@ -54,7 +58,7 @@ namespace se {
 
 		int byteCount = vertCount * sizeof(Vertex);
 
-		if (FAILED(Direct3D::GetDevice()->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
+		if (FAILED(m_device->CreateVertexBuffer(byteCount, 0, D3DFVF_XYZ | D3DFVF_TEX1, D3DPOOL_MANAGED, &m_vertexBuffer, NULL))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed create vertex buffer");
 			return;
 		}
@@ -67,26 +71,26 @@ namespace se {
 		delete[] vertices;
 		vertices = NULL;
 
-		if (FAILED(D3DXCreateTextureFromFile(Direct3D::GetDevice(), ("Assets\\" + texture).c_str(), &m_texture))) {
+		if (FAILED(D3DXCreateTextureFromFile(m_device, ("Assets\\" + texture).c_str(), &m_texture))) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to load texture for terrain");
 			return;
 		}
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
-		Direct3D::GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+		m_device->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+		m_device->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+		m_device->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
 	}
 
 	void Terrain::Process() {
 		D3DXMatrixRotationYawPitchRoll(&m_matRotate, m_transform.rotX, m_transform.rotY, m_transform.rotZ);
 		D3DXMatrixTranslation(&m_matTranslate, m_transform.posX, m_transform.posY, m_transform.posZ);
-		Direct3D::GetDevice()->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
-		Direct3D::GetDevice()->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
-		Direct3D::GetDevice()->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
-		Direct3D::GetDevice()->SetTexture(0, m_texture);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
-		Direct3D::GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_width * m_height * 2);
+		m_device->SetTransform(D3DTS_WORLD, &(m_matRotate * m_matTranslate));
+		m_device->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
+		m_device->SetStreamSource(0, m_vertexBuffer, 0, sizeof(Vertex));
+		m_device->SetTexture(0, m_texture);
+		m_device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+		m_device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+		m_device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
+		m_device->DrawPrimitive(D3DPT_TRIANGLELIST, 0, m_width * m_height * 2);
 	}
 
 	void Terrain::Release() {

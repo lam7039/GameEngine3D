@@ -1,9 +1,9 @@
 #include "DirectX9/DirectXCamera.h"
-#include "DirectX9\Direct3D.h"
 
 namespace se {
 
-	DirectXCamera::DirectXCamera(int screenWidth, int screenHeight) {
+	DirectXCamera::DirectXCamera(LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight) {
+		m_device = device;
 		m_screenWidth = screenWidth;
 		m_screenHeight = screenHeight;
 		m_speed = 50.0f;
@@ -40,12 +40,12 @@ namespace se {
 		//View
 		D3DXMATRIX m_matView;
 		D3DXMatrixLookAtLH(&m_matView, &position, &lookAt, &up);
-		Direct3D::GetDevice()->SetTransform(D3DTS_VIEW, &m_matView);
+		m_device->SetTransform(D3DTS_VIEW, &m_matView);
 
 		//Projection
 		D3DXMATRIX matProj;
 		D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, m_screenWidth / m_screenHeight, 1.0f, 1000.0f);
-		Direct3D::GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+		m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
 }

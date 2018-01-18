@@ -1,0 +1,107 @@
+\hypertarget{classse_1_1_window_manager}{}\section{se\+:\+:Window\+Manager Class Reference}
+\label{classse_1_1_window_manager}\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+
+
+{\ttfamily \#include $<$Window\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classse_1_1_window_manager_a327899bc3f1f588ce0908f98a36c5b50}{Window\+Manager}} ()
+\item 
+H\+W\+ND \mbox{\hyperlink{classse_1_1_window_manager_abeae1c064ff6f5b166b10539addd5a53}{Open\+Window}} (const std\+::string \&title, int width, int height)
+\item 
+H\+W\+ND \mbox{\hyperlink{classse_1_1_window_manager_a8679d9ddb58d3a4a3fba41f2c62ceeec}{Get\+Active\+Window}} ()
+\item 
+H\+I\+N\+S\+T\+A\+N\+CE \mbox{\hyperlink{classse_1_1_window_manager_a93495e81b13dd081ff4f2c73af58c49c}{Get\+Instance}} (int index)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structse_1_1_window_entity}{Window\+Entity}} $>$ \mbox{\hyperlink{classse_1_1_window_manager_a95b009b78fcf4293f9e6bb88985f7803}{Get\+Window\+List}} () const
+\item 
+void \mbox{\hyperlink{classse_1_1_window_manager_a9cd532f3d16f008eef0d9bec36d521c0}{Set\+Position}} (int index, int x, int y)
+\item 
+void \mbox{\hyperlink{classse_1_1_window_manager_a19b8aa0bcc7e96aaf2d29c4c9f3044f6}{Set\+Size}} (int index, int width, int height)
+\item 
+void \mbox{\hyperlink{classse_1_1_window_manager_a9a78ea2e729ff3e8395a1060a16346cd}{Close\+Window}} (int index)
+\item 
+void \mbox{\hyperlink{classse_1_1_window_manager_ae9106e9a62fa38456da31055f3a663ea}{Close\+All}} ()
+\item 
+int \mbox{\hyperlink{classse_1_1_window_manager_aec9f7b4a351181abd1a9963a33494614}{Get\+Window\+Count}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+You can use this to create a window 
+
+Definition at line 21 of file Window\+Manager.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classse_1_1_window_manager_a327899bc3f1f588ce0908f98a36c5b50}\label{classse_1_1_window_manager_a327899bc3f1f588ce0908f98a36c5b50}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Window\+Manager@{Window\+Manager}}
+\index{Window\+Manager@{Window\+Manager}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Window\+Manager()}{WindowManager()}}
+{\footnotesize\ttfamily se\+::\+Window\+Manager\+::\+Window\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classse_1_1_window_manager_ae9106e9a62fa38456da31055f3a663ea}\label{classse_1_1_window_manager_ae9106e9a62fa38456da31055f3a663ea}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Close\+All@{Close\+All}}
+\index{Close\+All@{Close\+All}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Close\+All()}{CloseAll()}}
+{\footnotesize\ttfamily void se\+::\+Window\+Manager\+::\+Close\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close all windows \mbox{\Hypertarget{classse_1_1_window_manager_a9a78ea2e729ff3e8395a1060a16346cd}\label{classse_1_1_window_manager_a9a78ea2e729ff3e8395a1060a16346cd}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Close\+Window@{Close\+Window}}
+\index{Close\+Window@{Close\+Window}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Close\+Window()}{CloseWindow()}}
+{\footnotesize\ttfamily void se\+::\+Window\+Manager\+::\+Close\+Window (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Close a specified window \mbox{\Hypertarget{classse_1_1_window_manager_a8679d9ddb58d3a4a3fba41f2c62ceeec}\label{classse_1_1_window_manager_a8679d9ddb58d3a4a3fba41f2c62ceeec}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Get\+Active\+Window@{Get\+Active\+Window}}
+\index{Get\+Active\+Window@{Get\+Active\+Window}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Active\+Window()}{GetActiveWindow()}}
+{\footnotesize\ttfamily H\+W\+ND se\+::\+Window\+Manager\+::\+Get\+Active\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the active window \mbox{\Hypertarget{classse_1_1_window_manager_a93495e81b13dd081ff4f2c73af58c49c}\label{classse_1_1_window_manager_a93495e81b13dd081ff4f2c73af58c49c}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Get\+Instance@{Get\+Instance}}
+\index{Get\+Instance@{Get\+Instance}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Instance()}{GetInstance()}}
+{\footnotesize\ttfamily H\+I\+N\+S\+T\+A\+N\+CE se\+::\+Window\+Manager\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the instance of the window by given index \mbox{\Hypertarget{classse_1_1_window_manager_aec9f7b4a351181abd1a9963a33494614}\label{classse_1_1_window_manager_aec9f7b4a351181abd1a9963a33494614}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Get\+Window\+Count@{Get\+Window\+Count}}
+\index{Get\+Window\+Count@{Get\+Window\+Count}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Window\+Count()}{GetWindowCount()}}
+{\footnotesize\ttfamily int se\+::\+Window\+Manager\+::\+Get\+Window\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the amount of created windows \mbox{\Hypertarget{classse_1_1_window_manager_a95b009b78fcf4293f9e6bb88985f7803}\label{classse_1_1_window_manager_a95b009b78fcf4293f9e6bb88985f7803}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Get\+Window\+List@{Get\+Window\+List}}
+\index{Get\+Window\+List@{Get\+Window\+List}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Window\+List()}{GetWindowList()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structse_1_1_window_entity}{Window\+Entity}}$>$ se\+::\+Window\+Manager\+::\+Get\+Window\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get all windows \mbox{\Hypertarget{classse_1_1_window_manager_abeae1c064ff6f5b166b10539addd5a53}\label{classse_1_1_window_manager_abeae1c064ff6f5b166b10539addd5a53}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Open\+Window@{Open\+Window}}
+\index{Open\+Window@{Open\+Window}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Open\+Window()}{OpenWindow()}}
+{\footnotesize\ttfamily H\+W\+ND se\+::\+Window\+Manager\+::\+Open\+Window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+Create a new window \mbox{\Hypertarget{classse_1_1_window_manager_a9cd532f3d16f008eef0d9bec36d521c0}\label{classse_1_1_window_manager_a9cd532f3d16f008eef0d9bec36d521c0}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Set\+Position@{Set\+Position}}
+\index{Set\+Position@{Set\+Position}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Position()}{SetPosition()}}
+{\footnotesize\ttfamily void se\+::\+Window\+Manager\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Set the position of the given window \mbox{\Hypertarget{classse_1_1_window_manager_a19b8aa0bcc7e96aaf2d29c4c9f3044f6}\label{classse_1_1_window_manager_a19b8aa0bcc7e96aaf2d29c4c9f3044f6}} 
+\index{se\+::\+Window\+Manager@{se\+::\+Window\+Manager}!Set\+Size@{Set\+Size}}
+\index{Set\+Size@{Set\+Size}!se\+::\+Window\+Manager@{se\+::\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Set\+Size()}{SetSize()}}
+{\footnotesize\ttfamily void se\+::\+Window\+Manager\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+Set the size of the given window 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_window_manager_8h}{Window\+Manager.\+h}}\end{DoxyCompactItemize}
