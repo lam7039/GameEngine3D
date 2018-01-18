@@ -66,6 +66,29 @@ $(function() {
 <div class="title">Best Engine Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
+  <h1>Development Setup (Windows)</h1>
+  <h3>Requires: Visual Studio 2015 or higher and CMake</h3>
+  <ol>
+    <li>
+      <ul>
+        <li>If using Git: Clone GameEngine3D to the same parent directory as ExecutingProject.</li>
+        <li>If using Copy: Go to Project</li>
+      </ul>
+    </li>
+    <li>
+    Depending on your visual studio version run Project/VisualStudio(14/15)_x64.bat (or x86 depending on your CMake installation) and open the solution in the newly created folder.
+    <ul>
+      <li>If not a single bat file works, then copy the bat with the correct visual studio and cmake version, then change the path to your cmake installation in a file editor</li>
+    </ul>
+    </li>
+    <li>Open the project properties. Under "Debugging", make sure the working directory is: $(ProjectDir)../../Development</li>
+    <li>Open the project properties. Under "Linker -> System", make sure the subsystem is: Console (/SUBSYSTEM:CONSOLE)</li>
+  </ol>
+  Relevant Github pages:<br />
+  <ul>
+    <li>https://github.com/lamram/GameEngine3D</li>
+    <li>https://github.com/lamram/ExecutingProject</li>
+  </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

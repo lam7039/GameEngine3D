@@ -3,7 +3,6 @@
 namespace se {
 
 	Entity::Entity() {
-		m_entityName = "";
 		m_assetName = "";
 	}
 
@@ -30,10 +29,6 @@ namespace se {
 
 	Transform3f *Entity::GetTarget() {
 		return &m_transform;
-	}
-
-	std::string Entity::GetEntityName() const {
-		return m_entityName;
 	}
 
 	std::string Entity::GetAssetName() const {

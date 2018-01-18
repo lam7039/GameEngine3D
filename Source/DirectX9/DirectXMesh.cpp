@@ -43,6 +43,11 @@ namespace se {
 		for (DWORD i = 0; i < m_materialCount; i++) {
 			Direct3D::GetDevice()->SetMaterial(&m_meshMaterials[i]);
 			Direct3D::GetDevice()->SetTexture(i, m_meshTextures[i]);
+			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
+			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
+			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+			Direct3D::GetDevice()->SetSamplerState(i, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
 			m_mesh->DrawSubset(i);
 		}
 	}
