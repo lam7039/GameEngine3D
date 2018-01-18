@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "Window.h"
+#include "WindowManager.h"
 
 namespace se {
 
@@ -13,39 +13,39 @@ namespace se {
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 
-	Window::Window()
+	WindowManager::WindowManager()
 	{
 		m_windowCount = 0;
 	}
 
-	HWND Window::OpenWindow(const std::string &title = "window", int width = 800, int height = 500) {
-		WindowHandle wHndl;
-		wHndl.title = title;
-		wHndl.width = width;
-		wHndl.height = height;
-		wHndl.instance = GetModuleHandle(NULL);
+	HWND WindowManager::OpenWindow(const std::string &title = "window", int width = 800, int height = 500) {
+		WindowEntity entity;
+		entity.title = title;
+		entity.width = width;
+		entity.height = height;
+		entity.instance = GetModuleHandle(NULL);
 		m_windowCount++;
 		std::string className = "windowClass" + m_windowCount;
-		ATOM atom = RegisterWindowProc(wHndl.instance, WindowProc, className);
+		ATOM atom = RegisterWindowProc(entity.instance, WindowProc, className);
 		if (!atom) {
 			m_windowCount--;
 			return NULL;
 		}
-		HWND parent = NULL;
-		if (m_windowList.size() > 1) {
-			parent = m_windowList[m_windowCount - 2].hWnd;
-		}
-		wHndl.hWnd = CreateWindowEx(NULL, className.c_str(), wHndl.title.c_str(), WS_OVERLAPPEDWINDOW, wHndl.x, wHndl.y, wHndl.width, wHndl.height, parent, NULL, wHndl.instance, NULL);
-		if (!wHndl.hWnd) {
+		entity.hWnd = CreateWindowEx(NULL, className.c_str(), entity.title.c_str(), WS_OVERLAPPEDWINDOW, entity.x, entity.y, entity.width, entity.height, NULL, NULL, entity.instance, NULL);
+		if (!entity.hWnd) {
 			m_windowCount--;
 			return NULL;
 		}
-		ShowWindow(wHndl.hWnd, SW_SHOW);
-		m_windowList.push_back(wHndl);
-		return wHndl.hWnd;
+		ShowWindow(entity.hWnd, SW_SHOW);
+		m_windowList.push_back(entity);
+		return entity.hWnd;
 	}
 
-	void Window::SetPosition(int index, int x, int y) {
+	HWND WindowManager::GetActiveWindow() {
+		return GetForegroundWindow();
+	}
+
+	void WindowManager::SetPosition(int index, int x, int y) {
 		if (index >= m_windowList.size()) {
 			return;
 		}
@@ -54,7 +54,7 @@ namespace se {
 		SetWindowPos(m_windowList[index].hWnd, 0, x, y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
 	}
 
-	void Window::SetSize(int index, int width, int height) {
+	void WindowManager::SetSize(int index, int width, int height) {
 		if (index >= m_windowList.size()) {
 			return;
 		}
@@ -63,7 +63,7 @@ namespace se {
 		SetWindowPos(m_windowList[index].hWnd, 0, m_windowList[index].x, m_windowList[index].y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
 	}
 
-	void Window::CloseWindow(int index) {
+	void WindowManager::CloseWindow(int index) {
 		if (index >= m_windowList.size()) {
 			return;
 		}
@@ -72,7 +72,7 @@ namespace se {
 		m_windowCount--;
 	}
 
-	void Window::CloseAll() {
+	void WindowManager::CloseAll() {
 		for (int i = 0; i < m_windowList.size(); i++) {
 			DestroyWindow(m_windowList[i].hWnd);
 		}
@@ -80,7 +80,7 @@ namespace se {
 		m_windowCount = 0;
 	}
 
-	ATOM Window::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
+	ATOM WindowManager::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
 		WNDCLASSEX wc;
 		ZeroMemory(&wc, sizeof(WNDCLASSEX));
 		wc.cbSize = sizeof(WNDCLASSEX);
@@ -93,18 +93,18 @@ namespace se {
 		return RegisterClassEx(&wc);
 	}
 
-	HINSTANCE Window::GetInstance(int index) {
+	HINSTANCE WindowManager::GetInstance(int index) {
 		if (index >= m_windowList.size()) {
 			return NULL;
 		}
 		return m_windowList[index].instance;
 	}
 
-	std::vector<WindowHandle> Window::GetWindowList() const {
+	std::vector<WindowEntity> WindowManager::GetWindowList() const {
 		return m_windowList;
 	}
 
-	int Window::GetWindowCount() {
+	int WindowManager::GetWindowCount() {
 		return m_windowCount;
 	}
 

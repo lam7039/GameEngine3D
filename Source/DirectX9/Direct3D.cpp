@@ -29,8 +29,6 @@ namespace se {
 		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
 		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		m_device->SetRenderState(D3DRS_CLIPPING, TRUE);
-
-		m_device->CreateAdditionalSwapChain(&d3dpp, &m_swapChain);
 	}
 
 	void Direct3D::Update(float delta) {

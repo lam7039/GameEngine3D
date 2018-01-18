@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Debug.h"
 #include "Kernel.h"
 #include "FPSCounter.h"
@@ -13,13 +12,13 @@ namespace se {
 		m_logger.SelectLogger("engine.log");
 
 		HWND hWnd;
-		if (FAILED(hWnd = m_window.OpenWindow(title, width, height))) {
+		if (FAILED(hWnd = m_windows.OpenWindow(title, width, height))) {
 			m_logger.Log(0, __FILE__, __LINE__, "Failed to create window");
 			return;
 		}
 
 		m_input = input;
-		if (!m_input->Initialize(m_window.GetInstance(0), hWnd, width, height)) {
+		if (!m_input->Initialize(m_windows.GetInstance(0), hWnd, width, height)) {
 			m_logger.Log(1, __FILE__, __LINE__, "Failed to initialize input");
 			return;
 		}
@@ -35,13 +34,13 @@ namespace se {
 
 	void Kernel::AddWindow(const std::string &title, int x, int y, int width, int height) {
 		HWND hWnd;
-		if (FAILED(hWnd = m_window.OpenWindow(title, width, height))) {
+		if (FAILED(hWnd = m_windows.OpenWindow(title, width, height))) {
 			m_logger.Log(0, __FILE__, __LINE__, "Failed to create new window");
 			return;
 		}
-		int index = m_window.GetWindowCount() - 1;
-		m_window.SetPosition(index, x, y);
-		m_input->Initialize(m_window.GetInstance(index), hWnd, width, height);
+		int index = m_windows.GetWindowCount() - 1;
+		m_windows.SetPosition(index, x, y);
+		m_input->Initialize(m_windows.GetInstance(index), hWnd, width, height);
 	}
 
 	void Kernel::SetCameraController(CameraController *cameraController) {
@@ -54,7 +53,7 @@ namespace se {
 			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
 				SceneManager::GetInstance()->RemoveAll();
 			}
-			m_window.CloseAll();
+			m_windows.CloseAll();
 			return 1;
 		}
 
@@ -64,7 +63,8 @@ namespace se {
 		FPSCounter fps;
 
 		while (isRunning) {
-			while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+
+			while (PeekMessage(&msg, m_windows.GetActiveWindow(), 0, 0, PM_REMOVE)) {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
@@ -86,8 +86,8 @@ namespace se {
 			}
 
 			// Drawing.
-			for (int i = 0; i < m_window.GetWindowList().size(); i++) {
-				m_renderer->Render(m_window.GetWindowList()[i].hWnd);
+			for (int i = 0; i < m_windows.GetWindowCount(); i++) {
+				m_renderer->Render(m_windows.GetWindowList()[i].hWnd);
 			}
 
 			fps.Update();
@@ -97,7 +97,7 @@ namespace se {
 			SceneManager::GetInstance()->RemoveAll();
 		}
 		m_renderer->Release();
-		m_window.CloseAll();
+		m_windows.CloseAll();
 
 		return msg.wParam;
 	}

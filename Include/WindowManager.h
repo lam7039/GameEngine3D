@@ -1,11 +1,11 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef WINDOWMANAGER_H
+#define WINDOWMANAGER_H
 
 #include "std.h"
 
 namespace se {
 
-	struct WindowHandle {
+	struct WindowEntity {
 		HWND hWnd;
 		HINSTANCE instance;
 		int width = 800;
@@ -18,13 +18,17 @@ namespace se {
 	///
 	/// You can use this to create a window
 	///
-	class Window {
+	class WindowManager {
 	public:
-		Window();
+		WindowManager();
 		///
 		/// Create a new window
 		///
 		HWND OpenWindow(const std::string &title, int width, int height);
+		///
+		/// Returns the active window
+		///
+		HWND GetActiveWindow();
 		///
 		/// Get the instance of the window by given index
 		///
@@ -32,7 +36,7 @@ namespace se {
 		///
 		/// Get all windows
 		///
-		std::vector<WindowHandle> GetWindowList() const;
+		std::vector<WindowEntity> GetWindowList() const;
 		///
 		/// Set the position of the given window
 		///
@@ -55,8 +59,8 @@ namespace se {
 		int GetWindowCount();
 	private:
 		int m_windowCount;
+		std::vector<WindowEntity> m_windowList;
 		ATOM RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className);
-		std::vector<WindowHandle> m_windowList;
 	};
 
 }

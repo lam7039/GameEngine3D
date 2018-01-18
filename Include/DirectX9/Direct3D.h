@@ -25,9 +25,6 @@ namespace se {
 		//Devices
 		LPDIRECT3D9 m_d3d;
 		static LPDIRECT3DDEVICE9 m_device;
-		
-		//TODO: implement swapchain
-		LPDIRECT3DSWAPCHAIN9 m_swapChain;
 
 
 		//World

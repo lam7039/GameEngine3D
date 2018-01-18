@@ -6,7 +6,7 @@
 #include "Renderer.h"
 #include "Input.h"
 #include "CameraController.h"
-#include "Window.h"
+#include "WindowManager.h"
 
 namespace se {
 
@@ -32,7 +32,7 @@ namespace se {
 		///
 		int EnterLoop();
 	private:
-		Window m_window;
+		WindowManager m_windows;
 		Input *m_input;
 		AbstractRenderer *m_renderer;
 		CameraController *m_cameraController;
