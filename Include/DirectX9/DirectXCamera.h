@@ -11,9 +11,9 @@ namespace se {
 	///
 	/// The camera for DirectX 9
 	///
-	class DirectXCamera : public AbstractCamera {
+	class Camera : public AbstractCamera {
 	public:
-		DirectXCamera(LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight);
+		Camera(LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight);
 		void Update(float delta) override;
 	private:
 		LPDIRECT3DDEVICE9 m_device;

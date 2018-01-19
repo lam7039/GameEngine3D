@@ -2,7 +2,7 @@
 
 namespace se {
 
-	DirectXCamera::DirectXCamera(LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight) {
+	Camera::Camera(LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight) {
 		m_device = device;
 		m_screenWidth = screenWidth;
 		m_screenHeight = screenHeight;
@@ -11,7 +11,7 @@ namespace se {
 		m_transform.posZ = -15.0f;
 	}
 
-	void DirectXCamera::Update(float delta) {
+	void Camera::Update(float delta) {
 		m_pitch = D3DXToRadian(m_transform.rotX);
 		m_yaw = D3DXToRadian(m_transform.rotY) - (D3DX_PI / 2);
 

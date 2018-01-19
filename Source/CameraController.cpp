@@ -56,7 +56,6 @@ namespace se {
 
 		}
 		else {
-			
 			m_camera->SetPosition(m_target->posX, m_target->posY, m_target->posZ);
 			m_camera->SetRotation(m_target->rotX, m_target->rotY, m_target->rotZ);
 		}

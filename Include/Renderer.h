@@ -13,7 +13,7 @@ namespace se {
 	public:
 		virtual void Create(HWND hWnd) = 0;
 		virtual void Update(float delta) = 0;
-		virtual void Render(HWND hWnd) = 0;
+		virtual void Process(HWND hWnd) = 0;
 		virtual void Release() = 0;
 	};
 

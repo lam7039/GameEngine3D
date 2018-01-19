@@ -16,7 +16,7 @@ namespace se {
 	public:
 		void Create(HWND hWnd) override;
 		void Update(float delta) override;
-		void Render(HWND hWnd) override;
+		void Process(HWND hWnd) override;
 		void Release() override;
 		LPDIRECT3DDEVICE9 GetDevice();
 	private:

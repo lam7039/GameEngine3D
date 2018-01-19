@@ -87,7 +87,7 @@ namespace se {
 
 			// Drawing.
 			for (int i = 0; i < m_windows.GetWindowCount(); i++) {
-				m_renderer->Render(m_windows.GetWindowList()[i].hWnd);
+				m_renderer->Process(m_windows.GetWindowList()[i].hWnd);
 			}
 
 			fps.Update();

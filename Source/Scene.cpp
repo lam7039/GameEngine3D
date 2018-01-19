@@ -37,7 +37,7 @@ namespace se {
 		}
 	}
 
-	void Scene::Render() {
+	void Scene::Process() {
 		if (m_terrain) {
 			m_terrain->Process();
 		}

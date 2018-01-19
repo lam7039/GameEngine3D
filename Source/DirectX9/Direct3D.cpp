@@ -33,7 +33,7 @@ namespace se {
 
 	}
 
-	void Direct3D::Render(HWND hWnd) {
+	void Direct3D::Process(HWND hWnd) {
 		m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 		m_device->BeginScene();
 
@@ -50,7 +50,7 @@ namespace se {
 					m_currentMesh->Process();
 				}
 			}
-			SceneManager::GetInstance()->GetCurrentScene()->Render();
+			SceneManager::GetInstance()->GetCurrentScene()->Process();
 		}
 
 		m_device->EndScene();

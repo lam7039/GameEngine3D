@@ -32,7 +32,7 @@ namespace se {
 		///
 		void RemoveEntity(Entity *entity);
 		void Update(float delta);
-		void Render();
+		void Process();
 		///
 		/// Remove everything from the scene
 		///
