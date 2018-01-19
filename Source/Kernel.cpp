@@ -5,7 +5,7 @@
 
 namespace se {
 
-	Kernel::Kernel(const std::string &title, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input) {
+	Kernel::Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input) {
 		m_renderer = nullptr;
 		m_cameraController = nullptr;
 
@@ -16,7 +16,9 @@ namespace se {
 			m_logger.Log(0, __FILE__, __LINE__, "Failed to create window");
 			return;
 		}
-		m_windows.SetPosition(0, x, y);
+		if (!centered) {
+			m_windows.SetPosition(0, x, y);
+		}
 
 		m_input = input;
 		if (!m_input->Initialize(m_windows.GetInstance(0), hWnd, width, height)) {

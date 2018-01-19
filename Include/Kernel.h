@@ -18,7 +18,7 @@ namespace se {
 		///
 		/// Initialize the kernel with standard values and the renderer and input it's supposed to use
 		///
-		Kernel(const std::string &title, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input);
+		Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input);
 		///
 		/// Create another window
 		///
