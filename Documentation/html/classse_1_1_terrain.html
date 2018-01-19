@@ -90,8 +90,8 @@ Inheritance diagram for se::Terrain:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aba0253655814ae0fab2b1145e2a4e3d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_terrain.html#aba0253655814ae0fab2b1145e2a4e3d2">Terrain</a> (LPDIRECT3DDEVICE9 device)</td></tr>
 <tr class="separator:aba0253655814ae0fab2b1145e2a4e3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4faf6049af59a776a2464175e62ff08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_terrain.html#aa4faf6049af59a776a2464175e62ff08">Create</a> (const std::string &amp;heightMap, const std::string &amp;texture) override</td></tr>
-<tr class="separator:aa4faf6049af59a776a2464175e62ff08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67309f26fbbf361cc38d2e7e62264648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_terrain.html#a67309f26fbbf361cc38d2e7e62264648">Create</a> (const std::string &amp;heightMap, const std::string &amp;texture, <a class="el" href="classse_1_1_transform3f.html">Transform3f</a> &amp;transform) override</td></tr>
+<tr class="separator:a67309f26fbbf361cc38d2e7e62264648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4eeb1886f46d2f33e1633b6f7c7345c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_terrain.html#aa4eeb1886f46d2f33e1633b6f7c7345c">Process</a> () override</td></tr>
 <tr class="separator:aa4eeb1886f46d2f33e1633b6f7c7345c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61004e3426795d93190fe8d1f4159759"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_terrain.html#a61004e3426795d93190fe8d1f4159759">Release</a> () override</td></tr>
@@ -144,8 +144,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa4faf6049af59a776a2464175e62ff08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4faf6049af59a776a2464175e62ff08">&#9670;&nbsp;</a></span>Create()</h2>
+<a id="a67309f26fbbf361cc38d2e7e62264648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67309f26fbbf361cc38d2e7e62264648">&#9670;&nbsp;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +163,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>texture</em>&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>transform</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -178,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classse_1_1_abstract_terrain.html#ac8254489e68bcfc1960b968afeb683b0">se::AbstractTerrain</a>.</p>
+<p>Implements <a class="el" href="classse_1_1_abstract_terrain.html#ab064ca434de133a78a0899fe53caea99">se::AbstractTerrain</a>.</p>
 
 </div>
 </div>

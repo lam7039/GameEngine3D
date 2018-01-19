@@ -15,7 +15,7 @@ namespace se {
 	class Terrain : public AbstractTerrain {
 	public:
 		Terrain(LPDIRECT3DDEVICE9 device);
-		void Create(const std::string &heightMap, const std::string &texture) override;
+		void Create(const std::string &heightMap, const std::string &texture, Transform3f &transform) override;
 		void Process() override;
 		void Release() override;
 	private:

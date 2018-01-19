@@ -16,9 +16,9 @@ namespace se {
 	class Kernel {
 	public:
 		///
-		/// Initialize the kernel with the title, width and height of the window, the renderer it's supposed to use and the input it's gonna take
+		/// Initialize the kernel with standard values and the renderer and input it's supposed to use
 		///
-		Kernel(const std::string &title, int width, int height, AbstractRenderer *renderer, Input *input);
+		Kernel(const std::string &title, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input);
 		///
 		/// Create another window
 		///

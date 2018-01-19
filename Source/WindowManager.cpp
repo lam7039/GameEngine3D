@@ -60,7 +60,7 @@ namespace se {
 		}
 		m_windowList[index].width = width;
 		m_windowList[index].height = height;
-		SetWindowPos(m_windowList[index].hWnd, 0, m_windowList[index].x, m_windowList[index].y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
+		SetWindowPos(m_windowList[index].hWnd, 0, m_windowList[index].x, m_windowList[index].y, width, height, SWP_NOSIZE | SWP_NOZORDER);
 	}
 
 	void WindowManager::CloseWindow(int index) {

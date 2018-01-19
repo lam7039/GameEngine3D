@@ -11,7 +11,7 @@ namespace se {
 	///
 	class AbstractTerrain : public Entity {
 	public:
-		virtual void Create(const std::string &heightMap, const std::string &texture) = 0;
+		virtual void Create(const std::string &heightMap, const std::string &texture, Transform3f &transform) = 0;
 		virtual void Process() = 0;
 		virtual void Release() = 0;
 	};

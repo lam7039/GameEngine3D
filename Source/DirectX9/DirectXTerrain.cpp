@@ -14,23 +14,16 @@ namespace se {
 		m_device = device;
 	}
 
-	void Terrain::Create(const std::string &heightMap, const std::string &texture) {
+	void Terrain::Create(const std::string &heightMap, const std::string &texture, Transform3f &transform) {
 		m_logger.SelectLogger("engine.log");
 		if (m_bitmap.LoadBMP("Assets\\" + heightMap) > 0) {
 			m_logger.Log(2, __FILE__, __LINE__, "Failed to load the bitmap");
 			return;
 		}
-
 		m_width = m_bitmap.GetWidth();
 		m_height = m_bitmap.GetHeight();
-		m_transform.posX = 0.0f;
-		m_transform.posY = -20.0f;
-		m_transform.posZ = 0.0f;
 
-
-		m_transform.rotX = 0.0f;
-		m_transform.rotY = 0.0f;
-		m_transform.rotZ = 0.0f;
+		m_transform = transform;
 
 		unsigned char *HeightData = m_bitmap.GetData();
 
