@@ -6,18 +6,18 @@
 namespace se {
 
 	///
-	/// You can use this class to get the fps and delta
+	/// You can use this class to get the fps and delta.
 	///
 	class FPSCounter {
 	public:
 		FPSCounter();
 		void Update();
 		///
-		/// Get the delta
+		/// Get the delta.
 		///
 		float GetDelta() const;
 		///
-		/// Get the frames per second
+		/// Get the frames per second.
 		///
 		int GetFPS() const;
 	private:

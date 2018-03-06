@@ -10,8 +10,14 @@
 
 namespace se {
 
+	///
+	/// Load assets, scenes from an XML file with this loader.
+	///
 	class SceneLoader {
 	public:
+		///
+		/// Load the assets, scenes and entities within the scenes with the given path to the XML file that contains the data to load.
+		///
 		SceneLoader(AbstractRenderer *renderer, const std::string &path, AbstractInput *input);
 	private:
 		Debug m_logger;

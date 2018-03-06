@@ -11,12 +11,21 @@
 namespace se {
 
 	///
-	/// With this interface you can create your own terrain to load into a Scene
+	/// A default terrain asset.
 	///
 	class Terrain : public AbstractAsset {
 	public:
+		///
+		/// Create a terrain with a renderer, heightmap for the heights and texture to put on the terrain.
+		///
 		Terrain(AbstractRenderer *renderer, const std::string &assetName, const std::string &heightMap, const std::string &texture);
+		///
+		/// Render the terrain asset.
+		///
 		void Render();
+		///
+		/// Release the terrain asset.
+		///
 		void Release();
 	private:
 		Debug m_logger;

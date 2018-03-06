@@ -7,26 +7,26 @@
 
 namespace se {
 	///
-	/// With this class you can load a bitmap
+	/// With this class you can load a bitmap.
 	///
 	class Bitmap {
 	public:
 		Bitmap();
 		~Bitmap();
 		///
-		/// Load the bitmap with the file path
+		/// Load the bitmap with the file path.
 		///
 		int LoadBMP(const std::string &bmpFile);
 		///
-		/// Get the given bitmap size
+		/// Get the given bitmap size.
 		///
 		const Vector3i GetSize() const;
 		///
-		/// Get an array with values of 0-255 loaded from the bitmap from a single channel
+		/// Get an array with values of 0-255 loaded from the bitmap from a single channel.
 		///
 		unsigned char *GetData();
 		///
-		/// Get an array with values of 0-255 loaded from the bitmap from all channels
+		/// Get an array with values of 0-255 loaded from the bitmap from all channels.
 		///
 		unsigned char *GetPixels();
 	private:

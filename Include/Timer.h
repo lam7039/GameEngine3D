@@ -4,39 +4,39 @@
 namespace se {
 
 	///
-	/// You can use this class to get the time elapsed from the specified start
+	/// You can use this class to get the time elapsed from the specified start.
 	///
 	class Timer {
 	public:
 		Timer();
 
 		///
-		/// Start the timer
+		/// Start the timer.
 		///
 		void Start();
 		///
-		/// Pause the timer
+		/// Pause the timer.
 		///
 		void Pause();
 		///
-		/// Resume the timer
+		/// Resume the timer.
 		///
 		void Resume();
 		///
-		/// Stop the timer
+		/// Stop the timer.
 		///
 		void Stop();
 
 		///
-		/// Get the microseconds passed
+		/// Get the microseconds passed.
 		///
 		long long Microseconds();
 		///
-		/// Get the milliseconds passed
+		/// Get the milliseconds passed.
 		///
 		long long Milliseconds();
 		///
-		/// Get the seconds passed
+		/// Get the seconds passed.
 		///
 		long long Seconds();
 

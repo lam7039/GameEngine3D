@@ -9,12 +9,21 @@
 namespace se {
 
 	///
-	/// with this interface you can create your own skybox to load into a Scene
+	/// A default skybox asset.
 	///
 	class Skybox : public AbstractAsset {
 	public:
+		///
+		/// Create a skybox with a renderer and a cubemap.
+		///
 		Skybox(AbstractRenderer *renderer, const std::string &assetName, const std::string &src);
+		///
+		/// Render the skybox asset.
+		///
 		void Render();
+		///
+		/// Release the skybox asset.
+		///
 		void Release();
 	private:
 		Debug m_logger;

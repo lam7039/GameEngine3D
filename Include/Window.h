@@ -7,15 +7,31 @@
 
 namespace se {
 
-
-
 	class Window {
 	public:
+		///
+		/// Create and show the window.
+		///
 		Window(int id, std::string title, bool centered, Vector3i position, Vector3i size);
+		///
+		/// Get the window handle of the window.
+		///
 		HWND GetWindowHandle();
+		///
+		/// Get the instance handle of the window.
+		///
 		HINSTANCE GetWindowInstanceHandle();
+		///
+		/// Set the position of the window.
+		///
 		void SetPosition(int x, int y);
+		///
+		/// Set the size of the window.
+		///
 		void SetSize(int width, int height);
+		///
+		/// Close and destroy the window.
+		///
 		void CloseWindow();
 	private:
 		HWND m_hWnd;

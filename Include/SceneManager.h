@@ -8,38 +8,41 @@
 
 namespace se {
 
+	///
+	/// With this manager you can add, get and remove scenes.
+	///
 	class SceneManager {
 	public:
 		///
-		/// Get the initiated instance of SceneManager to use its methods
+		/// Get the initiated instance of SceneManager to use its methods.
 		///
 		static SceneManager *GetInstance();
 		///
-		/// Get the current active scene 
+		/// Get the current active scene.
 		///
 		static Scene *GetCurrentScene();
 		///
-		/// Get a specific scene with the scene name
+		/// Get a specific scene with the scene name.
 		///
 		Scene *GetScene(const std::string &name);
 		///
-		/// Add a scene
+		/// Add a new scene.
 		///
 		void AddScene(const std::string &name);
 		///
-		/// Set the current scene with the name of the scene 
+		/// Set the current scene with the name of the scene.
 		///
 		void SetCurrentScene(const std::string &name);
 		///
-		/// Remove a specific scene with the name of the scene 
+		/// Remove a specific scene with the name of the scene.
 		///
 		void RemoveScene(const std::string &name);
 		///
-		/// Remove all scenes
+		/// Remove all scenes.
 		///
 		void RemoveAll();
 		///
-		/// Get the amount of scenes
+		/// Get the amount of scenes.
 		///
 		int GetSceneCount();
 	private:

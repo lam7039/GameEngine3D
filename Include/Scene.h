@@ -9,13 +9,16 @@ namespace se {
 	class Scene {
 	public:
 		///
-		/// Add an entity to the scene
+		/// Add an entity to the scene.
 		///
 		void AddEntity(Entity *entity);
 		///
-		/// Remove an entity from the scene
+		/// Update all entities
 		///
 		void Update(float delta);
+		///
+		/// Remove an entity from the scene.
+		///
 		void Remove(Entity *entity);
 		///
 		/// Remove everything from the scene

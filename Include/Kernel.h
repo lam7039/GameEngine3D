@@ -10,16 +10,17 @@
 namespace se {
 
 	///
-	/// This class is the heart of this engine
+	/// This class is the heart of this engine.
 	///
 	class Kernel {
 	public:
 		///
-		/// Initialize the kernel with the renderer and input it's supposed to use and creates a window
+		/// Initialize the kernel with the renderer and input it's supposed to use and creates a window.
 		///
 		Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, AbstractInput *input);
 		///
-		/// Enter the gameloop
+		/// Enter the gameloop, it updates the input, renderer and current scene.
+		/// Automatically removes all scenes and windows and releases the renderer as well when it quits the loop.
 		///
 		int EnterLoop();
 	private:
