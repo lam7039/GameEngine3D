@@ -1,0 +1,27 @@
+#ifndef SCENELOADER_H
+#define SCENELOADER_H
+
+#include <string>
+#include "Renderer.h"
+#include "Debug.h"
+#include "Entity.h"
+#include "Asset.h"
+#include "Input.h"
+
+namespace se {
+
+	class SceneLoader {
+	public:
+		SceneLoader(AbstractRenderer *renderer, const std::string &path, AbstractInput *input);
+	private:
+		Debug m_logger;
+		static AbstractRenderer *m_renderer;
+		static AbstractInput *m_input;
+
+		static Entity *CreateEntity(const std::string &type, const std::string &assetName, Vector3f position, Vector3f scale, Vector3f rotation);
+		static AbstractAsset *CreateAsset(const std::string &type, const std::string &assetName, const std::string *sources);
+	};
+
+}
+
+#endif

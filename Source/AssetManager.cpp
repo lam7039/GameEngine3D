@@ -21,19 +21,20 @@ namespace se {
 		return m_instance;
 	}
 
-	void AssetManager::AddAsset(const std::string &name, AbstractAsset *asset) {
-		asset->Create();
-		asset->Load();
-		m_assets[name] = asset;
+	void AssetManager::AddAsset(const std::string &name, AbstractAsset *model) {
+		if (m_assets.find(name) != m_assets.end()) {
+			return;
+		}
+		m_assets[name] = model;
 	}
 
 	std::unordered_map<std::string, AbstractAsset*> AssetManager::GetAssetList() {
 		return m_assets;
 	}
 
-	void AssetManager::ReleaseAsset(const std::string &filename) {
-		m_assets[filename]->Release();
-		m_assets.erase(filename);
+	void AssetManager::ReleaseAsset(const std::string &name) {
+		m_assets[name]->Release();
+		m_assets.erase(name);
 	}
 
 }

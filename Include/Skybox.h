@@ -1,19 +1,24 @@
 #ifndef SKYBOX_H
 #define SKYBOX_H
 
-#include "Transform.h"
-#include "Entity.h"
+#include "Vector3.h"
+#include "Asset.h"
+#include "Renderer.h"
+#include "Debug.h"
 
 namespace se {
 
 	///
 	/// with this interface you can create your own skybox to load into a Scene
 	///
-	class AbstractSkybox : public Entity {
+	class Skybox : public AbstractAsset {
 	public:
-		virtual void Create(Transform3f transform, const std::string &src) = 0;
-		virtual void Process() = 0;
-		virtual void Release() = 0;
+		Skybox(AbstractRenderer *renderer, const std::string &assetName, const std::string &src);
+		void Render();
+		void Release();
+	private:
+		Debug m_logger;
+		Vector3i m_size;
 	};
 
 }

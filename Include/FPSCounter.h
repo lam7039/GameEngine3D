@@ -1,7 +1,6 @@
 #ifndef FPSCOUNTER_H
 #define FPSCOUNTER_H
 
-#include "std.h"
 #include "Timer.h"
 
 namespace se {

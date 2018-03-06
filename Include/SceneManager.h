@@ -1,7 +1,8 @@
-#ifndef SCENELOADER_H
-#define SCENELOADER_H
+#ifndef SCENEMANAGER_H
+#define SCENEMANAGER_H
 
-#include "std.h"
+#include <string>
+#include <unordered_map>
 #include "Scene.h"
 #include "Debug.h"
 
@@ -10,7 +11,7 @@ namespace se {
 	class SceneManager {
 	public:
 		///
-		/// Get the instance of SceneManager
+		/// Get the initiated instance of SceneManager to use its methods
 		///
 		static SceneManager *GetInstance();
 		///
@@ -47,7 +48,6 @@ namespace se {
 		static Scene *m_currentScene;
 		std::unordered_map<std::string, Scene> m_scenes;
 		SceneManager();
-
 	};
 
 }

@@ -1,13 +1,14 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include "std.h"
+#include <string>
+#include <unordered_map>
 #include "Asset.h"
 
 namespace se {
 
 	///
-	/// With this manager you can add assets and get and release added assets
+	/// With this manager you can add, get and release assets
 	///
 	class AssetManager {
 	public:
@@ -20,7 +21,7 @@ namespace se {
 		///
 		void ReleaseAsset(const std::string &name);
 		///
-		/// Get the instance of the manager
+		/// Get the initiated instance of AssetManager to use its methods
 		///
 		static AssetManager *GetInstance();
 		///

@@ -1,27 +1,12 @@
 #include "Scene.h"
+#include "Asset.h"
+#include "AssetManager.h"
 #include <algorithm>
 
 namespace se {
 
-	void Scene::SetTerrain(AbstractTerrain *terrain) {
-		m_terrain = terrain;
-	}
-
-	void Scene::SetSkybox(AbstractSkybox *skybox) {
-		m_skybox = skybox;
-	}
-
-	void Scene::SetSkyboxTransform(Transform3f *transform) {
-		m_targetPos = transform;
-	}
-
 	void Scene::AddEntity(Entity *entity) {
 		m_entities.push_back(entity);
-	}
-
-	void Scene::RemoveEntity(Entity *entity) {
-		//Erase the object from the list and to avoid gaps I use remove
-		m_entities.erase(std::remove(m_entities.begin(), m_entities.end(), entity), m_entities.end());
 	}
 
 	void Scene::Update(float delta) {
@@ -31,29 +16,25 @@ namespace se {
 		}
 		for (int i = 0; i < entityCount; i++) {
 			m_entities[i]->Update(delta);
-		}
-		if (m_skybox && m_targetPos) {
-			m_skybox->SetPosition(m_targetPos->posX, m_targetPos->posY, m_targetPos->posZ);
+			if (m_entities[i]->GetEntityType() == ENTITYTYPE_CAMERA) {
+				m_targetPosition = m_entities[i]->GetPosition();
+			}
+			if (m_entities[i]->GetEntityType() == ENTITYTYPE_SKYBOX && m_targetPosition) {
+				m_entities[i]->SetPosition(*m_targetPosition);
+			}
 		}
 	}
 
-	void Scene::Process() {
-		if (m_terrain) {
-			m_terrain->Process();
-		}
-		if (m_skybox) {
-			m_skybox->Process();
-		}
+	void Scene::Remove(Entity *entity) {
+		// Erase the object from the list and to avoid gaps I use remove.
+		m_entities.erase(std::remove(m_entities.begin(), m_entities.end(), entity), m_entities.end());
 	}
 
 	void Scene::Remove() {
+		for (auto i : m_entities) {
+			delete i;
+		}
 		m_entities.clear();
-		if (m_terrain) {
-			m_terrain->Release();
-		}
-		if (m_skybox) {
-			m_skybox->Release();
-		}
 	}
 
 	const std::vector<Entity*> &Scene::GetEntities() const {

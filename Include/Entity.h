@@ -1,10 +1,18 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "std.h"
-#include "Transform.h"
+#include <string>
+#include "Vector3.h"
 
 namespace se {
+
+	enum EntityType {
+		ENTITYTYPE_NOTYPE,
+		ENTITYTYPE_SKYBOX,
+		ENTITYTYPE_TERRAIN,
+		ENTITYTYPE_MODEL,
+		ENTITYTYPE_CAMERA
+	};
 
 	///
 	/// This interface is what you're inheriting to create new entities to load them in SceneManager
@@ -12,15 +20,27 @@ namespace se {
 	class Entity {
 	public:
 		Entity();
-		void SetScale(float x, float y, float z);
-		void SetRotation(float x, float y, float z);
 		void SetPosition(float x, float y, float z);
-		virtual void Update(float delta);
+		void SetPosition(Vector3f position);
+		void SetScale(float x, float y, float z);
+		void SetScale(Vector3f scale);
+		void SetRotation(float x, float y, float z);
+		void SetRotation(Vector3f rotation);
+		void SetAssetName(const std::string &assetName);
+		void SetEntityType(EntityType type);
 		std::string GetAssetName() const;
-		Transform3f *GetTarget();
+		EntityType GetEntityType() const;
+		virtual void Update(float delta);
+		virtual void Release();
+		Vector3f *GetPosition();
+		Vector3f *GetScale();
+		Vector3f *GetRotation();
 	protected:
 		std::string m_assetName;
-		Transform3f m_transform;
+		EntityType m_entityType;
+		Vector3f m_position;
+		Vector3f m_scale;
+		Vector3f m_rotation;
 	};
 
 }

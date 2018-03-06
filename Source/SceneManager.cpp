@@ -24,7 +24,7 @@ namespace se {
 
 	void SceneManager::AddScene(const std::string &name) {
 		if (m_scenes.find(name) != m_scenes.end()) {
-			m_logger.Log(2, __FILE__, __LINE__, "Scene already exists");
+			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Scene already exists");
 			return;
 		}
 		m_scenes[name] = Scene();
@@ -35,7 +35,7 @@ namespace se {
 
 	void SceneManager::SetCurrentScene(const std::string &name) {
 		if (m_scenes.find(name) == m_scenes.end()) {
-			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Scene does not exist");
 			return;
 		}
 		m_currentScene = &m_scenes[name];
@@ -43,7 +43,7 @@ namespace se {
 
 	void SceneManager::RemoveScene(const std::string &name) {
 		if (m_scenes.find(name) == m_scenes.end()) {
-			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Scene does not exist");
 			return;
 		}
 		m_scenes[name].Remove();
@@ -51,15 +51,17 @@ namespace se {
 	}
 
 	void SceneManager::RemoveAll() {
-		for (auto &i : m_scenes) {
-			i.second.Remove();
+		if (m_scenes.size() > 0) {
+			for (auto &i : m_scenes) {
+				i.second.Remove();
+			}
+			m_scenes.clear();
 		}
-		m_scenes.clear();
 	}
 
 	Scene *SceneManager::GetScene(const std::string &name) {
 		if (m_scenes.find(name) == m_scenes.end()) {
-			m_logger.Log(2, __FILE__, __LINE__, "Scene does not exist");
+			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Scene does not exist");
 			return nullptr;
 		}
 		return &m_scenes[name];

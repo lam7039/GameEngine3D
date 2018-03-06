@@ -12,6 +12,7 @@ namespace se {
 
 	Bitmap::~Bitmap() {
 		delete[] m_data;
+		delete[] m_pixels;
 	}
 
 	int Bitmap::LoadBMP(const std::string &bmpFile) {
@@ -22,7 +23,7 @@ namespace se {
 
 		std::ifstream file(bmpFile, std::ios::binary);
 		if (!file) {
-			m_logger.Log(2, __FILE__, __LINE__, "Failed to open bitmap file");
+			m_logger.Log(ERRORTYPE_ERROR, __FILE__, __LINE__, "Failed to open bitmap file");
 			return 1;
 		}
 
@@ -36,33 +37,33 @@ namespace se {
 		bmpInfo = (BITMAPINFOHEADER*)datBuff[1];
 
 		if (bmpHeader->bfType != 0x4D42) {
-			m_logger.Log(2, __FILE__, __LINE__, "File location isn't a bitmap file");
+			m_logger.Log(ERRORTYPE_ERROR, __FILE__, __LINE__, "File location isn't a bitmap file");
 			file.close();
 			return 2;
 		}
 
 		if (bmpInfo->biBitCount != 24) {
-			m_logger.Log(2, __FILE__, __LINE__, "Bitmap is not 24 bit");
+			m_logger.Log(ERRORTYPE_ERROR, __FILE__, __LINE__, "Bitmap is not 24 bit");
 			file.close();
 			return 3;
 		}
 
-		m_width = bmpInfo->biWidth;
-		m_height = bmpInfo->biHeight;
+		m_size.x = bmpInfo->biWidth;
+		m_size.y = bmpInfo->biHeight;
 
-		unsigned long sizeImage = m_width * m_height * 4;
+		unsigned long sizeImage = m_size.x * m_size.y * 4;
 		m_pixels = new unsigned char[sizeImage];
 		m_data = new unsigned char[sizeImage / 4];
 		file.seekg(bmpHeader->bfOffBits);
 		file.read((char*)m_pixels, sizeImage);
 
-		int padding = 4 - ((m_width * bmpInfo->biBitCount / 8) % 4);
+		int padding = 4 - ((m_size.x * bmpInfo->biBitCount / 8) % 4);
 		unsigned long i = 0;
 		unsigned long j = 0;
 
 		unsigned char tmpRGB = 0;
-		for (unsigned long y = 0; y < m_height; y++) {
-			for (unsigned long x = 0; x < m_width; x++) {
+		for (unsigned long y = 0; y < m_size.y; y++) {
+			for (unsigned long x = 0; x < m_size.x; x++) {
 				tmpRGB = m_pixels[i];
 				m_pixels[i] = m_pixels[i + 2];
 				m_pixels[i + 2] = tmpRGB;
@@ -80,12 +81,8 @@ namespace se {
 		return 0;
 	}
 
-	const unsigned int Bitmap::GetWidth() const {
-		return m_width;
-	}
-
-	const unsigned int Bitmap::GetHeight() const {
-		return m_height;
+	const Vector3i Bitmap::GetSize() const {
+		return m_size;
 	}
 
 	unsigned char *Bitmap::GetData() {

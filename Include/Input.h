@@ -1,53 +1,32 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "std.h"
-#include "Debug.h"
+#include "Key.h"
 #include <Windows.h>
-#include <dinput.h>
 
 namespace se {
 
 	///
-	/// You can use this class to handle input
+	/// You can use this interface to create your own input handler.
 	///
-	class Input {
+	class AbstractInput {
 	public:
-		Input();
-		~Input();
-
 		///
-		/// Initialize the input
+		/// Initialize the input for the given window instance and handle.
 		///
-		bool Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight);
+		virtual bool Initialize(HINSTANCE hInstance, HWND hWnd, int screenWidth, int screenHeight) = 0;
 		///
-		/// Check if specified key is pressed
+		/// Check if specified KeyboardKey is pressed.
 		///
-		bool IsPressed(BYTE key);
-		void Update();
+		virtual bool IsPressed(KeyboardKey key) = 0;
 		///
-		/// Get the mouse location
+		/// Update the read key/mouse input.
 		///
-		void GetMouseLocation(int &mouseX, int &mouseY);
-
-	private:
-		Debug m_logger;
-
-		IDirectInput8 *m_directInput;
-		IDirectInputDevice8 *m_keyboard;
-		IDirectInputDevice8 *m_mouse;
-
-		BYTE m_keyboardState[256];
-		DIMOUSESTATE m_mouseState;
-
-		int m_screenWidth;
-		int m_screenHeight;
-		int m_mouseX;
-		int m_mouseY;
-
-		bool ReadKeyboard();
-		bool ReadMouse();
-		void ProcessInput();
+		virtual void Update() = 0;
+		///
+		/// Get the mouse location.
+		///
+		virtual void GetMouseLocation(int &mouseX, int &mouseY) = 0;
 	};
 
 }

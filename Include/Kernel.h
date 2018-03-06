@@ -1,12 +1,11 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
-#include "std.h"
+#include <string>
 #include "Debug.h"
 #include "Renderer.h"
 #include "Input.h"
-#include "CameraController.h"
-#include "WindowManager.h"
+#include "Camera.h"
 
 namespace se {
 
@@ -16,26 +15,16 @@ namespace se {
 	class Kernel {
 	public:
 		///
-		/// Initialize the kernel with standard values and the renderer and input it's supposed to use
+		/// Initialize the kernel with the renderer and input it's supposed to use and creates a window
 		///
-		Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, Input *input);
-		///
-		/// Create another window
-		///
-		void AddWindow(const std::string &title, int x, int y, int width, int height);
-		///
-		/// Set the CameraController you want to use
-		///
-		void SetCameraController(CameraController *cameraController);
+		Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, AbstractInput *input);
 		///
 		/// Enter the gameloop
 		///
 		int EnterLoop();
 	private:
-		WindowManager m_windows;
-		Input *m_input;
+		AbstractInput *m_input;
 		AbstractRenderer *m_renderer;
-		CameraController *m_cameraController;
 		Debug m_logger;
 	};
 

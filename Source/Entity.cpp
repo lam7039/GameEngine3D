@@ -4,35 +4,72 @@ namespace se {
 
 	Entity::Entity() {
 		m_assetName = "";
+		m_entityType = ENTITYTYPE_NOTYPE;
+		SetScale(1.0f, 1.0f, 1.0f);
 	}
 
 	void Entity::Update(float delta) {
 	}
 
-	void Entity::SetScale(float x, float y, float z) {
-		m_transform.scaleX = x;
-		m_transform.scaleY = y;
-		m_transform.scaleZ = z;
-	}
-
-	void Entity::SetRotation(float x, float y, float z) {
-		m_transform.rotX = x;
-		m_transform.rotY = y;
-		m_transform.rotZ = z;
+	void Entity::Release() {
 	}
 
 	void Entity::SetPosition(float x, float y, float z) {
-		m_transform.posX = x;
-		m_transform.posY = y;
-		m_transform.posZ = z;
+		m_position.x = x;
+		m_position.y = y;
+		m_position.z = z;
 	}
 
-	Transform3f *Entity::GetTarget() {
-		return &m_transform;
+	void Entity::SetPosition(Vector3f position) {
+		m_position = position;
+	}
+
+	void Entity::SetScale(float x, float y, float z) {
+		m_scale.x = x;
+		m_scale.y = y;
+		m_scale.z = z;
+	}
+
+	void Entity::SetScale(Vector3f scale) {
+		m_scale = scale;
+	}
+
+	void Entity::SetRotation(float x, float y, float z) {
+		m_rotation.x = x;
+		m_rotation.y = y;
+		m_rotation.z = z;
+	}
+
+	void Entity::SetRotation(Vector3f rotation) {
+		m_rotation = rotation;
+	}
+
+	void Entity::SetAssetName(const std::string &assetName) {
+		m_assetName = assetName;
+	}
+
+	void Entity::SetEntityType(EntityType type) {
+		m_entityType = type;
 	}
 
 	std::string Entity::GetAssetName() const {
 		return m_assetName;
+	}
+
+	EntityType Entity::GetEntityType() const {
+		return m_entityType;
+	}
+
+	Vector3f *Entity::GetPosition() {
+		return &m_position;
+	}
+
+	Vector3f *Entity::GetScale() {
+		return &m_scale;
+	}
+
+	Vector3f *Entity::GetRotation() {
+		return &m_rotation;
 	}
 
 }

@@ -3,109 +3,44 @@
 
 namespace se {
 
-	LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-		switch (message) {
-		case WM_DESTROY:
-			DestroyWindow(hWnd);
-			PostQuitMessage(0);
-			return 0;
+	WindowManager *WindowManager::m_instance = nullptr;
+
+	WindowManager::WindowManager() {
+		m_instance = nullptr;
+		m_logger.SelectLogger("engine.log");
+	}
+
+	WindowManager *WindowManager::GetInstance() {
+		if (!m_instance) {
+			m_instance = new WindowManager();
 		}
-		return DefWindowProc(hWnd, message, wParam, lParam);
+		return m_instance;
 	}
 
-	WindowManager::WindowManager()
-	{
-		m_windowCount = 0;
-	}
-
-	HWND WindowManager::OpenWindow(const std::string &title = "window", int width = 800, int height = 500) {
-		WindowEntity entity;
-		entity.title = title;
-		entity.width = width;
-		entity.height = height;
-		entity.instance = GetModuleHandle(NULL);
-		m_windowCount++;
-		std::string className = "windowClass" + m_windowCount;
-		ATOM atom = RegisterWindowProc(entity.instance, WindowProc, className);
-		if (!atom) {
-			m_windowCount--;
-			return NULL;
-		}
-		entity.hWnd = CreateWindowEx(NULL, className.c_str(), entity.title.c_str(), WS_OVERLAPPEDWINDOW, entity.x, entity.y, entity.width, entity.height, NULL, NULL, entity.instance, NULL);
-		if (!entity.hWnd) {
-			m_windowCount--;
-			return NULL;
-		}
-		ShowWindow(entity.hWnd, SW_SHOW);
-		m_windowList.push_back(entity);
-		return entity.hWnd;
-	}
-
-	HWND WindowManager::GetActiveWindow() {
-		return GetForegroundWindow();
-	}
-
-	void WindowManager::SetPosition(int index, int x, int y) {
-		if (index >= m_windowList.size()) {
-			return;
-		}
-		m_windowList[index].x = x;
-		m_windowList[index].y = y;
-		SetWindowPos(m_windowList[index].hWnd, 0, x, y, m_windowList[index].width, m_windowList[index].height, SWP_NOSIZE | SWP_NOZORDER);
-	}
-
-	void WindowManager::SetSize(int index, int width, int height) {
-		if (index >= m_windowList.size()) {
-			return;
-		}
-		m_windowList[index].width = width;
-		m_windowList[index].height = height;
-		SetWindowPos(m_windowList[index].hWnd, 0, m_windowList[index].x, m_windowList[index].y, width, height, SWP_NOSIZE | SWP_NOZORDER);
-	}
-
-	void WindowManager::CloseWindow(int index) {
-		if (index >= m_windowList.size()) {
-			return;
-		}
-		DestroyWindow(m_windowList[index].hWnd);
-		m_windowList.erase(m_windowList.begin() + index);
-		m_windowCount--;
-	}
-
-	void WindowManager::CloseAll() {
-		for (int i = 0; i < m_windowList.size(); i++) {
-			DestroyWindow(m_windowList[i].hWnd);
-		}
-		m_windowList.clear();
-		m_windowCount = 0;
-	}
-
-	ATOM WindowManager::RegisterWindowProc(HINSTANCE hInstance, WNDPROC wndProc, const std::string &className) {
-		WNDCLASSEX wc;
-		ZeroMemory(&wc, sizeof(WNDCLASSEX));
-		wc.cbSize = sizeof(WNDCLASSEX);
-		wc.style = CS_HREDRAW | CS_VREDRAW;
-		wc.lpfnWndProc = wndProc;
-		wc.hInstance = hInstance;
-		wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-		wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
-		wc.lpszClassName = className.c_str();
-		return RegisterClassEx(&wc);
-	}
-
-	HINSTANCE WindowManager::GetInstance(int index) {
-		if (index >= m_windowList.size()) {
-			return NULL;
-		}
-		return m_windowList[index].instance;
-	}
-
-	std::vector<WindowEntity> WindowManager::GetWindowList() const {
+	std::vector<Window> WindowManager::GetWindowList() const {
 		return m_windowList;
 	}
 
 	int WindowManager::GetWindowCount() {
-		return m_windowCount;
+		return m_windowList.size();
 	}
 
+	void WindowManager::AddWindow(AbstractRenderer *renderer, const std::string &title, bool centered, int x, int y, int width, int height, AbstractInput *input) {
+		HWND hWnd;
+		Window window(m_windowList.size(), title, centered, Vector3i(x, y, 0), Vector3i(width, height, 0));
+		if (FAILED(hWnd = window.GetWindowHandle())) {
+			m_logger.Log(ERRORTYPE_INFO, __FILE__, __LINE__, "Failed to create window");
+			return;
+		}
+		m_windowList.push_back(window);
+		input->Initialize(window.GetWindowInstanceHandle(), window.GetWindowHandle(), width, height);
+		renderer->Create(width, height);
+	}
+
+	void WindowManager::CloseAll() {
+		for (int i = 0; i < m_windowList.size(); i++) {
+			DestroyWindow(m_windowList[i].GetWindowHandle());
+		}
+		m_windowList.clear();
+	}
 }

@@ -1,8 +1,9 @@
 #ifndef BITMAP_H
 #define BITMAP_H
 
-#include "std.h"
+#include <string>
 #include "Debug.h"
+#include "Vector3.h"
 
 namespace se {
 	///
@@ -17,13 +18,9 @@ namespace se {
 		///
 		int LoadBMP(const std::string &bmpFile);
 		///
-		/// Get the given bitmap width
+		/// Get the given bitmap size
 		///
-		const unsigned int GetWidth() const;
-		///
-		/// Get the given bitmap height
-		///
-		const unsigned int GetHeight() const;
+		const Vector3i GetSize() const;
 		///
 		/// Get an array with values of 0-255 loaded from the bitmap from a single channel
 		///
@@ -33,8 +30,7 @@ namespace se {
 		///
 		unsigned char *GetPixels();
 	private:
-		unsigned int m_width;
-		unsigned int m_height;
+		Vector3i m_size;
 		unsigned char *m_pixels;
 		unsigned char *m_data;
 		Debug m_logger;
