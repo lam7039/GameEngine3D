@@ -48,7 +48,7 @@ namespace se {
 			// Logic.
 			m_input->Update();
 
-			if (msg.message == WM_QUIT || m_input->IsPressed(SE_KEY_ESCAPE)) {
+			if (msg.message == WM_QUIT) {
 				isRunning = false;
 			}
 

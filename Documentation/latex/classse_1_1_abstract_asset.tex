@@ -13,81 +13,88 @@ Inheritance diagram for se\+:\+:Abstract\+Asset\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_ae3f9fb8f5c26ac8ea511e8e21f5bd624}{Create}} ()=0
+\mbox{\hyperlink{classse_1_1_abstract_asset_acb27e3d7a54233b28ce430a67448506a}{Abstract\+Asset}} (\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, const std\+::string \&asset\+Name)
 \item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_afb4dff418acf169d81b6ca5d8c1f6548}{Load}} ()=0
-\item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_a1f2fdf75bbeaddec16dc4778063505b7}{Process}} ()=0
+virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}{Render}} ()=0
 \item 
 virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}{Release}} ()=0
+\item 
+std\+::string \mbox{\hyperlink{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}{Get\+Asset\+Name}} () const
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classse_1_1_abstract_asset_afa609af58ca8617ef9ab7f6de84e121f}{m\+\_\+path}}
+\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$ \mbox{\hyperlink{classse_1_1_abstract_asset_a9f151d3b1c32c1f244f1b4569e67956c}{m\+\_\+renderer}}
+\item 
+std\+::string \mbox{\hyperlink{classse_1_1_abstract_asset_af2a5f8455bda2db6577864b79d4246d1}{m\+\_\+asset\+Name}}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-With this interface you can create you own Asset type to load in the \mbox{\hyperlink{classse_1_1_asset_manager}{Asset\+Manager}} 
+You can use this interface to create your own type of asset. 
 
-Definition at line 11 of file Asset.\+h.
+Definition at line 12 of file Asset.\+h.
 
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classse_1_1_abstract_asset_acb27e3d7a54233b28ce430a67448506a}\label{classse_1_1_abstract_asset_acb27e3d7a54233b28ce430a67448506a}} 
+\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Abstract\+Asset@{Abstract\+Asset}}
+\index{Abstract\+Asset@{Abstract\+Asset}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
+\subsubsection{\texorpdfstring{Abstract\+Asset()}{AbstractAsset()}}
+{\footnotesize\ttfamily se\+::\+Abstract\+Asset\+::\+Abstract\+Asset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer,  }\item[{const std\+::string \&}]{asset\+Name }\end{DoxyParamCaption})}
+
+Pass the renderer you\textquotesingle{}re using and the assetname you want to create an asset with to here to set the variables, otherwise you can just do it in the child class. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_abstract_asset_ae3f9fb8f5c26ac8ea511e8e21f5bd624}\label{classse_1_1_abstract_asset_ae3f9fb8f5c26ac8ea511e8e21f5bd624}} 
-\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Create@{Create}}
-\index{Create@{Create}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
-\subsubsection{\texorpdfstring{Create()}{Create()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+\mbox{\Hypertarget{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}\label{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}} 
+\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Get\+Asset\+Name@{Get\+Asset\+Name}}
+\index{Get\+Asset\+Name@{Get\+Asset\+Name}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
+\subsubsection{\texorpdfstring{Get\+Asset\+Name()}{GetAssetName()}}
+{\footnotesize\ttfamily std\+::string se\+::\+Abstract\+Asset\+::\+Get\+Asset\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Implemented in \mbox{\hyperlink{classse_1_1_mesh_a56e2d07f7b642c16e89631796a0d576e}{se\+::\+Mesh}}.
-
-\mbox{\Hypertarget{classse_1_1_abstract_asset_afb4dff418acf169d81b6ca5d8c1f6548}\label{classse_1_1_abstract_asset_afb4dff418acf169d81b6ca5d8c1f6548}} 
-\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Load@{Load}}
-\index{Load@{Load}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
-\subsubsection{\texorpdfstring{Load()}{Load()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Implemented in \mbox{\hyperlink{classse_1_1_mesh_a17116983a6c6e73770585b72332c5140}{se\+::\+Mesh}}.
-
-\mbox{\Hypertarget{classse_1_1_abstract_asset_a1f2fdf75bbeaddec16dc4778063505b7}\label{classse_1_1_abstract_asset_a1f2fdf75bbeaddec16dc4778063505b7}} 
-\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Process@{Process}}
-\index{Process@{Process}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
-\subsubsection{\texorpdfstring{Process()}{Process()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Implemented in \mbox{\hyperlink{classse_1_1_mesh_a1ae42a794ee240b5d6a0dd46aa4ea60d}{se\+::\+Mesh}}.
-
-\mbox{\Hypertarget{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}\label{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}} 
+Get the name of the asset. \mbox{\Hypertarget{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}\label{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}} 
 \index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Release@{Release}}
 \index{Release@{Release}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
 \subsubsection{\texorpdfstring{Release()}{Release()}}
 {\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+Use this to release any asset that is a child of this interface. 
 
+Implemented in \mbox{\hyperlink{classse_1_1_terrain_aab4ebd41c3ae26b258928d8f2454ed88}{se\+::\+Terrain}}, \mbox{\hyperlink{classse_1_1_model_a0c1ecdbb68d2fb655e33e63ed35ddc4c}{se\+::\+Model}}, and \mbox{\hyperlink{classse_1_1_skybox_a86c5fb357bbe7c58099d3b85f0df1408}{se\+::\+Skybox}}.
 
-Implemented in \mbox{\hyperlink{classse_1_1_mesh_afde4ccf6665a9b6c7a8f3635dd5139e0}{se\+::\+Mesh}}.
+\mbox{\Hypertarget{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}\label{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}} 
+\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Render@{Render}}
+\index{Render@{Render}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Use this to render any asset that is a child of this interface. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d733e2}{se\+::\+Terrain}}, \mbox{\hyperlink{classse_1_1_model_a8f7aeee14ed8e5c63f8f58451d8e1d19}{se\+::\+Model}}, and \mbox{\hyperlink{classse_1_1_skybox_a2c33944b8f383c4eda21ae1c60e3025a}{se\+::\+Skybox}}.
 
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{classse_1_1_abstract_asset_afa609af58ca8617ef9ab7f6de84e121f}\label{classse_1_1_abstract_asset_afa609af58ca8617ef9ab7f6de84e121f}} 
-\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!m\+\_\+path@{m\+\_\+path}}
-\index{m\+\_\+path@{m\+\_\+path}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
-\subsubsection{\texorpdfstring{m\+\_\+path}{m\_path}}
-{\footnotesize\ttfamily std\+::string se\+::\+Abstract\+Asset\+::m\+\_\+path\hspace{0.3cm}{\ttfamily [protected]}}
+\mbox{\Hypertarget{classse_1_1_abstract_asset_af2a5f8455bda2db6577864b79d4246d1}\label{classse_1_1_abstract_asset_af2a5f8455bda2db6577864b79d4246d1}} 
+\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!m\+\_\+asset\+Name@{m\+\_\+asset\+Name}}
+\index{m\+\_\+asset\+Name@{m\+\_\+asset\+Name}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
+\subsubsection{\texorpdfstring{m\+\_\+asset\+Name}{m\_assetName}}
+{\footnotesize\ttfamily std\+::string se\+::\+Abstract\+Asset\+::m\+\_\+asset\+Name\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Definition at line 18 of file Asset.\+h.
+Definition at line 32 of file Asset.\+h.
+
+\mbox{\Hypertarget{classse_1_1_abstract_asset_a9f151d3b1c32c1f244f1b4569e67956c}\label{classse_1_1_abstract_asset_a9f151d3b1c32c1f244f1b4569e67956c}} 
+\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!m\+\_\+renderer@{m\+\_\+renderer}}
+\index{m\+\_\+renderer@{m\+\_\+renderer}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
+\subsubsection{\texorpdfstring{m\+\_\+renderer}{m\_renderer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}}$\ast$ se\+::\+Abstract\+Asset\+::m\+\_\+renderer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 31 of file Asset.\+h.
 
 
 

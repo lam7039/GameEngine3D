@@ -2,77 +2,65 @@
 \label{classse_1_1_terrain}\index{se\+::\+Terrain@{se\+::\+Terrain}}
 
 
-{\ttfamily \#include $<$Direct\+X\+Terrain.\+h$>$}
+{\ttfamily \#include $<$Terrain.\+h$>$}
 
 Inheritance diagram for se\+:\+:Terrain\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classse_1_1_terrain}
+\includegraphics[height=2.000000cm]{classse_1_1_terrain}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classse_1_1_terrain_aba0253655814ae0fab2b1145e2a4e3d2}{Terrain}} (L\+P\+D\+I\+R\+E\+C\+T3\+D\+D\+E\+V\+I\+C\+E9 device)
+\mbox{\hyperlink{classse_1_1_terrain_a0e20b4b0333c3d92bfe143bf3cc17b2a}{Terrain}} (\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, const std\+::string \&asset\+Name, const std\+::string \&height\+Map, const std\+::string \&texture)
 \item 
-void \mbox{\hyperlink{classse_1_1_terrain_a67309f26fbbf361cc38d2e7e62264648}{Create}} (const std\+::string \&height\+Map, const std\+::string \&texture, \mbox{\hyperlink{classse_1_1_transform3f}{Transform3f}} \&transform) override
+void \mbox{\hyperlink{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d733e2}{Render}} ()
 \item 
-void \mbox{\hyperlink{classse_1_1_terrain_aa4eeb1886f46d2f33e1633b6f7c7345c}{Process}} () override
-\item 
-void \mbox{\hyperlink{classse_1_1_terrain_a61004e3426795d93190fe8d1f4159759}{Release}} () override
+void \mbox{\hyperlink{classse_1_1_terrain_aab4ebd41c3ae26b258928d8f2454ed88}{Release}} ()
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-The terrain for DirectX 9 
+A default terrain asset. 
 
-Definition at line 15 of file Direct\+X\+Terrain.\+h.
+Definition at line 16 of file Terrain.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classse_1_1_terrain_aba0253655814ae0fab2b1145e2a4e3d2}\label{classse_1_1_terrain_aba0253655814ae0fab2b1145e2a4e3d2}} 
+\mbox{\Hypertarget{classse_1_1_terrain_a0e20b4b0333c3d92bfe143bf3cc17b2a}\label{classse_1_1_terrain_a0e20b4b0333c3d92bfe143bf3cc17b2a}} 
 \index{se\+::\+Terrain@{se\+::\+Terrain}!Terrain@{Terrain}}
 \index{Terrain@{Terrain}!se\+::\+Terrain@{se\+::\+Terrain}}
 \subsubsection{\texorpdfstring{Terrain()}{Terrain()}}
-{\footnotesize\ttfamily se\+::\+Terrain\+::\+Terrain (\begin{DoxyParamCaption}\item[{L\+P\+D\+I\+R\+E\+C\+T3\+D\+D\+E\+V\+I\+C\+E9}]{device }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily se\+::\+Terrain\+::\+Terrain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer,  }\item[{const std\+::string \&}]{asset\+Name,  }\item[{const std\+::string \&}]{height\+Map,  }\item[{const std\+::string \&}]{texture }\end{DoxyParamCaption})}
 
-
+Create a terrain with a renderer, heightmap for the heights and texture to put on the terrain. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_terrain_a67309f26fbbf361cc38d2e7e62264648}\label{classse_1_1_terrain_a67309f26fbbf361cc38d2e7e62264648}} 
-\index{se\+::\+Terrain@{se\+::\+Terrain}!Create@{Create}}
-\index{Create@{Create}!se\+::\+Terrain@{se\+::\+Terrain}}
-\subsubsection{\texorpdfstring{Create()}{Create()}}
-{\footnotesize\ttfamily void se\+::\+Terrain\+::\+Create (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{height\+Map,  }\item[{const std\+::string \&}]{texture,  }\item[{\mbox{\hyperlink{classse_1_1_transform3f}{Transform3f}} \&}]{transform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{classse_1_1_abstract_terrain_ab064ca434de133a78a0899fe53caea99}{se\+::\+Abstract\+Terrain}}.
-
-\mbox{\Hypertarget{classse_1_1_terrain_aa4eeb1886f46d2f33e1633b6f7c7345c}\label{classse_1_1_terrain_aa4eeb1886f46d2f33e1633b6f7c7345c}} 
-\index{se\+::\+Terrain@{se\+::\+Terrain}!Process@{Process}}
-\index{Process@{Process}!se\+::\+Terrain@{se\+::\+Terrain}}
-\subsubsection{\texorpdfstring{Process()}{Process()}}
-{\footnotesize\ttfamily void se\+::\+Terrain\+::\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{classse_1_1_abstract_terrain_af2f0249eead2b62a82baa2ecbb52efeb}{se\+::\+Abstract\+Terrain}}.
-
-\mbox{\Hypertarget{classse_1_1_terrain_a61004e3426795d93190fe8d1f4159759}\label{classse_1_1_terrain_a61004e3426795d93190fe8d1f4159759}} 
+\mbox{\Hypertarget{classse_1_1_terrain_aab4ebd41c3ae26b258928d8f2454ed88}\label{classse_1_1_terrain_aab4ebd41c3ae26b258928d8f2454ed88}} 
 \index{se\+::\+Terrain@{se\+::\+Terrain}!Release@{Release}}
 \index{Release@{Release}!se\+::\+Terrain@{se\+::\+Terrain}}
 \subsubsection{\texorpdfstring{Release()}{Release()}}
-{\footnotesize\ttfamily void se\+::\+Terrain\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void se\+::\+Terrain\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+Release the terrain asset. 
 
+Implements \mbox{\hyperlink{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}{se\+::\+Abstract\+Asset}}.
 
-Implements \mbox{\hyperlink{classse_1_1_abstract_terrain_aeee5b6c81be6aee211819b8d79718bf5}{se\+::\+Abstract\+Terrain}}.
+\mbox{\Hypertarget{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d733e2}\label{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d733e2}} 
+\index{se\+::\+Terrain@{se\+::\+Terrain}!Render@{Render}}
+\index{Render@{Render}!se\+::\+Terrain@{se\+::\+Terrain}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void se\+::\+Terrain\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Render the terrain asset. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}{se\+::\+Abstract\+Asset}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\+Direct\+X9/\mbox{\hyperlink{_direct_x_terrain_8h}{Direct\+X\+Terrain.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_terrain_8h}{Terrain.\+h}}\end{DoxyCompactItemize}

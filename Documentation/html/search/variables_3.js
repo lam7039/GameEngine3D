@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['posx',['posX',['../classse_1_1_transform3f.html#ad2c0078eef5e4b87361f764ad9ac4f84',1,'se::Transform3f']]],
-  ['posy',['posY',['../classse_1_1_transform3f.html#a3bc9b7dab3224ff12df803c157b86d3d',1,'se::Transform3f']]],
-  ['posz',['posZ',['../classse_1_1_transform3f.html#a2429d1b09776ebf7737706bd7f57ab3c',1,'se::Transform3f']]]
+  ['texturecount',['textureCount',['../structse_1_1_draw_components.html#a4a4323bb918073fe2c6cf45ee3c885d2',1,'se::DrawComponents']]],
+  ['textures',['textures',['../structse_1_1_draw_components.html#a5853cbdf5f707c4cd3cffb09678cfe18',1,'se::DrawComponents']]],
+  ['tu',['tu',['../structse_1_1_vertex.html#a8c002af2126ae5cd8dac03ec2adcb060',1,'se::Vertex']]],
+  ['tv',['tv',['../structse_1_1_vertex.html#abd48156d7a9e157ca38d4c4de2101524',1,'se::Vertex']]]
 ];

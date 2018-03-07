@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: Member List</title>
+<title>3D Game Engine: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -73,11 +74,18 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a316456762829db0614077cccd655e654">Create</a>(HWND hWnd) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a0735c84f0cdd65088702b03c4ed7c7b7">GetDevice</a>()</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a64e4eb2d2516261468e2e23c92dec1b4">Process</a>(HWND hWnd) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#af88b0fb33fe5bff1112213e6c8faf466">Create</a>(int width, int height) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#aab3d1a8b4ee8812dea07f5ecda5efc42">CreateMesh</a>(const std::string &amp;bufferName, const std::string &amp;path) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a33c350a77a959847d3571e14feb72c85">CreateTexture</a>(const std::string &amp;bufferName, const std::string &amp;path, int id) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a52e0bbf13e8045dab39bb2ef34028a94">CreateVertexBuffer</a>(const std::string &amp;bufferName, RenderType type, Vertex *vertices, Vector3i *size=nullptr) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a74d6926ba18dac6ce23c7dea433de7bd">GetViewAxes</a>() override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a7d5db09c1cf0c5c45f61c631b174fcf2">InitializeTextureArray</a>(const std::string &amp;bufferName, int size) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#aa87e49a2704cc5da20655ce41ae9782b">Process</a>() override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#ae2979f16a5c35773cf2c243d8e6f90e4">Release</a>() override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a39934c194406f108a992d82a4d265381">Update</a>(float delta) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a77f814cda45f2b490e11c522f8e752e3">Release</a>(const std::string &amp;bufferName) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a31e3c97cd8ceeaea58017b66bd60b9d7">Render</a>(const std::string &amp;bufferName) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a0294b31c151540af98c78d1e33cb369a">SetViewTransform</a>(Vector3f position, Vector3f rotation) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_direct3_d.html#a39934c194406f108a992d82a4d265381">Update</a>(float delta) override</td><td class="entry"><a class="el" href="classse_1_1_direct3_d.html">se::Direct3D</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

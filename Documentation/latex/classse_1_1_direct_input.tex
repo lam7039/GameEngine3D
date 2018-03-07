@@ -1,0 +1,97 @@
+\hypertarget{classse_1_1_direct_input}{}\section{se\+:\+:Direct\+Input Class Reference}
+\label{classse_1_1_direct_input}\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+
+
+{\ttfamily \#include $<$Direct\+Input.\+h$>$}
+
+Inheritance diagram for se\+:\+:Direct\+Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classse_1_1_direct_input}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classse_1_1_direct_input_a2e5e8da67102c194b874fdfa04ca40e4}{Direct\+Input}} ()
+\item 
+\mbox{\hyperlink{classse_1_1_direct_input_a5ff50cb2afc8d67116856c34169429d0}{$\sim$\+Direct\+Input}} ()
+\item 
+bool \mbox{\hyperlink{classse_1_1_direct_input_ae8f8c4306ad58f7696548d2c63f01e6f}{Initialize}} (H\+I\+N\+S\+T\+A\+N\+CE h\+Instance, H\+W\+ND h\+Wnd, int screen\+Width, int screen\+Height) override
+\item 
+bool \mbox{\hyperlink{classse_1_1_direct_input_ad9669e6834c3fcac489050a82beb71f7}{Is\+Pressed}} (\mbox{\hyperlink{namespacese_a94221cf8f238f1eadbe3ac4b8ac7bc71}{Keyboard\+Key}} key) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct_input_a863123d7304364a55fd2135f27195500}{Update}} () override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct_input_a3c097a463a36421a13bf05819c4b681e}{Get\+Mouse\+Location}} (int \&mouseX, int \&mouseY) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+You can use this class to handle input with Direct\+X9. 
+
+Definition at line 14 of file Direct\+Input.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classse_1_1_direct_input_a2e5e8da67102c194b874fdfa04ca40e4}\label{classse_1_1_direct_input_a2e5e8da67102c194b874fdfa04ca40e4}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!Direct\+Input@{Direct\+Input}}
+\index{Direct\+Input@{Direct\+Input}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{Direct\+Input()}{DirectInput()}}
+{\footnotesize\ttfamily se\+::\+Direct\+Input\+::\+Direct\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classse_1_1_direct_input_a5ff50cb2afc8d67116856c34169429d0}\label{classse_1_1_direct_input_a5ff50cb2afc8d67116856c34169429d0}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!````~Direct\+Input@{$\sim$\+Direct\+Input}}
+\index{````~Direct\+Input@{$\sim$\+Direct\+Input}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{$\sim$\+Direct\+Input()}{~DirectInput()}}
+{\footnotesize\ttfamily se\+::\+Direct\+Input\+::$\sim$\+Direct\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classse_1_1_direct_input_a3c097a463a36421a13bf05819c4b681e}\label{classse_1_1_direct_input_a3c097a463a36421a13bf05819c4b681e}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!Get\+Mouse\+Location@{Get\+Mouse\+Location}}
+\index{Get\+Mouse\+Location@{Get\+Mouse\+Location}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{Get\+Mouse\+Location()}{GetMouseLocation()}}
+{\footnotesize\ttfamily void se\+::\+Direct\+Input\+::\+Get\+Mouse\+Location (\begin{DoxyParamCaption}\item[{int \&}]{mouseX,  }\item[{int \&}]{mouseY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the mouse location. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_input_a93673fb3534be8bbc1f495f650064b91}{se\+::\+Abstract\+Input}}.
+
+\mbox{\Hypertarget{classse_1_1_direct_input_ae8f8c4306ad58f7696548d2c63f01e6f}\label{classse_1_1_direct_input_ae8f8c4306ad58f7696548d2c63f01e6f}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool se\+::\+Direct\+Input\+::\+Initialize (\begin{DoxyParamCaption}\item[{H\+I\+N\+S\+T\+A\+N\+CE}]{h\+Instance,  }\item[{H\+W\+ND}]{h\+Wnd,  }\item[{int}]{screen\+Width,  }\item[{int}]{screen\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialize the input for the given window instance and handle. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_input_a6219cdd66247d08f3ca52b2fea305b8d}{se\+::\+Abstract\+Input}}.
+
+\mbox{\Hypertarget{classse_1_1_direct_input_ad9669e6834c3fcac489050a82beb71f7}\label{classse_1_1_direct_input_ad9669e6834c3fcac489050a82beb71f7}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!Is\+Pressed@{Is\+Pressed}}
+\index{Is\+Pressed@{Is\+Pressed}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{Is\+Pressed()}{IsPressed()}}
+{\footnotesize\ttfamily bool se\+::\+Direct\+Input\+::\+Is\+Pressed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacese_a94221cf8f238f1eadbe3ac4b8ac7bc71}{Keyboard\+Key}}}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Check if specified Keyboard\+Key is pressed. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_input_a4375b92281cee63064c898a791ddd1a3}{se\+::\+Abstract\+Input}}.
+
+\mbox{\Hypertarget{classse_1_1_direct_input_a863123d7304364a55fd2135f27195500}\label{classse_1_1_direct_input_a863123d7304364a55fd2135f27195500}} 
+\index{se\+::\+Direct\+Input@{se\+::\+Direct\+Input}!Update@{Update}}
+\index{Update@{Update}!se\+::\+Direct\+Input@{se\+::\+Direct\+Input}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void se\+::\+Direct\+Input\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Update the read key/mouse input. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_input_a7c9b63e9df453d38c035fb9fa91c0d70}{se\+::\+Abstract\+Input}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\+Direct\+X9/\mbox{\hyperlink{_direct_input_8h}{Direct\+Input.\+h}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: se::Camera Class Reference</title>
+<title>3D Game Engine: se::Camera Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -74,71 +75,82 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_direct_x_camera_8h_source.html">DirectXCamera.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_camera_8h_source.html">Camera.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for se::Camera:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classse_1_1_camera.png" usemap="#se::Camera_map" alt=""/>
   <map id="se::Camera_map" name="se::Camera_map">
-<area href="classse_1_1_abstract_camera.html" alt="se::AbstractCamera" shape="rect" coords="0,56,122,80"/>
-<area href="classse_1_1_entity.html" alt="se::Entity" shape="rect" coords="0,0,122,24"/>
+<area href="classse_1_1_entity.html" alt="se::Entity" shape="rect" coords="0,0,75,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a739a31b067cd3b702209e6a778b29db1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#a739a31b067cd3b702209e6a778b29db1">Camera</a> (LPDIRECT3DDEVICE9 device, int screenWidth, int screenHeight)</td></tr>
-<tr class="separator:a739a31b067cd3b702209e6a778b29db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cc397abfbd7287d96dbbb70330f2e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#a45cc397abfbd7287d96dbbb70330f2e5">Camera</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, <a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *input, const std::string &amp;assetName)</td></tr>
+<tr class="separator:a45cc397abfbd7287d96dbbb70330f2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abecf2d50dc793707a475b35bb487812c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#abecf2d50dc793707a475b35bb487812c">Update</a> (float delta) override</td></tr>
 <tr class="separator:abecf2d50dc793707a475b35bb487812c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classse_1_1_abstract_camera"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classse_1_1_abstract_camera')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classse_1_1_abstract_camera.html">se::AbstractCamera</a></td></tr>
-<tr class="memitem:a6720fc7f0712a59b8dc3d3b5f3c20dc4 inherit pub_methods_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a6720fc7f0712a59b8dc3d3b5f3c20dc4">GetSpeed</a> () const</td></tr>
-<tr class="separator:a6720fc7f0712a59b8dc3d3b5f3c20dc4 inherit pub_methods_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5762156f8dd3d3d79666cb2f23e45fa2 inherit pub_methods_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a5762156f8dd3d3d79666cb2f23e45fa2">GetRotationSpeed</a> () const</td></tr>
-<tr class="separator:a5762156f8dd3d3d79666cb2f23e45fa2 inherit pub_methods_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe009ee2de0fa0c4d37d446bb7d91ccf inherit pub_methods_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#afe009ee2de0fa0c4d37d446bb7d91ccf">GetPitch</a> () const</td></tr>
-<tr class="separator:afe009ee2de0fa0c4d37d446bb7d91ccf inherit pub_methods_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6064b75a70a1ea4621b82f18e4f46349 inherit pub_methods_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a6064b75a70a1ea4621b82f18e4f46349">GetYaw</a> () const</td></tr>
-<tr class="separator:a6064b75a70a1ea4621b82f18e4f46349 inherit pub_methods_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8331699adb431843563dfdab355e54f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#a8331699adb431843563dfdab355e54f0">Render</a> ()</td></tr>
+<tr class="separator:a8331699adb431843563dfdab355e54f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49219007d931e1800a33d2603f08856"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#ac49219007d931e1800a33d2603f08856">SetTarget</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *position, <a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *rotation)</td></tr>
+<tr class="separator:ac49219007d931e1800a33d2603f08856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d163903ddf8f4c5fa8cee70dbfec689"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_camera.html#a9d163903ddf8f4c5fa8cee70dbfec689">GetPosition</a> ()</td></tr>
+<tr class="separator:a9d163903ddf8f4c5fa8cee70dbfec689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classse_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classse_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classse_1_1_entity.html">se::Entity</a></td></tr>
 <tr class="memitem:ac92492302d50c22ba7c4e9ff016b6145 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ac92492302d50c22ba7c4e9ff016b6145">Entity</a> ()</td></tr>
 <tr class="separator:ac92492302d50c22ba7c4e9ff016b6145 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a812b63adcbf5f1a3e429a31c6e0ff940">SetScale</a> (float x, float y, float z)</td></tr>
-<tr class="separator:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2">SetRotation</a> (float x, float y, float z)</td></tr>
-<tr class="separator:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09e198e70620f231106d9f375f7598f3 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a09e198e70620f231106d9f375f7598f3">SetPosition</a> (float x, float y, float z)</td></tr>
 <tr class="separator:a09e198e70620f231106d9f375f7598f3 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d37a4774afab2b7abf4118efc57499 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ae0d37a4774afab2b7abf4118efc57499">SetPosition</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> position)</td></tr>
+<tr class="separator:ae0d37a4774afab2b7abf4118efc57499 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a812b63adcbf5f1a3e429a31c6e0ff940">SetScale</a> (float x, float y, float z)</td></tr>
+<tr class="separator:a812b63adcbf5f1a3e429a31c6e0ff940 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70df7cdf2d72ff4d767033c2994b673f inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a70df7cdf2d72ff4d767033c2994b673f">SetScale</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> scale)</td></tr>
+<tr class="separator:a70df7cdf2d72ff4d767033c2994b673f inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2">SetRotation</a> (float x, float y, float z)</td></tr>
+<tr class="separator:a41f820b99b2b6d76c97472dcddca7fa2 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950373cfaaad7ad4bba06f3ab8534efd inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a950373cfaaad7ad4bba06f3ab8534efd">SetRotation</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> rotation)</td></tr>
+<tr class="separator:a950373cfaaad7ad4bba06f3ab8534efd inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcf5639a2e6e74e0b12893e70a46a83 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a4fcf5639a2e6e74e0b12893e70a46a83">SetAssetName</a> (const std::string &amp;assetName)</td></tr>
+<tr class="separator:a4fcf5639a2e6e74e0b12893e70a46a83 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0550faa593742dbd41284971c24c410e inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a0550faa593742dbd41284971c24c410e">SetEntityType</a> (<a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a> type)</td></tr>
+<tr class="separator:a0550faa593742dbd41284971c24c410e inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d512cba984ffe167decd7ecf7a88f4 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4">GetAssetName</a> () const</td></tr>
 <tr class="separator:af1d512cba984ffe167decd7ecf7a88f4 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a677f32cd82e63f814b4be91518263242 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a677f32cd82e63f814b4be91518263242">GetTarget</a> ()</td></tr>
-<tr class="separator:a677f32cd82e63f814b4be91518263242 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec26e9fd7f7c4c6d89e1e459a5eb028a inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aec26e9fd7f7c4c6d89e1e459a5eb028a">GetEntityType</a> () const</td></tr>
+<tr class="separator:aec26e9fd7f7c4c6d89e1e459a5eb028a inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1c64a40d796cfda308aaa88214bf1c inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aac1c64a40d796cfda308aaa88214bf1c">Release</a> ()</td></tr>
+<tr class="separator:aac1c64a40d796cfda308aaa88214bf1c inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab663eb5602597895c8275e683289e917 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ab663eb5602597895c8275e683289e917">GetPosition</a> ()</td></tr>
+<tr class="separator:ab663eb5602597895c8275e683289e917 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef3f16cc61246c13d4c3f94169c4f44 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a1ef3f16cc61246c13d4c3f94169c4f44">GetScale</a> ()</td></tr>
+<tr class="separator:a1ef3f16cc61246c13d4c3f94169c4f44 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f05222018d86a064cbc2f5c95da203 inherit pub_methods_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a52f05222018d86a064cbc2f5c95da203">GetRotation</a> ()</td></tr>
+<tr class="separator:a52f05222018d86a064cbc2f5c95da203 inherit pub_methods_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_classse_1_1_abstract_camera"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classse_1_1_abstract_camera')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classse_1_1_abstract_camera.html">se::AbstractCamera</a></td></tr>
-<tr class="memitem:a4689e12e2d96c8243ea8790301ed30a7 inherit pro_attribs_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a4689e12e2d96c8243ea8790301ed30a7">m_speed</a></td></tr>
-<tr class="separator:a4689e12e2d96c8243ea8790301ed30a7 inherit pro_attribs_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a354f0d31dff826d7ff56b27f0449f8ea inherit pro_attribs_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a354f0d31dff826d7ff56b27f0449f8ea">m_rotateSpeed</a></td></tr>
-<tr class="separator:a354f0d31dff826d7ff56b27f0449f8ea inherit pro_attribs_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63e8232c82227dbaa26e66411f1bcb34 inherit pro_attribs_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#a63e8232c82227dbaa26e66411f1bcb34">m_pitch</a></td></tr>
-<tr class="separator:a63e8232c82227dbaa26e66411f1bcb34 inherit pro_attribs_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3b2898fd2db420ac4329c13e96a98db inherit pro_attribs_classse_1_1_abstract_camera"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_camera.html#ae3b2898fd2db420ac4329c13e96a98db">m_yaw</a></td></tr>
-<tr class="separator:ae3b2898fd2db420ac4329c13e96a98db inherit pro_attribs_classse_1_1_abstract_camera"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classse_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classse_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classse_1_1_entity.html">se::Entity</a></td></tr>
 <tr class="memitem:aba1f7cc3700caee65b20c423185ab7ca inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aba1f7cc3700caee65b20c423185ab7ca">m_assetName</a></td></tr>
 <tr class="separator:aba1f7cc3700caee65b20c423185ab7ca inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a408963ce0920c7bc3bfec29266238 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_transform3f.html">Transform3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a85a408963ce0920c7bc3bfec29266238">m_transform</a></td></tr>
-<tr class="separator:a85a408963ce0920c7bc3bfec29266238 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d4a145ef27824a21ea1a4cb7a63e6c inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ac5d4a145ef27824a21ea1a4cb7a63e6c">m_entityType</a></td></tr>
+<tr class="separator:ac5d4a145ef27824a21ea1a4cb7a63e6c inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59d1f9af185f480cd028db43d4ad0f2 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ad59d1f9af185f480cd028db43d4ad0f2">m_position</a></td></tr>
+<tr class="separator:ad59d1f9af185f480cd028db43d4ad0f2 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2c8636093982abc56960b947958b34 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a9c2c8636093982abc56960b947958b34">m_scale</a></td></tr>
+<tr class="separator:a9c2c8636093982abc56960b947958b34 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1cfc08dd4df9fe2a2633a6c2cd3e402 inherit pro_attribs_classse_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ad1cfc08dd4df9fe2a2633a6c2cd3e402">m_rotation</a></td></tr>
+<tr class="separator:ad1cfc08dd4df9fe2a2633a6c2cd3e402 inherit pro_attribs_classse_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The camera for DirectX 9 </p>
+<div class="textblock"><p>A default created camera <a class="el" href="classse_1_1_entity.html">Entity</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_direct_x_camera_8h_source.html#l00014">14</a> of file <a class="el" href="_direct_x_camera_8h_source.html">DirectXCamera.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_camera_8h_source.html#l00013">13</a> of file <a class="el" href="_camera_8h_source.html">Camera.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a739a31b067cd3b702209e6a778b29db1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a739a31b067cd3b702209e6a778b29db1">&#9670;&nbsp;</a></span>Camera()</h2>
+<a id="a45cc397abfbd7287d96dbbb70330f2e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45cc397abfbd7287d96dbbb70330f2e5">&#9670;&nbsp;</a></span>Camera()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,20 +158,20 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">se::Camera::Camera </td>
           <td>(</td>
-          <td class="paramtype">LPDIRECT3DDEVICE9&#160;</td>
-          <td class="paramname"><em>device</em>, </td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>screenWidth</em>, </td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>screenHeight</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>assetName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,10 +180,76 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Create a camera with a renderer and the input you want to use. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9d163903ddf8f4c5fa8cee70dbfec689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d163903ddf8f4c5fa8cee70dbfec689">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>* se::Camera::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current position of the camera. </p>
+
+</div>
+</div>
+<a id="a8331699adb431843563dfdab355e54f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8331699adb431843563dfdab355e54f0">&#9670;&nbsp;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Camera::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Render the camera with the asset it is set to, if it's set to anything. </p>
+
+</div>
+</div>
+<a id="ac49219007d931e1800a33d2603f08856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac49219007d931e1800a33d2603f08856">&#9670;&nbsp;</a></span>SetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Camera::SetTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td>
+          <td class="paramname"><em>rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the position of the camera. </p>
+
+</div>
+</div>
 <a id="abecf2d50dc793707a475b35bb487812c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abecf2d50dc793707a475b35bb487812c">&#9670;&nbsp;</a></span>Update()</h2>
 
@@ -195,13 +273,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Updates camera logic, it defaults to logic for a freeroaming camera, if a target is set it'll update it to the target. </p>
 
 <p>Reimplemented from <a class="el" href="classse_1_1_entity.html#a1cd277c4c5a517f5cde8b72d5c40a8f0">se::Entity</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Projects/GameEngine3D/Include/DirectX9/<a class="el" href="_direct_x_camera_8h_source.html">DirectXCamera.h</a></li>
+<li>D:/Projects/GameEngine3D/Include/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

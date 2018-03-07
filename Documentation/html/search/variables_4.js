@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['rotx',['rotX',['../classse_1_1_transform3f.html#a2ee9344ae3d32a543f40212dd8ee4a9c',1,'se::Transform3f']]],
-  ['roty',['rotY',['../classse_1_1_transform3f.html#a19689d88306a019419d31feeae7ea7b6',1,'se::Transform3f']]],
-  ['rotz',['rotZ',['../classse_1_1_transform3f.html#a454decdb9bcd426832064f69cfabcd93',1,'se::Transform3f']]]
+  ['x',['x',['../structse_1_1_vertex.html#a861f929c19a2002c84cc45937af25ccd',1,'se::Vertex::x()'],['../classse_1_1_vector3.html#a1dd0e9af86e73921dd391b00dbfd8526',1,'se::Vector3::x()']]]
 ];

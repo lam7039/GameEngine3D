@@ -13,53 +13,149 @@ Inheritance diagram for se\+:\+:Abstract\+Renderer\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_afdfce8b91028448c17ce27550827f192}{Create}} (H\+W\+ND h\+Wnd)=0
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a3b0c7d8dc34c56513b3160e2cf1e094a}{Create}} (int width, int height)=0
 \item 
 virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_aae49e7417663d6a5aca34a2bb37b4b28}{Update}} (float delta)=0
 \item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a302d3f6e465ad7df40c317068a5420fc}{Process}} (H\+W\+ND h\+Wnd)=0
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a76058a91574874ab3c51294a2c9ea85c}{Render}} (const std\+::string \&buffer\+Name)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a90596b2d067b4fa197b809191407be97}{Process}} ()=0
 \item 
 virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a98e35b7db62827580573185ed91b25bb}{Release}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_af6d6d012f070f95d4c49713002872fcc}{Release}} (const std\+::string \&buffer\+Name)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_afd7697df1d4958ec3b0fa13109a269a1}{Initialize\+Texture\+Array}} (const std\+::string \&buffer\+Name, int size)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a953d57d04771acae78c3725bee3639d4}{Create\+Vertex\+Buffer}} (const std\+::string \&buffer\+Name, \mbox{\hyperlink{namespacese_a9ed62241331cac830c5c1ba8450afc2b}{Render\+Type}} type, \mbox{\hyperlink{structse_1_1_vertex}{Vertex}} $\ast$vertices, \mbox{\hyperlink{namespacese_ada11715de7cf6e87b5dfb4611fe68d29}{Vector3i}} $\ast$size=nullptr)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a89f2efd2ee68cfb6735e51ce87206dfd}{Create\+Texture}} (const std\+::string \&buffer\+Name, const std\+::string \&path, int id)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a4a3e8836f7a8b1b35a5f7cb1b4231476}{Create\+Mesh}} (const std\+::string \&buffer\+Name, const std\+::string \&path)=0
+\item 
+virtual void \mbox{\hyperlink{classse_1_1_abstract_renderer_a710e67232e977fbb3b74f79640e0b62e}{Set\+View\+Transform}} (\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} position, \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} rotation)=0
+\item 
+virtual \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} \mbox{\hyperlink{classse_1_1_abstract_renderer_a8af4c1bef5cf120f6160f5d93dd74207}{Get\+View\+Axes}} ()=0
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-With this interface you can create your own renderer if you\textquotesingle{}d like 
+With this interface you can create your own renderer if you\textquotesingle{}d like. 
 
-Definition at line 12 of file Renderer.\+h.
+Definition at line 33 of file Renderer.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_abstract_renderer_afdfce8b91028448c17ce27550827f192}\label{classse_1_1_abstract_renderer_afdfce8b91028448c17ce27550827f192}} 
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a3b0c7d8dc34c56513b3160e2cf1e094a}\label{classse_1_1_abstract_renderer_a3b0c7d8dc34c56513b3160e2cf1e094a}} 
 \index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Create@{Create}}
 \index{Create@{Create}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
 \subsubsection{\texorpdfstring{Create()}{Create()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Create (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Create (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+For initializing a renderer. 
 
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_af88b0fb33fe5bff1112213e6c8faf466}{se\+::\+Direct3D}}.
 
-Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a316456762829db0614077cccd655e654}{se\+::\+Direct3D}}.
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a4a3e8836f7a8b1b35a5f7cb1b4231476}\label{classse_1_1_abstract_renderer_a4a3e8836f7a8b1b35a5f7cb1b4231476}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Create\+Mesh@{Create\+Mesh}}
+\index{Create\+Mesh@{Create\+Mesh}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Create\+Mesh()}{CreateMesh()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Create\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-\mbox{\Hypertarget{classse_1_1_abstract_renderer_a302d3f6e465ad7df40c317068a5420fc}\label{classse_1_1_abstract_renderer_a302d3f6e465ad7df40c317068a5420fc}} 
+Create a mesh with a pipeline. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_aab3d1a8b4ee8812dea07f5ecda5efc42}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a89f2efd2ee68cfb6735e51ce87206dfd}\label{classse_1_1_abstract_renderer_a89f2efd2ee68cfb6735e51ce87206dfd}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Create\+Texture@{Create\+Texture}}
+\index{Create\+Texture@{Create\+Texture}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Create\+Texture()}{CreateTexture()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Create\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{const std\+::string \&}]{path,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Create a texture to the given buffer, the texture array of the given buffer needs to be initialized with Initialize\+Texture\+Array. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a33c350a77a959847d3571e14feb72c85}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a953d57d04771acae78c3725bee3639d4}\label{classse_1_1_abstract_renderer_a953d57d04771acae78c3725bee3639d4}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Create\+Vertex\+Buffer@{Create\+Vertex\+Buffer}}
+\index{Create\+Vertex\+Buffer@{Create\+Vertex\+Buffer}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Create\+Vertex\+Buffer()}{CreateVertexBuffer()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Create\+Vertex\+Buffer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{\mbox{\hyperlink{namespacese_a9ed62241331cac830c5c1ba8450afc2b}{Render\+Type}}}]{type,  }\item[{\mbox{\hyperlink{structse_1_1_vertex}{Vertex}} $\ast$}]{vertices,  }\item[{\mbox{\hyperlink{namespacese_ada11715de7cf6e87b5dfb4611fe68d29}{Vector3i}} $\ast$}]{size = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Create a buffer with a given vertices array, you can differentiate with Render\+Type, size is there for primitivecount. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a52e0bbf13e8045dab39bb2ef34028a94}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a8af4c1bef5cf120f6160f5d93dd74207}\label{classse_1_1_abstract_renderer_a8af4c1bef5cf120f6160f5d93dd74207}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Get\+View\+Axes@{Get\+View\+Axes}}
+\index{Get\+View\+Axes@{Get\+View\+Axes}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Get\+View\+Axes()}{GetViewAxes()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} se\+::\+Abstract\+Renderer\+::\+Get\+View\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the current axes of the view. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a74d6926ba18dac6ce23c7dea433de7bd}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_afd7697df1d4958ec3b0fa13109a269a1}\label{classse_1_1_abstract_renderer_afd7697df1d4958ec3b0fa13109a269a1}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Initialize\+Texture\+Array@{Initialize\+Texture\+Array}}
+\index{Initialize\+Texture\+Array@{Initialize\+Texture\+Array}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Initialize\+Texture\+Array()}{InitializeTextureArray()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Initialize\+Texture\+Array (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize an array for creating a texture with Create\+Texture to a given buffer. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a7d5db09c1cf0c5c45f61c631b174fcf2}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a90596b2d067b4fa197b809191407be97}\label{classse_1_1_abstract_renderer_a90596b2d067b4fa197b809191407be97}} 
 \index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Process@{Process}}
 \index{Process@{Process}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
 \subsubsection{\texorpdfstring{Process()}{Process()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Process (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+For processing other data like setting the transformations to a device. 
 
-
-Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a64e4eb2d2516261468e2e23c92dec1b4}{se\+::\+Direct3D}}.
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_aa87e49a2704cc5da20655ce41ae9782b}{se\+::\+Direct3D}}.
 
 \mbox{\Hypertarget{classse_1_1_abstract_renderer_a98e35b7db62827580573185ed91b25bb}\label{classse_1_1_abstract_renderer_a98e35b7db62827580573185ed91b25bb}} 
 \index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Release@{Release}}
 \index{Release@{Release}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
-\subsubsection{\texorpdfstring{Release()}{Release()}}
+\subsubsection{\texorpdfstring{Release()}{Release()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-
+For releasing whatever needs releasing. 
 
 Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_ae2979f16a5c35773cf2c243d8e6f90e4}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_af6d6d012f070f95d4c49713002872fcc}\label{classse_1_1_abstract_renderer_af6d6d012f070f95d4c49713002872fcc}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Release@{Release}}
+\index{Release@{Release}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Release()}{Release()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Release (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+For releasing a single thing of whatever needs releasing. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a77f814cda45f2b490e11c522f8e752e3}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a76058a91574874ab3c51294a2c9ea85c}\label{classse_1_1_abstract_renderer_a76058a91574874ab3c51294a2c9ea85c}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Render@{Render}}
+\index{Render@{Render}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Render (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+For rendering with the created renderer. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a31e3c97cd8ceeaea58017b66bd60b9d7}{se\+::\+Direct3D}}.
+
+\mbox{\Hypertarget{classse_1_1_abstract_renderer_a710e67232e977fbb3b74f79640e0b62e}\label{classse_1_1_abstract_renderer_a710e67232e977fbb3b74f79640e0b62e}} 
+\index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Set\+View\+Transform@{Set\+View\+Transform}}
+\index{Set\+View\+Transform@{Set\+View\+Transform}!se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}}
+\subsubsection{\texorpdfstring{Set\+View\+Transform()}{SetViewTransform()}}
+{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Set\+View\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}}]{position,  }\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the position and rotation for the screen view. 
+
+Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a0294b31c151540af98c78d1e33cb369a}{se\+::\+Direct3D}}.
 
 \mbox{\Hypertarget{classse_1_1_abstract_renderer_aae49e7417663d6a5aca34a2bb37b4b28}\label{classse_1_1_abstract_renderer_aae49e7417663d6a5aca34a2bb37b4b28}} 
 \index{se\+::\+Abstract\+Renderer@{se\+::\+Abstract\+Renderer}!Update@{Update}}
@@ -67,7 +163,7 @@ Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_ae2979f16a5c35773cf2c243d8
 \subsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily virtual void se\+::\+Abstract\+Renderer\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-
+For updating with the created renderer. 
 
 Implemented in \mbox{\hyperlink{classse_1_1_direct3_d_a39934c194406f108a992d82a4d265381}{se\+::\+Direct3D}}.
 

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: se::AbstractAsset Class Reference</title>
+<title>3D Game Engine: se::AbstractAsset Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -82,109 +83,80 @@ Inheritance diagram for se::AbstractAsset:</div>
  <div class="center">
   <img src="classse_1_1_abstract_asset.png" usemap="#se::AbstractAsset_map" alt=""/>
   <map id="se::AbstractAsset_map" name="se::AbstractAsset_map">
-<area href="classse_1_1_mesh.html" alt="se::Mesh" shape="rect" coords="0,56,109,80"/>
+<area href="classse_1_1_model.html" alt="se::Model" shape="rect" coords="0,56,109,80"/>
+<area href="classse_1_1_skybox.html" alt="se::Skybox" shape="rect" coords="119,56,228,80"/>
+<area href="classse_1_1_terrain.html" alt="se::Terrain" shape="rect" coords="238,56,347,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3f9fb8f5c26ac8ea511e8e21f5bd624"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#ae3f9fb8f5c26ac8ea511e8e21f5bd624">Create</a> ()=0</td></tr>
-<tr class="separator:ae3f9fb8f5c26ac8ea511e8e21f5bd624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb4dff418acf169d81b6ca5d8c1f6548"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#afb4dff418acf169d81b6ca5d8c1f6548">Load</a> ()=0</td></tr>
-<tr class="separator:afb4dff418acf169d81b6ca5d8c1f6548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f2fdf75bbeaddec16dc4778063505b7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#a1f2fdf75bbeaddec16dc4778063505b7">Process</a> ()=0</td></tr>
-<tr class="separator:a1f2fdf75bbeaddec16dc4778063505b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb27e3d7a54233b28ce430a67448506a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#acb27e3d7a54233b28ce430a67448506a">AbstractAsset</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, const std::string &amp;assetName)</td></tr>
+<tr class="separator:acb27e3d7a54233b28ce430a67448506a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2addad2ca18a3ffbcbe1e80afa0ad56c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#a2addad2ca18a3ffbcbe1e80afa0ad56c">Render</a> ()=0</td></tr>
+<tr class="separator:a2addad2ca18a3ffbcbe1e80afa0ad56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea97e36f647efdb07a801b6fc468388d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#aea97e36f647efdb07a801b6fc468388d">Release</a> ()=0</td></tr>
 <tr class="separator:aea97e36f647efdb07a801b6fc468388d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae608bfd21c9b7a8370b0a7e37e7349c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#aae608bfd21c9b7a8370b0a7e37e7349c">GetAssetName</a> () const</td></tr>
+<tr class="separator:aae608bfd21c9b7a8370b0a7e37e7349c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:afa609af58ca8617ef9ab7f6de84e121f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#afa609af58ca8617ef9ab7f6de84e121f">m_path</a></td></tr>
-<tr class="separator:afa609af58ca8617ef9ab7f6de84e121f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f151d3b1c32c1f244f1b4569e67956c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#a9f151d3b1c32c1f244f1b4569e67956c">m_renderer</a></td></tr>
+<tr class="separator:a9f151d3b1c32c1f244f1b4569e67956c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2a5f8455bda2db6577864b79d4246d1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#af2a5f8455bda2db6577864b79d4246d1">m_assetName</a></td></tr>
+<tr class="separator:af2a5f8455bda2db6577864b79d4246d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>With this interface you can create you own Asset type to load in the <a class="el" href="classse_1_1_asset_manager.html">AssetManager</a> </p>
+<div class="textblock"><p>You can use this interface to create your own type of asset. </p>
 
-<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00011">11</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae3f9fb8f5c26ac8ea511e8e21f5bd624"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3f9fb8f5c26ac8ea511e8e21f5bd624">&#9670;&nbsp;</a></span>Create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void se::AbstractAsset::Create </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classse_1_1_mesh.html#a56e2d07f7b642c16e89631796a0d576e">se::Mesh</a>.</p>
-
-</div>
-</div>
-<a id="afb4dff418acf169d81b6ca5d8c1f6548"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb4dff418acf169d81b6ca5d8c1f6548">&#9670;&nbsp;</a></span>Load()</h2>
+<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00012">12</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acb27e3d7a54233b28ce430a67448506a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb27e3d7a54233b28ce430a67448506a">&#9670;&nbsp;</a></span>AbstractAsset()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void se::AbstractAsset::Load </td>
+          <td class="memname">se::AbstractAsset::AbstractAsset </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>assetName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classse_1_1_mesh.html#a17116983a6c6e73770585b72332c5140">se::Mesh</a>.</p>
+<p>Pass the renderer you're using and the assetname you want to create an asset with to here to set the variables, otherwise you can just do it in the child class. </p>
 
 </div>
 </div>
-<a id="a1f2fdf75bbeaddec16dc4778063505b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f2fdf75bbeaddec16dc4778063505b7">&#9670;&nbsp;</a></span>Process()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aae608bfd21c9b7a8370b0a7e37e7349c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae608bfd21c9b7a8370b0a7e37e7349c">&#9670;&nbsp;</a></span>GetAssetName()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void se::AbstractAsset::Process </td>
+          <td class="memname">std::string se::AbstractAsset::GetAssetName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="classse_1_1_mesh.html#a1ae42a794ee240b5d6a0dd46aa4ea60d">se::Mesh</a>.</p>
+<p>Get the name of the asset. </p>
 
 </div>
 </div>
@@ -210,14 +182,14 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Use this to release any asset that is a child of this interface. </p>
 
-<p>Implemented in <a class="el" href="classse_1_1_mesh.html#afde4ccf6665a9b6c7a8f3635dd5139e0">se::Mesh</a>.</p>
+<p>Implemented in <a class="el" href="classse_1_1_terrain.html#aab4ebd41c3ae26b258928d8f2454ed88">se::Terrain</a>, <a class="el" href="classse_1_1_model.html#a0c1ecdbb68d2fb655e33e63ed35ddc4c">se::Model</a>, and <a class="el" href="classse_1_1_skybox.html#a86c5fb357bbe7c58099d3b85f0df1408">se::Skybox</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="afa609af58ca8617ef9ab7f6de84e121f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa609af58ca8617ef9ab7f6de84e121f">&#9670;&nbsp;</a></span>m_path</h2>
+<a id="a2addad2ca18a3ffbcbe1e80afa0ad56c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2addad2ca18a3ffbcbe1e80afa0ad56c">&#9670;&nbsp;</a></span>Render()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +198,36 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string se::AbstractAsset::m_path</td>
+          <td class="memname">virtual void se::AbstractAsset::Render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Use this to render any asset that is a child of this interface. </p>
+
+<p>Implemented in <a class="el" href="classse_1_1_terrain.html#a0fcef77b6b1d8e32ce49a396d4d733e2">se::Terrain</a>, <a class="el" href="classse_1_1_model.html#a8f7aeee14ed8e5c63f8f58451d8e1d19">se::Model</a>, and <a class="el" href="classse_1_1_skybox.html#a2c33944b8f383c4eda21ae1c60e3025a">se::Skybox</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af2a5f8455bda2db6577864b79d4246d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a5f8455bda2db6577864b79d4246d1">&#9670;&nbsp;</a></span>m_assetName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string se::AbstractAsset::m_assetName</td>
         </tr>
       </table>
   </td>
@@ -236,7 +237,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00018">18</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00032">32</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f151d3b1c32c1f244f1b4569e67956c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f151d3b1c32c1f244f1b4569e67956c">&#9670;&nbsp;</a></span>m_renderer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a>* se::AbstractAsset::m_renderer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00031">31</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
 
 </div>
 </div>

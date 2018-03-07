@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: Member List</title>
+<title>3D Game Engine: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -73,9 +74,17 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#afdfce8b91028448c17ce27550827f192">Create</a>(HWND hWnd)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a302d3f6e465ad7df40c317068a5420fc">Process</a>(HWND hWnd)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a98e35b7db62827580573185ed91b25bb">Release</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a3b0c7d8dc34c56513b3160e2cf1e094a">Create</a>(int width, int height)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a4a3e8836f7a8b1b35a5f7cb1b4231476">CreateMesh</a>(const std::string &amp;bufferName, const std::string &amp;path)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a89f2efd2ee68cfb6735e51ce87206dfd">CreateTexture</a>(const std::string &amp;bufferName, const std::string &amp;path, int id)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a953d57d04771acae78c3725bee3639d4">CreateVertexBuffer</a>(const std::string &amp;bufferName, RenderType type, Vertex *vertices, Vector3i *size=nullptr)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a8af4c1bef5cf120f6160f5d93dd74207">GetViewAxes</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#afd7697df1d4958ec3b0fa13109a269a1">InitializeTextureArray</a>(const std::string &amp;bufferName, int size)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a90596b2d067b4fa197b809191407be97">Process</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a98e35b7db62827580573185ed91b25bb">Release</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#af6d6d012f070f95d4c49713002872fcc">Release</a>(const std::string &amp;bufferName)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a76058a91574874ab3c51294a2c9ea85c">Render</a>(const std::string &amp;bufferName)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a710e67232e977fbb3b74f79640e0b62e">SetViewTransform</a>(Vector3f position, Vector3f rotation)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#aae49e7417663d6a5aca34a2bb37b4b28">Update</a>(float delta)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->

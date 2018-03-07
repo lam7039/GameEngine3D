@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: se::Direct3D Class Reference</title>
+<title>3D Game Engine: se::Direct3D Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -87,24 +88,38 @@ Inheritance diagram for se::Direct3D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a316456762829db0614077cccd655e654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a316456762829db0614077cccd655e654">Create</a> (HWND hWnd) override</td></tr>
-<tr class="separator:a316456762829db0614077cccd655e654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af88b0fb33fe5bff1112213e6c8faf466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#af88b0fb33fe5bff1112213e6c8faf466">Create</a> (int width, int height) override</td></tr>
+<tr class="separator:af88b0fb33fe5bff1112213e6c8faf466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39934c194406f108a992d82a4d265381"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a39934c194406f108a992d82a4d265381">Update</a> (float delta) override</td></tr>
 <tr class="separator:a39934c194406f108a992d82a4d265381"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64e4eb2d2516261468e2e23c92dec1b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a64e4eb2d2516261468e2e23c92dec1b4">Process</a> (HWND hWnd) override</td></tr>
-<tr class="separator:a64e4eb2d2516261468e2e23c92dec1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e3c97cd8ceeaea58017b66bd60b9d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a31e3c97cd8ceeaea58017b66bd60b9d7">Render</a> (const std::string &amp;bufferName) override</td></tr>
+<tr class="separator:a31e3c97cd8ceeaea58017b66bd60b9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87e49a2704cc5da20655ce41ae9782b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#aa87e49a2704cc5da20655ce41ae9782b">Process</a> () override</td></tr>
+<tr class="separator:aa87e49a2704cc5da20655ce41ae9782b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2979f16a5c35773cf2c243d8e6f90e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#ae2979f16a5c35773cf2c243d8e6f90e4">Release</a> () override</td></tr>
 <tr class="separator:ae2979f16a5c35773cf2c243d8e6f90e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0735c84f0cdd65088702b03c4ed7c7b7"><td class="memItemLeft" align="right" valign="top">LPDIRECT3DDEVICE9&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a0735c84f0cdd65088702b03c4ed7c7b7">GetDevice</a> ()</td></tr>
-<tr class="separator:a0735c84f0cdd65088702b03c4ed7c7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f814cda45f2b490e11c522f8e752e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a77f814cda45f2b490e11c522f8e752e3">Release</a> (const std::string &amp;bufferName) override</td></tr>
+<tr class="separator:a77f814cda45f2b490e11c522f8e752e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5db09c1cf0c5c45f61c631b174fcf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a7d5db09c1cf0c5c45f61c631b174fcf2">InitializeTextureArray</a> (const std::string &amp;bufferName, int size) override</td></tr>
+<tr class="separator:a7d5db09c1cf0c5c45f61c631b174fcf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e0bbf13e8045dab39bb2ef34028a94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a52e0bbf13e8045dab39bb2ef34028a94">CreateVertexBuffer</a> (const std::string &amp;bufferName, <a class="el" href="namespacese.html#a9ed62241331cac830c5c1ba8450afc2b">RenderType</a> type, <a class="el" href="structse_1_1_vertex.html">Vertex</a> *vertices, <a class="el" href="namespacese.html#ada11715de7cf6e87b5dfb4611fe68d29">Vector3i</a> *size=nullptr) override</td></tr>
+<tr class="separator:a52e0bbf13e8045dab39bb2ef34028a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c350a77a959847d3571e14feb72c85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a33c350a77a959847d3571e14feb72c85">CreateTexture</a> (const std::string &amp;bufferName, const std::string &amp;path, int id) override</td></tr>
+<tr class="separator:a33c350a77a959847d3571e14feb72c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3d1a8b4ee8812dea07f5ecda5efc42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#aab3d1a8b4ee8812dea07f5ecda5efc42">CreateMesh</a> (const std::string &amp;bufferName, const std::string &amp;path) override</td></tr>
+<tr class="separator:aab3d1a8b4ee8812dea07f5ecda5efc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0294b31c151540af98c78d1e33cb369a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a0294b31c151540af98c78d1e33cb369a">SetViewTransform</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> position, <a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> rotation) override</td></tr>
+<tr class="separator:a0294b31c151540af98c78d1e33cb369a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d6926ba18dac6ce23c7dea433de7bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_direct3_d.html#a74d6926ba18dac6ce23c7dea433de7bd">GetViewAxes</a> () override</td></tr>
+<tr class="separator:a74d6926ba18dac6ce23c7dea433de7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The renderer for DirectX 9 </p>
+<div class="textblock"><p>The renderer for DirectX 9. </p>
 
-<p class="definition">Definition at line <a class="el" href="_direct3_d_8h_source.html#l00015">15</a> of file <a class="el" href="_direct3_d_8h_source.html">Direct3D.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_direct3_d_8h_source.html#l00028">28</a> of file <a class="el" href="_direct3_d_8h_source.html">Direct3D.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a316456762829db0614077cccd655e654"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a316456762829db0614077cccd655e654">&#9670;&nbsp;</a></span>Create()</h2>
+<a id="af88b0fb33fe5bff1112213e6c8faf466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88b0fb33fe5bff1112213e6c8faf466">&#9670;&nbsp;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,8 +130,181 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void se::Direct3D::Create </td>
           <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>hWnd</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a DirectX renderer for the latest created <a class="el" href="classse_1_1_window.html">Window</a> in <a class="el" href="classse_1_1_window_manager.html">WindowManager</a>, it creates a new SwapChain and adds it to the list. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a3b0c7d8dc34c56513b3160e2cf1e094a">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="aab3d1a8b4ee8812dea07f5ecda5efc42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3d1a8b4ee8812dea07f5ecda5efc42">&#9670;&nbsp;</a></span>CreateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::CreateMesh </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a mesh with an .x file with the DirectX9 default pipeline to a given buffer. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a4a3e8836f7a8b1b35a5f7cb1b4231476">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a33c350a77a959847d3571e14feb72c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c350a77a959847d3571e14feb72c85">&#9670;&nbsp;</a></span>CreateTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::CreateTexture </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>To create a texture the texture array needs to be initialized with InitializeTextureArray to a given buffer. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a89f2efd2ee68cfb6735e51ce87206dfd">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a52e0bbf13e8045dab39bb2ef34028a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e0bbf13e8045dab39bb2ef34028a94">&#9670;&nbsp;</a></span>CreateVertexBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::CreateVertexBuffer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacese.html#a9ed62241331cac830c5c1ba8450afc2b">RenderType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structse_1_1_vertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacese.html#ada11715de7cf6e87b5dfb4611fe68d29">Vector3i</a> *&#160;</td>
+          <td class="paramname"><em>size</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a vertex buffer for a specific RenderType with the referenced vertices array and size for the primitivecount. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a953d57d04771acae78c3725bee3639d4">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a74d6926ba18dac6ce23c7dea433de7bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d6926ba18dac6ce23c7dea433de7bd">&#9670;&nbsp;</a></span>GetViewAxes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> se::Direct3D::GetViewAxes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -126,30 +314,53 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the current axes of the view. </p>
 
-<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#afdfce8b91028448c17ce27550827f192">se::AbstractRenderer</a>.</p>
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a8af4c1bef5cf120f6160f5d93dd74207">se::AbstractRenderer</a>.</p>
 
 </div>
 </div>
-<a id="a0735c84f0cdd65088702b03c4ed7c7b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0735c84f0cdd65088702b03c4ed7c7b7">&#9670;&nbsp;</a></span>GetDevice()</h2>
+<a id="a7d5db09c1cf0c5c45f61c631b174fcf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5db09c1cf0c5c45f61c631b174fcf2">&#9670;&nbsp;</a></span>InitializeTextureArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LPDIRECT3DDEVICE9 se::Direct3D::GetDevice </td>
+          <td class="memname">void se::Direct3D::InitializeTextureArray </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<p>Initialize a texture array to create texture(s) within that list to a given buffer. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#afd7697df1d4958ec3b0fa13109a269a1">se::AbstractRenderer</a>.</p>
 
 </div>
 </div>
-<a id="a64e4eb2d2516261468e2e23c92dec1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64e4eb2d2516261468e2e23c92dec1b4">&#9670;&nbsp;</a></span>Process()</h2>
+<a id="aa87e49a2704cc5da20655ce41ae9782b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa87e49a2704cc5da20655ce41ae9782b">&#9670;&nbsp;</a></span>Process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,8 +371,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void se::Direct3D::Process </td>
           <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>hWnd</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,13 +381,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Here it loops through all the windows, clears the screen, sets the backbuffer and begins, ends and presents the scene. It also sets the scale, rotation and position of all the entities of the current scene. </p>
 
-<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a302d3f6e465ad7df40c317068a5420fc">se::AbstractRenderer</a>.</p>
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a90596b2d067b4fa197b809191407be97">se::AbstractRenderer</a>.</p>
 
 </div>
 </div>
 <a id="ae2979f16a5c35773cf2c243d8e6f90e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2979f16a5c35773cf2c243d8e6f90e4">&#9670;&nbsp;</a></span>Release()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2979f16a5c35773cf2c243d8e6f90e4">&#9670;&nbsp;</a></span>Release() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,8 +409,106 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Release all the swapchains, the device and direct3d. </p>
 
 <p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a98e35b7db62827580573185ed91b25bb">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a77f814cda45f2b490e11c522f8e752e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f814cda45f2b490e11c522f8e752e3">&#9670;&nbsp;</a></span>Release() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::Release </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Release all components of a single <a class="el" href="structse_1_1_draw_components.html">DrawComponents</a> with the buffername in the componentslist. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#af6d6d012f070f95d4c49713002872fcc">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a31e3c97cd8ceeaea58017b66bd60b9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31e3c97cd8ceeaea58017b66bd60b9d7">&#9670;&nbsp;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::Render </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bufferName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>It sets all the relevant settings for the components and then draws the component. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a76058a91574874ab3c51294a2c9ea85c">se::AbstractRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a0294b31c151540af98c78d1e33cb369a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0294b31c151540af98c78d1e33cb369a">&#9670;&nbsp;</a></span>SetViewTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Direct3D::SetViewTransform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td>
+          <td class="paramname"><em>rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the position and rotation for the screen view. </p>
+
+<p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#a710e67232e977fbb3b74f79640e0b62e">se::AbstractRenderer</a>.</p>
 
 </div>
 </div>
@@ -226,6 +535,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Updates the view for the latest added camera. </p>
 
 <p>Implements <a class="el" href="classse_1_1_abstract_renderer.html#aae49e7417663d6a5aca34a2bb37b4b28">se::AbstractRenderer</a>.</p>
 

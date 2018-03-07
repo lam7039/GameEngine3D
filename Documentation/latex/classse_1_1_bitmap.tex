@@ -13,9 +13,7 @@
 \item 
 int \mbox{\hyperlink{classse_1_1_bitmap_a76c7fbaf5d2049af44abf83fe40a854d}{Load\+B\+MP}} (const std\+::string \&bmp\+File)
 \item 
-const unsigned int \mbox{\hyperlink{classse_1_1_bitmap_adff193db6b52af590cad8f7200a83b6c}{Get\+Width}} () const
-\item 
-const unsigned int \mbox{\hyperlink{classse_1_1_bitmap_a24d34941103efc40b746d16bc4650970}{Get\+Height}} () const
+const \mbox{\hyperlink{namespacese_ada11715de7cf6e87b5dfb4611fe68d29}{Vector3i}} \mbox{\hyperlink{classse_1_1_bitmap_a805adca2ccb528c6e694db84a51c7b66}{Get\+Size}} () const
 \item 
 unsigned char $\ast$ \mbox{\hyperlink{classse_1_1_bitmap_a2467e494eccacc94756c3f02b0d0cc5e}{Get\+Data}} ()
 \item 
@@ -24,9 +22,9 @@ unsigned char $\ast$ \mbox{\hyperlink{classse_1_1_bitmap_a7e0aa0d86804f241261c46
 
 
 \subsection{Detailed Description}
-With this class you can load a bitmap 
+With this class you can load a bitmap. 
 
-Definition at line 11 of file Bitmap.\+h.
+Definition at line 12 of file Bitmap.\+h.
 
 
 
@@ -52,31 +50,25 @@ Definition at line 11 of file Bitmap.\+h.
 \subsubsection{\texorpdfstring{Get\+Data()}{GetData()}}
 {\footnotesize\ttfamily unsigned char$\ast$ se\+::\+Bitmap\+::\+Get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get an array with values of 0-\/255 loaded from the bitmap from a single channel \mbox{\Hypertarget{classse_1_1_bitmap_a24d34941103efc40b746d16bc4650970}\label{classse_1_1_bitmap_a24d34941103efc40b746d16bc4650970}} 
-\index{se\+::\+Bitmap@{se\+::\+Bitmap}!Get\+Height@{Get\+Height}}
-\index{Get\+Height@{Get\+Height}!se\+::\+Bitmap@{se\+::\+Bitmap}}
-\subsubsection{\texorpdfstring{Get\+Height()}{GetHeight()}}
-{\footnotesize\ttfamily const unsigned int se\+::\+Bitmap\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-Get the given bitmap height \mbox{\Hypertarget{classse_1_1_bitmap_a7e0aa0d86804f241261c46307447a4f5}\label{classse_1_1_bitmap_a7e0aa0d86804f241261c46307447a4f5}} 
+Get an array with values of 0-\/255 loaded from the bitmap from a single channel. \mbox{\Hypertarget{classse_1_1_bitmap_a7e0aa0d86804f241261c46307447a4f5}\label{classse_1_1_bitmap_a7e0aa0d86804f241261c46307447a4f5}} 
 \index{se\+::\+Bitmap@{se\+::\+Bitmap}!Get\+Pixels@{Get\+Pixels}}
 \index{Get\+Pixels@{Get\+Pixels}!se\+::\+Bitmap@{se\+::\+Bitmap}}
 \subsubsection{\texorpdfstring{Get\+Pixels()}{GetPixels()}}
 {\footnotesize\ttfamily unsigned char$\ast$ se\+::\+Bitmap\+::\+Get\+Pixels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get an array with values of 0-\/255 loaded from the bitmap from all channels \mbox{\Hypertarget{classse_1_1_bitmap_adff193db6b52af590cad8f7200a83b6c}\label{classse_1_1_bitmap_adff193db6b52af590cad8f7200a83b6c}} 
-\index{se\+::\+Bitmap@{se\+::\+Bitmap}!Get\+Width@{Get\+Width}}
-\index{Get\+Width@{Get\+Width}!se\+::\+Bitmap@{se\+::\+Bitmap}}
-\subsubsection{\texorpdfstring{Get\+Width()}{GetWidth()}}
-{\footnotesize\ttfamily const unsigned int se\+::\+Bitmap\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+Get an array with values of 0-\/255 loaded from the bitmap from all channels. \mbox{\Hypertarget{classse_1_1_bitmap_a805adca2ccb528c6e694db84a51c7b66}\label{classse_1_1_bitmap_a805adca2ccb528c6e694db84a51c7b66}} 
+\index{se\+::\+Bitmap@{se\+::\+Bitmap}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!se\+::\+Bitmap@{se\+::\+Bitmap}}
+\subsubsection{\texorpdfstring{Get\+Size()}{GetSize()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacese_ada11715de7cf6e87b5dfb4611fe68d29}{Vector3i}} se\+::\+Bitmap\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get the given bitmap width \mbox{\Hypertarget{classse_1_1_bitmap_a76c7fbaf5d2049af44abf83fe40a854d}\label{classse_1_1_bitmap_a76c7fbaf5d2049af44abf83fe40a854d}} 
+Get the given bitmap size. \mbox{\Hypertarget{classse_1_1_bitmap_a76c7fbaf5d2049af44abf83fe40a854d}\label{classse_1_1_bitmap_a76c7fbaf5d2049af44abf83fe40a854d}} 
 \index{se\+::\+Bitmap@{se\+::\+Bitmap}!Load\+B\+MP@{Load\+B\+MP}}
 \index{Load\+B\+MP@{Load\+B\+MP}!se\+::\+Bitmap@{se\+::\+Bitmap}}
 \subsubsection{\texorpdfstring{Load\+B\+M\+P()}{LoadBMP()}}
 {\footnotesize\ttfamily int se\+::\+Bitmap\+::\+Load\+B\+MP (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bmp\+File }\end{DoxyParamCaption})}
 
-Load the bitmap with the file path 
+Load the bitmap with the file path. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

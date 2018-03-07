@@ -12,7 +12,7 @@ set(ROOT_DIR "${PROJECT_SOURCE_DIR}/../")
 message("Configuring the environment")
 include_directories(
 	"${ROOT_DIR}/Include"
-	"${ROOT_DIR}/../rapidxml"
+	"${ROOT_DIR}/ThirdParty/rapidxml"
 	"$ENV{PROGRAMFILES} (x86)/Microsoft DirectX SDK (June 2010)/Include"
 )
 

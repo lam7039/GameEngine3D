@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Engine: se::WindowManager Class Reference</title>
+<title>3D Game Engine: se::WindowManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Best Engine
+   <div id="projectname">3D Game Engine
+   &#160;<span id="projectnumber">1.2</span>
    </div>
-   <div id="projectbrief">A 3D Game Engine for KB01</div>
+   <div id="projectbrief">A 3D game engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -68,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classse_1_1_window_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">se::WindowManager Class Reference</div>  </div>
@@ -78,50 +80,90 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a327899bc3f1f588ce0908f98a36c5b50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a327899bc3f1f588ce0908f98a36c5b50">WindowManager</a> ()</td></tr>
-<tr class="separator:a327899bc3f1f588ce0908f98a36c5b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeae1c064ff6f5b166b10539addd5a53"><td class="memItemLeft" align="right" valign="top">HWND&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#abeae1c064ff6f5b166b10539addd5a53">OpenWindow</a> (const std::string &amp;title, int width, int height)</td></tr>
-<tr class="separator:abeae1c064ff6f5b166b10539addd5a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8679d9ddb58d3a4a3fba41f2c62ceeec"><td class="memItemLeft" align="right" valign="top">HWND&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a8679d9ddb58d3a4a3fba41f2c62ceeec">GetActiveWindow</a> ()</td></tr>
-<tr class="separator:a8679d9ddb58d3a4a3fba41f2c62ceeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93495e81b13dd081ff4f2c73af58c49c"><td class="memItemLeft" align="right" valign="top">HINSTANCE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a93495e81b13dd081ff4f2c73af58c49c">GetInstance</a> (int index)</td></tr>
-<tr class="separator:a93495e81b13dd081ff4f2c73af58c49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b009b78fcf4293f9e6bb88985f7803"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structse_1_1_window_entity.html">WindowEntity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a95b009b78fcf4293f9e6bb88985f7803">GetWindowList</a> () const</td></tr>
-<tr class="separator:a95b009b78fcf4293f9e6bb88985f7803"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd532f3d16f008eef0d9bec36d521c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a9cd532f3d16f008eef0d9bec36d521c0">SetPosition</a> (int index, int x, int y)</td></tr>
-<tr class="separator:a9cd532f3d16f008eef0d9bec36d521c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19b8aa0bcc7e96aaf2d29c4c9f3044f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a19b8aa0bcc7e96aaf2d29c4c9f3044f6">SetSize</a> (int index, int width, int height)</td></tr>
-<tr class="separator:a19b8aa0bcc7e96aaf2d29c4c9f3044f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a78ea2e729ff3e8395a1060a16346cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a9a78ea2e729ff3e8395a1060a16346cd">CloseWindow</a> (int index)</td></tr>
-<tr class="separator:a9a78ea2e729ff3e8395a1060a16346cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f9a776e1d8a44f80fea722b7cdb36c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classse_1_1_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#aa4f9a776e1d8a44f80fea722b7cdb36c">GetWindowList</a> () const</td></tr>
+<tr class="separator:aa4f9a776e1d8a44f80fea722b7cdb36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c5f4786f31a5ffbe12816cc4c1f839a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a7c5f4786f31a5ffbe12816cc4c1f839a">AddWindow</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, const std::string &amp;title, bool centered, int x, int y, int width, int height, <a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *input)</td></tr>
+<tr class="separator:a7c5f4786f31a5ffbe12816cc4c1f839a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9106e9a62fa38456da31055f3a663ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#ae9106e9a62fa38456da31055f3a663ea">CloseAll</a> ()</td></tr>
 <tr class="separator:ae9106e9a62fa38456da31055f3a663ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec9f7b4a351181abd1a9963a33494614"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#aec9f7b4a351181abd1a9963a33494614">GetWindowCount</a> ()</td></tr>
 <tr class="separator:aec9f7b4a351181abd1a9963a33494614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a95991bd0d710a1e7b05d1faef2581633"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classse_1_1_window_manager.html">WindowManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a95991bd0d710a1e7b05d1faef2581633">GetInstance</a> ()</td></tr>
+<tr class="separator:a95991bd0d710a1e7b05d1faef2581633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>You can use this to create a window </p>
+<div class="textblock"><p>You can use this manager to create one or more windows. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00021">21</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a327899bc3f1f588ce0908f98a36c5b50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a327899bc3f1f588ce0908f98a36c5b50">&#9670;&nbsp;</a></span>WindowManager()</h2>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00016">16</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7c5f4786f31a5ffbe12816cc4c1f839a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5f4786f31a5ffbe12816cc4c1f839a">&#9670;&nbsp;</a></span>AddWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">se::WindowManager::WindowManager </td>
+          <td class="memname">void se::WindowManager::AddWindow </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>centered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *&#160;</td>
+          <td class="paramname"><em>input</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Create a new window, set a renderer and input to the window. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae9106e9a62fa38456da31055f3a663ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9106e9a62fa38456da31055f3a663ea">&#9670;&nbsp;</a></span>CloseAll()</h2>
 
@@ -136,63 +178,33 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Close all windows </p>
+<p>Close all created windows. </p>
 
 </div>
 </div>
-<a id="a9a78ea2e729ff3e8395a1060a16346cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a78ea2e729ff3e8395a1060a16346cd">&#9670;&nbsp;</a></span>CloseWindow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void se::WindowManager::CloseWindow </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Close a specified window </p>
-
-</div>
-</div>
-<a id="a8679d9ddb58d3a4a3fba41f2c62ceeec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8679d9ddb58d3a4a3fba41f2c62ceeec">&#9670;&nbsp;</a></span>GetActiveWindow()</h2>
+<a id="a95991bd0d710a1e7b05d1faef2581633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95991bd0d710a1e7b05d1faef2581633">&#9670;&nbsp;</a></span>GetInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">HWND se::WindowManager::GetActiveWindow </td>
+          <td class="memname">static <a class="el" href="classse_1_1_window_manager.html">WindowManager</a>* se::WindowManager::GetInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Returns the active window </p>
-
-</div>
-</div>
-<a id="a93495e81b13dd081ff4f2c73af58c49c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93495e81b13dd081ff4f2c73af58c49c">&#9670;&nbsp;</a></span>GetInstance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">HINSTANCE se::WindowManager::GetInstance </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the instance of the window by given index </p>
+<p>Get the initiated instance of <a class="el" href="classse_1_1_window_manager.html">WindowManager</a> to use its methods. </p>
 
 </div>
 </div>
@@ -210,130 +222,25 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the amount of created windows </p>
+<p>Returns the amount of created windows. </p>
 
 </div>
 </div>
-<a id="a95b009b78fcf4293f9e6bb88985f7803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95b009b78fcf4293f9e6bb88985f7803">&#9670;&nbsp;</a></span>GetWindowList()</h2>
+<a id="aa4f9a776e1d8a44f80fea722b7cdb36c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f9a776e1d8a44f80fea722b7cdb36c">&#9670;&nbsp;</a></span>GetWindowList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structse_1_1_window_entity.html">WindowEntity</a>&gt; se::WindowManager::GetWindowList </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classse_1_1_window.html">Window</a>&gt; se::WindowManager::GetWindowList </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get all windows </p>
-
-</div>
-</div>
-<a id="abeae1c064ff6f5b166b10539addd5a53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeae1c064ff6f5b166b10539addd5a53">&#9670;&nbsp;</a></span>OpenWindow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">HWND se::WindowManager::OpenWindow </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>title</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Create a new window </p>
-
-</div>
-</div>
-<a id="a9cd532f3d16f008eef0d9bec36d521c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd532f3d16f008eef0d9bec36d521c0">&#9670;&nbsp;</a></span>SetPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void se::WindowManager::SetPosition </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set the position of the given window </p>
-
-</div>
-</div>
-<a id="a19b8aa0bcc7e96aaf2d29c4c9f3044f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19b8aa0bcc7e96aaf2d29c4c9f3044f6">&#9670;&nbsp;</a></span>SetSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void se::WindowManager::SetSize </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set the size of the given window </p>
+<p>Get a list of all created windows. </p>
 
 </div>
 </div>

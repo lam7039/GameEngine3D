@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kernel',['Kernel',['../classse_1_1_kernel.html',1,'se::Kernel'],['../classse_1_1_kernel.html#a3b5a0ed3fc4ba8a4be28adc77f803bd5',1,'se::Kernel::Kernel()']]],
-  ['kernel_2eh',['Kernel.h',['../_kernel_8h.html',1,'']]]
+  ['loadbmp',['LoadBMP',['../classse_1_1_bitmap.html#a76c7fbaf5d2049af44abf83fe40a854d',1,'se::Bitmap']]],
+  ['log',['Log',['../classse_1_1_debug.html#a3ebaea1144b70d56762d2b1054c8251d',1,'se::Debug']]]
 ];

@@ -7,52 +7,36 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classse_1_1_kernel_a3b5a0ed3fc4ba8a4be28adc77f803bd5}{Kernel}} (const std\+::string \&title, bool centered, int x, int y, int width, int height, \mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, \mbox{\hyperlink{classse_1_1_input}{Input}} $\ast$input)
-\item 
-void \mbox{\hyperlink{classse_1_1_kernel_aa65f624076feaa97a95901077df35357}{Add\+Window}} (const std\+::string \&title, int x, int y, int width, int height)
-\item 
-void \mbox{\hyperlink{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}{Set\+Camera\+Controller}} (\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$camera\+Controller)
+\mbox{\hyperlink{classse_1_1_kernel_abc8105369975f3df1199537b6efe5214}{Kernel}} (const std\+::string \&title, bool centered, int x, int y, int width, int height, \mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, \mbox{\hyperlink{classse_1_1_abstract_input}{Abstract\+Input}} $\ast$input)
 \item 
 int \mbox{\hyperlink{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}{Enter\+Loop}} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This class is the heart of this engine 
+This class is the heart of this engine. 
 
-Definition at line 16 of file Kernel.\+h.
+Definition at line 15 of file Kernel.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classse_1_1_kernel_a3b5a0ed3fc4ba8a4be28adc77f803bd5}\label{classse_1_1_kernel_a3b5a0ed3fc4ba8a4be28adc77f803bd5}} 
+\mbox{\Hypertarget{classse_1_1_kernel_abc8105369975f3df1199537b6efe5214}\label{classse_1_1_kernel_abc8105369975f3df1199537b6efe5214}} 
 \index{se\+::\+Kernel@{se\+::\+Kernel}!Kernel@{Kernel}}
 \index{Kernel@{Kernel}!se\+::\+Kernel@{se\+::\+Kernel}}
 \subsubsection{\texorpdfstring{Kernel()}{Kernel()}}
-{\footnotesize\ttfamily se\+::\+Kernel\+::\+Kernel (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{bool}]{centered,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{classse_1_1_input}{Input}} $\ast$}]{input }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily se\+::\+Kernel\+::\+Kernel (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{bool}]{centered,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{classse_1_1_abstract_input}{Abstract\+Input}} $\ast$}]{input }\end{DoxyParamCaption})}
 
-Initialize the kernel with standard values and the renderer and input it\textquotesingle{}s supposed to use 
+Initialize the kernel with the renderer and input it\textquotesingle{}s supposed to use and creates a window. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_kernel_aa65f624076feaa97a95901077df35357}\label{classse_1_1_kernel_aa65f624076feaa97a95901077df35357}} 
-\index{se\+::\+Kernel@{se\+::\+Kernel}!Add\+Window@{Add\+Window}}
-\index{Add\+Window@{Add\+Window}!se\+::\+Kernel@{se\+::\+Kernel}}
-\subsubsection{\texorpdfstring{Add\+Window()}{AddWindow()}}
-{\footnotesize\ttfamily void se\+::\+Kernel\+::\+Add\+Window (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
-
-Create another window \mbox{\Hypertarget{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}\label{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}} 
+\mbox{\Hypertarget{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}\label{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}} 
 \index{se\+::\+Kernel@{se\+::\+Kernel}!Enter\+Loop@{Enter\+Loop}}
 \index{Enter\+Loop@{Enter\+Loop}!se\+::\+Kernel@{se\+::\+Kernel}}
 \subsubsection{\texorpdfstring{Enter\+Loop()}{EnterLoop()}}
 {\footnotesize\ttfamily int se\+::\+Kernel\+::\+Enter\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Enter the gameloop \mbox{\Hypertarget{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}\label{classse_1_1_kernel_a60a807b4f4e928752e7512f5b7b4a17c}} 
-\index{se\+::\+Kernel@{se\+::\+Kernel}!Set\+Camera\+Controller@{Set\+Camera\+Controller}}
-\index{Set\+Camera\+Controller@{Set\+Camera\+Controller}!se\+::\+Kernel@{se\+::\+Kernel}}
-\subsubsection{\texorpdfstring{Set\+Camera\+Controller()}{SetCameraController()}}
-{\footnotesize\ttfamily void se\+::\+Kernel\+::\+Set\+Camera\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} $\ast$}]{camera\+Controller }\end{DoxyParamCaption})}
-
-Set the \mbox{\hyperlink{classse_1_1_camera_controller}{Camera\+Controller}} you want to use 
+Enter the gameloop, it updates the input, renderer and current scene. Automatically removes all scenes and windows and releases the renderer as well when it quits the loop. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
