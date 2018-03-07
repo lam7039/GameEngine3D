@@ -27,7 +27,7 @@ namespace se {
 			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Assets root does not exist");
 		}
 		else {
-			for (rapidxml::xml_node<> *asset = node->first_node(); asset; asset = asset->next_sibling()) {
+			for (rapidxml::xml_node<> *asset = node->first_node("Asset"); asset; asset = asset->next_sibling()) {
 				std::string type = asset->first_node("Type")->value();
 
 				std::string *sources;
@@ -56,7 +56,7 @@ namespace se {
 			m_logger.Log(ERRORTYPE_WARNING, __FILE__, __LINE__, "Scenes root does not exist");
 		}
 		else {
-			for (rapidxml::xml_node<> *scene = node->first_node(); scene; scene = scene->next_sibling()) {
+			for (rapidxml::xml_node<> *scene = node->first_node("Scene"); scene; scene = scene->next_sibling()) {
 				SceneManager::GetInstance()->AddScene(scene->first_node()->value());
 				for (rapidxml::xml_node<> *entity = scene->first_node("Entity"); entity; entity = entity->next_sibling()) {
 					rapidxml::xml_node<> *entityNode;
@@ -98,7 +98,7 @@ namespace se {
 					std::string type = (entityNode) ? entityNode->value() : "";
 
 					Entity *createdEntity = CreateEntity(type, assetName, position, scale, rotation);
-					SceneManager::GetInstance()->GetScene(scene->first_node()->value())->AddEntity(createdEntity);
+					SceneManager::GetInstance()->GetScene(scene->first_node("Name")->value())->AddEntity(createdEntity);
 				}
 			}
 		}

@@ -33,6 +33,9 @@ namespace se {
 	}
 
 	void AssetManager::ReleaseAsset(const std::string &name) {
+		if (m_assets.find(name) != m_assets.end()) {
+			return;
+		}
 		m_assets[name]->Release();
 		m_assets.erase(name);
 	}
