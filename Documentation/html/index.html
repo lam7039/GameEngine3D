@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: Main Page</title>
+<title>Best Engine: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
+   <div id="projectname">Best Engine
    &#160;<span id="projectnumber">1.2</span>
    </div>
    <div id="projectbrief">A 3D game engine for KB-01</div>
@@ -64,7 +64,7 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">3D Game Engine Documentation</div>  </div>
+<div class="title">Best Engine Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
 <h1>Development Setup (Windows)</h1>
@@ -93,6 +93,76 @@ $(function() {
     <li><a href="https://github.com/lamram/GameEngine3D">https://github.com/lamram/GameEngine3D</a></li>
     <li><a href="https://github.com/lamram/ExecutingProject">https://github.com/lamram/ExecutingProject</a></li>
   </ul>
+  <h1>Creating a level file with XML</h1>
+  To add assets, encapsulate an Asset with the Assets tag. Then give it a Type of Model, Skybox or Terrain. Also give an AssetName so an entity can use the asset. If the type of an asset is a Terrain, then you can add a HeightmapPath to the Asset. Finally give it an AssetPath, a path to the asset you want to load in. Example:<br />
+  &lt;Assets&gt;<br />
+  &emsp;&lt;Asset&gt;<br />
+  &emsp;&emsp;&lt;Type&gt;Model&lt;/Type&gt;<br />
+  &emsp;&emsp;&lt;AssetName&gt;MyAmazingAssetName&lt;/AssetName&gt;<br />
+  &emsp;&emsp;&lt;AssetPath&gt;Assets\\MyAmazingAsset.x&lt;/AssetPath&gt;<br />
+  &emsp;&lt;/Asset&gt; <br />
+  &emsp;&lt;Asset&gt;<br />
+  &emsp;&emsp;&lt;Type&gt;Terrain&lt;/Type&gt;<br />
+  &emsp;&emsp;&lt;AssetName&gt;MyLessAmazingTerrain&lt;/AssetName&gt;<br />
+  &emsp;&emsp;&lt;AssetPath&gt;Assets\\MyLessAmazingTexture.jpg&lt;/AssetPath&gt;<br />
+  &emsp;&emsp;&lt;HeightmapPath&gt;Assets\\MyHeightmap.bmp&lt;/HeightmapPath&gt;<br />
+  &emsp;&lt;/Asset&gt; <br />
+  &lt;/Assets&gt; <br />
+  Adding scenes and entities in the scenes is a similar process, encapsulate Scene with the Scenes tag, you can give a name to a scene with the Name tag and add an entity with the Entity tag. In the entity tag you have to assign a Type, which are Model, Terrain, Skybox or Camera. You can add an asset that the entity is gonna use with the AssetName tag. you put the name of the added asset in. Other than that you can add a Position, Scale and Rotation which each encapsulates the x, y and z tags. Example:<br />
+  &lt;Scenes&gt;<br />
+  &emsp;&lt;Scene&gt;<br />
+  &emsp;&emsp;&lt;Name&gt;FirstScene&lt;/Name&gt;<br />
+  &emsp;&emsp;&lt;Entity&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Type&gt;Model&lt;/Type&gt;<br />
+  &emsp;&emsp;&emsp;&lt;AssetName&gt;MyAmazingAssetName&lt;/AssetName&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Position&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;0.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;0.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;10.0&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Position&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Rotation&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;0.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;0.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;1.570796&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Rotation&gt;<br />
+  &emsp;&emsp;&lt;/Entity&gt; <br />
+  &emsp;&lt;/Scene&gt; <br />
+  &emsp;&lt;Scene&gt;<br />
+  &emsp;&emsp;&lt;Name&gt;SecondScene&lt;/Name&gt;<br />
+  &emsp;&emsp;&lt;Entity&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Type&gt;Model&lt;/Type&gt;<br />
+  &emsp;&emsp;&emsp;&lt;AssetName&gt;MyAmazingAssetName&lt;/AssetName&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Position&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;0.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;0.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;10.0&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Position&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Rotation&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;0.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;0.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;1.570796&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Rotation&gt;<br />
+  &emsp;&emsp;&lt;/Entity&gt; <br />
+  &emsp;&emsp;&lt;Entity&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Type&gt;Terrain&lt;/Type&gt;<br />
+  &emsp;&emsp;&emsp;&lt;AssetName&gt;MyLessAmazingTerrain&lt;/AssetName&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Position&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;-5.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;0.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;10.0&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Position&gt;<br />
+  &emsp;&emsp;&emsp;&lt;Scale&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;x&gt;2.0&lt;/x&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;y&gt;2.0&lt;/y&gt;<br />
+  &emsp;&emsp;&emsp;&emsp;&lt;z&gt;2.0&lt;/z&gt;<br />
+  &emsp;&emsp;&emsp;&lt;/Scale&gt;<br />
+  &emsp;&emsp;&lt;/Entity&gt; <br />
+  &emsp;&emsp;&lt;Entity&gt; <br />
+  &emsp;&emsp;&emsp;&lt;Type&gt;Camera&lt;/Type&gt;<br />
+  &emsp;&emsp;&lt;/Entity&gt; <br />
+  &emsp;&lt;/Scene&gt; <br />
+  &lt;/Scenes&gt; <br />
+  After having created a level file you can load it with the SceneLoader like: "se::SceneLoader loader(renderer "Assets\\level.xml", input)".
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

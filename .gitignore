@@ -25,3 +25,8 @@
 # Project
 Project/VisualStudio14/
 Project/VisualStudio15/
+
+# Documentation
+Documentation/*
+Documentation/html/*
+Documentation/latex/*
