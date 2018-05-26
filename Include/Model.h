@@ -20,7 +20,7 @@ namespace se {
 		///
 		/// Render the model asset.
 		///
-		void Render();
+		void Render() override;
 		///
 		/// Release the model asset.
 		///

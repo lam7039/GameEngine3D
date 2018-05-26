@@ -22,7 +22,7 @@ namespace se {
 		///
 		/// Render the terrain asset.
 		///
-		void Render();
+		void Render() override;
 		///
 		/// Release the terrain asset.
 		///

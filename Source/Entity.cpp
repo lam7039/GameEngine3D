@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "AssetManager.h"
 
 namespace se {
 
@@ -11,7 +12,12 @@ namespace se {
 	void Entity::Update(float delta) {
 	}
 
+	void Entity::Render() {
+		AssetManager::GetInstance()->GetAsset(m_assetName)->Render();
+	}
+
 	void Entity::Release() {
+		AssetManager::GetInstance()->GetAsset(m_assetName)->Release();
 	}
 
 	void Entity::SetPosition(float x, float y, float z) {

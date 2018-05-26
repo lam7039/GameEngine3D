@@ -72,6 +72,10 @@ namespace se {
 		///
 		virtual void Release();
 		///
+		/// Render the entity model
+		///
+		virtual void Render();
+		///
 		/// Get the current position of the entity.
 		///
 		Vector3f *GetPosition();

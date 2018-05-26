@@ -7,7 +7,8 @@ namespace se {
 	}
 
 	void Model::Render() {
-		m_renderer->Render(m_assetName);
+		m_renderer->SetSamplerState(0, SAMP_MIPFILTER, TEXF_LINEAR);
+		m_renderer->DrawMesh(m_assetName);
 	}
 
 	void Model::Release() {

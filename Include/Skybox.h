@@ -20,7 +20,7 @@ namespace se {
 		///
 		/// Render the skybox asset.
 		///
-		void Render();
+		void Render() override;
 		///
 		/// Release the skybox asset.
 		///

@@ -106,15 +106,6 @@ namespace se {
 		materialBuffer->Release();
 	}
 
-	void Direct3D::SetViewTransform(Vector3f position, Vector3f rotation) {
-		m_viewPosition = position;
-		m_viewRotation = rotation;
-	}
-
-	Vector3f Direct3D::GetViewAxes() {
-		return Vector3f(m_viewYaw, m_viewPitch, 0.0f);
-	}
-
 	void Direct3D::Update(float delta) {
 		m_viewPitch = D3DXToRadian(m_viewRotation.x);
 		m_viewYaw = D3DXToRadian(m_viewRotation.y) - (D3DX_PI / 2);
@@ -152,31 +143,6 @@ namespace se {
 		m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
-	void Direct3D::Render(const std::string &bufferName) {
-		DrawComponents &drawComponent = m_drawComponents[bufferName];
-		m_device->SetFVF(D3DFVF_XYZ | D3DFVF_TEX1);
-		m_device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-		m_device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
-		if (drawComponent.mipMap) {
-			m_device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
-		}
-		else {
-			m_device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
-		}
-		if (drawComponent.mesh) {
-			for (int i = 0; i < drawComponent.textureCount; i++) {
-				m_device->SetMaterial(&drawComponent.materials[i]);
-				m_device->SetTexture(i, drawComponent.textures[i]);
-				drawComponent.mesh->DrawSubset(i);
-			}
-		}
-		else {
-			m_device->SetStreamSource(0, drawComponent.buffer, 0, sizeof(Vertex));
-			m_device->SetTexture(0, drawComponent.textures[0]);
-			m_device->DrawPrimitive(D3DPT_TRIANGLELIST, 0, drawComponent.primitiveCount);
-		}
-	}
-
 	void Direct3D::Process() {
 		for (int i = 0; i < m_swapChains.size(); i++) {
 			m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
@@ -198,13 +164,7 @@ namespace se {
 					D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation->x, rotation->y, rotation->z);
 					D3DXMatrixTranslation(&m_matTranslate, position->x, position->y, position->z);
 					m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
-					std::string assetName = m_currentSceneEntities[j]->GetAssetName();
-					if (assetName != "") {
-						AbstractAsset *currentAsset = AssetManager::GetInstance()->GetAssetList()[assetName];
-						if (currentAsset) {
-							currentAsset->Render();
-						}
-					}
+					m_currentSceneEntities[j]->Render();
 				}
 			}
 
@@ -231,6 +191,69 @@ namespace se {
 		for (int i = 0; i < drawComponent.textureCount; i++) {
 			drawComponent.textures[i]->Release();
 		}
+	}
+
+	void Direct3D::DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) {
+		if (bufferName == "") {
+			return;
+		}
+		m_device->DrawPrimitive(static_cast<D3DPRIMITIVETYPE>(primitiveType), 0, m_drawComponents[bufferName].primitiveCount);
+	}
+
+	void Direct3D::DrawMesh(const std::string &bufferName) {
+		if (bufferName == "") {
+			return;
+		}
+		DrawComponents &drawComponent = m_drawComponents[bufferName];
+		if (!drawComponent.mesh) {
+			return;
+		}
+		for (int i = 0; i < drawComponent.textureCount; i++) {
+			SetMaterial(bufferName, i);
+			SetTexture(i, bufferName, i);
+			drawComponent.mesh->DrawSubset(i);
+		}
+	}
+
+	void Direct3D::SetFVF(bool coords, bool diffuse, bool specular, bool texture) {
+		m_device->SetFVF((coords ? D3DFVF_XYZ : NULL) | (diffuse ? D3DFVF_DIFFUSE : NULL) | (specular ? D3DFVF_SPECULAR : NULL) | (texture ? D3DFVF_TEX1 : NULL));
+	}
+
+	void Direct3D::SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) {
+		m_device->SetSamplerState(sampler, static_cast<D3DSAMPLERSTATETYPE>(samplerStateType), textureFilterType);
+	}
+
+	void Direct3D::SetTexture(int stage, const std::string &bufferName, int index) {
+		if (bufferName == "") {
+			return;
+		}
+		m_device->SetTexture(index, m_drawComponents[bufferName].textures[index]);
+	}
+
+	void Direct3D::SetMaterial(const std::string &bufferName, int index) {
+		if (bufferName == "") {
+			return;
+		}
+		m_device->SetMaterial(&m_drawComponents[bufferName].materials[index]);
+	}
+
+	void Direct3D::SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride) {
+		if (bufferName == "") {
+			return;
+		}
+		if (stride == 0) {
+			stride = sizeof(Vertex);
+		}
+		m_device->SetStreamSource(streamNumber, m_drawComponents[bufferName].buffer, offsetInBytes, stride);
+	}
+
+	void Direct3D::SetViewTransform(Vector3f position, Vector3f rotation) {
+		m_viewPosition = position;
+		m_viewRotation = rotation;
+	}
+
+	Vector3f Direct3D::GetViewAxes() {
+		return Vector3f(m_viewYaw, m_viewPitch, 0.0f);
 	}
 
 }

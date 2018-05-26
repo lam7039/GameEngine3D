@@ -28,16 +28,19 @@ namespace se {
 		m_assets[name] = model;
 	}
 
-	std::unordered_map<std::string, AbstractAsset*> AssetManager::GetAssetList() {
-		return m_assets;
-	}
-
 	void AssetManager::ReleaseAsset(const std::string &name) {
 		if (m_assets.find(name) != m_assets.end()) {
 			return;
 		}
 		m_assets[name]->Release();
 		m_assets.erase(name);
+	}
+
+	AbstractAsset* AssetManager::GetAsset(const std::string &name) {
+		if (m_assets.find(name) == m_assets.end()) {
+			return nullptr;
+		}
+		return m_assets[name];
 	}
 
 }

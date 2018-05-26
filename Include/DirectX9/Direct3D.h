@@ -36,10 +36,6 @@ namespace se {
 		///
 		void Update(float delta) override;
 		///
-		/// It sets all the relevant settings for the components and then draws the component.
-		///
-		void Render(const std::string &bufferName) override;
-		///
 		/// Here it loops through all the windows, clears the screen, sets the backbuffer and begins, ends and presents the scene.
 		/// It also sets the scale, rotation and position of all the entities of the current scene.
 		///
@@ -68,6 +64,15 @@ namespace se {
 		/// Create a mesh with an .x file with the DirectX9 default pipeline to a given buffer.
 		///
 		void CreateMesh(const std::string &bufferName, const std::string &path) override;
+		/**/
+		void SetFVF(bool coords, bool diffuse, bool specular, bool texture) override;
+		void SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) override;
+		void SetTexture(int stage, const std::string &bufferName, int index) override;
+		void SetMaterial(const std::string &bufferName, int index) override;
+		void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) override;
+		void DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) override;
+		void DrawMesh(const std::string &bufferName) override;
+		/**/
 		///
 		/// Set the position and rotation for the screen view.
 		///

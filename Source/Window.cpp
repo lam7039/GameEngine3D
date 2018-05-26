@@ -53,7 +53,7 @@ namespace se {
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 
-	ATOM Window::RegisterWindowProc(HINSTANCE hInstance, const std::string &className) {
+	unsigned short Window::RegisterWindowProc(HINSTANCE hInstance, const std::string &className) {
 		WNDCLASSEX wc;
 		ZeroMemory(&wc, sizeof(WNDCLASSEX));
 		wc.cbSize = sizeof(WNDCLASSEX);

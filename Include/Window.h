@@ -39,7 +39,7 @@ namespace se {
 		std::string m_title;
 		Vector3i m_position;
 		Vector3i m_size;
-		ATOM RegisterWindowProc(HINSTANCE hInstance, const std::string &className);
+		unsigned short RegisterWindowProc(HINSTANCE hInstance, const std::string &className);
 		static LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	};
 

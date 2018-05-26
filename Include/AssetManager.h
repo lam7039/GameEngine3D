@@ -13,6 +13,10 @@ namespace se {
 	class AssetManager {
 	public:
 		///
+		/// Get the initiated instance of AssetManager to use its methods.
+		///
+		static AssetManager *GetInstance();
+		///
 		/// Add an asset with a name to refer it by.
 		///
 		void AddAsset(const std::string &name, AbstractAsset *asset);
@@ -20,14 +24,10 @@ namespace se {
 		/// Release an asset with the referred name.
 		///
 		void ReleaseAsset(const std::string &name);
-		///
-		/// Get the initiated instance of AssetManager to use its methods.
-		///
-		static AssetManager *GetInstance();
-		///
-		/// Get all assets in an unordered_map.
-		///
-		std::unordered_map<std::string, AbstractAsset*> GetAssetList();
+		//
+		// Get an asset with the given name
+		//
+		AbstractAsset* GetAsset(const std::string &name);
 	private:
 		static AssetManager *m_instance;
 		std::unordered_map<std::string, AbstractAsset*> m_assets;
