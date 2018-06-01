@@ -74,11 +74,11 @@ namespace se {
 		m_renderer->CreateVertexBuffer(m_assetName, RENDERTYPE_SKYBOX, vertices, &m_size);
 		m_renderer->InitializeTextureArray(m_assetName, 1);
 		m_renderer->CreateTexture(m_assetName, src, 0);
+		m_renderer->SetSamplerState(0, SAMP_MAGFILTER, TEXF_LINEAR);
+		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
 	}
 
 	void Skybox::Render() {
-		m_renderer->SetSamplerState(0, SAMP_MAGFILTER, TEXF_LINEAR);
-		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
 		m_renderer->SetFVF(true, false, false, true);
 		m_renderer->SetStreamSource(0, m_assetName, 0);
 		m_renderer->SetTexture(0, m_assetName, 0);

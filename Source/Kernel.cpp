@@ -58,7 +58,23 @@ namespace se {
 			}
 
 			// Drawing.
-			m_renderer->Process();
+			m_renderer->Clear();
+			m_renderer->SetRenderTarget();
+
+			m_renderer->BeginScene();
+
+			// Sets the positions of the entities and renders them on the active scene.
+			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
+				std::vector<Entity*> m_currentSceneEntities = SceneManager::GetInstance()->GetCurrentScene()->GetEntities();
+				for (int i = 0; i < m_currentSceneEntities.size(); i++) {
+					Entity* entity = m_currentSceneEntities[i];
+					m_renderer->SetTransform(entity->GetPosition(), entity->GetScale(), entity->GetRotation());
+					entity->Render();
+				}
+			}
+
+			m_renderer->EndScene();
+			m_renderer->Present();
 
 			fps.Update();
 		}

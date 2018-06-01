@@ -19,8 +19,8 @@ namespace se {
 			if (m_entities[i]->GetEntityType() == ENTITYTYPE_CAMERA) {
 				m_targetPosition = m_entities[i]->GetPosition();
 			}
-			if (m_entities[i]->GetEntityType() == ENTITYTYPE_SKYBOX && m_targetPosition) {
-				m_entities[i]->SetPosition(*m_targetPosition);
+			if (m_entities[i]->GetEntityType() == ENTITYTYPE_SKYBOX) {
+				m_entities[i]->SetPosition(m_targetPosition);
 			}
 		}
 	}

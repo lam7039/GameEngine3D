@@ -36,11 +36,6 @@ namespace se {
 		///
 		void Update(float delta) override;
 		///
-		/// Here it loops through all the windows, clears the screen, sets the backbuffer and begins, ends and presents the scene.
-		/// It also sets the scale, rotation and position of all the entities of the current scene.
-		///
-		void Process() override;
-		///
 		/// Release all the swapchains, the device and direct3d.
 		///
 		void Release() override;
@@ -65,6 +60,7 @@ namespace se {
 		///
 		void CreateMesh(const std::string &bufferName, const std::string &path) override;
 		/**/
+		//TODO: place comments explaining the methods
 		void SetFVF(bool coords, bool diffuse, bool specular, bool texture) override;
 		void SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) override;
 		void SetTexture(int stage, const std::string &bufferName, int index) override;
@@ -72,6 +68,12 @@ namespace se {
 		void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) override;
 		void DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) override;
 		void DrawMesh(const std::string &bufferName) override;
+		void Clear() override;
+		void SetRenderTarget() override;
+		void SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) override;
+		void BeginScene() override;
+		void EndScene() override;
+		void Present() override;
 		/**/
 		///
 		/// Set the position and rotation for the screen view.
@@ -87,6 +89,7 @@ namespace se {
 
 		// Window.
 		Vector3i m_size;
+		int m_currentRenderTarget;
 
 		// View.
 		float m_viewPitch;

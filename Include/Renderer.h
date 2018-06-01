@@ -79,11 +79,6 @@ namespace se {
 		///
 		virtual void Update(float delta) = 0;
 		///
-		/// For processing other data like setting the transformations to a device.
-		///
-		//TODO: is this necessary? (check if it is after you've moved rendering to the entity)
-		virtual void Process() = 0;
-		///
 		/// For releasing whatever needs releasing.
 		///
 		virtual void Release() = 0;
@@ -110,12 +105,18 @@ namespace se {
 		/**/
 		virtual void SetFVF(bool coords, bool diffuse, bool specular, bool texture) = 0;
 		virtual void SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) = 0;
-		//TODO: add and fix a lot of settings for the renderer
 		virtual void SetTexture(int stage, const std::string &bufferName, int index) = 0;
 		virtual void SetMaterial(const std::string &bufferName, int index) = 0;
 		virtual void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) = 0;
 		virtual void DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) = 0;
 		virtual void DrawMesh(const std::string &bufferName) = 0;
+		//TODO: make a clear method with parameters
+		virtual void Clear() = 0;
+		virtual void SetRenderTarget() = 0;
+		virtual void SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) = 0;
+		virtual void BeginScene() = 0;
+		virtual void EndScene() = 0;
+		virtual void Present() = 0;
 		/**/
 		///
 		/// Set the position and rotation for the screen view.

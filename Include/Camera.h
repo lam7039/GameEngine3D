@@ -17,6 +17,10 @@ namespace se {
 		///
 		Camera(AbstractRenderer *renderer, AbstractInput *input, const std::string &assetName);
 		///
+		/// Set the position of the camera.
+		///
+		void SetTarget(Vector3f *position, Vector3f *rotation);
+		///
 		/// Updates camera logic, it defaults to logic for a freeroaming camera, if a target is set it'll update it to the target.
 		///
 		void Update(float delta) override;
@@ -29,13 +33,9 @@ namespace se {
 		///
 		void Release() override;
 		///
-		/// Set the position of the camera.
-		///
-		void SetTarget(Vector3f *position, Vector3f *rotation);
-		///
 		/// Get the current position of the camera.
 		///
-		Vector3f *GetPosition();
+		Vector3f GetPosition() const override;
 	private:
 		AbstractRenderer *m_renderer;
 		AbstractInput *m_input;

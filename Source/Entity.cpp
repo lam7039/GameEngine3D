@@ -1,24 +1,6 @@
 #include "Entity.h"
-#include "AssetManager.h"
 
 namespace se {
-
-	Entity::Entity() {
-		m_assetName = "";
-		m_entityType = ENTITYTYPE_NOTYPE;
-		SetScale(1.0f, 1.0f, 1.0f);
-	}
-
-	void Entity::Update(float delta) {
-	}
-
-	void Entity::Render() {
-		AssetManager::GetInstance()->GetAsset(m_assetName)->Render();
-	}
-
-	void Entity::Release() {
-		AssetManager::GetInstance()->GetAsset(m_assetName)->Release();
-	}
 
 	void Entity::SetPosition(float x, float y, float z) {
 		m_position.x = x;
@@ -66,16 +48,15 @@ namespace se {
 		return m_entityType;
 	}
 
-	Vector3f *Entity::GetPosition() {
-		return &m_position;
+	Vector3f Entity::GetPosition() const {
+		return m_position;
 	}
 
-	Vector3f *Entity::GetScale() {
-		return &m_scale;
+	Vector3f Entity::GetScale() const {
+		return m_scale;
 	}
 
-	Vector3f *Entity::GetRotation() {
-		return &m_rotation;
+	Vector3f Entity::GetRotation() const {
+		return m_rotation;
 	}
-
 }

@@ -6,6 +6,7 @@
 namespace se {
 
 	void Direct3D::Create(int width, int height) {
+		m_currentRenderTarget = 0;
 		m_logger.SelectLogger("engine.log");
 		D3DPRESENT_PARAMETERS d3dpp;
 		ZeroMemory(&d3dpp, sizeof(d3dpp));
@@ -143,33 +144,38 @@ namespace se {
 		m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
-	void Direct3D::Process() {
-		for (int i = 0; i < m_swapChains.size(); i++) {
-			m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	void Direct3D::Clear() {
+		m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	}
 
-			LPDIRECT3DSURFACE9 backBuffer;
-			m_swapChains[i]->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
-			m_device->SetRenderTarget(0, backBuffer);
+	void Direct3D::SetRenderTarget() {
+		LPDIRECT3DSURFACE9 backBuffer;
+		m_swapChains[m_currentRenderTarget]->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
+		m_device->SetRenderTarget(0, backBuffer);
+	}
 
-			m_device->BeginScene();
+	void Direct3D::SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) {
+		D3DXMatrixScaling(&m_scale, scale.x, scale.y, scale.z);
+		D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation.x, rotation.y, rotation.z);
+		D3DXMatrixTranslation(&m_matTranslate, position.x, position.y, position.z);
+		m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
+	}
 
-			// Sets the positions of the entities and renders them on the active scene.
-			if (SceneManager::GetInstance()->GetSceneCount() > 0) {
-				std::vector<Entity*> m_currentSceneEntities = SceneManager::GetInstance()->GetCurrentScene()->GetEntities();
-				for (int j = 0; j < m_currentSceneEntities.size(); j++) {
-					Vector3f *position = m_currentSceneEntities[j]->GetPosition();
-					Vector3f *scale = m_currentSceneEntities[j]->GetScale();
-					Vector3f *rotation = m_currentSceneEntities[j]->GetRotation();
-					D3DXMatrixScaling(&m_scale, scale->x, scale->y, scale->z);
-					D3DXMatrixRotationYawPitchRoll(&m_matRotate, rotation->x, rotation->y, rotation->z);
-					D3DXMatrixTranslation(&m_matTranslate, position->x, position->y, position->z);
-					m_device->SetTransform(D3DTS_WORLD, &(m_scale * m_matRotate * m_matTranslate));
-					m_currentSceneEntities[j]->Render();
-				}
-			}
+	void Direct3D::BeginScene() {
+		m_device->BeginScene();
+	}
 
-			m_device->EndScene();
-			m_swapChains[i]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[i].GetWindowHandle(), NULL, 0);
+	void Direct3D::EndScene() {
+		m_device->EndScene();
+	}
+
+	void Direct3D::Present() {
+		m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+		if (m_currentRenderTarget < m_swapChains.size() - 1) {
+			m_currentRenderTarget++;
+		}
+		else {
+			m_currentRenderTarget = 0;
 		}
 	}
 

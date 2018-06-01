@@ -79,7 +79,6 @@ namespace se {
 	}
 
 	void Camera::Release() {
-		//TODO: release camera assets
 	}
 
 	void Camera::SetTarget(Vector3f *position, Vector3f *rotation) {
@@ -87,11 +86,11 @@ namespace se {
 		m_targetRotation = rotation;
 	}
 
-	Vector3f *Camera::GetPosition() {
+	Vector3f Camera::GetPosition() const {
 		if (m_targetPosition) {
-			return m_targetPosition;
+			return *m_targetPosition;
 		}
-		return &m_position;
+		return m_position;
 	}
 
 	float Camera::ToRadian(float value) {

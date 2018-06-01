@@ -30,7 +30,7 @@ namespace se {
 		const std::vector<Entity*> &GetEntities() const;
 	private:
 		std::vector<Entity*> m_entities;
-		Vector3f *m_targetPosition;
+		Vector3f m_targetPosition;
 	};
 
 }
