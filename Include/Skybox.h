@@ -18,13 +18,9 @@ namespace se {
 		///
 		Skybox(AbstractRenderer *renderer, const std::string &assetName, const std::string &src);
 		///
-		/// Render the skybox asset.
-		///
-		void Render() override;
-		///
 		/// Release the skybox asset.
 		///
-		void Release();
+		void Release() override;
 	private:
 		Debug m_logger;
 		Vector3i m_size;

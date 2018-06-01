@@ -18,13 +18,9 @@ namespace se {
 		///
 		Model(AbstractRenderer *renderer, const std::string &assetName, const std::string &path);
 		///
-		/// Render the model asset.
-		///
-		void Render() override;
-		///
 		/// Release the model asset.
 		///
-		void Release();
+		void Release() override;
 	private:
 		Debug m_logger;
 	};

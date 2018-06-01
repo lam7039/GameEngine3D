@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Vector3.h"
+#include "Renderer.h"
 
 namespace se {
 
@@ -29,11 +30,7 @@ namespace se {
 		///
 		/// Render the entity model
 		///
-		virtual void Render() = 0;
-		///
-		/// Release related entity data.
-		///
-		virtual void Release() = 0;
+		virtual void Render(AbstractRenderer *renderer) = 0;
 		///
 		/// Set the position of the entity with seperate floats.
 		///

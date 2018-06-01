@@ -14,6 +14,8 @@ namespace se {
 		m_assetName = assetName;
 		m_yaw = m_renderer->GetViewAxes().x;
 		m_pitch = m_renderer->GetViewAxes().y;
+		m_renderer->SetSamplerState(0, SAMP_MAGFILTER, TEXF_LINEAR);
+		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
 	}
 
 	void Camera::Update(float delta) {
@@ -69,16 +71,11 @@ namespace se {
 		}
 	}
 
-	void Camera::Render() {
-		m_renderer->SetSamplerState(0, SAMP_MAGFILTER, TEXF_LINEAR);
-		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
-		m_renderer->SetFVF(true, false, false, true);
-		m_renderer->SetStreamSource(0, m_assetName, 0);
-		m_renderer->SetTexture(0, m_assetName, 0);
-		m_renderer->DrawPrimitive(m_assetName, PT_TRIANGLELIST);
-	}
-
-	void Camera::Release() {
+	void Camera::Render(AbstractRenderer *renderer) {
+		renderer->SetFVF(true, false, false, true);
+		renderer->SetStreamSource(0, m_assetName, 0);
+		renderer->SetTexture(0, m_assetName, 0);
+		renderer->Draw(m_assetName);
 	}
 
 	void Camera::SetTarget(Vector3f *position, Vector3f *rotation) {

@@ -69,7 +69,7 @@ namespace se {
 				for (int i = 0; i < m_currentSceneEntities.size(); i++) {
 					Entity* entity = m_currentSceneEntities[i];
 					m_renderer->SetTransform(entity->GetPosition(), entity->GetScale(), entity->GetRotation());
-					entity->Render();
+					entity->Render(m_renderer);
 				}
 			}
 

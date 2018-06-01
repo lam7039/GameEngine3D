@@ -16,10 +16,6 @@ namespace se {
 		///
 		AbstractAsset(AbstractRenderer *renderer, const std::string &assetName);
 		///
-		/// Use this to render any asset that is a child of this interface.
-		///
-		virtual void Render() = 0;
-		///
 		/// Use this to release any asset that is a child of this interface.
 		///
 		virtual void Release() = 0;

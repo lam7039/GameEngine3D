@@ -9,9 +9,7 @@ namespace se {
 	}
 
 	AssetManager::~AssetManager() {
-		for (auto &i : m_assets) {
-			ReleaseAsset(i.first);
-		}
+		ReleaseAll();
 	}
 
 	AssetManager *AssetManager::GetInstance() {
@@ -34,6 +32,12 @@ namespace se {
 		}
 		m_assets[name]->Release();
 		m_assets.erase(name);
+	}
+
+	void AssetManager::ReleaseAll() {
+		for (auto &i : m_assets) {
+			ReleaseAsset(i.first);
+		}
 	}
 
 	AbstractAsset* AssetManager::GetAsset(const std::string &name) {

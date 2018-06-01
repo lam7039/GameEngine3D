@@ -15,11 +15,7 @@ namespace se {
 		///
 		/// Render the entity model
 		///
-		void Render() override;
-		///
-		/// Release related entity data.
-		///
-		void Release() override;
+		void Render(AbstractRenderer *renderer) override;
 	private:
 
 	};

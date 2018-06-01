@@ -12,12 +12,11 @@ namespace se {
 	void EntityDerived::Update(float delta) {
 	}
 
-	void EntityDerived::Render() {
-		AssetManager::GetInstance()->GetAsset(m_assetName)->Render();
-	}
-
-	void EntityDerived::Release() {
-		AssetManager::GetInstance()->GetAsset(m_assetName)->Release();
+	void EntityDerived::Render(AbstractRenderer *renderer) {
+		renderer->SetFVF(true, false, false, true);
+		renderer->SetStreamSource(0, m_assetName, 0);
+		renderer->SetTexture(0, m_assetName, 0);
+		renderer->Draw(m_assetName);
 	}
 
 }

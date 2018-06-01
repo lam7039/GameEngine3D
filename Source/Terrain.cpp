@@ -56,13 +56,6 @@ namespace se {
 		vertices = NULL;
 	}
 
-	void Terrain::Render() {
-		m_renderer->SetFVF(true, false, false, true);
-		m_renderer->SetStreamSource(0, m_assetName, 0);
-		m_renderer->SetTexture(0, m_assetName, 0);
-		m_renderer->DrawPrimitive(m_assetName, PT_TRIANGLELIST);
-	}
-
 	void Terrain::Release() {
 		m_renderer->Release(m_assetName);
 	}

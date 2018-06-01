@@ -20,13 +20,9 @@ namespace se {
 		///
 		Terrain(AbstractRenderer *renderer, const std::string &assetName, const std::string &heightMap, const std::string &texture);
 		///
-		/// Render the terrain asset.
-		///
-		void Render() override;
-		///
 		/// Release the terrain asset.
 		///
-		void Release();
+		void Release() override;
 	private:
 		Debug m_logger;
 		Bitmap m_bitmap;

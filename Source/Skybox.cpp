@@ -78,13 +78,6 @@ namespace se {
 		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
 	}
 
-	void Skybox::Render() {
-		m_renderer->SetFVF(true, false, false, true);
-		m_renderer->SetStreamSource(0, m_assetName, 0);
-		m_renderer->SetTexture(0, m_assetName, 0);
-		m_renderer->DrawPrimitive(m_assetName, PT_TRIANGLELIST);
-	}
-
 	void Skybox::Release() {
 		m_renderer->Release(m_assetName);
 	}

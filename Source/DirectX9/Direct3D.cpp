@@ -199,19 +199,13 @@ namespace se {
 		}
 	}
 
-	void Direct3D::DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) {
-		if (bufferName == "") {
-			return;
-		}
-		m_device->DrawPrimitive(static_cast<D3DPRIMITIVETYPE>(primitiveType), 0, m_drawComponents[bufferName].primitiveCount);
-	}
-
-	void Direct3D::DrawMesh(const std::string &bufferName) {
+	void Direct3D::Draw(const std::string &bufferName, PrimitiveType primitiveType) {
 		if (bufferName == "") {
 			return;
 		}
 		DrawComponents &drawComponent = m_drawComponents[bufferName];
 		if (!drawComponent.mesh) {
+			m_device->DrawPrimitive(static_cast<D3DPRIMITIVETYPE>(primitiveType), 0, drawComponent.primitiveCount);
 			return;
 		}
 		for (int i = 0; i < drawComponent.textureCount; i++) {

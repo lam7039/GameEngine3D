@@ -27,11 +27,7 @@ namespace se {
 		///
 		/// Render the camera with the asset it is set to, if it's set to anything.
 		///
-		void Render() override;
-		///
-		/// Release the asset from camera
-		///
-		void Release() override;
+		void Render(AbstractRenderer *renderer) override;
 		///
 		/// Get the current position of the camera.
 		///

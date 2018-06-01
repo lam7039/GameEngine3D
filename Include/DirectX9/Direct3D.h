@@ -66,8 +66,7 @@ namespace se {
 		void SetTexture(int stage, const std::string &bufferName, int index) override;
 		void SetMaterial(const std::string &bufferName, int index) override;
 		void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) override;
-		void DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) override;
-		void DrawMesh(const std::string &bufferName) override;
+		void Draw(const std::string &bufferName, PrimitiveType primitiveType = PT_TRIANGLELIST) override;
 		void Clear() override;
 		void SetRenderTarget() override;
 		void SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) override;

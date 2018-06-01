@@ -24,12 +24,16 @@ namespace se {
 		/// Release an asset with the referred name.
 		///
 		void ReleaseAsset(const std::string &name);
-		//
-		// Get an asset with the given name
-		//
+		///
+		/// Release all assets.
+		///
+		void ReleaseAll();
+		///
+		/// Get an asset with the given name
+		///
 		AbstractAsset* GetAsset(const std::string &name);
 		/**/
-		//TODO: comment this method
+		//TODO: add explanation to this method
 		std::string GetCurrentAssetName() const;
 		void SetCurrentAssetName(const std::string &name);
 		/**/

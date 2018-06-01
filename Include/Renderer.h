@@ -108,8 +108,7 @@ namespace se {
 		virtual void SetTexture(int stage, const std::string &bufferName, int index) = 0;
 		virtual void SetMaterial(const std::string &bufferName, int index) = 0;
 		virtual void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) = 0;
-		virtual void DrawPrimitive(const std::string &bufferName, PrimitiveType primitiveType) = 0;
-		virtual void DrawMesh(const std::string &bufferName) = 0;
+		virtual void Draw(const std::string &bufferName, PrimitiveType primitiveType = PT_TRIANGLELIST) = 0;
 		//TODO: make a clear method with parameters
 		virtual void Clear() = 0;
 		virtual void SetRenderTarget() = 0;
