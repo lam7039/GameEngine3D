@@ -19,10 +19,6 @@ namespace se {
 		/// Create a terrain with a renderer, heightmap for the heights and texture to put on the terrain.
 		///
 		Terrain(AbstractRenderer *renderer, const std::string &assetName, const std::string &heightMap, const std::string &texture);
-		///
-		/// Release the terrain asset.
-		///
-		void Release() override;
 	private:
 		Debug m_logger;
 		Bitmap m_bitmap;

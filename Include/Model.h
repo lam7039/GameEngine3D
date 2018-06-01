@@ -17,10 +17,6 @@ namespace se {
 		/// Create a model with a renderer and the path to the model you want to load.
 		///
 		Model(AbstractRenderer *renderer, const std::string &assetName, const std::string &path);
-		///
-		/// Release the model asset.
-		///
-		void Release() override;
 	private:
 		Debug m_logger;
 	};

@@ -56,7 +56,4 @@ namespace se {
 		vertices = NULL;
 	}
 
-	void Terrain::Release() {
-		m_renderer->Release(m_assetName);
-	}
 }

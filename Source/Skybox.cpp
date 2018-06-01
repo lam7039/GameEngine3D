@@ -78,8 +78,4 @@ namespace se {
 		m_renderer->SetSamplerState(0, SAMP_MINFILTER, TEXF_LINEAR);
 	}
 
-	void Skybox::Release() {
-		m_renderer->Release(m_assetName);
-	}
-
 }

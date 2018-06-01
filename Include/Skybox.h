@@ -17,10 +17,6 @@ namespace se {
 		/// Create a skybox with a renderer and a cubemap.
 		///
 		Skybox(AbstractRenderer *renderer, const std::string &assetName, const std::string &src);
-		///
-		/// Release the skybox asset.
-		///
-		void Release() override;
 	private:
 		Debug m_logger;
 		Vector3i m_size;

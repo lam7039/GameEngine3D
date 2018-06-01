@@ -18,7 +18,7 @@ namespace se {
 		///
 		/// Use this to release any asset that is a child of this interface.
 		///
-		virtual void Release() = 0;
+		virtual void Release();
 		///
 		/// Get the name of the asset.
 		///

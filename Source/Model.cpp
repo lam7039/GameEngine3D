@@ -7,8 +7,4 @@ namespace se {
 		m_renderer->SetSamplerState(0, SAMP_MIPFILTER, TEXF_LINEAR);
 	}
 
-	void Model::Release() {
-		m_renderer->Release(m_assetName);
-	}
-
 }
