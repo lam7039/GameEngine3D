@@ -29,17 +29,11 @@ namespace se {
 		///
 		void ReleaseAll();
 		///
-		/// Get an asset with the given name
+		/// Get an asset with the given name.
 		///
 		AbstractAsset* GetAsset(const std::string &name);
-		/**/
-		//TODO: add explanation to this method
-		std::string GetCurrentAssetName() const;
-		void SetCurrentAssetName(const std::string &name);
-		/**/
 	private:
 		static AssetManager *m_instance;
-		std::string m_currentAssetName;
 		std::unordered_map<std::string, AbstractAsset*> m_assets;
 		AssetManager();
 		~AssetManager();
