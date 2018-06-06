@@ -102,7 +102,6 @@ namespace se {
 
 	}
 
-	//TODO: create abstract factory for this maybe?
 	Entity *SceneLoader::CreateEntity(const std::string &type, const std::string &assetName, Vector3f position, Vector3f scale, Vector3f rotation) {
 		Entity *temp = new EntityDerived();
 		temp->SetAssetName(assetName);

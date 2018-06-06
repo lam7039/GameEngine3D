@@ -27,6 +27,9 @@ namespace se {
 		RENDERTYPE_SKYBOX
 	};
 
+	///
+	/// A type which you can pass to indicate what type of filtering you want to use.
+	///
 	enum TextureFilterType
 	{
 		TEXF_NONE = 0,					// filtering disabled (valid for mip filter only)
@@ -35,9 +38,11 @@ namespace se {
 		TEXF_ANISOTROPIC = 3,			// anisotropic
 		TEXF_PYRAMIDALQUAD = 6,			// 4-sample tent
 		TEXF_GAUSSIANQUAD = 7,			// 4-sample gaussian
-		TEXF_FORCE_DWORD = 0x7fffffff,	// force 32-bit size enum
 	};
 
+	///
+	/// A type which you can pass to indicate what type of sampling you want to use.
+	///
 	enum SamplerStateType {
 		SAMP_ADDRESSU = 1,
 		SAMP_ADDRESSV = 2,
@@ -52,9 +57,11 @@ namespace se {
 		SAMP_SRGBTEXTURE = 11,
 		SAMP_ELEMENTINDEX = 12,
 		SAMP_DMAPOFFSET = 13,
-		SAMP_FORCE_DWORD = 0x7fffffff
 	};
 
+	///
+	/// A type which you can pass to indicate what primitive type you want to use.
+	///
 	enum PrimitiveType {
 		PT_POINTLIST = 1,
 		PT_LINELIST = 2,
@@ -62,7 +69,6 @@ namespace se {
 		PT_TRIANGLELIST = 4,
 		PT_TRIANGLESTRIP = 5,
 		PT_TRIANGLEFAN = 6,
-		PT_FORCE_DWORD = 0x7fffffff, /* force 32-bit size enum */
 	};
 
 	///
@@ -102,21 +108,54 @@ namespace se {
 		/// Create a mesh with a pipeline.
 		///
 		virtual void CreateMesh(const std::string &bufferName, const std::string &path) = 0;
-		/**/
+		///
+		/// Set the vertex type.
+		///
 		virtual void SetFVF(bool coords, bool diffuse, bool specular, bool texture) = 0;
+		///
+		/// Set the sampler stage state value.
+		///
 		virtual void SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) = 0;
+		///
+		/// Set the texture to the given buffer.
+		///
 		virtual void SetTexture(int stage, const std::string &bufferName, int index) = 0;
+		///
+		/// Set the material to the given buffer.
+		///
 		virtual void SetMaterial(const std::string &bufferName, int index) = 0;
+		///
+		/// Bind a vertex buffer to a device data stream.
+		///
 		virtual void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) = 0;
+		///
+		/// Draw the buffer, if you draw a vertexbuffer you can set a PrimitiveType.
+		///
 		virtual void Draw(const std::string &bufferName, PrimitiveType primitiveType = PT_TRIANGLELIST) = 0;
-		//TODO: make a clear method with parameters
-		virtual void Clear() = 0;
-		virtual void SetRenderTarget() = 0;
+		///
+		/// Clear the target and/or z-buffer.
+		///
+		virtual void Clear(bool target, bool zBuffer) = 0;
+		///
+		/// Set the target swapchain which to render to, sets index automatically in Present() by default.
+		///
+		virtual void SetRenderTarget(int index = -1) = 0;
+		///
+		/// Set the world transformations.
+		///
 		virtual void SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) = 0;
+		///
+		/// Begin the scene on which to draw.
+		///
 		virtual void BeginScene() = 0;
+		///
+		/// End the scene on which to draw.
+		///
 		virtual void EndScene() = 0;
-		virtual void Present() = 0;
-		/**/
+		///
+		/// Present the current swapchain, by default it sets it and changes the current swapchain.
+		///
+		virtual void Present(int index = -1) = 0;
 		///
 		/// Set the position and rotation for the screen view.
 		///
