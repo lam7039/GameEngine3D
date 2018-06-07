@@ -60,7 +60,7 @@ namespace se {
 			}
 
 			// Drawing.
-			m_renderer->Clear();
+			m_renderer->Clear(true, true);
 			m_renderer->SetRenderTarget();
 
 			m_renderer->BeginScene();

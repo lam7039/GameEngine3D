@@ -31,20 +31,16 @@ namespace se {
 			for (rapidxml::xml_node<> *asset = node->first_node("Asset"); asset; asset = asset->next_sibling()) {
 				std::string type = asset->first_node("Type")->value();
 
-				std::string *sources;
+				AbstractAsset *createdAsset = nullptr;
 				if (asset->first_node("HeightmapPath")) {
-					sources = new std::string[2];
-					sources[0] = asset->first_node("AssetPath")->value();
-					sources[1] = asset->first_node("HeightmapPath")->value();
+					std::string assetPath = asset->first_node("AssetPath")->value();
+					std::string heightMapPath = asset->first_node("HeightmapPath")->value();
+					std::string sources[] = { assetPath, heightMapPath };
+					createdAsset = CreateAsset(type, asset->first_node("AssetName")->value(), sources);
 				}
 				else {
-					sources = new std::string[1];
-					sources[0] = asset->first_node("AssetPath")->value();
-				}
-
-				AbstractAsset *createdAsset = CreateAsset(type, asset->first_node("AssetName")->value(), sources);
-				if (sources) {
-					delete[] sources;
+					std::string assetPath = asset->first_node("AssetPath")->value();
+					createdAsset = CreateAsset(type, asset->first_node("AssetName")->value(), assetPath);
 				}
 				if (createdAsset) {
 					AssetManager::GetInstance()->AddAsset(asset->first_node("AssetName")->value(), createdAsset);
@@ -106,7 +102,6 @@ namespace se {
 
 	}
 
-	//TODO: create abstract factory for this maybe?
 	Entity *SceneLoader::CreateEntity(const std::string &type, const std::string &assetName, Vector3f position, Vector3f scale, Vector3f rotation) {
 		Entity *temp = new EntityDerived();
 		temp->SetAssetName(assetName);
@@ -130,7 +125,16 @@ namespace se {
 		return temp;
 	}
 
-	//TODO: create abstract factory for this maybe?
+	AbstractAsset *SceneLoader::CreateAsset(const std::string &type, const std::string &assetName, const std::string source) {
+		if (type == "Skybox") {
+			return new Skybox(m_renderer, assetName, source);
+		}
+		else if (type == "Model") {
+			return new Model(m_renderer, assetName, source);
+		}
+		return nullptr;
+	}
+
 	AbstractAsset *SceneLoader::CreateAsset(const std::string &type, const std::string &assetName, const std::string *sources) {
 		if (type == "Skybox") {
 			return new Skybox(m_renderer, assetName, sources[0]);

@@ -145,13 +145,18 @@ namespace se {
 		m_device->SetTransform(D3DTS_PROJECTION, &matProj);
 	}
 
-	void Direct3D::Clear() {
-		m_device->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
+	void Direct3D::Clear(bool target, bool zBuffer) {
+		m_device->Clear(0, NULL, (target ? D3DCLEAR_TARGET : NULL) | (zBuffer ? D3DCLEAR_ZBUFFER : NULL), D3DCOLOR_XRGB(0, 40, 100), 1.0f, 0);
 	}
 
-	void Direct3D::SetRenderTarget() {
+	void Direct3D::SetRenderTarget(int index) {
 		LPDIRECT3DSURFACE9 backBuffer;
-		m_swapChains[m_currentRenderTarget]->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
+		if (index < 0) {
+			m_swapChains[m_currentRenderTarget]->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
+		}
+		else {
+			m_swapChains[index]->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
+		}
 		m_device->SetRenderTarget(0, backBuffer);
 	}
 
@@ -170,8 +175,14 @@ namespace se {
 		m_device->EndScene();
 	}
 
-	void Direct3D::Present() {
-		m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindow(m_currentRenderTarget).GetWindowHandle(), NULL, 0);
+	void Direct3D::Present(int index) {
+		if (index < 0) {
+			m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+		}
+		else {
+			m_swapChains[index]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+			return;
+		}
 		if (m_currentRenderTarget < m_swapChains.size() - 1) {
 			m_currentRenderTarget++;
 		}

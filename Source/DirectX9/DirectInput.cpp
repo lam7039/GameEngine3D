@@ -127,7 +127,7 @@ namespace se {
 	}
 
 	bool DirectInput::IsPressed(KeyboardKey key) {
-		BYTE ASCII = MapVirtualKeyEx(key, MAPVK_VK_TO_VSC, GetKeyboardLayout(0));
+		unsigned char ASCII = MapVirtualKeyEx(key, MAPVK_VK_TO_VSC, GetKeyboardLayout(0));
 		switch (key) {
 		case SE_KEY_LEFT:
 			ASCII = DIK_LEFT;

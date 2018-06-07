@@ -40,7 +40,7 @@ namespace se {
 		IDirectInputDevice8 *m_keyboard;
 		IDirectInputDevice8 *m_mouse;
 
-		BYTE m_keyboardState[256];
+		unsigned char m_keyboardState[256];
 		DIMOUSESTATE m_mouseState;
 
 		Vector3i m_screenSize;

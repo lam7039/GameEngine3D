@@ -25,6 +25,7 @@ namespace se {
 		static AbstractInput *m_input;
 
 		static Entity *CreateEntity(const std::string &type, const std::string &assetName, Vector3f position, Vector3f scale, Vector3f rotation);
+		static AbstractAsset *CreateAsset(const std::string &type, const std::string &assetName, const std::string source);
 		static AbstractAsset *CreateAsset(const std::string &type, const std::string &assetName, const std::string *sources);
 	};
 

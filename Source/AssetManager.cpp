@@ -46,12 +46,4 @@ namespace se {
 		}
 		return m_assets[name];
 	}
-
-	std::string AssetManager::GetCurrentAssetName() const {
-		return m_currentAssetName;
-	}
-
-	void AssetManager::SetCurrentAssetName(const std::string &name) {
-		m_currentAssetName = name;
-	}
 }

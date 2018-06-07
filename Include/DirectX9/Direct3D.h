@@ -59,21 +59,54 @@ namespace se {
 		/// Create a mesh with an .x file with the DirectX9 default pipeline to a given buffer.
 		///
 		void CreateMesh(const std::string &bufferName, const std::string &path) override;
-		/**/
-		//TODO: place comments explaining the methods
+		///
+		/// Set the vertex type.
+		///
 		void SetFVF(bool coords, bool diffuse, bool specular, bool texture) override;
+		///
+		/// Set the sampler stage state value.
+		///
 		void SetSamplerState(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType) override;
+		///
+		/// Set the texture to the given buffer.
+		///
 		void SetTexture(int stage, const std::string &bufferName, int index) override;
+		///
+		/// Set the material to the given buffer.
+		///
 		void SetMaterial(const std::string &bufferName, int index) override;
+		///
+		/// Bind a vertex buffer to a device data stream.
+		///
 		void SetStreamSource(unsigned int streamNumber, const std::string &bufferName, unsigned int offsetInBytes, unsigned int stride = NULL) override;
+		///
+		/// Draw the buffer, if you draw a vertexbuffer you can set a PrimitiveType.
+		///
 		void Draw(const std::string &bufferName, PrimitiveType primitiveType = PT_TRIANGLELIST) override;
-		void Clear() override;
-		void SetRenderTarget() override;
+		///
+		/// Clear the target and/or z-buffer.
+		///
+		void Clear(bool target, bool zBuffer) override;
+		///
+		/// Set the target swapchain which to render to, sets index automatically in Present() by default.
+		///
+		void SetRenderTarget(int index = -1) override;
+		///
+		/// Set the world transformations.
+		///
 		void SetTransform(Vector3f position, Vector3f scale, Vector3f rotation) override;
+		///
+		/// Begin the scene on which to draw.
+		///
 		void BeginScene() override;
+		///
+		/// End the scene on which to draw.
+		///
 		void EndScene() override;
-		void Present() override;
-		/**/
+		///
+		/// Present the current swapchain, by default it sets it and changes the current swapchain.
+		///
+		void Present(int index = -1) override;
 		///
 		/// Set the position and rotation for the screen view.
 		///
