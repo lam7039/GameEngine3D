@@ -17,15 +17,19 @@ namespace se {
 		return m_instance;
 	}
 
-	std::vector<Window> WindowManager::GetWindowList() const {
-		return m_windowList;
+	Window WindowManager::GetWindow(int index) const {
+		return m_windowList[index];
+	}
+
+	Window WindowManager::GetLastWindow() const {
+		return m_windowList.back();
 	}
 
 	int WindowManager::GetWindowCount() {
 		return m_windowList.size();
 	}
 
-	void WindowManager::AddWindow(AbstractRenderer *renderer, const std::string &title, bool centered, int x, int y, int width, int height, AbstractInput *input) {
+	void WindowManager::AddWindow(const std::string &title, bool centered, int x, int y, int width, int height) {
 		HWND hWnd;
 		Window window(m_windowList.size(), title, centered, Vector3i(x, y, 0), Vector3i(width, height, 0));
 		if (FAILED(hWnd = window.GetWindowHandle())) {
@@ -33,8 +37,6 @@ namespace se {
 			return;
 		}
 		m_windowList.push_back(window);
-		input->Initialize(window.GetWindowInstanceHandle(), window.GetWindowHandle(), width, height);
-		renderer->Create(width, height);
 	}
 
 	void WindowManager::CloseAll() {

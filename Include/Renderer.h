@@ -65,6 +65,20 @@ namespace se {
 		PT_FORCE_DWORD = 0x7fffffff, /* force 32-bit size enum */
 	};
 
+	enum CullMode {
+		CULL_NONE = 1,
+		CULL_CW = 2,
+		CULL_CCW = 3,
+		CULL_FORCE_DWORD = 0x7fffffff, /* force 32-bit size enum */
+	};
+
+	enum FillMode {
+		FM_POINT = 1,
+		FM_WIREFRAME = 2,
+		FM_SOLID = 3,
+		FM_FORCE_DWORD = 0x7fffffff, /* force 32-bit size enum */
+	};
+
 	///
 	/// With this interface you can create your own renderer if you'd like.
 	///
@@ -73,7 +87,7 @@ namespace se {
 		///
 		/// For initializing a renderer.
 		///
-		virtual void Create(int width, int height) = 0;
+		virtual void Create(HWND hWnd, int width, int height, bool windowed, CullMode cullMode, bool lighting, bool zenable, FillMode fillMode, bool clipping) = 0;
 		///
 		/// For updating with the created renderer.
 		///

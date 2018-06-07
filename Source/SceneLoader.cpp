@@ -14,7 +14,7 @@ namespace se {
 	AbstractRenderer *SceneLoader::m_renderer = nullptr;
 	AbstractInput *SceneLoader::m_input = nullptr;
 
-	SceneLoader::SceneLoader(AbstractRenderer *renderer, const std::string &path, AbstractInput *input) {
+	SceneLoader::SceneLoader(const std::string &path, AbstractRenderer *renderer, AbstractInput *input) {
 		m_logger.SelectLogger("engine.log");
 		m_renderer = renderer;
 		m_input = input;

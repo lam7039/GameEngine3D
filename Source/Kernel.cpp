@@ -18,7 +18,10 @@ namespace se {
 		m_renderer = renderer;
 		m_input = input;
 
-		WindowManager::GetInstance()->AddWindow(m_renderer, title, centered, x, y, width, height, m_input);
+		WindowManager::GetInstance()->AddWindow(title, centered, x, y, width, height);
+		HWND hWnd = WindowManager::GetInstance()->GetLastWindow().GetWindowHandle();
+		input->Initialize(WindowManager::GetInstance()->GetLastWindow().GetWindowInstanceHandle(), hWnd, width, height);
+		renderer->Create(hWnd, width, height, true, CULL_CCW, false, true, FM_SOLID, true);
 		m_logger.Log(ERRORTYPE_INFO, __FILE__, __LINE__, "Initialized engine");
 	}
 
@@ -36,9 +39,8 @@ namespace se {
 
 		MSG msg;
 		while (isRunning) {
-			std::vector<Window> windowList = WindowManager::GetInstance()->GetWindowList();
-			for (int i = 0; i < windowList.size(); i++) {
-				HWND windowHandle = windowList[i].GetWindowHandle();
+			for (int i = 0; i < WindowManager::GetInstance()->GetWindowCount(); i++) {
+				HWND windowHandle = WindowManager::GetInstance()->GetWindow(i).GetWindowHandle();
 				while (PeekMessage(&msg, windowHandle, 0, 0, PM_REMOVE)) {
 					TranslateMessage(&msg);
 					DispatchMessage(&msg);

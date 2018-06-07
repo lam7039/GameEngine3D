@@ -5,15 +5,15 @@
 
 namespace se {
 
-	void Direct3D::Create(int width, int height) {
+	void Direct3D::Create(HWND hWnd, int width, int height, bool windowed, CullMode cullMode, bool lighting, bool zenable, FillMode fillMode, bool clipping) {
 		m_currentRenderTarget = 0;
 		m_logger.SelectLogger("engine.log");
 		D3DPRESENT_PARAMETERS d3dpp;
 		ZeroMemory(&d3dpp, sizeof(d3dpp));
-		d3dpp.Windowed = true;
+		d3dpp.Windowed = windowed;
 		d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 		d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
-		d3dpp.hDeviceWindow = WindowManager::GetInstance()->GetWindowList()[WindowManager::GetInstance()->GetWindowCount() - 1].GetWindowHandle();
+		d3dpp.hDeviceWindow = hWnd;
 		d3dpp.EnableAutoDepthStencil = TRUE;
 		d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 		d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
@@ -22,6 +22,7 @@ namespace se {
 			m_d3d = Direct3DCreate9(D3D_SDK_VERSION);
 			if (FAILED(m_d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, d3dpp.hDeviceWindow, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &m_device))) {
 				m_logger.Log(ERRORTYPE_ERROR, __FILE__, __LINE__, "Failed to create the device");
+				return;
 			}
 		}
 
@@ -29,11 +30,11 @@ namespace se {
 		m_device->CreateAdditionalSwapChain(&d3dpp, &swapChain);
 		m_swapChains.push_back(swapChain);
 
-		m_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
-		m_device->SetRenderState(D3DRS_LIGHTING, FALSE);
-		m_device->SetRenderState(D3DRS_ZENABLE, TRUE);
-		m_device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-		m_device->SetRenderState(D3DRS_CLIPPING, TRUE);
+		m_device->SetRenderState(D3DRS_CULLMODE, cullMode);
+		m_device->SetRenderState(D3DRS_LIGHTING, lighting);
+		m_device->SetRenderState(D3DRS_ZENABLE, zenable);
+		m_device->SetRenderState(D3DRS_FILLMODE, fillMode);
+		m_device->SetRenderState(D3DRS_CLIPPING, clipping);
 
 		m_size.Set(width, height, 0);
 		m_viewPosition.z = -15.0f;
@@ -170,7 +171,7 @@ namespace se {
 	}
 
 	void Direct3D::Present() {
-		m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+		m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindow(m_currentRenderTarget).GetWindowHandle(), NULL, 0);
 		if (m_currentRenderTarget < m_swapChains.size() - 1) {
 			m_currentRenderTarget++;
 		}

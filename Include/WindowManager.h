@@ -20,13 +20,17 @@ namespace se {
 		///
 		static WindowManager *GetInstance();
 		///
-		/// Get a list of all created windows.
+		/// Get a window from the list with the index.
 		///
-		std::vector<Window> GetWindowList() const;
+		Window GetWindow(int index) const;
 		///
-		/// Create a new window, set a renderer and input to the window.
+		/// Get the last window from the list.
 		///
-		void AddWindow(AbstractRenderer *renderer, const std::string &title, bool centered, int x, int y, int width, int height, AbstractInput *input);
+		Window GetLastWindow() const;
+		///
+		/// Create a new window.
+		///
+		void AddWindow(const std::string &title, bool centered, int x, int y, int width, int height);
 		///
 		/// Close all created windows.
 		///

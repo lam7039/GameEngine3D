@@ -16,6 +16,7 @@ namespace se {
 		}
 		for (int i = 0; i < entityCount; i++) {
 			m_entities[i]->Update(delta);
+			// Set the target position to the camera position for the skybox to follow.
 			if (m_entities[i]->GetEntityType() == ENTITYTYPE_CAMERA) {
 				m_targetPosition = m_entities[i]->GetPosition();
 			}

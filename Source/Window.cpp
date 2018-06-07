@@ -13,8 +13,8 @@ namespace se {
 			m_title = "window";
 		}
 		m_instanceHandle = GetModuleHandle(NULL);
-		std::string className = "windowClass" + id;
-		ATOM atom = RegisterWindowProc(m_instanceHandle, className);
+		std::string className = "windowClass" + std::to_string(id);
+		unsigned short windowProc = RegisterWindowProc(m_instanceHandle, className);
 		m_hWnd = CreateWindowEx(NULL, className.c_str(), m_title.c_str(), WS_OVERLAPPEDWINDOW, m_position.x, m_position.y, m_size.x, m_size.y, NULL, NULL, m_instanceHandle, NULL);
 		ShowWindow(m_hWnd, SW_SHOW);
 	}

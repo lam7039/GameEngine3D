@@ -30,7 +30,7 @@ namespace se {
 		///
 		/// Creates a DirectX renderer for the latest created Window in WindowManager, it creates a new SwapChain and adds it to the list.
 		///
-		void Create(int width, int height) override;
+		void Create(HWND hWnd, int width, int height, bool windowed, CullMode cullMode, bool lighting, bool zenable, FillMode fillMode, bool clipping) override;
 		///
 		/// Updates the view for the latest added camera.
 		///
