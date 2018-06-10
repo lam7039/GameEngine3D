@@ -177,10 +177,10 @@ namespace se {
 
 	void Direct3D::Present(int index) {
 		if (index < 0) {
-			m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+			m_swapChains[m_currentRenderTarget]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindow(m_currentRenderTarget).GetWindowHandle(), NULL, 0);
 		}
 		else {
-			m_swapChains[index]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindowList()[m_currentRenderTarget].GetWindowHandle(), NULL, 0);
+			m_swapChains[index]->Present(NULL, NULL, WindowManager::GetInstance()->GetWindow(m_currentRenderTarget).GetWindowHandle(), NULL, 0);
 			return;
 		}
 		if (m_currentRenderTarget < m_swapChains.size() - 1) {
