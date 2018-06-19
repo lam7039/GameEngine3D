@@ -20,8 +20,8 @@ namespace se {
 
 		WindowManager::GetInstance()->AddWindow(title, centered, x, y, width, height);
 		HWND hWnd = WindowManager::GetInstance()->GetLastWindow().GetWindowHandle();
-		input->Initialize(WindowManager::GetInstance()->GetLastWindow().GetWindowInstanceHandle(), hWnd, width, height);
 		renderer->Create(hWnd, width, height, true, CULL_CCW, false, true, FM_SOLID, true);
+		input->Initialize(WindowManager::GetInstance()->GetLastWindow().GetWindowInstanceHandle(), hWnd, width, height);
 		m_logger.Log(ERRORTYPE_INFO, __FILE__, __LINE__, "Initialized engine");
 	}
 

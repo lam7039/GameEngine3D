@@ -85,11 +85,11 @@ namespace se {
 		return m_size;
 	}
 
-	unsigned char *Bitmap::GetData() {
+	unsigned char *Bitmap::GetData() const {
 		return m_data;
 	}
 
-	unsigned char *Bitmap::GetPixels() {
+	unsigned char *Bitmap::GetPixels() const {
 		return m_pixels;
 	}
 }

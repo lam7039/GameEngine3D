@@ -24,11 +24,11 @@ namespace se {
 		///
 		/// Get an array with values of 0-255 loaded from the bitmap from a single channel.
 		///
-		unsigned char *GetData();
+		unsigned char *GetData() const;
 		///
 		/// Get an array with values of 0-255 loaded from the bitmap from all channels.
 		///
-		unsigned char *GetPixels();
+		unsigned char *GetPixels() const;
 	private:
 		Vector3i m_size;
 		unsigned char *m_pixels;
