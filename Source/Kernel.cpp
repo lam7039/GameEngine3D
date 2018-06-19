@@ -6,6 +6,7 @@
 namespace se {
 
 	Kernel::Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, AbstractInput *input) {
+		m_isRunning = true;
 		m_renderer = nullptr;
 		m_input = nullptr;
 
@@ -25,6 +26,14 @@ namespace se {
 		m_logger.Log(ERRORTYPE_INFO, __FILE__, __LINE__, "Initialized engine");
 	}
 
+	void Kernel::SetRunningState(bool running) {
+		m_isRunning = running;
+	}
+
+	bool Kernel::IsRunning() {
+		return m_isRunning;
+	}
+
 	int Kernel::EnterLoop() {
 		if (!m_renderer) {
 			m_logger.Log(ERRORTYPE_ERROR, __FILE__, __LINE__, "Failed to initialize renderer");
@@ -33,12 +42,10 @@ namespace se {
 			return 1;
 		}
 
-		bool isRunning = true;
-
 		FPSCounter fps;
 
 		MSG msg;
-		while (isRunning) {
+		while (m_isRunning) {
 			for (int i = 0; i < WindowManager::GetInstance()->GetWindowCount(); i++) {
 				HWND windowHandle = WindowManager::GetInstance()->GetWindow(i).GetWindowHandle();
 				while (PeekMessage(&msg, windowHandle, 0, 0, PM_REMOVE)) {
@@ -51,7 +58,7 @@ namespace se {
 			m_input->Update();
 
 			if (msg.message == WM_QUIT) {
-				isRunning = false;
+				m_isRunning = false;
 			}
 
 			m_renderer->Update(fps.GetDelta());

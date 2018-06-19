@@ -22,8 +22,11 @@ namespace se {
 		/// Enter the gameloop, it updates the input, renderer and current scene.
 		/// Automatically removes all scenes and windows and releases the renderer as well when it quits the loop.
 		///
+		void SetRunningState(bool running);
+		bool IsRunning();
 		int EnterLoop();
 	private:
+		bool m_isRunning;
 		AbstractInput *m_input;
 		AbstractRenderer *m_renderer;
 		Debug m_logger;
