@@ -13,13 +13,9 @@ Inheritance diagram for se\+:\+:Direct3D\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classse_1_1_direct3_d_af88b0fb33fe5bff1112213e6c8faf466}{Create}} (int width, int height) override
+void \mbox{\hyperlink{classse_1_1_direct3_d_a0174f6e1436fa4171380cc603ca262f0}{Create}} (H\+W\+ND h\+Wnd, int width, int height, bool windowed, \mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}{Cull\+Mode}} cull\+Mode, bool lighting, bool zenable, \mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}{Fill\+Mode}} fill\+Mode, bool clipping) override
 \item 
 void \mbox{\hyperlink{classse_1_1_direct3_d_a39934c194406f108a992d82a4d265381}{Update}} (float delta) override
-\item 
-void \mbox{\hyperlink{classse_1_1_direct3_d_a31e3c97cd8ceeaea58017b66bd60b9d7}{Render}} (const std\+::string \&buffer\+Name) override
-\item 
-void \mbox{\hyperlink{classse_1_1_direct3_d_aa87e49a2704cc5da20655ce41ae9782b}{Process}} () override
 \item 
 void \mbox{\hyperlink{classse_1_1_direct3_d_ae2979f16a5c35773cf2c243d8e6f90e4}{Release}} () override
 \item 
@@ -32,6 +28,30 @@ void \mbox{\hyperlink{classse_1_1_direct3_d_a52e0bbf13e8045dab39bb2ef34028a94}{C
 void \mbox{\hyperlink{classse_1_1_direct3_d_a33c350a77a959847d3571e14feb72c85}{Create\+Texture}} (const std\+::string \&buffer\+Name, const std\+::string \&path, int id) override
 \item 
 void \mbox{\hyperlink{classse_1_1_direct3_d_aab3d1a8b4ee8812dea07f5ecda5efc42}{Create\+Mesh}} (const std\+::string \&buffer\+Name, const std\+::string \&path) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a1bf0217e47f4fb360f427517f86c75cd}{Set\+F\+VF}} (bool coords, bool diffuse, bool specular, bool texture) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a494107956c2dceda015cbef73cdb36c1}{Set\+Sampler\+State}} (int sampler, \mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7}{Sampler\+State\+Type}} sampler\+State\+Type, \mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}{Texture\+Filter\+Type}} texture\+Filter\+Type) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a5e78e332321a2a66ba184b4441e3ec31}{Set\+Texture}} (int stage, const std\+::string \&buffer\+Name, int index) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_acfaad7a7cfbace7d34eb7dae9e9bf9d2}{Set\+Material}} (const std\+::string \&buffer\+Name, int index) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a0be0c6f8f0c90478def2ade3459226ba}{Set\+Stream\+Source}} (unsigned int stream\+Number, const std\+::string \&buffer\+Name, unsigned int offset\+In\+Bytes, unsigned int stride=N\+U\+LL) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_ac6d9e0950a4b58d716aa08b52f79a9ab}{Draw}} (const std\+::string \&buffer\+Name, \mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}{Primitive\+Type}} primitive\+Type=\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1}{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST}}) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a932f57e7ffc1ae9b796599a36e861d02}{Clear}} (bool target, bool z\+Buffer) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_aa16f869f28af6e16c9ce11a2608ca845}{Set\+Render\+Target}} (int index=-\/1) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a87c8a92e7b236a2f80f29008f22ccc8e}{Set\+Transform}} (\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} position, \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} scale, \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} rotation) override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a0509351979bce1ab27d7cbd6cdc4b5de}{Begin\+Scene}} () override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_acaa80262dcbd93b7aa03bd61e854b2a2}{End\+Scene}} () override
+\item 
+void \mbox{\hyperlink{classse_1_1_direct3_d_a8fcf9f471230162031c50080bf8e44b5}{Present}} (int index=-\/1) override
 \item 
 void \mbox{\hyperlink{classse_1_1_direct3_d_a0294b31c151540af98c78d1e33cb369a}{Set\+View\+Transform}} (\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} position, \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} rotation) override
 \item 
@@ -47,15 +67,47 @@ Definition at line 28 of file Direct3\+D.\+h.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_direct3_d_af88b0fb33fe5bff1112213e6c8faf466}\label{classse_1_1_direct3_d_af88b0fb33fe5bff1112213e6c8faf466}} 
+\mbox{\Hypertarget{classse_1_1_direct3_d_a0509351979bce1ab27d7cbd6cdc4b5de}\label{classse_1_1_direct3_d_a0509351979bce1ab27d7cbd6cdc4b5de}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Begin\+Scene@{Begin\+Scene}}
+\index{Begin\+Scene@{Begin\+Scene}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Begin\+Scene()}{BeginScene()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Begin\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Begin the scene on which to draw. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_aae5f9f2f51f290846e4ffd9e2a3d2a8e}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 170 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a932f57e7ffc1ae9b796599a36e861d02}\label{classse_1_1_direct3_d_a932f57e7ffc1ae9b796599a36e861d02}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Clear@{Clear}}
+\index{Clear@{Clear}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Clear (\begin{DoxyParamCaption}\item[{bool}]{target,  }\item[{bool}]{z\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Clear the target and/or z-\/buffer. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a2857e7bb3803682f94fb53e305da24e4}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 148 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a0174f6e1436fa4171380cc603ca262f0}\label{classse_1_1_direct3_d_a0174f6e1436fa4171380cc603ca262f0}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Create@{Create}}
 \index{Create@{Create}!se\+::\+Direct3D@{se\+::\+Direct3D}}
 \subsubsection{\texorpdfstring{Create()}{Create()}}
-{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Create (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Create (\begin{DoxyParamCaption}\item[{H\+W\+ND}]{h\+Wnd,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{bool}]{windowed,  }\item[{\mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}{Cull\+Mode}}}]{cull\+Mode,  }\item[{bool}]{lighting,  }\item[{bool}]{zenable,  }\item[{\mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}{Fill\+Mode}}}]{fill\+Mode,  }\item[{bool}]{clipping }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates a DirectX renderer for the latest created \mbox{\hyperlink{classse_1_1_window}{Window}} in \mbox{\hyperlink{classse_1_1_window_manager}{Window\+Manager}}, it creates a new Swap\+Chain and adds it to the list. 
 
-Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a3b0c7d8dc34c56513b3160e2cf1e094a}{se\+::\+Abstract\+Renderer}}.
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a5c7e19127084d6bee7da63e3838d3c36}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 8 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_aab3d1a8b4ee8812dea07f5ecda5efc42}\label{classse_1_1_direct3_d_aab3d1a8b4ee8812dea07f5ecda5efc42}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Create\+Mesh@{Create\+Mesh}}
@@ -67,6 +119,10 @@ Create a mesh with an .x file with the Direct\+X9 default pipeline to a given bu
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a4a3e8836f7a8b1b35a5f7cb1b4231476}{se\+::\+Abstract\+Renderer}}.
 
+
+
+Definition at line 85 of file Direct3\+D.\+cpp.
+
 \mbox{\Hypertarget{classse_1_1_direct3_d_a33c350a77a959847d3571e14feb72c85}\label{classse_1_1_direct3_d_a33c350a77a959847d3571e14feb72c85}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Create\+Texture@{Create\+Texture}}
 \index{Create\+Texture@{Create\+Texture}!se\+::\+Direct3D@{se\+::\+Direct3D}}
@@ -76,6 +132,10 @@ Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a4a3e8836f7a8b1b35a5f7
 To create a texture the texture array needs to be initialized with Initialize\+Texture\+Array to a given buffer. 
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a89f2efd2ee68cfb6735e51ce87206dfd}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 78 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_a52e0bbf13e8045dab39bb2ef34028a94}\label{classse_1_1_direct3_d_a52e0bbf13e8045dab39bb2ef34028a94}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Create\+Vertex\+Buffer@{Create\+Vertex\+Buffer}}
@@ -87,6 +147,38 @@ Create a vertex buffer for a specific Render\+Type with the referenced vertices 
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a953d57d04771acae78c3725bee3639d4}{se\+::\+Abstract\+Renderer}}.
 
+
+
+Definition at line 49 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_ac6d9e0950a4b58d716aa08b52f79a9ab}\label{classse_1_1_direct3_d_ac6d9e0950a4b58d716aa08b52f79a9ab}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Draw@{Draw}}
+\index{Draw@{Draw}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Draw (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}{Primitive\+Type}}}]{primitive\+Type = {\ttfamily \mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1}{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Draw the buffer, if you draw a vertexbuffer you can set a Primitive\+Type. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_ae743059a7b35a9bc1c9108613b43f42f}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 214 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_acaa80262dcbd93b7aa03bd61e854b2a2}\label{classse_1_1_direct3_d_acaa80262dcbd93b7aa03bd61e854b2a2}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!End\+Scene@{End\+Scene}}
+\index{End\+Scene@{End\+Scene}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{End\+Scene()}{EndScene()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+End\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+End the scene on which to draw. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a4329c70d64528cdc5bfcd5e6dee3f2e3}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 174 of file Direct3\+D.\+cpp.
+
 \mbox{\Hypertarget{classse_1_1_direct3_d_a74d6926ba18dac6ce23c7dea433de7bd}\label{classse_1_1_direct3_d_a74d6926ba18dac6ce23c7dea433de7bd}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Get\+View\+Axes@{Get\+View\+Axes}}
 \index{Get\+View\+Axes@{Get\+View\+Axes}!se\+::\+Direct3D@{se\+::\+Direct3D}}
@@ -96,6 +188,10 @@ Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a953d57d04771acae78c37
 Get the current axes of the view. 
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a8af4c1bef5cf120f6160f5d93dd74207}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 267 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_a7d5db09c1cf0c5c45f61c631b174fcf2}\label{classse_1_1_direct3_d_a7d5db09c1cf0c5c45f61c631b174fcf2}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Initialize\+Texture\+Array@{Initialize\+Texture\+Array}}
@@ -107,15 +203,23 @@ Initialize a texture array to create texture(s) within that list to a given buff
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_afd7697df1d4958ec3b0fa13109a269a1}{se\+::\+Abstract\+Renderer}}.
 
-\mbox{\Hypertarget{classse_1_1_direct3_d_aa87e49a2704cc5da20655ce41ae9782b}\label{classse_1_1_direct3_d_aa87e49a2704cc5da20655ce41ae9782b}} 
-\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Process@{Process}}
-\index{Process@{Process}!se\+::\+Direct3D@{se\+::\+Direct3D}}
-\subsubsection{\texorpdfstring{Process()}{Process()}}
-{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Here it loops through all the windows, clears the screen, sets the backbuffer and begins, ends and presents the scene. It also sets the scale, rotation and position of all the entities of the current scene. 
 
-Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a90596b2d067b4fa197b809191407be97}{se\+::\+Abstract\+Renderer}}.
+Definition at line 43 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a8fcf9f471230162031c50080bf8e44b5}\label{classse_1_1_direct3_d_a8fcf9f471230162031c50080bf8e44b5}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Present@{Present}}
+\index{Present@{Present}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Present()}{Present()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Present (\begin{DoxyParamCaption}\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Present the current swapchain, by default it sets it and changes the current swapchain. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a5102e4df9100f6c0df9c26beaca6c4e4}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 178 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_ae2979f16a5c35773cf2c243d8e6f90e4}\label{classse_1_1_direct3_d_ae2979f16a5c35773cf2c243d8e6f90e4}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Release@{Release}}
@@ -127,6 +231,10 @@ Release all the swapchains, the device and direct3d.
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a98e35b7db62827580573185ed91b25bb}{se\+::\+Abstract\+Renderer}}.
 
+
+
+Definition at line 194 of file Direct3\+D.\+cpp.
+
 \mbox{\Hypertarget{classse_1_1_direct3_d_a77f814cda45f2b490e11c522f8e752e3}\label{classse_1_1_direct3_d_a77f814cda45f2b490e11c522f8e752e3}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Release@{Release}}
 \index{Release@{Release}!se\+::\+Direct3D@{se\+::\+Direct3D}}
@@ -137,15 +245,107 @@ Release all components of a single \mbox{\hyperlink{structse_1_1_draw_components
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_af6d6d012f070f95d4c49713002872fcc}{se\+::\+Abstract\+Renderer}}.
 
-\mbox{\Hypertarget{classse_1_1_direct3_d_a31e3c97cd8ceeaea58017b66bd60b9d7}\label{classse_1_1_direct3_d_a31e3c97cd8ceeaea58017b66bd60b9d7}} 
-\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Render@{Render}}
-\index{Render@{Render}!se\+::\+Direct3D@{se\+::\+Direct3D}}
-\subsubsection{\texorpdfstring{Render()}{Render()}}
-{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Render (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-It sets all the relevant settings for the components and then draws the component. 
 
-Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a76058a91574874ab3c51294a2c9ea85c}{se\+::\+Abstract\+Renderer}}.
+Definition at line 204 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a1bf0217e47f4fb360f427517f86c75cd}\label{classse_1_1_direct3_d_a1bf0217e47f4fb360f427517f86c75cd}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+F\+VF@{Set\+F\+VF}}
+\index{Set\+F\+VF@{Set\+F\+VF}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+F\+V\+F()}{SetFVF()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+F\+VF (\begin{DoxyParamCaption}\item[{bool}]{coords,  }\item[{bool}]{diffuse,  }\item[{bool}]{specular,  }\item[{bool}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the vertex type. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_ad1f734c1726062752a3d43b5eaf77c04}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 230 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_acfaad7a7cfbace7d34eb7dae9e9bf9d2}\label{classse_1_1_direct3_d_acfaad7a7cfbace7d34eb7dae9e9bf9d2}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Material@{Set\+Material}}
+\index{Set\+Material@{Set\+Material}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Material()}{SetMaterial()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Material (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the material to the given buffer. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a1253152682a025722fd97d4bfa981d45}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 245 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_aa16f869f28af6e16c9ce11a2608ca845}\label{classse_1_1_direct3_d_aa16f869f28af6e16c9ce11a2608ca845}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Render\+Target@{Set\+Render\+Target}}
+\index{Set\+Render\+Target@{Set\+Render\+Target}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Render\+Target()}{SetRenderTarget()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Render\+Target (\begin{DoxyParamCaption}\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the target swapchain which to render to, sets index automatically in \mbox{\hyperlink{classse_1_1_direct3_d_a8fcf9f471230162031c50080bf8e44b5}{Present()}} by default. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a5cf80b0b47191f9445d6a5fa5fc02a3e}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 152 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a494107956c2dceda015cbef73cdb36c1}\label{classse_1_1_direct3_d_a494107956c2dceda015cbef73cdb36c1}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Sampler\+State@{Set\+Sampler\+State}}
+\index{Set\+Sampler\+State@{Set\+Sampler\+State}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Sampler\+State()}{SetSamplerState()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Sampler\+State (\begin{DoxyParamCaption}\item[{int}]{sampler,  }\item[{\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7}{Sampler\+State\+Type}}}]{sampler\+State\+Type,  }\item[{\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}{Texture\+Filter\+Type}}}]{texture\+Filter\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the sampler stage state value. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a1abafecf778ef68a08ba44b88ded6abe}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 234 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a0be0c6f8f0c90478def2ade3459226ba}\label{classse_1_1_direct3_d_a0be0c6f8f0c90478def2ade3459226ba}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Stream\+Source@{Set\+Stream\+Source}}
+\index{Set\+Stream\+Source@{Set\+Stream\+Source}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Stream\+Source()}{SetStreamSource()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Stream\+Source (\begin{DoxyParamCaption}\item[{unsigned int}]{stream\+Number,  }\item[{const std\+::string \&}]{buffer\+Name,  }\item[{unsigned int}]{offset\+In\+Bytes,  }\item[{unsigned int}]{stride = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bind a vertex buffer to a device data stream. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a62027b239c98c7a5b3a347e737d83fbe}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 252 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a5e78e332321a2a66ba184b4441e3ec31}\label{classse_1_1_direct3_d_a5e78e332321a2a66ba184b4441e3ec31}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Texture@{Set\+Texture}}
+\index{Set\+Texture@{Set\+Texture}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Texture()}{SetTexture()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{int}]{stage,  }\item[{const std\+::string \&}]{buffer\+Name,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the texture to the given buffer. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_aa7fc2284df16ba0b42059560599ff013}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 238 of file Direct3\+D.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_direct3_d_a87c8a92e7b236a2f80f29008f22ccc8e}\label{classse_1_1_direct3_d_a87c8a92e7b236a2f80f29008f22ccc8e}} 
+\index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+Transform@{Set\+Transform}}
+\index{Set\+Transform@{Set\+Transform}!se\+::\+Direct3D@{se\+::\+Direct3D}}
+\subsubsection{\texorpdfstring{Set\+Transform()}{SetTransform()}}
+{\footnotesize\ttfamily void se\+::\+Direct3\+D\+::\+Set\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}}]{position,  }\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}}]{scale,  }\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Set the world transformations. 
+
+Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_afe47dd77096e92a25260cacb50631d8f}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 163 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_a0294b31c151540af98c78d1e33cb369a}\label{classse_1_1_direct3_d_a0294b31c151540af98c78d1e33cb369a}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Set\+View\+Transform@{Set\+View\+Transform}}
@@ -156,6 +356,10 @@ Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a76058a91574874ab3c512
 Set the position and rotation for the screen view. 
 
 Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_a710e67232e977fbb3b74f79640e0b62e}{se\+::\+Abstract\+Renderer}}.
+
+
+
+Definition at line 262 of file Direct3\+D.\+cpp.
 
 \mbox{\Hypertarget{classse_1_1_direct3_d_a39934c194406f108a992d82a4d265381}\label{classse_1_1_direct3_d_a39934c194406f108a992d82a4d265381}} 
 \index{se\+::\+Direct3D@{se\+::\+Direct3D}!Update@{Update}}
@@ -169,6 +373,11 @@ Implements \mbox{\hyperlink{classse_1_1_abstract_renderer_aae49e7417663d6a5aca34
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Definition at line 111 of file Direct3\+D.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\+Direct\+X9/\mbox{\hyperlink{_direct3_d_8h}{Direct3\+D.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\+Direct\+X9/\mbox{\hyperlink{_direct3_d_8h}{Direct3\+D.\+h}}\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Source/\+Direct\+X9/\mbox{\hyperlink{_direct3_d_8cpp}{Direct3\+D.\+cpp}}\end{DoxyCompactItemize}

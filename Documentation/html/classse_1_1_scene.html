@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se::Scene Class Reference</title>
+<title>Best Engine: se::Scene Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -87,12 +86,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4133b3e65c59229d8926dde7976ec004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f7789f2585e65174380be509b88435"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene.html#a73f7789f2585e65174380be509b88435">Remove</a> ()</td></tr>
 <tr class="separator:a73f7789f2585e65174380be509b88435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c3f1fc4ab110f9caab190cce13c2e03"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classse_1_1_entity.html">Entity</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene.html#a1c3f1fc4ab110f9caab190cce13c2e03">GetEntities</a> () const</td></tr>
-<tr class="separator:a1c3f1fc4ab110f9caab190cce13c2e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1367cf1066c13c94fde1236b5dd5b208"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classse_1_1_entity.html">Entity</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_scene.html#a1367cf1066c13c94fde1236b5dd5b208">GetEntities</a> () const</td></tr>
+<tr class="separator:a1367cf1066c13c94fde1236b5dd5b208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_scene_8h_source.html#l00009">9</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+<div class="textblock"><p>A scene that can have multiple entities in it. </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_8h_source.html#l00012">12</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a21dde7d731d672d4c424397850864549"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21dde7d731d672d4c424397850864549">&#9670;&nbsp;</a></span>AddEntity()</h2>
@@ -111,16 +111,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Add an entity to the scene. </p>
 
+<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00008">8</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a1c3f1fc4ab110f9caab190cce13c2e03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c3f1fc4ab110f9caab190cce13c2e03">&#9670;&nbsp;</a></span>GetEntities()</h2>
+<a id="a1367cf1066c13c94fde1236b5dd5b208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1367cf1066c13c94fde1236b5dd5b208">&#9670;&nbsp;</a></span>GetEntities()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="classse_1_1_entity.html">Entity</a>*&gt;&amp; se::Scene::GetEntities </td>
+          <td class="memname">const std::vector&lt; <a class="el" href="classse_1_1_entity.html">Entity</a> * &gt; &amp; se::Scene::GetEntities </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -128,6 +130,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Get all entities in the scene </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00041">41</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -148,6 +152,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Remove an entity from the scene. </p>
 
+<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00029">29</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a73f7789f2585e65174380be509b88435"></a>
@@ -165,6 +171,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Remove everything from the scene </p>
+
+<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00034">34</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,10 +193,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Update all entities </p>
 
+<p class="definition">Definition at line <a class="el" href="_scene_8cpp_source.html#l00012">12</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/GameEngine3D/Include/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
+<li>D:/Projects/GameEngine3D/Source/<a class="el" href="_scene_8cpp_source.html">Scene.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

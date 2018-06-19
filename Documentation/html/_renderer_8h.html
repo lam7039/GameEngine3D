@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: D:/Projects/GameEngine3D/Include/Renderer.h File Reference</title>
+<title>Best Engine: D:/Projects/GameEngine3D/Include/Renderer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -100,6 +99,58 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacese.html#a9ed62241331cac830c5c1ba8450afc2ba21f47be8136fdc0a49d2ad1c8912841a">se::RENDERTYPE_SKYBOX</a>
  }</td></tr>
 <tr class="separator:a9ed62241331cac830c5c1ba8450afc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13bef3f1227abf2f6bc06b97a4ea6cdf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdf">se::TextureFilterType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481">se::TEXF_NONE</a> = 0, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10">se::TEXF_POINT</a> = 1, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96">se::TEXF_LINEAR</a> = 2, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf">se::TEXF_ANISOTROPIC</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067">se::TEXF_PYRAMIDALQUAD</a> = 6, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663">se::TEXF_GAUSSIANQUAD</a> = 7
+<br />
+ }</td></tr>
+<tr class="separator:a13bef3f1227abf2f6bc06b97a4ea6cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff8e236c539422281bbc908758e0fb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7">se::SamplerStateType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d">se::SAMP_ADDRESSU</a> = 1, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf">se::SAMP_ADDRESSV</a> = 2, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973">se::SAMP_ADDRESSW</a> = 3, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e">se::SAMP_BORDERCOLOR</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c">se::SAMP_MAGFILTER</a> = 5, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a">se::SAMP_MINFILTER</a> = 6, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995">se::SAMP_MIPFILTER</a> = 7, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325">se::SAMP_MIPMAPLODBIAS</a> = 8, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750">se::SAMP_MAXMIPLEVEL</a> = 9, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665">se::SAMP_MAXANISOTROPY</a> = 10, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6">se::SAMP_SRGBTEXTURE</a> = 11, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669">se::SAMP_ELEMENTINDEX</a> = 12, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44">se::SAMP_DMAPOFFSET</a> = 13
+<br />
+ }</td></tr>
+<tr class="separator:acff8e236c539422281bbc908758e0fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b33c0ed67b2f6ac40fc08d56b5984f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9">se::PrimitiveType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707">se::PT_POINTLIST</a> = 1, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309">se::PT_LINELIST</a> = 2, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f">se::PT_LINESTRIP</a> = 3, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1">se::PT_TRIANGLELIST</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245">se::PT_TRIANGLESTRIP</a> = 5, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8">se::PT_TRIANGLEFAN</a> = 6
+<br />
+ }</td></tr>
+<tr class="separator:a2b33c0ed67b2f6ac40fc08d56b5984f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2447de8e300e86ac4a8893e0486fc3bb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bb">se::CullMode</a> { <a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1">se::CULL_NONE</a> = 1, 
+<a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587">se::CULL_CW</a> = 2, 
+<a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371">se::CULL_CCW</a> = 3
+ }</td></tr>
+<tr class="separator:a2447de8e300e86ac4a8893e0486fc3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab38efb91dff288cc8279bedd6bc02c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02c">se::FillMode</a> { <a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5">se::FM_POINT</a> = 1, 
+<a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd">se::FM_WIREFRAME</a> = 2, 
+<a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb">se::FM_SOLID</a> = 3
+ }</td></tr>
+<tr class="separator:a7ab38efb91dff288cc8279bedd6bc02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -25,6 +25,8 @@ struct \mbox{\hyperlink{structse_1_1_draw_components}{Draw\+Components}}
 \item 
 class \mbox{\hyperlink{classse_1_1_entity}{Entity}}
 \item 
+class \mbox{\hyperlink{classse_1_1_entity_derived}{Entity\+Derived}}
+\item 
 class \mbox{\hyperlink{classse_1_1_f_p_s_counter}{F\+P\+S\+Counter}}
 \item 
 class \mbox{\hyperlink{classse_1_1_kernel}{Kernel}}
@@ -160,6 +162,55 @@ enum \mbox{\hyperlink{namespacese_a9ed62241331cac830c5c1ba8450afc2b}{Render\+Typ
 \mbox{\hyperlink{namespacese_a9ed62241331cac830c5c1ba8450afc2ba7a3d35d82775bdb0c6d675a819de6f5d}{R\+E\+N\+D\+E\+R\+T\+Y\+P\+E\+\_\+\+T\+E\+R\+R\+A\+IN}}, 
 \mbox{\hyperlink{namespacese_a9ed62241331cac830c5c1ba8450afc2ba21f47be8136fdc0a49d2ad1c8912841a}{R\+E\+N\+D\+E\+R\+T\+Y\+P\+E\+\_\+\+S\+K\+Y\+B\+OX}}
  \}
+\item 
+enum \mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}{Texture\+Filter\+Type}} \{ \newline
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481}{T\+E\+X\+F\+\_\+\+N\+O\+NE}} = 0, 
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10}{T\+E\+X\+F\+\_\+\+P\+O\+I\+NT}} = 1, 
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96}{T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR}} = 2, 
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf}{T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC}} = 3, 
+\newline
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067}{T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD}} = 6, 
+\mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663}{T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7}{Sampler\+State\+Type}} \{ \newline
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d}{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU}} = 1, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf}{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV}} = 2, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973}{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW}} = 3, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e}{S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR}} = 4, 
+\newline
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c}{S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER}} = 5, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a}{S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER}} = 6, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995}{S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER}} = 7, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325}{S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS}} = 8, 
+\newline
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750}{S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL}} = 9, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665}{S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY}} = 10, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6}{S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE}} = 11, 
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669}{S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX}} = 12, 
+\newline
+\mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44}{S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET}} = 13
+ \}
+\item 
+enum \mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}{Primitive\+Type}} \{ \newline
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707}{P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST}} = 1, 
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309}{P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST}} = 2, 
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f}{P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP}} = 3, 
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1}{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST}} = 4, 
+\newline
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245}{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP}} = 5, 
+\mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8}{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}{Cull\+Mode}} \{ \mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1}{C\+U\+L\+L\+\_\+\+N\+O\+NE}} = 1, 
+\mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587}{C\+U\+L\+L\+\_\+\+CW}} = 2, 
+\mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371}{C\+U\+L\+L\+\_\+\+C\+CW}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}{Fill\+Mode}} \{ \mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5}{F\+M\+\_\+\+P\+O\+I\+NT}} = 1, 
+\mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd}{F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME}} = 2, 
+\mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb}{F\+M\+\_\+\+S\+O\+L\+ID}} = 3
+ \}
 \end{DoxyCompactItemize}
 
 
@@ -187,6 +238,30 @@ Definition at line 34 of file Vector3.\+h.
 
 
 \subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}\label{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}} 
+\index{se@{se}!Cull\+Mode@{Cull\+Mode}}
+\index{Cull\+Mode@{Cull\+Mode}!se@{se}}
+\subsubsection{\texorpdfstring{Cull\+Mode}{CullMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_a2447de8e300e86ac4a8893e0486fc3bb}{se\+::\+Cull\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+U\+L\+L\+\_\+\+N\+O\+NE@{C\+U\+L\+L\+\_\+\+N\+O\+NE}!se@{se}}\index{se@{se}!C\+U\+L\+L\+\_\+\+N\+O\+NE@{C\+U\+L\+L\+\_\+\+N\+O\+NE}}}\mbox{\Hypertarget{namespacese_a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1}\label{namespacese_a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1}} 
+C\+U\+L\+L\+\_\+\+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+U\+L\+L\+\_\+\+CW@{C\+U\+L\+L\+\_\+\+CW}!se@{se}}\index{se@{se}!C\+U\+L\+L\+\_\+\+CW@{C\+U\+L\+L\+\_\+\+CW}}}\mbox{\Hypertarget{namespacese_a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587}\label{namespacese_a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587}} 
+C\+U\+L\+L\+\_\+\+CW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+U\+L\+L\+\_\+\+C\+CW@{C\+U\+L\+L\+\_\+\+C\+CW}!se@{se}}\index{se@{se}!C\+U\+L\+L\+\_\+\+C\+CW@{C\+U\+L\+L\+\_\+\+C\+CW}}}\mbox{\Hypertarget{namespacese_a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371}\label{namespacese_a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371}} 
+C\+U\+L\+L\+\_\+\+C\+CW&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 74 of file Renderer.\+h.
+
 \mbox{\Hypertarget{namespacese_ae73a909a94998bc95235eb9b16e405f1}\label{namespacese_ae73a909a94998bc95235eb9b16e405f1}} 
 \index{se@{se}!Entity\+Type@{Entity\+Type}}
 \index{Entity\+Type@{Entity\+Type}!se@{se}}
@@ -217,7 +292,7 @@ E\+N\+T\+I\+T\+Y\+T\+Y\+P\+E\+\_\+\+C\+A\+M\+E\+RA&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 12 of file Entity.\+h.
+Definition at line 13 of file Entity.\+h.
 
 \mbox{\Hypertarget{namespacese_aaa5cbe4d4821d8a349338e23de6ef9c4}\label{namespacese_aaa5cbe4d4821d8a349338e23de6ef9c4}} 
 \index{se@{se}!Error\+Type@{Error\+Type}}
@@ -225,7 +300,7 @@ Definition at line 12 of file Entity.\+h.
 \subsubsection{\texorpdfstring{Error\+Type}{ErrorType}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_aaa5cbe4d4821d8a349338e23de6ef9c4}{se\+::\+Error\+Type}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+To differentiate between error types. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+I\+N\+FO@{E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+I\+N\+FO}!se@{se}}\index{se@{se}!E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+I\+N\+FO@{E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+I\+N\+FO}}}\mbox{\Hypertarget{namespacese_aaa5cbe4d4821d8a349338e23de6ef9c4a18b8f7cd8d8efc322d9f7cc6aa32823c}\label{namespacese_aaa5cbe4d4821d8a349338e23de6ef9c4a18b8f7cd8d8efc322d9f7cc6aa32823c}} 
 E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+I\+N\+FO&\\
 \hline
@@ -241,7 +316,31 @@ E\+R\+R\+O\+R\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+OR&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 9 of file Debug.\+h.
+Definition at line 12 of file Debug.\+h.
+
+\mbox{\Hypertarget{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}\label{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}} 
+\index{se@{se}!Fill\+Mode@{Fill\+Mode}}
+\index{Fill\+Mode@{Fill\+Mode}!se@{se}}
+\subsubsection{\texorpdfstring{Fill\+Mode}{FillMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_a7ab38efb91dff288cc8279bedd6bc02c}{se\+::\+Fill\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+M\+\_\+\+P\+O\+I\+NT@{F\+M\+\_\+\+P\+O\+I\+NT}!se@{se}}\index{se@{se}!F\+M\+\_\+\+P\+O\+I\+NT@{F\+M\+\_\+\+P\+O\+I\+NT}}}\mbox{\Hypertarget{namespacese_a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5}\label{namespacese_a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5}} 
+F\+M\+\_\+\+P\+O\+I\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME@{F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME}!se@{se}}\index{se@{se}!F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME@{F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME}}}\mbox{\Hypertarget{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd}\label{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd}} 
+F\+M\+\_\+\+W\+I\+R\+E\+F\+R\+A\+ME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+M\+\_\+\+S\+O\+L\+ID@{F\+M\+\_\+\+S\+O\+L\+ID}!se@{se}}\index{se@{se}!F\+M\+\_\+\+S\+O\+L\+ID@{F\+M\+\_\+\+S\+O\+L\+ID}}}\mbox{\Hypertarget{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb}\label{namespacese_a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb}} 
+F\+M\+\_\+\+S\+O\+L\+ID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 80 of file Renderer.\+h.
 
 \mbox{\Hypertarget{namespacese_a94221cf8f238f1eadbe3ac4b8ac7bc71}\label{namespacese_a94221cf8f238f1eadbe3ac4b8ac7bc71}} 
 \index{se@{se}!Keyboard\+Key@{Keyboard\+Key}}
@@ -507,6 +606,42 @@ S\+E\+\_\+\+K\+E\+Y\+\_\+\+F12&\\
 
 Definition at line 9 of file Key.\+h.
 
+\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}} 
+\index{se@{se}!Primitive\+Type@{Primitive\+Type}}
+\index{Primitive\+Type@{Primitive\+Type}!se@{se}}
+\subsubsection{\texorpdfstring{Primitive\+Type}{PrimitiveType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9}{se\+::\+Primitive\+Type}}}
+
+A type which you can pass to indicate what primitive type you want to use. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST@{P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST}!se@{se}}\index{se@{se}!P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST@{P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707}} 
+P\+T\+\_\+\+P\+O\+I\+N\+T\+L\+I\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST@{P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST}!se@{se}}\index{se@{se}!P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST@{P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309}} 
+P\+T\+\_\+\+L\+I\+N\+E\+L\+I\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP@{P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP}!se@{se}}\index{se@{se}!P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP@{P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f}} 
+P\+T\+\_\+\+L\+I\+N\+E\+S\+T\+R\+IP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST}!se@{se}}\index{se@{se}!P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1}} 
+P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+L\+I\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP}!se@{se}}\index{se@{se}!P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245}} 
+P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\+T\+R\+IP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN}!se@{se}}\index{se@{se}!P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN@{P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN}}}\mbox{\Hypertarget{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8}\label{namespacese_a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8}} 
+P\+T\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+F\+AN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 65 of file Renderer.\+h.
+
 \mbox{\Hypertarget{namespacese_a9ed62241331cac830c5c1ba8450afc2b}\label{namespacese_a9ed62241331cac830c5c1ba8450afc2b}} 
 \index{se@{se}!Render\+Type@{Render\+Type}}
 \index{Render\+Type@{Render\+Type}!se@{se}}
@@ -530,4 +665,104 @@ R\+E\+N\+D\+E\+R\+T\+Y\+P\+E\+\_\+\+S\+K\+Y\+B\+OX&\\
 
 
 Definition at line 24 of file Renderer.\+h.
+
+\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7}\label{namespacese_acff8e236c539422281bbc908758e0fb7}} 
+\index{se@{se}!Sampler\+State\+Type@{Sampler\+State\+Type}}
+\index{Sampler\+State\+Type@{Sampler\+State\+Type}!se@{se}}
+\subsubsection{\texorpdfstring{Sampler\+State\+Type}{SamplerStateType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_acff8e236c539422281bbc908758e0fb7}{se\+::\+Sampler\+State\+Type}}}
+
+A type which you can pass to indicate what type of sampling you want to use. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d}\label{namespacese_acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d}} 
+S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf}\label{namespacese_acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf}} 
+S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW@{S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973}\label{namespacese_acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973}} 
+S\+A\+M\+P\+\_\+\+A\+D\+D\+R\+E\+S\+SW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR@{S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR@{S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e}\label{namespacese_acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e}} 
+S\+A\+M\+P\+\_\+\+B\+O\+R\+D\+E\+R\+C\+O\+L\+OR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c}\label{namespacese_acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c}} 
+S\+A\+M\+P\+\_\+\+M\+A\+G\+F\+I\+L\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a}\label{namespacese_acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a}} 
+S\+A\+M\+P\+\_\+\+M\+I\+N\+F\+I\+L\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER@{S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995}\label{namespacese_acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995}} 
+S\+A\+M\+P\+\_\+\+M\+I\+P\+F\+I\+L\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS@{S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS@{S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325}\label{namespacese_acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325}} 
+S\+A\+M\+P\+\_\+\+M\+I\+P\+M\+A\+P\+L\+O\+D\+B\+I\+AS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL@{S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL@{S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750}\label{namespacese_acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750}} 
+S\+A\+M\+P\+\_\+\+M\+A\+X\+M\+I\+P\+L\+E\+V\+EL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY@{S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY@{S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665}\label{namespacese_acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665}} 
+S\+A\+M\+P\+\_\+\+M\+A\+X\+A\+N\+I\+S\+O\+T\+R\+O\+PY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE@{S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE@{S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6}\label{namespacese_acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6}} 
+S\+A\+M\+P\+\_\+\+S\+R\+G\+B\+T\+E\+X\+T\+U\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX@{S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX@{S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669}\label{namespacese_acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669}} 
+S\+A\+M\+P\+\_\+\+E\+L\+E\+M\+E\+N\+T\+I\+N\+D\+EX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET@{S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET}!se@{se}}\index{se@{se}!S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET@{S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET}}}\mbox{\Hypertarget{namespacese_acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44}\label{namespacese_acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44}} 
+S\+A\+M\+P\+\_\+\+D\+M\+A\+P\+O\+F\+F\+S\+ET&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 46 of file Renderer.\+h.
+
+\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}} 
+\index{se@{se}!Texture\+Filter\+Type@{Texture\+Filter\+Type}}
+\index{Texture\+Filter\+Type@{Texture\+Filter\+Type}!se@{se}}
+\subsubsection{\texorpdfstring{Texture\+Filter\+Type}{TextureFilterType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdf}{se\+::\+Texture\+Filter\+Type}}}
+
+A type which you can pass to indicate what type of filtering you want to use. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+N\+O\+NE@{T\+E\+X\+F\+\_\+\+N\+O\+NE}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+N\+O\+NE@{T\+E\+X\+F\+\_\+\+N\+O\+NE}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481}} 
+T\+E\+X\+F\+\_\+\+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+P\+O\+I\+NT@{T\+E\+X\+F\+\_\+\+P\+O\+I\+NT}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+P\+O\+I\+NT@{T\+E\+X\+F\+\_\+\+P\+O\+I\+NT}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10}} 
+T\+E\+X\+F\+\_\+\+P\+O\+I\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR@{T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR@{T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96}} 
+T\+E\+X\+F\+\_\+\+L\+I\+N\+E\+AR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC@{T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC@{T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf}} 
+T\+E\+X\+F\+\_\+\+A\+N\+I\+S\+O\+T\+R\+O\+P\+IC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD@{T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD@{T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067}} 
+T\+E\+X\+F\+\_\+\+P\+Y\+R\+A\+M\+I\+D\+A\+L\+Q\+U\+AD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD@{T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD}!se@{se}}\index{se@{se}!T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD@{T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD}}}\mbox{\Hypertarget{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663}\label{namespacese_a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663}} 
+T\+E\+X\+F\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N\+Q\+U\+AD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 33 of file Renderer.\+h.
 

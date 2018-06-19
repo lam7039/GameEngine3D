@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se::Kernel Class Reference</title>
+<title>Best Engine: se::Kernel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -81,6 +80,10 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abc8105369975f3df1199537b6efe5214"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#abc8105369975f3df1199537b6efe5214">Kernel</a> (const std::string &amp;title, bool centered, int x, int y, int width, int height, <a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, <a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *input)</td></tr>
 <tr class="separator:abc8105369975f3df1199537b6efe5214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66bc4af7514718abbfc307c2381f5327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#a66bc4af7514718abbfc307c2381f5327">SetRunningState</a> (bool running)</td></tr>
+<tr class="separator:a66bc4af7514718abbfc307c2381f5327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe100d42354808a757b08a56a0387496"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#afe100d42354808a757b08a56a0387496">IsRunning</a> ()</td></tr>
+<tr class="separator:afe100d42354808a757b08a56a0387496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1faeac6fce02ccd7ff76d94ad78e0754"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_kernel.html#a1faeac6fce02ccd7ff76d94ad78e0754">EnterLoop</a> ()</td></tr>
 <tr class="separator:a1faeac6fce02ccd7ff76d94ad78e0754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -152,6 +155,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Initialize the kernel with the renderer and input it's supposed to use and creates a window. </p>
 
+<p class="definition">Definition at line <a class="el" href="_kernel_8cpp_source.html#l00008">8</a> of file <a class="el" href="_kernel_8cpp_source.html">Kernel.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -171,10 +176,54 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Enter the gameloop, it updates the input, renderer and current scene. Automatically removes all scenes and windows and releases the renderer as well when it quits the loop. </p>
 
+<p class="definition">Definition at line <a class="el" href="_kernel_8cpp_source.html#l00037">37</a> of file <a class="el" href="_kernel_8cpp_source.html">Kernel.cpp</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="afe100d42354808a757b08a56a0387496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe100d42354808a757b08a56a0387496">&#9670;&nbsp;</a></span>IsRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool se::Kernel::IsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the gameloop has started. </p>
+
+<p class="definition">Definition at line <a class="el" href="_kernel_8cpp_source.html#l00033">33</a> of file <a class="el" href="_kernel_8cpp_source.html">Kernel.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a66bc4af7514718abbfc307c2381f5327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66bc4af7514718abbfc307c2381f5327">&#9670;&nbsp;</a></span>SetRunningState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::Kernel::SetRunningState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>running</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the state of the gameloop. </p>
+
+<p class="definition">Definition at line <a class="el" href="_kernel_8cpp_source.html#l00029">29</a> of file <a class="el" href="_kernel_8cpp_source.html">Kernel.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/GameEngine3D/Include/<a class="el" href="_kernel_8h_source.html">Kernel.h</a></li>
+<li>D:/Projects/GameEngine3D/Source/<a class="el" href="_kernel_8cpp_source.html">Kernel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se::WindowManager Class Reference</title>
+<title>Best Engine: se::WindowManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -80,10 +79,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa4f9a776e1d8a44f80fea722b7cdb36c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classse_1_1_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#aa4f9a776e1d8a44f80fea722b7cdb36c">GetWindowList</a> () const</td></tr>
-<tr class="separator:aa4f9a776e1d8a44f80fea722b7cdb36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c5f4786f31a5ffbe12816cc4c1f839a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a7c5f4786f31a5ffbe12816cc4c1f839a">AddWindow</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, const std::string &amp;title, bool centered, int x, int y, int width, int height, <a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *input)</td></tr>
-<tr class="separator:a7c5f4786f31a5ffbe12816cc4c1f839a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67832360bad70a60d2241d5601bdde3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a67832360bad70a60d2241d5601bdde3a">GetWindow</a> (int index) const</td></tr>
+<tr class="separator:a67832360bad70a60d2241d5601bdde3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1f1c2a077560a86a7c285291855dbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classse_1_1_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a9c1f1c2a077560a86a7c285291855dbe">GetLastWindow</a> () const</td></tr>
+<tr class="separator:a9c1f1c2a077560a86a7c285291855dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c863f687b26c958c02b6f0a3cc9af6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a49c863f687b26c958c02b6f0a3cc9af6">AddWindow</a> (const std::string &amp;title, bool centered, int x, int y, int width, int height)</td></tr>
+<tr class="separator:a49c863f687b26c958c02b6f0a3cc9af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee5f919f5395aa866e0d0cd06e3e5c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#aeee5f919f5395aa866e0d0cd06e3e5c3">AddWindow</a> (const std::string &amp;title, bool centered, int x, int y, int width, int height, <a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, <a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *input)</td></tr>
+<tr class="separator:aeee5f919f5395aa866e0d0cd06e3e5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9106e9a62fa38456da31055f3a663ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#ae9106e9a62fa38456da31055f3a663ea">CloseAll</a> ()</td></tr>
 <tr class="separator:ae9106e9a62fa38456da31055f3a663ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec9f7b4a351181abd1a9963a33494614"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#aec9f7b4a351181abd1a9963a33494614">GetWindowCount</a> ()</td></tr>
@@ -91,16 +94,16 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a95991bd0d710a1e7b05d1faef2581633"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classse_1_1_window_manager.html">WindowManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#a95991bd0d710a1e7b05d1faef2581633">GetInstance</a> ()</td></tr>
-<tr class="separator:a95991bd0d710a1e7b05d1faef2581633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c111c7a70c25d2f49b4f6573e87a48"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classse_1_1_window_manager.html">WindowManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_window_manager.html#ac3c111c7a70c25d2f49b4f6573e87a48">GetInstance</a> ()</td></tr>
+<tr class="separator:ac3c111c7a70c25d2f49b4f6573e87a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>You can use this manager to create one or more windows. </p>
 
 <p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00016">16</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7c5f4786f31a5ffbe12816cc4c1f839a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c5f4786f31a5ffbe12816cc4c1f839a">&#9670;&nbsp;</a></span>AddWindow()</h2>
+<a id="a49c863f687b26c958c02b6f0a3cc9af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c863f687b26c958c02b6f0a3cc9af6">&#9670;&nbsp;</a></span>AddWindow() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,12 +111,61 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void se::WindowManager::AddWindow </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
-          <td class="paramname"><em>renderer</em>, </td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>centered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new window. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aeee5f919f5395aa866e0d0cd06e3e5c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee5f919f5395aa866e0d0cd06e3e5c3">&#9670;&nbsp;</a></span>AddWindow() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void se::WindowManager::AddWindow </td>
+          <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>title</em>, </td>
         </tr>
@@ -150,6 +202,12 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classse_1_1_abstract_input.html">AbstractInput</a> *&#160;</td>
           <td class="paramname"><em>input</em>&#160;</td>
         </tr>
@@ -160,7 +218,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create a new window, set a renderer and input to the window. </p>
+<p>Create a new window. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00042">42</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -180,10 +240,12 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Close all created windows. </p>
 
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00054">54</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a95991bd0d710a1e7b05d1faef2581633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95991bd0d710a1e7b05d1faef2581633">&#9670;&nbsp;</a></span>GetInstance()</h2>
+<a id="ac3c111c7a70c25d2f49b4f6573e87a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3c111c7a70c25d2f49b4f6573e87a48">&#9670;&nbsp;</a></span>GetInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +254,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classse_1_1_window_manager.html">WindowManager</a>* se::WindowManager::GetInstance </td>
+          <td class="memname"><a class="el" href="classse_1_1_window_manager.html">WindowManager</a> * se::WindowManager::GetInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,6 +267,49 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Get the initiated instance of <a class="el" href="classse_1_1_window_manager.html">WindowManager</a> to use its methods. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00013">13</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c1f1c2a077560a86a7c285291855dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1f1c2a077560a86a7c285291855dbe">&#9670;&nbsp;</a></span>GetLastWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classse_1_1_window.html">Window</a> se::WindowManager::GetLastWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the last window from the list. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00024">24</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a67832360bad70a60d2241d5601bdde3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67832360bad70a60d2241d5601bdde3a">&#9670;&nbsp;</a></span>GetWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classse_1_1_window.html">Window</a> se::WindowManager::GetWindow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a window from the list with the index. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -224,28 +329,13 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the amount of created windows. </p>
 
-</div>
-</div>
-<a id="aa4f9a776e1d8a44f80fea722b7cdb36c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4f9a776e1d8a44f80fea722b7cdb36c">&#9670;&nbsp;</a></span>GetWindowList()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classse_1_1_window.html">Window</a>&gt; se::WindowManager::GetWindowList </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get a list of all created windows. </p>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00028">28</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/GameEngine3D/Include/<a class="el" href="_window_manager_8h_source.html">WindowManager.h</a></li>
+<li>D:/Projects/GameEngine3D/Source/<a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

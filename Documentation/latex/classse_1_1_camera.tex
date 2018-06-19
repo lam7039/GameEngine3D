@@ -15,13 +15,13 @@ Inheritance diagram for se\+:\+:Camera\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classse_1_1_camera_a45cc397abfbd7287d96dbbb70330f2e5}{Camera}} (\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, \mbox{\hyperlink{classse_1_1_abstract_input}{Abstract\+Input}} $\ast$input, const std\+::string \&asset\+Name)
 \item 
-void \mbox{\hyperlink{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}{Update}} (float delta) override
-\item 
-void \mbox{\hyperlink{classse_1_1_camera_a8331699adb431843563dfdab355e54f0}{Render}} ()
-\item 
 void \mbox{\hyperlink{classse_1_1_camera_ac49219007d931e1800a33d2603f08856}{Set\+Target}} (\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} $\ast$position, \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} $\ast$rotation)
 \item 
-\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} $\ast$ \mbox{\hyperlink{classse_1_1_camera_a9d163903ddf8f4c5fa8cee70dbfec689}{Get\+Position}} ()
+void \mbox{\hyperlink{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}{Update}} (float delta) override
+\item 
+void \mbox{\hyperlink{classse_1_1_camera_accc1f78d52fca1e68c5267fbc0fef239}{Render}} (\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer) override
+\item 
+\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} \mbox{\hyperlink{classse_1_1_camera_af3d7f8a74dc26a3840331ab40b6ac893}{Get\+Position}} () const override
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -42,26 +42,50 @@ Definition at line 13 of file Camera.\+h.
 
 Create a camera with a renderer and the input you want to use. 
 
+Definition at line 5 of file Camera.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classse_1_1_camera_a9d163903ddf8f4c5fa8cee70dbfec689}\label{classse_1_1_camera_a9d163903ddf8f4c5fa8cee70dbfec689}} 
+\mbox{\Hypertarget{classse_1_1_camera_af3d7f8a74dc26a3840331ab40b6ac893}\label{classse_1_1_camera_af3d7f8a74dc26a3840331ab40b6ac893}} 
 \index{se\+::\+Camera@{se\+::\+Camera}!Get\+Position@{Get\+Position}}
 \index{Get\+Position@{Get\+Position}!se\+::\+Camera@{se\+::\+Camera}}
 \subsubsection{\texorpdfstring{Get\+Position()}{GetPosition()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}}$\ast$ se\+::\+Camera\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} se\+::\+Camera\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Get the current position of the camera. \mbox{\Hypertarget{classse_1_1_camera_a8331699adb431843563dfdab355e54f0}\label{classse_1_1_camera_a8331699adb431843563dfdab355e54f0}} 
+Get the current position of the camera. 
+
+Reimplemented from \mbox{\hyperlink{classse_1_1_entity_a40f94e236b724c4e375ee51f923de475}{se\+::\+Entity}}.
+
+
+
+Definition at line 86 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_camera_accc1f78d52fca1e68c5267fbc0fef239}\label{classse_1_1_camera_accc1f78d52fca1e68c5267fbc0fef239}} 
 \index{se\+::\+Camera@{se\+::\+Camera}!Render@{Render}}
 \index{Render@{Render}!se\+::\+Camera@{se\+::\+Camera}}
 \subsubsection{\texorpdfstring{Render()}{Render()}}
-{\footnotesize\ttfamily void se\+::\+Camera\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void se\+::\+Camera\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Render the camera with the asset it is set to, if it\textquotesingle{}s set to anything. \mbox{\Hypertarget{classse_1_1_camera_ac49219007d931e1800a33d2603f08856}\label{classse_1_1_camera_ac49219007d931e1800a33d2603f08856}} 
+Render the camera with the asset it is set to, if it\textquotesingle{}s set to anything. 
+
+Implements \mbox{\hyperlink{classse_1_1_entity_a50066f09c64b3b9705b71366cc565527}{se\+::\+Entity}}.
+
+
+
+Definition at line 74 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_camera_ac49219007d931e1800a33d2603f08856}\label{classse_1_1_camera_ac49219007d931e1800a33d2603f08856}} 
 \index{se\+::\+Camera@{se\+::\+Camera}!Set\+Target@{Set\+Target}}
 \index{Set\+Target@{Set\+Target}!se\+::\+Camera@{se\+::\+Camera}}
 \subsubsection{\texorpdfstring{Set\+Target()}{SetTarget()}}
 {\footnotesize\ttfamily void se\+::\+Camera\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} $\ast$}]{position,  }\item[{\mbox{\hyperlink{namespacese_a12e07512d95e2fdebdaf74a5ea2cf5f6}{Vector3f}} $\ast$}]{rotation }\end{DoxyParamCaption})}
 
-Set the position of the camera. \mbox{\Hypertarget{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}\label{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}} 
+Set the position of the camera. 
+
+Definition at line 81 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}\label{classse_1_1_camera_abecf2d50dc793707a475b35bb487812c}} 
 \index{se\+::\+Camera@{se\+::\+Camera}!Update@{Update}}
 \index{Update@{Update}!se\+::\+Camera@{se\+::\+Camera}}
 \subsubsection{\texorpdfstring{Update()}{Update()}}
@@ -69,10 +93,15 @@ Set the position of the camera. \mbox{\Hypertarget{classse_1_1_camera_abecf2d50d
 
 Updates camera logic, it defaults to logic for a freeroaming camera, if a target is set it\textquotesingle{}ll update it to the target. 
 
-Reimplemented from \mbox{\hyperlink{classse_1_1_entity_a1cd277c4c5a517f5cde8b72d5c40a8f0}{se\+::\+Entity}}.
+Implements \mbox{\hyperlink{classse_1_1_entity_a1542c96865f6646c7b0cb0d9be7f88ad}{se\+::\+Entity}}.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Definition at line 21 of file Camera.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Source/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

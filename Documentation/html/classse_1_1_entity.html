@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se::Entity Class Reference</title>
+<title>Best Engine: se::Entity Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -72,7 +71,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classse_1_1_entity-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">se::Entity Class Reference</div>  </div>
+<div class="title">se::Entity Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -83,44 +82,43 @@ Inheritance diagram for se::Entity:</div>
  <div class="center">
   <img src="classse_1_1_entity.png" usemap="#se::Entity_map" alt=""/>
   <map id="se::Entity_map" name="se::Entity_map">
-<area href="classse_1_1_camera.html" alt="se::Camera" shape="rect" coords="0,56,75,80"/>
+<area href="classse_1_1_camera.html" alt="se::Camera" shape="rect" coords="0,56,107,80"/>
+<area href="classse_1_1_entity_derived.html" alt="se::EntityDerived" shape="rect" coords="117,56,224,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac92492302d50c22ba7c4e9ff016b6145"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ac92492302d50c22ba7c4e9ff016b6145">Entity</a> ()</td></tr>
-<tr class="separator:ac92492302d50c22ba7c4e9ff016b6145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09e198e70620f231106d9f375f7598f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a09e198e70620f231106d9f375f7598f3">SetPosition</a> (float x, float y, float z)</td></tr>
+<tr class="memitem:a1542c96865f6646c7b0cb0d9be7f88ad"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a1542c96865f6646c7b0cb0d9be7f88ad">Update</a> (float delta)=0</td></tr>
+<tr class="separator:a1542c96865f6646c7b0cb0d9be7f88ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50066f09c64b3b9705b71366cc565527"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a50066f09c64b3b9705b71366cc565527">Render</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer)=0</td></tr>
+<tr class="separator:a50066f09c64b3b9705b71366cc565527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e198e70620f231106d9f375f7598f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a09e198e70620f231106d9f375f7598f3">SetPosition</a> (float x, float y, float z)</td></tr>
 <tr class="separator:a09e198e70620f231106d9f375f7598f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0d37a4774afab2b7abf4118efc57499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ae0d37a4774afab2b7abf4118efc57499">SetPosition</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> position)</td></tr>
+<tr class="memitem:ae0d37a4774afab2b7abf4118efc57499"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ae0d37a4774afab2b7abf4118efc57499">SetPosition</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> position)</td></tr>
 <tr class="separator:ae0d37a4774afab2b7abf4118efc57499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812b63adcbf5f1a3e429a31c6e0ff940"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a812b63adcbf5f1a3e429a31c6e0ff940">SetScale</a> (float x, float y, float z)</td></tr>
+<tr class="memitem:a812b63adcbf5f1a3e429a31c6e0ff940"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a812b63adcbf5f1a3e429a31c6e0ff940">SetScale</a> (float x, float y, float z)</td></tr>
 <tr class="separator:a812b63adcbf5f1a3e429a31c6e0ff940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70df7cdf2d72ff4d767033c2994b673f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a70df7cdf2d72ff4d767033c2994b673f">SetScale</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> scale)</td></tr>
+<tr class="memitem:a70df7cdf2d72ff4d767033c2994b673f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a70df7cdf2d72ff4d767033c2994b673f">SetScale</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> scale)</td></tr>
 <tr class="separator:a70df7cdf2d72ff4d767033c2994b673f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41f820b99b2b6d76c97472dcddca7fa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2">SetRotation</a> (float x, float y, float z)</td></tr>
+<tr class="memitem:a41f820b99b2b6d76c97472dcddca7fa2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a41f820b99b2b6d76c97472dcddca7fa2">SetRotation</a> (float x, float y, float z)</td></tr>
 <tr class="separator:a41f820b99b2b6d76c97472dcddca7fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a950373cfaaad7ad4bba06f3ab8534efd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a950373cfaaad7ad4bba06f3ab8534efd">SetRotation</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> rotation)</td></tr>
+<tr class="memitem:a950373cfaaad7ad4bba06f3ab8534efd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a950373cfaaad7ad4bba06f3ab8534efd">SetRotation</a> (<a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> rotation)</td></tr>
 <tr class="separator:a950373cfaaad7ad4bba06f3ab8534efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fcf5639a2e6e74e0b12893e70a46a83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a4fcf5639a2e6e74e0b12893e70a46a83">SetAssetName</a> (const std::string &amp;assetName)</td></tr>
+<tr class="memitem:a4fcf5639a2e6e74e0b12893e70a46a83"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a4fcf5639a2e6e74e0b12893e70a46a83">SetAssetName</a> (const std::string &amp;assetName)</td></tr>
 <tr class="separator:a4fcf5639a2e6e74e0b12893e70a46a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0550faa593742dbd41284971c24c410e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a0550faa593742dbd41284971c24c410e">SetEntityType</a> (<a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a> type)</td></tr>
+<tr class="memitem:a0550faa593742dbd41284971c24c410e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a0550faa593742dbd41284971c24c410e">SetEntityType</a> (<a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a> type)</td></tr>
 <tr class="separator:a0550faa593742dbd41284971c24c410e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1d512cba984ffe167decd7ecf7a88f4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4">GetAssetName</a> () const</td></tr>
+<tr class="memitem:af1d512cba984ffe167decd7ecf7a88f4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#af1d512cba984ffe167decd7ecf7a88f4">GetAssetName</a> () const</td></tr>
 <tr class="separator:af1d512cba984ffe167decd7ecf7a88f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec26e9fd7f7c4c6d89e1e459a5eb028a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aec26e9fd7f7c4c6d89e1e459a5eb028a">GetEntityType</a> () const</td></tr>
+<tr class="memitem:aec26e9fd7f7c4c6d89e1e459a5eb028a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aec26e9fd7f7c4c6d89e1e459a5eb028a">GetEntityType</a> () const</td></tr>
 <tr class="separator:aec26e9fd7f7c4c6d89e1e459a5eb028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cd277c4c5a517f5cde8b72d5c40a8f0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a1cd277c4c5a517f5cde8b72d5c40a8f0">Update</a> (float delta)</td></tr>
-<tr class="separator:a1cd277c4c5a517f5cde8b72d5c40a8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1c64a40d796cfda308aaa88214bf1c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#aac1c64a40d796cfda308aaa88214bf1c">Release</a> ()</td></tr>
-<tr class="separator:aac1c64a40d796cfda308aaa88214bf1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab663eb5602597895c8275e683289e917"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#ab663eb5602597895c8275e683289e917">GetPosition</a> ()</td></tr>
-<tr class="separator:ab663eb5602597895c8275e683289e917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ef3f16cc61246c13d4c3f94169c4f44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a1ef3f16cc61246c13d4c3f94169c4f44">GetScale</a> ()</td></tr>
-<tr class="separator:a1ef3f16cc61246c13d4c3f94169c4f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f05222018d86a064cbc2f5c95da203"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a52f05222018d86a064cbc2f5c95da203">GetRotation</a> ()</td></tr>
-<tr class="separator:a52f05222018d86a064cbc2f5c95da203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40f94e236b724c4e375ee51f923de475"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#a40f94e236b724c4e375ee51f923de475">GetPosition</a> () const</td></tr>
+<tr class="separator:a40f94e236b724c4e375ee51f923de475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf885a240dc78562a82191fad6c9fc9b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#abf885a240dc78562a82191fad6c9fc9b">GetScale</a> () const</td></tr>
+<tr class="separator:abf885a240dc78562a82191fad6c9fc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af509daf6cdb9bd75f2c503863c9a258c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html#af509daf6cdb9bd75f2c503863c9a258c">GetRotation</a> () const</td></tr>
+<tr class="separator:af509daf6cdb9bd75f2c503863c9a258c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -138,118 +136,10 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This interface is what you're inheriting to create new entities to load them in <a class="el" href="classse_1_1_scene_manager.html">SceneManager</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00023">23</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac92492302d50c22ba7c4e9ff016b6145"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac92492302d50c22ba7c4e9ff016b6145">&#9670;&nbsp;</a></span>Entity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">se::Entity::Entity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00024">24</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af1d512cba984ffe167decd7ecf7a88f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1d512cba984ffe167decd7ecf7a88f4">&#9670;&nbsp;</a></span>GetAssetName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string se::Entity::GetAssetName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the name of the asset the entity is using. </p>
-
-</div>
-</div>
-<a id="aec26e9fd7f7c4c6d89e1e459a5eb028a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec26e9fd7f7c4c6d89e1e459a5eb028a">&#9670;&nbsp;</a></span>GetEntityType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a> se::Entity::GetEntityType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the EntityType of the entity. </p>
-
-</div>
-</div>
-<a id="ab663eb5602597895c8275e683289e917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab663eb5602597895c8275e683289e917">&#9670;&nbsp;</a></span>GetPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>* se::Entity::GetPosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the current position of the entity. </p>
-
-</div>
-</div>
-<a id="a52f05222018d86a064cbc2f5c95da203"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52f05222018d86a064cbc2f5c95da203">&#9670;&nbsp;</a></span>GetRotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>* se::Entity::GetRotation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the current rotation of the entity. </p>
-
-</div>
-</div>
-<a id="a1ef3f16cc61246c13d4c3f94169c4f44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ef3f16cc61246c13d4c3f94169c4f44">&#9670;&nbsp;</a></span>GetScale()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a>* se::Entity::GetScale </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the current scale of the entity. </p>
-
-</div>
-</div>
-<a id="aac1c64a40d796cfda308aaa88214bf1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac1c64a40d796cfda308aaa88214bf1c">&#9670;&nbsp;</a></span>Release()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,10 +148,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void se::Entity::Release </td>
+          <td class="memname">std::string se::Entity::GetAssetName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -270,7 +160,152 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Release related entity data. </p>
+<p>Get the name of the asset the entity is using. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00043">43</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aec26e9fd7f7c4c6d89e1e459a5eb028a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec26e9fd7f7c4c6d89e1e459a5eb028a">&#9670;&nbsp;</a></span>GetEntityType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#ae73a909a94998bc95235eb9b16e405f1">EntityType</a> se::Entity::GetEntityType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the EntityType of the entity. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00047">47</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a40f94e236b724c4e375ee51f923de475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40f94e236b724c4e375ee51f923de475">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> se::Entity::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the current position of the entity. </p>
+
+<p>Reimplemented in <a class="el" href="classse_1_1_camera.html#af3d7f8a74dc26a3840331ab40b6ac893">se::Camera</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af509daf6cdb9bd75f2c503863c9a258c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af509daf6cdb9bd75f2c503863c9a258c">&#9670;&nbsp;</a></span>GetRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> se::Entity::GetRotation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the current rotation of the entity. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00059">59</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abf885a240dc78562a82191fad6c9fc9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf885a240dc78562a82191fad6c9fc9b">&#9670;&nbsp;</a></span>GetScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6">Vector3f</a> se::Entity::GetScale </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the current scale of the entity. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00055">55</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a50066f09c64b3b9705b71366cc565527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50066f09c64b3b9705b71366cc565527">&#9670;&nbsp;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void se::Entity::Render </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Render the entity model </p>
+
+<p>Implemented in <a class="el" href="classse_1_1_camera.html#accc1f78d52fca1e68c5267fbc0fef239">se::Camera</a>, and <a class="el" href="classse_1_1_entity_derived.html#a2fdb1127cda675ae9a69eb17bc95cfae">se::EntityDerived</a>.</p>
 
 </div>
 </div>
@@ -279,6 +314,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetAssetName </td>
@@ -288,8 +326,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the name of the asset the entity is supposed to use. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00035">35</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -298,6 +343,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetEntityType </td>
@@ -307,8 +355,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set what type of entity this entity is with EntityType. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00039">39</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -317,6 +372,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetPosition </td>
@@ -342,8 +400,15 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the position of the entity with seperate floats. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00005">5</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -352,6 +417,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetPosition </td>
@@ -361,8 +429,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the position of the entity with Vector3f. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00011">11</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,6 +446,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetRotation </td>
@@ -396,8 +474,15 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the rotation of the entity with seperate floats. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00025">25</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -406,6 +491,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetRotation </td>
@@ -415,8 +503,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the rotation of the entity with Vector3f. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00031">31</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,6 +520,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetScale </td>
@@ -450,8 +548,15 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the scale of the entity with seperate floats. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00015">15</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -460,6 +565,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void se::Entity::SetScale </td>
@@ -469,13 +577,20 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Set the scale of the entity with Vector3f. </p>
 
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00021">21</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a1cd277c4c5a517f5cde8b72d5c40a8f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cd277c4c5a517f5cde8b72d5c40a8f0">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="a1542c96865f6646c7b0cb0d9be7f88ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1542c96865f6646c7b0cb0d9be7f88ad">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -493,13 +608,13 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Update the entity each frame. </p>
 
-<p>Reimplemented in <a class="el" href="classse_1_1_camera.html#abecf2d50dc793707a475b35bb487812c">se::Camera</a>.</p>
+<p>Implemented in <a class="el" href="classse_1_1_camera.html#abecf2d50dc793707a475b35bb487812c">se::Camera</a>, and <a class="el" href="classse_1_1_entity_derived.html#a4cd9c2bf0afaa2c72f4a6a52fbe947d7">se::EntityDerived</a>.</p>
 
 </div>
 </div>
@@ -624,8 +739,9 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/GameEngine3D/Include/<a class="el" href="_entity_8h_source.html">Entity.h</a></li>
+<li>D:/Projects/GameEngine3D/Source/<a class="el" href="_entity_8cpp_source.html">Entity.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

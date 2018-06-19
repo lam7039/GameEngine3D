@@ -9,6 +9,10 @@
 \item 
 \mbox{\hyperlink{classse_1_1_kernel_abc8105369975f3df1199537b6efe5214}{Kernel}} (const std\+::string \&title, bool centered, int x, int y, int width, int height, \mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, \mbox{\hyperlink{classse_1_1_abstract_input}{Abstract\+Input}} $\ast$input)
 \item 
+void \mbox{\hyperlink{classse_1_1_kernel_a66bc4af7514718abbfc307c2381f5327}{Set\+Running\+State}} (bool running)
+\item 
+bool \mbox{\hyperlink{classse_1_1_kernel_afe100d42354808a757b08a56a0387496}{Is\+Running}} ()
+\item 
 int \mbox{\hyperlink{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}{Enter\+Loop}} ()
 \end{DoxyCompactItemize}
 
@@ -29,6 +33,10 @@ Definition at line 15 of file Kernel.\+h.
 
 Initialize the kernel with the renderer and input it\textquotesingle{}s supposed to use and creates a window. 
 
+Definition at line 8 of file Kernel.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}\label{classse_1_1_kernel_a1faeac6fce02ccd7ff76d94ad78e0754}} 
 \index{se\+::\+Kernel@{se\+::\+Kernel}!Enter\+Loop@{Enter\+Loop}}
@@ -38,6 +46,31 @@ Initialize the kernel with the renderer and input it\textquotesingle{}s supposed
 
 Enter the gameloop, it updates the input, renderer and current scene. Automatically removes all scenes and windows and releases the renderer as well when it quits the loop. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Definition at line 37 of file Kernel.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_kernel_afe100d42354808a757b08a56a0387496}\label{classse_1_1_kernel_afe100d42354808a757b08a56a0387496}} 
+\index{se\+::\+Kernel@{se\+::\+Kernel}!Is\+Running@{Is\+Running}}
+\index{Is\+Running@{Is\+Running}!se\+::\+Kernel@{se\+::\+Kernel}}
+\subsubsection{\texorpdfstring{Is\+Running()}{IsRunning()}}
+{\footnotesize\ttfamily bool se\+::\+Kernel\+::\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if the gameloop has started. 
+
+Definition at line 33 of file Kernel.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_kernel_a66bc4af7514718abbfc307c2381f5327}\label{classse_1_1_kernel_a66bc4af7514718abbfc307c2381f5327}} 
+\index{se\+::\+Kernel@{se\+::\+Kernel}!Set\+Running\+State@{Set\+Running\+State}}
+\index{Set\+Running\+State@{Set\+Running\+State}!se\+::\+Kernel@{se\+::\+Kernel}}
+\subsubsection{\texorpdfstring{Set\+Running\+State()}{SetRunningState()}}
+{\footnotesize\ttfamily void se\+::\+Kernel\+::\+Set\+Running\+State (\begin{DoxyParamCaption}\item[{bool}]{running }\end{DoxyParamCaption})}
+
+Set the state of the gameloop. 
+
+Definition at line 29 of file Kernel.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_kernel_8h}{Kernel.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_kernel_8h}{Kernel.\+h}}\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Source/\mbox{\hyperlink{_kernel_8cpp}{Kernel.\+cpp}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se::AbstractAsset Class Reference</title>
+<title>Best Engine: se::AbstractAsset Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -72,7 +71,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classse_1_1_abstract_asset-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">se::AbstractAsset Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">se::AbstractAsset Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -93,10 +92,8 @@ Inheritance diagram for se::AbstractAsset:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acb27e3d7a54233b28ce430a67448506a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#acb27e3d7a54233b28ce430a67448506a">AbstractAsset</a> (<a class="el" href="classse_1_1_abstract_renderer.html">AbstractRenderer</a> *renderer, const std::string &amp;assetName)</td></tr>
 <tr class="separator:acb27e3d7a54233b28ce430a67448506a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2addad2ca18a3ffbcbe1e80afa0ad56c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#a2addad2ca18a3ffbcbe1e80afa0ad56c">Render</a> ()=0</td></tr>
-<tr class="separator:a2addad2ca18a3ffbcbe1e80afa0ad56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea97e36f647efdb07a801b6fc468388d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#aea97e36f647efdb07a801b6fc468388d">Release</a> ()=0</td></tr>
-<tr class="separator:aea97e36f647efdb07a801b6fc468388d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af853bef4eff152bdf306cc82ccc633fd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#af853bef4eff152bdf306cc82ccc633fd">Release</a> ()</td></tr>
+<tr class="separator:af853bef4eff152bdf306cc82ccc633fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae608bfd21c9b7a8370b0a7e37e7349c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_abstract_asset.html#aae608bfd21c9b7a8370b0a7e37e7349c">GetAssetName</a> () const</td></tr>
 <tr class="separator:aae608bfd21c9b7a8370b0a7e37e7349c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -139,6 +136,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Pass the renderer you're using and the assetname you want to create an asset with to here to set the variables, otherwise you can just do it in the child class. </p>
 
+<p class="definition">Definition at line <a class="el" href="_asset_8cpp_source.html#l00005">5</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -158,10 +157,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Get the name of the asset. </p>
 
+<p class="definition">Definition at line <a class="el" href="_asset_8cpp_source.html#l00014">14</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
+
 </div>
 </div>
-<a id="aea97e36f647efdb07a801b6fc468388d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea97e36f647efdb07a801b6fc468388d">&#9670;&nbsp;</a></span>Release()</h2>
+<a id="af853bef4eff152bdf306cc82ccc633fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af853bef4eff152bdf306cc82ccc633fd">&#9670;&nbsp;</a></span>Release()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +171,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void se::AbstractAsset::Release </td>
+          <td class="memname">void se::AbstractAsset::Release </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -178,41 +179,13 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Use this to release any asset that is a child of this interface. </p>
 
-<p>Implemented in <a class="el" href="classse_1_1_terrain.html#aab4ebd41c3ae26b258928d8f2454ed88">se::Terrain</a>, <a class="el" href="classse_1_1_model.html#a0c1ecdbb68d2fb655e33e63ed35ddc4c">se::Model</a>, and <a class="el" href="classse_1_1_skybox.html#a86c5fb357bbe7c58099d3b85f0df1408">se::Skybox</a>.</p>
-
-</div>
-</div>
-<a id="a2addad2ca18a3ffbcbe1e80afa0ad56c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2addad2ca18a3ffbcbe1e80afa0ad56c">&#9670;&nbsp;</a></span>Render()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void se::AbstractAsset::Render </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Use this to render any asset that is a child of this interface. </p>
-
-<p>Implemented in <a class="el" href="classse_1_1_terrain.html#a0fcef77b6b1d8e32ce49a396d4d733e2">se::Terrain</a>, <a class="el" href="classse_1_1_model.html#a8f7aeee14ed8e5c63f8f58451d8e1d19">se::Model</a>, and <a class="el" href="classse_1_1_skybox.html#a2c33944b8f383c4eda21ae1c60e3025a">se::Skybox</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_asset_8cpp_source.html#l00010">10</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +210,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00032">32</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00028">28</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
 
 </div>
 </div>
@@ -261,12 +234,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00031">31</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_asset_8h_source.html#l00027">27</a> of file <a class="el" href="_asset_8h_source.html">Asset.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/Projects/GameEngine3D/Include/<a class="el" href="_asset_8h_source.html">Asset.h</a></li>
+<li>D:/Projects/GameEngine3D/Source/<a class="el" href="_asset_8cpp_source.html">Asset.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

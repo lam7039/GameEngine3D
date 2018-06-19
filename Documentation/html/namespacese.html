@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: se Namespace Reference</title>
+<title>Best Engine: se Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -95,6 +94,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structse_1_1_draw_components.html">DrawComponents</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity.html">Entity</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_entity_derived.html">EntityDerived</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classse_1_1_f_p_s_counter.html">FPSCounter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,6 +235,58 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacese.html#a9ed62241331cac830c5c1ba8450afc2ba21f47be8136fdc0a49d2ad1c8912841a">RENDERTYPE_SKYBOX</a>
  }</td></tr>
 <tr class="separator:a9ed62241331cac830c5c1ba8450afc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13bef3f1227abf2f6bc06b97a4ea6cdf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdf">TextureFilterType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481">TEXF_NONE</a> = 0, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10">TEXF_POINT</a> = 1, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96">TEXF_LINEAR</a> = 2, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf">TEXF_ANISOTROPIC</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067">TEXF_PYRAMIDALQUAD</a> = 6, 
+<a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663">TEXF_GAUSSIANQUAD</a> = 7
+<br />
+ }</td></tr>
+<tr class="separator:a13bef3f1227abf2f6bc06b97a4ea6cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff8e236c539422281bbc908758e0fb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7">SamplerStateType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d">SAMP_ADDRESSU</a> = 1, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf">SAMP_ADDRESSV</a> = 2, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973">SAMP_ADDRESSW</a> = 3, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e">SAMP_BORDERCOLOR</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c">SAMP_MAGFILTER</a> = 5, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a">SAMP_MINFILTER</a> = 6, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995">SAMP_MIPFILTER</a> = 7, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325">SAMP_MIPMAPLODBIAS</a> = 8, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750">SAMP_MAXMIPLEVEL</a> = 9, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665">SAMP_MAXANISOTROPY</a> = 10, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6">SAMP_SRGBTEXTURE</a> = 11, 
+<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669">SAMP_ELEMENTINDEX</a> = 12, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44">SAMP_DMAPOFFSET</a> = 13
+<br />
+ }</td></tr>
+<tr class="separator:acff8e236c539422281bbc908758e0fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b33c0ed67b2f6ac40fc08d56b5984f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9">PrimitiveType</a> { <br />
+&#160;&#160;<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707">PT_POINTLIST</a> = 1, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309">PT_LINELIST</a> = 2, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f">PT_LINESTRIP</a> = 3, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1">PT_TRIANGLELIST</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245">PT_TRIANGLESTRIP</a> = 5, 
+<a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8">PT_TRIANGLEFAN</a> = 6
+<br />
+ }</td></tr>
+<tr class="separator:a2b33c0ed67b2f6ac40fc08d56b5984f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2447de8e300e86ac4a8893e0486fc3bb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bb">CullMode</a> { <a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1">CULL_NONE</a> = 1, 
+<a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587">CULL_CW</a> = 2, 
+<a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371">CULL_CCW</a> = 3
+ }</td></tr>
+<tr class="separator:a2447de8e300e86ac4a8893e0486fc3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab38efb91dff288cc8279bedd6bc02c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02c">FillMode</a> { <a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5">FM_POINT</a> = 1, 
+<a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd">FM_WIREFRAME</a> = 2, 
+<a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb">FM_SOLID</a> = 3
+ }</td></tr>
+<tr class="separator:a7ab38efb91dff288cc8279bedd6bc02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a12e07512d95e2fdebdaf74a5ea2cf5f6"></a>
@@ -269,6 +322,27 @@ Enumerations</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a2447de8e300e86ac4a8893e0486fc3bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2447de8e300e86ac4a8893e0486fc3bb">&#9670;&nbsp;</a></span>CullMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacese.html#a2447de8e300e86ac4a8893e0486fc3bb">se::CullMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2447de8e300e86ac4a8893e0486fc3bbacbc4f36eef2f1f70e2be78a0d0d0f3a1"></a>CULL_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2447de8e300e86ac4a8893e0486fc3bba120ff54e0a21a2a98c1c2845d6365587"></a>CULL_CW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2447de8e300e86ac4a8893e0486fc3bba5536bb2fb75f55de03ccb4bfc8121371"></a>CULL_CCW&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00074">74</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
+
+</div>
+</div>
 <a id="ae73a909a94998bc95235eb9b16e405f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae73a909a94998bc95235eb9b16e405f1">&#9670;&nbsp;</a></span>EntityType</h2>
 
@@ -289,7 +363,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="ae73a909a94998bc95235eb9b16e405f1a437954e268cd183fb0ad180039e2717d"></a>ENTITYTYPE_CAMERA&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00012">12</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00013">13</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
 
 </div>
 </div>
@@ -304,13 +378,35 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>To differentiate between error types. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaa5cbe4d4821d8a349338e23de6ef9c4a18b8f7cd8d8efc322d9f7cc6aa32823c"></a>ERRORTYPE_INFO&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aaa5cbe4d4821d8a349338e23de6ef9c4a05576f888f06208ca81d6407236d1d8f"></a>ERRORTYPE_WARNING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aaa5cbe4d4821d8a349338e23de6ef9c4adbcd7ea3583775f6aa6f45cd0c045f0b"></a>ERRORTYPE_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_debug_8h_source.html#l00009">9</a> of file <a class="el" href="_debug_8h_source.html">Debug.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_debug_8h_source.html#l00012">12</a> of file <a class="el" href="_debug_8h_source.html">Debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a7ab38efb91dff288cc8279bedd6bc02c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab38efb91dff288cc8279bedd6bc02c">&#9670;&nbsp;</a></span>FillMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacese.html#a7ab38efb91dff288cc8279bedd6bc02c">se::FillMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7ab38efb91dff288cc8279bedd6bc02caadf9f9fdffe8d13ef3ba62e57fb4c7e5"></a>FM_POINT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ab38efb91dff288cc8279bedd6bc02ca26b9ffd3b450a7e62d50cd9255f0efcd"></a>FM_WIREFRAME&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7ab38efb91dff288cc8279bedd6bc02ca395f84135ddec900797aee743841fffb"></a>FM_SOLID&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00080">80</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
 
 </div>
 </div>
@@ -396,6 +492,31 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
+<a id="a2b33c0ed67b2f6ac40fc08d56b5984f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b33c0ed67b2f6ac40fc08d56b5984f9">&#9670;&nbsp;</a></span>PrimitiveType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacese.html#a2b33c0ed67b2f6ac40fc08d56b5984f9">se::PrimitiveType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type which you can pass to indicate what primitive type you want to use. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9acf6c20ab55ba3c07e4bf850ce1ac2707"></a>PT_POINTLIST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9a4c301ab113a68a9db7b14b64d2892309"></a>PT_LINELIST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9a976a48df695d3f8d1a3572fd7edb8e9f"></a>PT_LINESTRIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9ae5169632705e9235a4423477202499c1"></a>PT_TRIANGLELIST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9af1dc30b0215cc5631ab13e55d0f84245"></a>PT_TRIANGLESTRIP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2b33c0ed67b2f6ac40fc08d56b5984f9a488c78be1ea3d4d2c04df7361ad2deb8"></a>PT_TRIANGLEFAN&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00065">65</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
+
+</div>
+</div>
 <a id="a9ed62241331cac830c5c1ba8450afc2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ed62241331cac830c5c1ba8450afc2b">&#9670;&nbsp;</a></span>RenderType</h2>
 
@@ -415,6 +536,63 @@ Enumerations</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00024">24</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
+
+</div>
+</div>
+<a id="acff8e236c539422281bbc908758e0fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff8e236c539422281bbc908758e0fb7">&#9670;&nbsp;</a></span>SamplerStateType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacese.html#acff8e236c539422281bbc908758e0fb7">se::SamplerStateType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type which you can pass to indicate what type of sampling you want to use. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a2b9d64923a49f3d6acabae4a5cd5182d"></a>SAMP_ADDRESSU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a6cfdabd2b49f7d82ee7763374d0829bf"></a>SAMP_ADDRESSV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7afeb2accfb8c0e1fe9edf4c46943b3973"></a>SAMP_ADDRESSW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a6da5eb8ee45ef95820e1cb473c54518e"></a>SAMP_BORDERCOLOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7ab38ee04cd7e57acec7268852be24b54c"></a>SAMP_MAGFILTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a7ae2a5ea041cf2f79005c9a2dc5bc21a"></a>SAMP_MINFILTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7aaa5fc151612b71b8102e1abff8d74995"></a>SAMP_MIPFILTER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7af15686d66b6560a0f91396abb6506325"></a>SAMP_MIPMAPLODBIAS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a19d352d758fcf4d8d5e8c44a51775750"></a>SAMP_MAXMIPLEVEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a49eebce45405e5fd8829c4a309899665"></a>SAMP_MAXANISOTROPY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a66f074d78ccc29f87cb2ca3d239cd1a6"></a>SAMP_SRGBTEXTURE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a07479be9017db346e69994e012f7f669"></a>SAMP_ELEMENTINDEX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acff8e236c539422281bbc908758e0fb7a196afe2af4c2aacb599aa2088bdcfb44"></a>SAMP_DMAPOFFSET&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00046">46</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
+
+</div>
+</div>
+<a id="a13bef3f1227abf2f6bc06b97a4ea6cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13bef3f1227abf2f6bc06b97a4ea6cdf">&#9670;&nbsp;</a></span>TextureFilterType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacese.html#a13bef3f1227abf2f6bc06b97a4ea6cdf">se::TextureFilterType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type which you can pass to indicate what type of filtering you want to use. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfa88ff27d5b92c844241a105c3b7616481"></a>TEXF_NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfa49afc4588f363098ef3f1d165116ee10"></a>TEXF_POINT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfa6146fe89995c5a6db82a28a7506a2a96"></a>TEXF_LINEAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfaecf66dc87c74908825277760013333bf"></a>TEXF_ANISOTROPIC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfa00ae335560c4f88588d2c74b102b6067"></a>TEXF_PYRAMIDALQUAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a13bef3f1227abf2f6bc06b97a4ea6cdfa41202df27959b896087c02972d203663"></a>TEXF_GAUSSIANQUAD&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_renderer_8h_source.html#l00033">33</a> of file <a class="el" href="_renderer_8h_source.html">Renderer.h</a>.</p>
 
 </div>
 </div>

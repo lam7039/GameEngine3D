@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>3D Game Engine: Member List</title>
+<title>Best Engine: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">3D Game Engine
-   &#160;<span id="projectnumber">1.2</span>
+   <div id="projectname">Best Engine
    </div>
-   <div id="projectbrief">A 3D game engine for KB-01</div>
+   <div id="projectbrief">A 3D Game Engine for KB-01</div>
   </td>
  </tr>
  </tbody>
@@ -74,16 +73,26 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a3b0c7d8dc34c56513b3160e2cf1e094a">Create</a>(int width, int height)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#aae5f9f2f51f290846e4ffd9e2a3d2a8e">BeginScene</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a2857e7bb3803682f94fb53e305da24e4">Clear</a>(bool target, bool zBuffer)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a5c7e19127084d6bee7da63e3838d3c36">Create</a>(HWND hWnd, int width, int height, bool windowed, CullMode cullMode, bool lighting, bool zenable, FillMode fillMode, bool clipping)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a4a3e8836f7a8b1b35a5f7cb1b4231476">CreateMesh</a>(const std::string &amp;bufferName, const std::string &amp;path)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a89f2efd2ee68cfb6735e51ce87206dfd">CreateTexture</a>(const std::string &amp;bufferName, const std::string &amp;path, int id)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a953d57d04771acae78c3725bee3639d4">CreateVertexBuffer</a>(const std::string &amp;bufferName, RenderType type, Vertex *vertices, Vector3i *size=nullptr)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#ae743059a7b35a9bc1c9108613b43f42f">Draw</a>(const std::string &amp;bufferName, PrimitiveType primitiveType=PT_TRIANGLELIST)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a4329c70d64528cdc5bfcd5e6dee3f2e3">EndScene</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a8af4c1bef5cf120f6160f5d93dd74207">GetViewAxes</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#afd7697df1d4958ec3b0fa13109a269a1">InitializeTextureArray</a>(const std::string &amp;bufferName, int size)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a90596b2d067b4fa197b809191407be97">Process</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a5102e4df9100f6c0df9c26beaca6c4e4">Present</a>(int index=-1)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a98e35b7db62827580573185ed91b25bb">Release</a>()=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#af6d6d012f070f95d4c49713002872fcc">Release</a>(const std::string &amp;bufferName)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a76058a91574874ab3c51294a2c9ea85c">Render</a>(const std::string &amp;bufferName)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#ad1f734c1726062752a3d43b5eaf77c04">SetFVF</a>(bool coords, bool diffuse, bool specular, bool texture)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a1253152682a025722fd97d4bfa981d45">SetMaterial</a>(const std::string &amp;bufferName, int index)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a5cf80b0b47191f9445d6a5fa5fc02a3e">SetRenderTarget</a>(int index=-1)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a1abafecf778ef68a08ba44b88ded6abe">SetSamplerState</a>(int sampler, SamplerStateType samplerStateType, TextureFilterType textureFilterType)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a62027b239c98c7a5b3a347e737d83fbe">SetStreamSource</a>(unsigned int streamNumber, const std::string &amp;bufferName, unsigned int offsetInBytes, unsigned int stride=NULL)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#aa7fc2284df16ba0b42059560599ff013">SetTexture</a>(int stage, const std::string &amp;bufferName, int index)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#afe47dd77096e92a25260cacb50631d8f">SetTransform</a>(Vector3f position, Vector3f scale, Vector3f rotation)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#a710e67232e977fbb3b74f79640e0b62e">SetViewTransform</a>(Vector3f position, Vector3f rotation)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html#aae49e7417663d6a5aca34a2bb37b4b28">Update</a>(float delta)=0</td><td class="entry"><a class="el" href="classse_1_1_abstract_renderer.html">se::AbstractRenderer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->

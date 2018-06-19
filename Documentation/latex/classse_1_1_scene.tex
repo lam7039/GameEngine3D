@@ -15,14 +15,14 @@ void \mbox{\hyperlink{classse_1_1_scene_a4133b3e65c59229d8926dde7976ec004}{Remov
 \item 
 void \mbox{\hyperlink{classse_1_1_scene_a73f7789f2585e65174380be509b88435}{Remove}} ()
 \item 
-const std\+::vector$<$ \mbox{\hyperlink{classse_1_1_entity}{Entity}} $\ast$ $>$ \& \mbox{\hyperlink{classse_1_1_scene_a1c3f1fc4ab110f9caab190cce13c2e03}{Get\+Entities}} () const
+const std\+::vector$<$ \mbox{\hyperlink{classse_1_1_entity}{Entity}} $\ast$ $>$ \& \mbox{\hyperlink{classse_1_1_scene_a1367cf1066c13c94fde1236b5dd5b208}{Get\+Entities}} () const
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+A scene that can have multiple entities in it. 
 
-
-Definition at line 9 of file Scene.\+h.
+Definition at line 12 of file Scene.\+h.
 
 
 
@@ -33,25 +33,41 @@ Definition at line 9 of file Scene.\+h.
 \subsubsection{\texorpdfstring{Add\+Entity()}{AddEntity()}}
 {\footnotesize\ttfamily void se\+::\+Scene\+::\+Add\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_entity}{Entity}} $\ast$}]{entity }\end{DoxyParamCaption})}
 
-Add an entity to the scene. \mbox{\Hypertarget{classse_1_1_scene_a1c3f1fc4ab110f9caab190cce13c2e03}\label{classse_1_1_scene_a1c3f1fc4ab110f9caab190cce13c2e03}} 
+Add an entity to the scene. 
+
+Definition at line 8 of file Scene.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_scene_a1367cf1066c13c94fde1236b5dd5b208}\label{classse_1_1_scene_a1367cf1066c13c94fde1236b5dd5b208}} 
 \index{se\+::\+Scene@{se\+::\+Scene}!Get\+Entities@{Get\+Entities}}
 \index{Get\+Entities@{Get\+Entities}!se\+::\+Scene@{se\+::\+Scene}}
 \subsubsection{\texorpdfstring{Get\+Entities()}{GetEntities()}}
-{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classse_1_1_entity}{Entity}}$\ast$$>$\& se\+::\+Scene\+::\+Get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classse_1_1_entity}{Entity}} $\ast$ $>$ \& se\+::\+Scene\+::\+Get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get all entities in the scene \mbox{\Hypertarget{classse_1_1_scene_a4133b3e65c59229d8926dde7976ec004}\label{classse_1_1_scene_a4133b3e65c59229d8926dde7976ec004}} 
+Get all entities in the scene 
+
+Definition at line 41 of file Scene.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_scene_a4133b3e65c59229d8926dde7976ec004}\label{classse_1_1_scene_a4133b3e65c59229d8926dde7976ec004}} 
 \index{se\+::\+Scene@{se\+::\+Scene}!Remove@{Remove}}
 \index{Remove@{Remove}!se\+::\+Scene@{se\+::\+Scene}}
 \subsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void se\+::\+Scene\+::\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classse_1_1_entity}{Entity}} $\ast$}]{entity }\end{DoxyParamCaption})}
 
-Remove an entity from the scene. \mbox{\Hypertarget{classse_1_1_scene_a73f7789f2585e65174380be509b88435}\label{classse_1_1_scene_a73f7789f2585e65174380be509b88435}} 
+Remove an entity from the scene. 
+
+Definition at line 29 of file Scene.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_scene_a73f7789f2585e65174380be509b88435}\label{classse_1_1_scene_a73f7789f2585e65174380be509b88435}} 
 \index{se\+::\+Scene@{se\+::\+Scene}!Remove@{Remove}}
 \index{Remove@{Remove}!se\+::\+Scene@{se\+::\+Scene}}
 \subsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void se\+::\+Scene\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Remove everything from the scene \mbox{\Hypertarget{classse_1_1_scene_acdc3858f5d4fd76cf9a712a02218341a}\label{classse_1_1_scene_acdc3858f5d4fd76cf9a712a02218341a}} 
+Remove everything from the scene 
+
+Definition at line 34 of file Scene.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_scene_acdc3858f5d4fd76cf9a712a02218341a}\label{classse_1_1_scene_acdc3858f5d4fd76cf9a712a02218341a}} 
 \index{se\+::\+Scene@{se\+::\+Scene}!Update@{Update}}
 \index{Update@{Update}!se\+::\+Scene@{se\+::\+Scene}}
 \subsubsection{\texorpdfstring{Update()}{Update()}}
@@ -59,6 +75,11 @@ Remove everything from the scene \mbox{\Hypertarget{classse_1_1_scene_acdc3858f5
 
 Update all entities 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Definition at line 12 of file Scene.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Source/\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}

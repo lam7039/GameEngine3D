@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['vector3f',['Vector3f',['../namespacese.html#a12e07512d95e2fdebdaf74a5ea2cf5f6',1,'se']]],
-  ['vector3i',['Vector3i',['../namespacese.html#ada11715de7cf6e87b5dfb4611fe68d29',1,'se']]]
+  ['difference_5ftype',['difference_type',['../classrapidxml_1_1node__iterator.html#a5bdc462b980a52c5fa2d99ac9f4f4bff',1,'rapidxml::node_iterator::difference_type()'],['../classrapidxml_1_1attribute__iterator.html#accfd6d8527d32b427496b42f71a2e37a',1,'rapidxml::attribute_iterator::difference_type()']]]
 ];

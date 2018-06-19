@@ -15,9 +15,7 @@ Inheritance diagram for se\+:\+:Abstract\+Asset\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classse_1_1_abstract_asset_acb27e3d7a54233b28ce430a67448506a}{Abstract\+Asset}} (\mbox{\hyperlink{classse_1_1_abstract_renderer}{Abstract\+Renderer}} $\ast$renderer, const std\+::string \&asset\+Name)
 \item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}{Render}} ()=0
-\item 
-virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}{Release}} ()=0
+virtual void \mbox{\hyperlink{classse_1_1_abstract_asset_af853bef4eff152bdf306cc82ccc633fd}{Release}} ()
 \item 
 std\+::string \mbox{\hyperlink{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}{Get\+Asset\+Name}} () const
 \end{DoxyCompactItemize}
@@ -46,6 +44,10 @@ Definition at line 12 of file Asset.\+h.
 
 Pass the renderer you\textquotesingle{}re using and the assetname you want to create an asset with to here to set the variables, otherwise you can just do it in the child class. 
 
+Definition at line 5 of file Asset.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}\label{classse_1_1_abstract_asset_aae608bfd21c9b7a8370b0a7e37e7349c}} 
 \index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Get\+Asset\+Name@{Get\+Asset\+Name}}
@@ -53,25 +55,19 @@ Pass the renderer you\textquotesingle{}re using and the assetname you want to cr
 \subsubsection{\texorpdfstring{Get\+Asset\+Name()}{GetAssetName()}}
 {\footnotesize\ttfamily std\+::string se\+::\+Abstract\+Asset\+::\+Get\+Asset\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get the name of the asset. \mbox{\Hypertarget{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}\label{classse_1_1_abstract_asset_aea97e36f647efdb07a801b6fc468388d}} 
+Get the name of the asset. 
+
+Definition at line 14 of file Asset.\+cpp.
+
+\mbox{\Hypertarget{classse_1_1_abstract_asset_af853bef4eff152bdf306cc82ccc633fd}\label{classse_1_1_abstract_asset_af853bef4eff152bdf306cc82ccc633fd}} 
 \index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Release@{Release}}
 \index{Release@{Release}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
 \subsubsection{\texorpdfstring{Release()}{Release()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily void se\+::\+Abstract\+Asset\+::\+Release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Use this to release any asset that is a child of this interface. 
 
-Implemented in \mbox{\hyperlink{classse_1_1_terrain_aab4ebd41c3ae26b258928d8f2454ed88}{se\+::\+Terrain}}, \mbox{\hyperlink{classse_1_1_model_a0c1ecdbb68d2fb655e33e63ed35ddc4c}{se\+::\+Model}}, and \mbox{\hyperlink{classse_1_1_skybox_a86c5fb357bbe7c58099d3b85f0df1408}{se\+::\+Skybox}}.
-
-\mbox{\Hypertarget{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}\label{classse_1_1_abstract_asset_a2addad2ca18a3ffbcbe1e80afa0ad56c}} 
-\index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!Render@{Render}}
-\index{Render@{Render}!se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}}
-\subsubsection{\texorpdfstring{Render()}{Render()}}
-{\footnotesize\ttfamily virtual void se\+::\+Abstract\+Asset\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-Use this to render any asset that is a child of this interface. 
-
-Implemented in \mbox{\hyperlink{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d733e2}{se\+::\+Terrain}}, \mbox{\hyperlink{classse_1_1_model_a8f7aeee14ed8e5c63f8f58451d8e1d19}{se\+::\+Model}}, and \mbox{\hyperlink{classse_1_1_skybox_a2c33944b8f383c4eda21ae1c60e3025a}{se\+::\+Skybox}}.
+Definition at line 10 of file Asset.\+cpp.
 
 
 
@@ -84,7 +80,7 @@ Implemented in \mbox{\hyperlink{classse_1_1_terrain_a0fcef77b6b1d8e32ce49a396d4d
 
 
 
-Definition at line 32 of file Asset.\+h.
+Definition at line 28 of file Asset.\+h.
 
 \mbox{\Hypertarget{classse_1_1_abstract_asset_a9f151d3b1c32c1f244f1b4569e67956c}\label{classse_1_1_abstract_asset_a9f151d3b1c32c1f244f1b4569e67956c}} 
 \index{se\+::\+Abstract\+Asset@{se\+::\+Abstract\+Asset}!m\+\_\+renderer@{m\+\_\+renderer}}
@@ -94,10 +90,11 @@ Definition at line 32 of file Asset.\+h.
 
 
 
-Definition at line 31 of file Asset.\+h.
+Definition at line 27 of file Asset.\+h.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_asset_8h}{Asset.\+h}}\end{DoxyCompactItemize}
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Include/\mbox{\hyperlink{_asset_8h}{Asset.\+h}}\item 
+D\+:/\+Projects/\+Game\+Engine3\+D/\+Source/\mbox{\hyperlink{_asset_8cpp}{Asset.\+cpp}}\end{DoxyCompactItemize}
