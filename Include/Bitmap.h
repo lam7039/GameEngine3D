@@ -6,6 +6,7 @@
 #include "Vector3.h"
 
 namespace se {
+
 	///
 	/// With this class you can load a bitmap.
 	///

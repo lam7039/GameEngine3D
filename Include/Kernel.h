@@ -19,11 +19,17 @@ namespace se {
 		///
 		Kernel(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, AbstractInput *input);
 		///
+		/// Set the state of the gameloop.
+		///
+		void SetRunningState(bool running);
+		///
+		/// Check if the gameloop has started. 
+		///
+		bool IsRunning();
+		///
 		/// Enter the gameloop, it updates the input, renderer and current scene.
 		/// Automatically removes all scenes and windows and releases the renderer as well when it quits the loop.
 		///
-		void SetRunningState(bool running);
-		bool IsRunning();
 		int EnterLoop();
 	private:
 		bool m_isRunning;

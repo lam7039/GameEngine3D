@@ -6,6 +6,9 @@
 
 namespace se {
 
+	///
+	/// To differentiate between error types.
+	///
 	enum ErrorType {
 		ERRORTYPE_INFO,
 		ERRORTYPE_WARNING,

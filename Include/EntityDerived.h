@@ -5,6 +5,9 @@
 
 namespace se {
 
+	///
+	/// A derived entity that the automatic loader uses.
+	///
 	class EntityDerived : public Entity {
 	public:
 		EntityDerived();

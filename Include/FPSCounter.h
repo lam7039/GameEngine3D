@@ -11,6 +11,9 @@ namespace se {
 	class FPSCounter {
 	public:
 		FPSCounter();
+		///
+		/// Update FPS counter and delta time.
+		///
 		void Update();
 		///
 		/// Get the delta.

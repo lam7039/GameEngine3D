@@ -4,7 +4,7 @@
 namespace se {
 
 	///
-	/// For all your transformation needs
+	/// For all your transformation needs.
 	///
 	template<class T>
 	class Vector3 {

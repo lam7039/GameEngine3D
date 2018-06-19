@@ -7,6 +7,9 @@
 
 namespace se {
 
+	///
+	/// A window that can be created.
+	///
 	class Window {
 	public:
 		///

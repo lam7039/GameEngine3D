@@ -6,6 +6,9 @@
 
 namespace se {
 
+	///
+	/// A scene that can have multiple entities in it.
+	///
 	class Scene {
 	public:
 		///

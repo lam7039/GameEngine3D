@@ -31,6 +31,9 @@ namespace se {
 		/// Create a new window.
 		///
 		void AddWindow(const std::string &title, bool centered, int x, int y, int width, int height);
+		///
+		/// Create a new window.
+		///
 		void AddWindow(const std::string &title, bool centered, int x, int y, int width, int height, AbstractRenderer *renderer, AbstractInput *input);
 		///
 		/// Close all created windows.
